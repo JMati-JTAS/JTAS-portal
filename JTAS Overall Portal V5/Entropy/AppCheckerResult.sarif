@@ -12267,46 +12267,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ScreenTrackerMyManhour.ctnManhourSubmit.galMHInput_1.TextInput3_10.Default"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ScreenTrackerMyManhour.ctnManhourSubmit.galMHInput_1.TextInput3_10.Default",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 8,
-                  "charOffset": 8,
-                  "snippet": {
-                    "text": ".Details"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Default",
-                "module": "ScreenTrackerMyManhour",
-                "type": "ScreenTrackerMyManhour.ctnManhourSubmit.galMHInput_1.TextInput3_10"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Details"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ScreenTrackerMyManhour.ctnManhourSubmit.galMHInput_1.ComboBox1_4.OnChange"
                 }
               ],
