@@ -124,8 +124,8 @@ ScreenInternetAllowance As screen:
                 FontWeight: =FontWeight.Bold
                 Height: =Container24.Height
                 Size: =18
-                Text: ="Plan"
-                Width: =Parent.Width * .16
+                Text: ="Submitted"
+                Width: =Parent.Width * 0.75
                 X: =Label9.Width + Label9.X
                 ZIndex: =3
 
@@ -159,7 +159,7 @@ ScreenInternetAllowance As screen:
                 Height: =Container24.Height
                 Size: =18
                 Text: ="Submited"
-                Width: =Parent.Width * .18
+                Width: =Parent.Width * .0
                 X: =Label9_10.Width + Label9_10.X
                 ZIndex: =5
 
@@ -176,7 +176,7 @@ ScreenInternetAllowance As screen:
                 Height: =Container24.Height
                 Size: =18
                 Text: ="From - To"
-                Width: =Parent.Width * .23
+                Width: =Parent.Width * .0
                 X: =Label9_5.Width + Label9_5.X
                 ZIndex: =6
 
@@ -193,7 +193,7 @@ ScreenInternetAllowance As screen:
                 Height: =Container24.Height
                 Size: =18
                 Text: ="Amount"
-                Width: =Parent.Width * .17
+                Width: =Parent.Width * .0
                 X: =Label9_2.Width + Label9_2.X
                 ZIndex: =7
 
@@ -247,7 +247,7 @@ ScreenInternetAllowance As screen:
                 Height: =59
                 OnSelect: =Set(GImage,  First(ThisItem.Attachments).AbsoluteUri)
                 Size: =18
-                Text: =ThisItem.PlanType.Value
+                Text: =ThisItem.Created
                 Width: =Label9_2.Width
                 X: =Label4.Width+Label4.X
                 ZIndex: =2
@@ -262,8 +262,7 @@ ScreenInternetAllowance As screen:
                 HoverBorderColor: =RGBA(0, 0, 0, 0)
                 HoverFill: =RGBA(0, 0, 0, 0)
                 Image: |-
-                    ="https://jgcgroup.sharepoint.com/_layouts/15/getpreview.ashx?path="& Last(ThisItem.Attachments).AbsoluteUri
-                       
+                    ="https://jgcgroup.sharepoint.com/_layouts/15/getpreview.ashx?path="& First(Filter(ThisItem.Attachments, Last(Split(DisplayName, ".")).Value in ["pdf", "PDF"])).AbsoluteUri
                 OnSelect: =Set(GImage,  First(ThisItem.Attachments).AbsoluteUri)
                 PressedBorderColor: =RGBA(0, 0, 0, 0)
                 PressedFill: =RGBA(0, 0, 0, 0)
@@ -335,7 +334,7 @@ ScreenInternetAllowance As screen:
                 HoverFill: =RGBA(110, 105, 105, 0.35)
                 OnSelect: |-
                     =Set(IdSelect, ThisItem.ID);
-                    Set(GImage,  First(Filter(ThisItem.Attachments, Last(Split(DisplayName, ".")).Value in ["pdf", "PDF"])).AbsoluteUri)
+                    Set(GImage,  First(Filter(ThisItem.Attachments, First(Split(DisplayName, ".")).Value in ["pdf", "PDF"])).AbsoluteUri)
                 PressedFill: =RGBA(0, 0, 0, 0)
                 Width: =Gallery12.Width
                 ZIndex: =7
@@ -622,12 +621,6 @@ ScreenInternetAllowance As screen:
         Height: =Parent.Height
         ZIndex: =4
 
-    Loading_14 As Loading:
-        Height: =Parent.Height
-        Visible: =showLoading2
-        Width: =Parent.Width
-        ZIndex: =5
-
     Container22 As groupContainer.manualLayoutContainer:
         Height: =Container21.Height
         Visible: |-
@@ -637,7 +630,7 @@ ScreenInternetAllowance As screen:
         Width: =Container21.Width
         X: =Container21.X
         Y: =Container21.Y
-        ZIndex: =6
+        ZIndex: =5
 
         Container23 As groupContainer.manualLayoutContainer:
             BorderThickness: =1
@@ -2712,7 +2705,7 @@ ScreenInternetAllowance As screen:
                         Italic: =true
                         Size: =9
                         Text: |-
-                            ="Note: Only PDF file will be accepted for file uploading. Please upload speed test"
+                            ="Note: Please upload speed test and SOA"
                         Width: =328
                         X: =142
                         Y: =10
@@ -4070,4 +4063,10 @@ ScreenInternetAllowance As screen:
                     X: =73
                     Y: =101
                     ZIndex: =5
+
+    Loading_14 As Loading:
+        Height: =Parent.Height
+        Visible: =showLoading2
+        Width: =Parent.Width
+        ZIndex: =6
 
