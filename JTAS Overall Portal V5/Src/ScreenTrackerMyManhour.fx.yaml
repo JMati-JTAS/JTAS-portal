@@ -8,7 +8,7 @@ ScreenTrackerMyManhour As screen:
         If(IsBlank(isExpandPastManhour), UpdateContext({isExpandPastManhour: true}));
         If(IsBlank(isAdvancedFilter), UpdateContext({isAdvancedFilter: false}));
         
-        UpdateContext({varCurrentTime: Coalesce( First(Sort(Filter('JTAS Time Log V2',LoggedBy = varUserEmail And LogType = "Time Out" And LogTime=Blank()),ID, SortOrder.Ascending)).LogDate ,Now() )});
+        UpdateContext({varCurrentTime: Today()});
         
         With({RetrievedMHToday: Filter('JTAS Daily Manhour', SubmittedBy = varUserEmail, ManhourDate = varCurrentTime)},
         If(IsEmpty(RetrievedMHToday), Patch('JTAS Daily Manhour', Defaults('JTAS Daily Manhour'), {SubmittedBy: varUserEmail, ManhourDate: varCurrentTime, ApprovalStatus: "Waiting", Status: "Saved"}));
@@ -31,8 +31,9 @@ ScreenTrackerMyManhour As screen:
         
         If(IsBlank(varSelectedItemId), UpdateContext({varSelectedItemId: Text(Today())}));
         UpdateContext({varSelectedDate:Coalesce( First(Sort(Filter('JTAS Time Log V2',LoggedBy = varUserEmail And LogType = "Time Out" And LogTime=Blank()),ID, SortOrder.Ascending)).LogDate , Today() )});
-        
+        /*
         UpdateContext({varCurrentTime: Coalesce( First(Sort(Filter('JTAS Time Log V2',LoggedBy = varUserEmail And LogType = "Time Out" And LogTime=Blank()),ID, SortOrder.Ascending)).LogDate ,Now() )});
+        */
         If(IsBlank(varScreenMode), UpdateContext({varScreenMode: "Submit"}));
         
         Set(showLoading, false);
@@ -689,8 +690,8 @@ ScreenTrackerMyManhour As screen:
                         OnSelect: |-
                             =ClearCollect(colMHInput, 
                                 ShowColumns(AddColumns(ThisItem.GroupData, "MHID", GUID(), "MHDate", ThisItem.ManhourDate),
-                                        "ID", "MHID", "JobCode", "WOCode", "ConsumedMH", "ActualWorkOrProduct", "TotalIssued", "ApprovalStatus", "Status", "MHDate"));
-                            
+                                        "ID", "MHID", "JobCode", "WOCode", "ConsumedMH", "ActualWorkOrProduct", "TotalIssued", "ApprovalStatus", "Status","MH_Type", "MHDate"));
+                            /*
                             ClearCollect(colActivityInput, 
                                 ShowColumns(Ungroup(AddColumns(colMHInput,
                                     "ActivityList", 
@@ -702,7 +703,7 @@ ScreenTrackerMyManhour As screen:
                                                 "Qty", Value(Last(FirstN(ForAll(Split(Result, "<|>"), {Result: ThisRecord.Value}), 2)).Result),
                                                 "Details", Last(FirstN(ForAll(Split(Result, "<|>"), {Result: ThisRecord.Value}), 3)).Result))), "ActivityList"), 
                                         "MHID", "ActivityID", "OutputType", "Qty", "Details"));
-                                        
+                              */          
                             UpdateContext({varSelectedDate: Coalesce(ThisItem.ManhourDate, varCurrentTime)});
                             UpdateContext({varSelectedGroup: ThisItem.groupName});
                             UpdateContext({varScreenMode: "Submit"})
@@ -2144,6 +2145,629 @@ ScreenTrackerMyManhour As screen:
                 X: =32
                 Y: =29
                 ZIndex: =2
+
+        galMHInput_1 As gallery.variableTemplateHeightGallery:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: |-
+                =If(
+                    !IsBlank(LookUp('JTAS Time Log V2', LoggedBy = varUserEmail And LogType = "Time Out" And LogTime = Blank() , ID)) Or
+                    varSelectedGroup = "Declined", 
+                    DisplayMode.Edit, DisplayMode.Disabled)
+            Fill: =RGBA(253, 222, 207, 1)
+            Height: =651
+            Items: |
+                =AddColumns(AddColumns(RenameColumns(Sequence(CountRows(colMHInput)), "Value", "Index"), 
+                    "Content", Last(FirstN(colMHInput, Index))),
+                        "ID", Content.ID,
+                        "MHID", Content.MHID,
+                        "JobCode", Content.JobCode,
+                        "WOCode", Content.WOCode,
+                        "ConsumedMH", Content.ConsumedMH,
+                "ActualWorkOrProduct", Content.ActualWorkOrProduct,
+                "MH_Type", Content.MH_Type,
+                        "TotalIssued", Content.TotalIssued,
+                        "Status", Content.Status)
+            Layout: =Layout.Vertical
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplateSize: =245
+            Width: =1000
+            X: =128
+            Y: =235
+            ZIndex: =9
+
+            Label1_337 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(36, 42, 44, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                OnSelect: =
+                Size: =11.5
+                Text: =Coalesce(LookUp('JTAS Work Order', ParentWorkOrderCode = Dropdown2_2.Selected.ParentWorkOrderCode, Description), "Please select a work order code.")
+                Width: =401
+                Y: =140
+                ZIndex: =1
+
+            Label1_329 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =
+                Size: =11.5
+                Text: ="Job Code"
+                Width: =400
+                X: =1
+                ZIndex: =2
+
+            Label1_334 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =
+                Size: =11.5
+                Text: ="Work Order No"
+                Width: =305
+                X: =1
+                Y: =70
+                ZIndex: =3
+
+            Label1_335 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =
+                Size: =11.5
+                Text: ="Spent MH"
+                Width: =142
+                X: =420
+                Y: =70
+                ZIndex: =4
+
+            TextInput3_12 As text:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =ThisItem.ConsumedMH
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                OnChange: |-
+                    =Patch(colMHInput, LookUp(colMHInput, MHID = ThisItem.MHID), {ConsumedMH: Value(Self.Text)})
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =RGBA(105, 121, 126, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =142
+                X: =420
+                Y: =100
+                ZIndex: =5
+
+            TextInput3_5 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =ThisItem.TotalIssued
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =60
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                OnChange: |-
+                    =Patch(colMHInput, LookUp(colMHInput, MHID = ThisItem.MHID), {TotalIssued: Value(Self.Text)})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(105, 121, 126, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Visible: =Dropdown2_2.Selected.AssignedMember = varUserEmail
+                Width: =60
+                X: =915
+                Y: =30
+                ZIndex: =6
+
+            Label1_333 As label:
+                Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =
+                Size: =13
+                Text: |-
+                    ="# Issued"
+                Visible: =Dropdown2_2.Selected.AssignedMember = varUserEmail
+                Width: =80
+                X: =895
+                ZIndex: =7
+
+            Rectangle4_5 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =1
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =Select(Parent)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =Parent.TemplateWidth
+                Y: =Container6_10.Y + (Container6_10.Height - Self.Height) / 2
+                ZIndex: =8
+
+            Label1_338 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =
+                Size: =13
+                Text: ="Approval By"
+                Width: =160
+                X: =21
+                Y: =187
+                ZIndex: =9
+
+            Image2_34 As image:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: =If(IsBlank(Dropdown2_2.Selected.AssignedMember), SampleImage, Office365Users.UserPhotoV2(Dropdown2_2.Selected.AssignedMember))
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =40
+                X: =21
+                Y: =217
+                ZIndex: =10
+
+            Label1_339 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(36, 42, 44, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Size: =13
+                Text: =Coalesce(LookUp('JTAS Members V2', EmailAddress = Dropdown2_2.Selected.AssignedMember, MemberName), "No approver")
+                Width: =312
+                X: =74
+                Y: =217
+                ZIndex: =11
+
+            Container6_10 As groupContainer:
+                Height: =34
+                Visible: =ThisItem.Index = CountRows(colMHInput)
+                Width: =34
+                X: =(Parent.TemplateWidth - Self.Width) / 2
+                Y: =228
+                ZIndex: =12
+
+                Circle4_2 As circle:
+                    BorderColor: =RGBA(51, 51, 51, 1)
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =32
+                    HoverFill: =RGBA(255, 255, 255, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(255, 255, 255, 1)
+                    Width: =32
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                Icon9_2 As icon.Add:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(105, 121, 126, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If(CountRows(colMHInput) = 0, DisplayMode.Disabled, DisplayMode.Edit)
+                    FocusedBorderThickness: =4
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Add
+                    OnSelect: |-
+                        =With(
+                        {
+                            MHID1: GUID(), 
+                            MainID: Patch('JTAS Daily Manhour', Defaults('JTAS Daily Manhour'), {SubmittedBy: varUserEmail, ManhourDate: varCurrentTime}).ID
+                        
+                        },
+                        Patch(colActivityInput, Defaults(colActivityInput), {MHID: Patch(colMHInput, Defaults(colMHInput), {ID: MainID, JobCode: Blank(), MHID: GUID()}).MHID, ActivityID: GUID()})
+                        )
+                    PaddingBottom: =5
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =32
+                    X: =1
+                    Y: =1
+                    ZIndex: =2
+
+            Icon13_2 As icon.Trash:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(184, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =If(CountRows(colMHInput) > 1, DisplayMode.Edit, DisplayMode.Disabled)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Trash
+                OnSelect: |-
+                    =RemoveIf(colActivityInput, MHID = ThisItem.MHID);
+                    RemoveIf(colMHInput, MHID = ThisItem.MHID);
+                    RemoveIf('JTAS Daily Manhour', ID = ThisItem.ID);
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =40
+                X: =935
+                Y: =208
+                ZIndex: =13
+
+            Label1_330 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =
+                Size: =11.5
+                Text: ="MH Type"
+                Width: =131
+                X: =420
+                ZIndex: =14
+
+            Label1_332 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =
+                Size: =11.5
+                Text: ="Remarks"
+                Width: =197
+                X: =639
+                ZIndex: =16
+
+            Dropdown2_2 As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(255, 255, 255, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                Default: |-
+                    =//If(Parent.DisplayMode in [DisplayMode.Edit, Blank()], ComboBox7.Selected.ParentWorkOrderCode,   
+                    
+                    ThisItem.WOCode
+                    
+                    //)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Items: =Filter(Filter('JTAS Work Order', JobCode = ThisItem.JobCode, StartDate<=Today()), EndDate>=Today() Or IsBlank(EndDate))
+                OnChange: |-
+                    =Patch(colMHInput, LookUp(colMHInput, MHID = ThisItem.MHID), {WOCode: Self.Selected.ParentWorkOrderCode})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                Width: =400
+                X: =1
+                Y: =100
+                ZIndex: =17
+
+            TextInput3_13 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Sum(Filter(SortByColumns('JTAS Daily Manhour', "ID", SortOrder.Descending), WOCode = Dropdown2_2.Selected.ParentWorkOrderCode), TotalIssued)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =60
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                OnChange: |-
+                    =Patch(colMHInput, LookUp(colMHInput, MHID = ThisItem.MHID), {TotalIssued: Value(Self.Text)})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(105, 121, 126, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Visible: =Dropdown2_2.Selected.AssignedMember = varUserEmail
+                Width: =60
+                X: =915
+                Y: =134
+                ZIndex: =19
+
+            Label1_336 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =44
+                OnSelect: =
+                Size: =13
+                Text: ="Total Issued"
+                Visible: =Dropdown2_2.Selected.AssignedMember = varUserEmail
+                Width: =60
+                X: =915
+                Y: =90
+                ZIndex: =20
+
+            ComboBox1_4 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =//LookUp('JTAS Job Code V2', JobCode0 = ThisItem.JobCode)
+                DefaultSelectedItems: |-
+                    =//{ParentJobCode: LookUp('JTAS Job Code V2', ThisItem.JobCode = ParentJobCode)}
+                    LookUp(colJobCode, ParentJobCode = ThisItem.JobCode)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["JobCodeTitle0","JobCode0"]
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Search Job Code"
+                Items: =colJobCode
+                OnChange: |-
+                    =Patch(colMHInput, LookUp(colMHInput, MHID = ThisItem.MHID), {JobCode: Self.Selected.ParentJobCode, JCTitle:Self.Selected.JobTitle});
+                    ClearCollect(WordD, Filter(Filter('JTAS Work Order', JobCode = ThisItem.JobCode, StartDate<=Today()), EndDate>=Today() Or IsBlank(EndDate)))
+                OnSelect: =
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                SearchFields: =["JobCodeTitle0"]
+                SearchItems: =Search(colJobCode,ComboBox1_4.SearchText,"JobCodeTitle0")
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                Template: =ListItemTemplate.Double
+                Width: =400
+                X: =1
+                Y: =30
+                ZIndex: =22
+
+            ComboBox7_1 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["ParentWorkOrderCode","JobDescription"]
+                Font: =Font.'Segoe UI'
+                Height: =Dropdown2_2.Height
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                Items: =WordD
+                OnSelect: =
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                SearchFields: =["ParentWorkOrderCode"]
+                SearchItems: =Search(WordD,ComboBox7_1.SearchText,"ParentWorkOrderCode")
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                Template: =ListItemTemplate.Double
+                Visible: |-
+                    =//If(Parent.DisplayMode in [DisplayMode.Edit, Blank()], true, false)
+                    false
+                Width: =Dropdown2_2.Width
+                X: =Dropdown2_2.X
+                Y: =Dropdown2_2.Y
+                ZIndex: =23
+
+            Dropdown1 As dropdown:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                Items: =["Regular", "OT"]
+                OnSelect: =Select(Parent)
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                Width: =142
+                X: =420
+                Y: =30
+                ZIndex: =24
+
+            TextInput3_10 As text:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =2
+                Clear: =true
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =ThisItem.Details
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =198
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Mode: =TextMode.MultiLine
+                OnChange: |-
+                    =//Patch(colActivityInput, LookUp(colActivityInput, ActivityID = ThisItem.Actual), {Details: Self.Text})
+                OnSelect: =
+                PaddingLeft: =10
+                PaddingTop: =10
+                PressedBorderColor: =RGBA(105, 121, 126, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =358
+                X: =577
+                Y: =30
+                ZIndex: =25
 
     ctnManhourViewDaily As groupContainer:
         Height: =Parent.Height - Self.Y
