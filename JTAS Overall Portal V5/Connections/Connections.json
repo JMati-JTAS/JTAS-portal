@@ -31,7 +31,27 @@
     "dataSources": [
       "JTAS Time Log V2",
       "JTAS Members V2",
-      "JTAS Daily Manhour"
+      "JTAS Daily Manhour",
+      "JTAS Timesheet",
+      "Member Signature",
+      "JTAS Work Order",
+      "JTAS Job Code V2",
+      "JTAS Team",
+      "JTAS Holidays",
+      "JTAS Leave Adjustments",
+      "JTAS Nature of Leave",
+      "JTAS Mobilization",
+      "JTAS Department",
+      "JTAS Leave Request V3",
+      "JTAS Assignments",
+      "JTAS Section",
+      "JTAS Internet Allowance",
+      "JTAS_OverAll_Application_Launcher",
+      "JTAS MoodApplication Setting",
+      "JTAS Safeday_Setting",
+      "Documents",
+      "JTAS TimeSheet Data",
+      "JTAS_MemberReport_to_Client"
     ],
     "dependencies": {},
     "dependents": [],
@@ -540,8 +560,7 @@
           "JTAS Overtime Request V3_1": {
             "tableName": "b15dd74d-394c-494e-a2fe-f5e4bde1ebee",
             "tableNameOverride": {
-              "environmentVariableName": "new_shared_sharepointonline_d90ad0b9f7ee408489c66cccbc94bf40",
-              "name": "b15dd74d-394c-494e-a2fe-f5e4bde1ebee"
+              "environmentVariableName": "new_shared_sharepointonline_d90ad0b9f7ee408489c66cccbc94bf40"
             }
           }
         }

@@ -394,7 +394,7 @@ ScreenHomeGeneral As screen:
                     Font: =Font.'Segoe UI'
                     Height: =32
                     Size: =8
-                    Text: ="V 17/10/2023"
+                    Text: ="V 23/10/2023"
                     Width: =85
                     X: =Parent.Width-Self.Width
                     ZIndex: =11
