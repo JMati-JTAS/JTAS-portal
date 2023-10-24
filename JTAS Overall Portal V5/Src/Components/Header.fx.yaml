@@ -571,7 +571,7 @@ Header As CanvasComponent:
                                 },
                                 If(varUserData.Role in ["Department Manager", "General Manager", "Section Manager", "President"],
                                 {
-                                    screenName: "OT Summary Per Section",
+                                    screenName: "MH Verification",
                                     counter: 0,
                                     screenObject: ScreenReportsOTPerWorkOrder
                                 }

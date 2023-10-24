@@ -22,6 +22,7 @@ ScreenReportsOTPerWorkOrder As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Size: =13
             Text: =//LookUp(colJobCode, ParentJobCode = locWOCode.JobCode, JobTitle)
+            Visible: =false
             Width: =416
             X: =84
             Y: =80
@@ -36,6 +37,7 @@ ScreenReportsOTPerWorkOrder As screen:
             Size: =13
             Text: =//locWOCode.Description
             VerticalAlign: =VerticalAlign.Top
+            Visible: =false
             Width: =486
             X: =14
             Y: =37
@@ -58,6 +60,7 @@ ScreenReportsOTPerWorkOrder As screen:
 
         Container33_1 As groupContainer.manualLayoutContainer:
             Height: =150
+            Visible: =false
             Width: =Parent.Width
             ZIndex: =19
 
@@ -726,6 +729,7 @@ ScreenReportsOTPerWorkOrder As screen:
         Container34_1 As groupContainer.manualLayoutContainer:
             BorderThickness: =1
             Height: =Parent.Height - Container33_1.Height
+            Visible: =false
             Width: =Parent.Width
             Y: =Container33_1.Height
             ZIndex: =20
@@ -1712,6 +1716,18 @@ ScreenReportsOTPerWorkOrder As screen:
                     Y: =Gallery16.Height + Gallery16.Y- 3
                     ZIndex: =4
 
+        PowerBI1 As powerbi:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Height: =Parent.Height - 40
+            OnSelect: =
+            TileUrl: |-
+                ="https://app.powerbi.com/reportEmbed?reportId=013ce40e-0877-4985-8dc1-e671b52c8db2&autoAuth=true&ctid=34e13d85-3d97-43dd-9521-81f6ed0fdb5d"
+            Width: =Parent.Width - 40
+            WorkspaceId: ="9bbd4e6d-a55c-4848-ac0b-c1765059d0f6"
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =21
+
     Button19 As button:
         BorderColor: =RGBA(0, 0, 0, 0)
         DisabledBorderColor: =RGBA(0, 0, 0, 0)
@@ -1829,196 +1845,4 @@ ScreenReportsOTPerWorkOrder As screen:
         Visible: =showLoading
         Width: =Parent.Width
         ZIndex: =5
-
-    "'Test Table (Do not delete)' As dataTable.datatable":
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.Solid
-        Color: =RGBA(51, 51, 51, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisplayMode: =DisplayMode.Edit
-        Fill: =RGBA(255, 255, 255, 1)
-        Font: =Font.'Segoe UI'
-        FontWeight: =FontWeight.Normal
-        HeadingColor: =RGBA(255, 255, 255, 1)
-        HeadingFill: =RGBA(105, 121, 126, 1)
-        HeadingFont: =Font.'Segoe UI'
-        HeadingFontWeight: =FontWeight.Normal
-        HeadingSize: =13
-        Height: =421
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =RGBA(105, 121, 126, 1)
-        InputFill: =RGBA(255, 255, 255, 1)
-        InvertedColor: =RGBA(255, 255, 255, 1)
-        Items: =Filter(TestAA11, Members = "Herbie Lopez", DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate )
-        LinkColor: =RGBA(0, 134, 208, 1)
-        PrimaryColor1: =RGBA(105, 121, 126, 1)
-        PrimaryColor2: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-        PrimaryColor3: =ColorFade(RGBA(105, 121, 126, 1), -50%)
-        SelectedColor: =RGBA(51, 51, 51, 1)
-        SelectedFill: =RGBA(105, 121, 126, .2)
-        Size: =13
-        Visible: =false
-        Width: =1920
-        X: =0
-        Y: =483
-        ZIndex: =6
-
-        DateDifference_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="DateDifference"
-            FieldName: ="DateDifference"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =1
-            Text: =ThisItem.DateDifference
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =21
-
-        DateRange1_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="DateRange1"
-            FieldName: ="DateRange1"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =2
-            Text: =ThisItem.DateRange1
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =22
-
-        DateRange2_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="DateRange2"
-            FieldName: ="DateRange2"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =3
-            Text: =ThisItem.DateRange2
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =23
-
-        DateRange_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="DateRange"
-            FieldName: ="DateRange"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =4
-            Text: =ThisItem.DateRange
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =24
-
-        Members_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Members"
-            FieldName: ="Members"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =5
-            Text: =ThisItem.Members
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =25
-
-        Work_Order_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Work_Order"
-            FieldName: ="Work_Order"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =6
-            Text: =ThisItem.Work_Order
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =26
-
-        DateValue_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="DateValue"
-            FieldName: ="DateValue"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =7
-            Text: =ThisItem.DateValue
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =27
-
-        DateRG_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="DateRG"
-            FieldName: ="DateRG"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =8
-            Text: =ThisItem.DateRG
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =28
-
-    DataTable3 As dataTable.datatable:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.Solid
-        Color: =RGBA(51, 51, 51, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisplayMode: =DisplayMode.Edit
-        Fill: =RGBA(255, 255, 255, 1)
-        Font: =Font.'Segoe UI'
-        FontWeight: =FontWeight.Normal
-        HeadingColor: =RGBA(255, 255, 255, 1)
-        HeadingFill: =RGBA(105, 121, 126, 1)
-        HeadingFont: =Font.'Segoe UI'
-        HeadingFontWeight: =FontWeight.Normal
-        HeadingSize: =13
-        Height: =500
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =RGBA(105, 121, 126, 1)
-        InputFill: =RGBA(255, 255, 255, 1)
-        InvertedColor: =RGBA(255, 255, 255, 1)
-        Items: =TestAA
-        LinkColor: =RGBA(0, 134, 208, 1)
-        PrimaryColor1: =RGBA(105, 121, 126, 1)
-        PrimaryColor2: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-        PrimaryColor3: =ColorFade(RGBA(105, 121, 126, 1), -50%)
-        SelectedColor: =RGBA(51, 51, 51, 1)
-        SelectedFill: =RGBA(105, 121, 126, .2)
-        Size: =13
-        Visible: =false
-        Width: =800
-        X: =428
-        Y: =443
-        ZIndex: =7
-
-        EmailMembers_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="EmailMembers"
-            FieldName: ="EmailMembers"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =1
-            Text: =ThisItem.EmailMembers
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =29
 
