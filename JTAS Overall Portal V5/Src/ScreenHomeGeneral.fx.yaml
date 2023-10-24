@@ -299,7 +299,7 @@ ScreenHomeGeneral As screen:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     DisplayMode: |-
-                        =With(
+                        =/*With(
                             {
                                 previousLogOut: Sort(
                                     Filter(
@@ -321,7 +321,7 @@ ScreenHomeGeneral As screen:
                                     DisplayMode.Edit
                                 )
                             )
-                        )
+                        )*/
                     Fill: =RGBA(105, 121, 126, 1)
                     FocusedBorderColor: =ColorFade(Self.Fill, -75%)
                     Font: =Font.'Segoe UI'
@@ -373,7 +373,7 @@ ScreenHomeGeneral As screen:
                                 LogOutTime: LookUp('JTAS Time Log V2', LogDate = Today() And LoggedBy = varUserEmail And LogType = "Time Out", LogTime)
                             },
                             IsBlank(LogInTime) Or !IsBlank(LogOutTime)
-                        )
+                        )/
                         
                         
                         
