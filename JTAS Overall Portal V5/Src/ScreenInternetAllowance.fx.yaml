@@ -760,7 +760,7 @@ ScreenInternetAllowance As screen:
                     
                     ,Switch(
                         true,
-                      CountRows(DataCardValue19.Attachments) > 0,
+                      CountRows(DataCardValue19.Attachments) < 1,
                         DisplayMode.Disabled
                         ,DisplayMode.Edit
                         )
@@ -799,7 +799,7 @@ ScreenInternetAllowance As screen:
                         );
                     
                     
-                    Set(ColsVis,false););
+                    );
                 PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
@@ -2608,6 +2608,7 @@ ScreenInternetAllowance As screen:
                         Items: =Parent.Default
                         ItemSpacing: =12
                         MaxAttachments: =2
+                        MaxAttachmentSize: =1000000000000
                         NoAttachmentsColor: =RGBA(166, 166, 166, 1)
                         OnAddFile: |
                             =Switch(
