@@ -1194,7 +1194,11 @@ ScreenTrackerMyManhour As screen:
                 OnSelect: |-
                     =If(
                         !IsEmpty(Filter(galMHInput.AllItems, 
-                            IsBlank(JobCode) Or IsBlank(WOCode) Or IsBlank(ConsumedMH)
+                    	CountRows(Filter(colMHInput, IsBlank(JobCode))) <> 0 Or
+                    		CountRows(Filter(colMHInput, IsBlank(WOCode))) <> 0 Or
+                    			CountRows(Filter(colMHInput, IsBlank(ConsumedMH))) <> 0 Or
+                    				CountRows(Filter(colMHInput, IsBlank(ActualWorkOrProduct))) <> 0 Or
+                    								CountRows(Filter(colMHInput, IsBlank(MH_Type))) <> 0 
                         )),
                         UpdateContext({varPopUp: "ManhourSubmitBlank"}),
                     
@@ -2173,7 +2177,7 @@ ScreenTrackerMyManhour As screen:
             TemplateSize: =278
             Width: =1000
             X: =(Parent.Width - Self.Width) / 2
-            Y: =190
+            Y: =170
             ZIndex: =9
 
             Label1_337 As label:
@@ -2362,7 +2366,7 @@ ScreenTrackerMyManhour As screen:
                 Size: =13
                 Text: ="Approval By"
                 Width: =160
-                X: =21
+                X: =5
                 Y: =187
                 ZIndex: =9
 
@@ -2385,7 +2389,7 @@ ScreenTrackerMyManhour As screen:
                 RadiusTopLeft: =20
                 RadiusTopRight: =20
                 Width: =40
-                X: =21
+                X: =5
                 Y: =217
                 ZIndex: =10
 
@@ -2403,7 +2407,7 @@ ScreenTrackerMyManhour As screen:
                 Size: =13
                 Text: =Coalesce(LookUp('JTAS Members V2', EmailAddress = Dropdown2_2.Selected.AssignedMember, MemberName), "No approver")
                 Width: =312
-                X: =74
+                X: =58
                 Y: =217
                 ZIndex: =11
 
@@ -2704,6 +2708,7 @@ ScreenTrackerMyManhour As screen:
                 ZIndex: =23
 
             Dropdown1 As dropdown:
+                AllowEmptySelection: =true
                 BorderColor: =RGBA(166, 166, 166, 1)
                 ChevronBackground: =RGBA(255, 255, 255, 1)
                 ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
@@ -2712,6 +2717,7 @@ ScreenTrackerMyManhour As screen:
                 ChevronHoverBackground: =RGBA(212, 212, 212, 1)
                 ChevronHoverFill: =RGBA(33, 33, 33, 1)
                 Color: =RGBA(51, 51, 51, 1)
+                Default: =ThisItem.MH_Type
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2720,6 +2726,8 @@ ScreenTrackerMyManhour As screen:
                 HoverColor: =RGBA(51, 51, 51, 1)
                 HoverFill: =RGBA(212, 212, 212, 1)
                 Items: =["Regular", "OT"]
+                OnChange: |-
+                    =Patch(colMHInput, LookUp(colMHInput, MHID = ThisItem.MHID), {MH_Type: Self.Selected.Value});
                 OnSelect: =Select(Parent)
                 PaddingBottom: =5
                 PaddingLeft: =12
@@ -2752,7 +2760,7 @@ ScreenTrackerMyManhour As screen:
                 HoverFill: =RGBA(255, 255, 255, 1)
                 Mode: =TextMode.MultiLine
                 OnChange: |-
-                    =//Patch(colActivityInput, LookUp(colActivityInput, ActivityID = ThisItem.Actual), {Details: Self.Text})
+                    =Patch(colMHInput, LookUp(colMHInput, MHID = ThisItem.MHID), {ActualWorkOrProduct: Self.Text});
                 OnSelect: =
                 PaddingLeft: =10
                 PaddingTop: =10
