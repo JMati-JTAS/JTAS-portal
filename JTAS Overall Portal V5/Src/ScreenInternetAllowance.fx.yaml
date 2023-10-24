@@ -629,10 +629,10 @@ ScreenInternetAllowance As screen:
 
     Container22 As groupContainer.manualLayoutContainer:
         Height: =Container21.Height
-        Visible: |+
-            =Switch(true, ColsVis, true, 
-            VerifySub, true, false)
+        Visible: |-
+            =//Switch(true, ColsVis, true, VerifySub, true, false)
             
+            ColsVis
         Width: =Container21.Width
         X: =Container21.X
         Y: =Container21.Y
@@ -842,11 +842,14 @@ ScreenInternetAllowance As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
                 OnSelect: |
-                    =If(Form2.X = 0,
-                    ResetForm(Form2);
+                    =Switch(true, 
+                    Form2.X = 0 And IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)) = false,
                     UpdateContext({ExpandForm:!ExpandForm});
-                    
-                    ,
+                    ResetForm(Form2);,
+                    Form2.X = 0 And IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)) = true,
+                    Set(ColsVis, false);
+                    Form2.X > 0,
+                    ResetForm(Form2);,
                     Set(FormAllowance, false);
                     Set(ColsVis, false);
                     Refresh('JTAS Internet Allowance');
@@ -2730,7 +2733,9 @@ ScreenInternetAllowance As screen:
                 Height: =681
                 NumberOfColumns: =1
                 Width: =Form3.Width
-                X: =If(ExpandForm, 492, 0)
+                X: |-
+                    =If(IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)), 0,
+                    If(ExpandForm, 492, 0))
                 Y: =53
                 ZIndex: =8
 
@@ -3329,7 +3334,7 @@ ScreenInternetAllowance As screen:
                     Required: =false
                     Update: =Value(DataCardValue27.Text)
                     Visible: =If(IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)), true, false)
-                    Width: =568
+                    Width: =500
                     X: =0
                     Y: =5
                     ZIndex: =12
