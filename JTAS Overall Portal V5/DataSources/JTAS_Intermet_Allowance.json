@@ -31,9 +31,11 @@
       "Editor#Claims": "Modified By Claims",
       "ID": "ID",
       "Modified": "Modified",
+      "MonthYear": "MonthYear",
       "OData__ColorTag": "Color Tag",
       "OData__DisplayName": "Sensitivity",
       "OData__ExtendedDescription": "Description",
+      "SubmittedDate": "SubmittedDate",
       "Title": "Title"
     },
     "DatasetName": "https://jgcgroup.sharepoint.com/sites/JTASInternalDataV2",
