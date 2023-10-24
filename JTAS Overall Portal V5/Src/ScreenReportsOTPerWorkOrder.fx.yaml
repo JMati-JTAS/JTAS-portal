@@ -1,0 +1,2024 @@
+ScreenReportsOTPerWorkOrder As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+
+    Header_17 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_17.Width
+
+    LeftNavigation_17 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =2
+
+    Container29_1 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height - Header_17.Height
+        Width: =Parent.Width - LeftNavigation_17.Width
+        X: =LeftNavigation_17.Width
+        Y: =Header_17.Height
+        ZIndex: =3
+
+        Label1_225 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =13
+            Text: =//LookUp(colJobCode, ParentJobCode = locWOCode.JobCode, JobTitle)
+            Width: =416
+            X: =84
+            Y: =80
+            ZIndex: =4
+
+        Label1_224 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            Height: =43
+            Size: =13
+            Text: =//locWOCode.Description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =486
+            X: =14
+            Y: =37
+            ZIndex: =5
+
+        Label1_226 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            Height: =29
+            Size: =13
+            Text: ="Choose Work Order Number"
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =430
+            X: =70
+            Y: =81
+            ZIndex: =7
+
+        Container33_1 As groupContainer.manualLayoutContainer:
+            Height: =150
+            Width: =Parent.Width
+            ZIndex: =19
+
+            Label1_228 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =27
+                Size: =13
+                Text: ="Choose Date"
+                VerticalAlign: =VerticalAlign.Top
+                X: =5
+                Y: =Label1_229.Y + 60
+                ZIndex: =3
+
+            Dropdown3_4 As dropdown:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                ChevronBackground: =RGBA(128, 128, 128, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.Lato
+                Height: =43
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(186, 202, 226, 1)
+                Items: =GroupBy('JTAS Team', "SectionCode", "Combo1")
+                OnChange: =
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 18, 107, 1)
+                SelectionFill: =RGBA(128, 128, 128, 1)
+                Size: =13
+                Width: =430
+                X: =Label1_229.X + Label1_229.Width + 20
+                Y: =Label1_229.Y -3
+                ZIndex: =4
+
+            Label1_229 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =29
+                Size: =13
+                Text: ="Choose Section"
+                VerticalAlign: =VerticalAlign.Top
+                X: =5
+                Y: =15
+                ZIndex: =5
+
+            DatePicker2 As datepicker:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultDate: =DateAdd(Now(), -16, TimeUnit.Days)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                Format: ="dd-mmm-yyyy"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(105, 121, 126, 1)
+                OnChange: |-
+                    =If(Text(DatePicker2.SelectedDate, "dd/mm/yyyy") = Text(Now(), "dd/mm/yyyy"),
+                        Notify("You can't choose " & DatePicker2.SelectedDate & " Due of we don't have data from " & DateAdd(DatePicker2.SelectedDate, 1, TimeUnit.Days) & " onwards", NotificationType.Warning);
+                    ,
+                        If(DateDiff(DatePicker2.SelectedDate, DatePicker2_1.SelectedDate, TimeUnit.Days) > 16,
+                            Notify("Please change your from selected date due of its greater than 15 days or Less 1 day", NotificationType.Warning);
+                        )
+                    )
+                OnSelect: =
+                PaddingTop: =5
+                Reset: =true
+                SelectedDateFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                StartYear: =2022
+                X: =Label1_228.X +Label1_228.Width + 20
+                Y: =Label1_228.Y - 3
+                ZIndex: =7
+
+            DatePicker2_1 As datepicker:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultDate: =If(IsBlank(DDate2), DateAdd(Now(), -1, TimeUnit.Days), DDate2)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                Format: ="dd-mmm-yyyy"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(105, 121, 126, 1)
+                OnChange: |-
+                    =If(Text(Self.SelectedDate, "dd/mm/yyyy") = Text(Now(), "dd/mm/yyyy"),
+                        UpdateContext({DDate2: DateAdd(Now(), -1, TimeUnit.Days)});
+                    )
+                PaddingTop: =5
+                SelectedDateFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                X: =Label1_230.X + Label1_230.Width + 20
+                Y: =Label1_230.Y - 3
+                ZIndex: =8
+
+            Label1_230 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =27
+                Size: =13
+                Text: ="To"
+                VerticalAlign: =VerticalAlign.Top
+                Width: =30
+                X: =DatePicker2.X + DatePicker2.Width + 20
+                Y: =DatePicker2.Y + 5
+                ZIndex: =9
+
+            Button4_10 As button:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =Switch(DateDiff(DatePicker2.SelectedDate, DatePicker2_1.SelectedDate, TimeUnit.Days) <> 15,
+                        true,
+                        DisplayMode.Disabled,
+                                DisplayMode.Edit)
+                Fill: =RGBA(128, 128, 128, 1)
+                Height: =41
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                OnSelect: |+
+                    =Set(showLoading, true);
+                    
+                    Set(DateD, DateDiff(DatePicker2.SelectedDate, DatePicker2_1.SelectedDate, TimeUnit.Days)+1);
+                    
+                    ClearCollect(Adj2, {DateValue:"", Value:1});
+                    Clear(Adj2);
+                    ForAll(Sequence(DateD,0) As aPatch,
+                        Collect(Adj2,
+                        {
+                            DateValue: Text(DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days)),
+                            Value: Value(If(CountRows(Adj2) < 1, 1, Last(SortByColumns(Adj2,"Value")).Value + 1))
+                    
+                        })
+                    );
+                    
+                    Collect(Adj2,{Value: 17, DateValue: "Total"});
+                    /*
+                    ClearCollect(
+                        OTSummary,Filter(
+                                'JTAS Overtime Request V3',
+                                Start_Date >=  DateValue(Text(DatePicker2.SelectedDate,"[$-en-US]dd/mm/yyyy")) And
+                                Status = "Approved" 
+                            )
+                    );
+                    
+                    
+                    //Clear(OTSummary);
+                    ClearCollect(OTSummary2,
+                            Filter(OTSummary, 
+                            EmailMembers in Filter('JTAS Members V2', Section =  Dropdown3_4.Selected.SectionCode).EmailAddress
+                            ));
+                    */
+                    
+                    
+                    //New Code
+                    
+                    
+                    
+                    
+                    //ForAll(Filter('JTAS Members V2', Section =  Dropdown3_4.Selected.SectionCode) As Apatch,
+                    /*
+                    ForAll(Distinct(Filter('JTAS Overtime Request V3', SectionCode =  Dropdown3_4.Selected.SectionCode), EmailMembers) As Apatch,
+                        Collect(TestAA,
+                            Filter('JTAS Overtime Request V3', EmailMembers =  Apatch.Result)
+                        )
+                    );
+                    
+                    ClearCollect(TestAA2,
+                        Filter(TestAA, Find(Text(DatePicker2.SelectedDate, "mmm. "), DateRange) ,  Status = "Approved")
+                    );
+                    
+                    ForAll(TestAA as Apek,
+                        Collect(TestAA2,
+                    );
+                    
+                    */
+                    
+                    //SettingUp Date Ranges
+                    Set(DateDDs, Value(Day(DatePicker2.SelectedDate)) - 1);
+                    Set(DateData, DateAdd(DatePicker2.SelectedDate, -Value(DateDDs), TimeUnit.Days));
+                    Set(DateMonthdds, DateAdd(DateAdd(DateData, 1, TimeUnit.Months), -1, TimeUnit.Days));
+                    
+                    ClearCollect(DateRangeData,{DateRangeSequence:"", DateRangeD1:"", DateRangeD2:""});
+                    Clear(DateRangeData);
+                    
+                    
+                    ForAll(Sequence(DateDiff(DateData,DateMonthdds) + 1, 0) As testBal,
+                        ForAll(Sequence(DateDiff(DateData,DateMonthdds) + 1, 0) As aPatch,
+                                    Collect(DateRangeData, 
+                                            {
+                                            DateRangeSequence: Text(DateAdd(DateData, testBal.Value, TimeUnit.Days), "dd") & "-" & Text(DateAdd(DateData, aPatch.Value, TimeUnit.Days), "dd"),                   
+                                            DateRange1: DateAdd(DateData, testBal.Value, TimeUnit.Days),
+                                            DateRange2: DateAdd(DateData, aPatch.Value, TimeUnit.Days)
+                                            }
+                                           )
+                    
+                        )
+                    );
+                    ForAll(Sequence(DateDiff(DateData,DateMonthdds) + 1, 0) As aPatch,
+                      Collect(DateRangeData, 
+                                            {
+                                            DateRangeSequence: " "& Text(DateAdd(DateData, aPatch.Value, TimeUnit.Days), "dd") & ",",                   
+                                            DateRange1: DateAdd(DateData, aPatch.Value, TimeUnit.Days),
+                                            DateRange2: DateAdd(DateData, aPatch.Value, TimeUnit.Days)
+                                            }
+                                           )
+                    );
+                    ForAll(Sequence(DateDiff(DateData,DateMonthdds) + 1, 0) As aPatch,
+                      Collect(DateRangeData, 
+                                            {
+                                            DateRangeSequence: Text(DateAdd(DateData, aPatch.Value, TimeUnit.Days), "mmm. dd yyyy"),                
+                                            DateRange1: DateAdd(DateData, aPatch.Value, TimeUnit.Days),
+                                            DateRange2: DateAdd(DateData, aPatch.Value, TimeUnit.Days)
+                                            }
+                                           )
+                    );
+                    
+                    
+                    ClearCollect(TestAA,{});
+                    Clear(TestAA);
+                    ClearCollect(TestAA2,{});
+                    Clear(TestAA2);
+                    
+                    ClearCollect(TestAA,
+                       ForAll(Distinct(Filter('JTAS Overtime Request V3', 
+                            SectionCode = Dropdown3_4.Selected.SectionCode
+                            And Start_Date >= DateAdd(DateAdd(DatePicker2.SelectedDate, 1, TimeUnit.Days),-Value(Day(DatePicker2.SelectedDate)), TimeUnit.Days)), 
+                            EmailMembers), {Result: ThisRecord.Value})
+                    );
+                    
+                    ForAll(TestAA,
+                        Collect(TestAA2,
+                            Filter('JTAS Overtime Request V3', EmailMembers = Result And SectionCode =  Dropdown3_4.Selected.SectionCode And Status = "Approved")
+                        )
+                    );
+                    /*
+                    ForAll(TestAA,
+                        Collect(TestAA3,
+                            Filter(TestAA2, Find(Text(DatePicker2.SelectedDate, "mmm. "), DateRange), EmailMembers = Result)
+                        )
+                    );
+                    */
+                    
+                    
+                    ClearCollect(TestAA3,
+                        Filter(TestAA2, Find(Text(DatePicker2.SelectedDate, "mmm. "), DateRange))
+                    );
+                    
+                    
+                    
+                    
+                    //Final Filter
+                    ClearCollect(TestAA10,{});
+                    Clear(TestAA10);
+                    
+                    ForAll(DateRangeData, 
+                        Collect(TestAA10, 
+                            AddColumns(AddColumns(AddColumns(AddColumns(Filter(TestAA3, 
+                            Find(DateRangeSequence, DateRange)
+                            ), "DateRG", DateRangeSequence), "DateDifference", DateDiff(DateRange1, DateRange2) + 1), "DateRange1", DateRange1), "DateRange2", DateRange2)
+                        )
+                    );
+                    
+                    
+                    
+                    ClearCollect(TestAA11,{});
+                    Clear(TestAA11);
+                    
+                    
+                    
+                    
+                    ForAll(TestAA10 As Apatch,
+                        //If(Apatch.DateDifference > 0,
+                            ForAll(Sequence(Apatch.DateDifference, 0),
+                                Collect(TestAA11,
+                                    AddColumns(
+                                        Filter(TestAA10, DateRG = Apatch.DateRG  And 
+                                        EmailMembers = Apatch.EmailMembers And
+                                        Work_Order = Apatch.Work_Order And ID = Apatch.ID
+                                        )
+                                        ,"DateValue", DateAdd(Apatch.DateRange1, Value, TimeUnit.Days)
+                                    )
+                                )
+                            )
+                           /* ,
+                            Collect(TestAA11,
+                                            AddColumns(
+                                                Filter(TestAA10, DateRG = Apatch.DateRG  And 
+                                                EmailMembers = Apatch.EmailMembers),
+                                                "DateValue", Apatch.DateRange1)
+                            )
+                        )*/
+                    );
+                    
+                    
+                    
+                    
+                    Set(showLoading, false);
+                    
+                Size: =15
+                Text: ="Go"
+                Width: =75
+                X: =DatePicker2_1.Width + DatePicker2_1.X + 50
+                Y: =75
+                ZIndex: =10
+
+            Label38 As label:
+                Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Size: =9
+                Text: ="V 10/12/2022"
+                Visible: =false
+                X: =Parent.Width - Self.Width - 5
+                Y: =5
+                ZIndex: =11
+
+            Label39 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(255, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =24
+                Italic: =true
+                Size: =8
+                Text: |-
+                    ="*Note: select date range 15days date interval"
+                Width: =368
+                X: =DatePicker2.X
+                Y: =118
+                ZIndex: =12
+
+            Group5_2 As group:
+                Height: =5
+                Width: =5
+                X: =-263
+                Y: =-29
+                ZIndex: =23
+
+                Icon3_12 As icon.Download:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =If(CountRows(Gallery16.AllItems) < 0, DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =23
+                    Icon: =Icon.Download
+                    OnSelect: =
+                    Width: =34
+                    X: =1346
+                    Y: =95
+                    ZIndex: =2
+
+                Button7_3 As button:
+                    Align: =Align.Right
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If(CountRows(Gallery16.AllItems) < 0, DisplayMode.Disabled,DisplayMode.Edit)
+                    Fill: =RGBA(0,0,0,0)
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Semibold
+                    Height: =32
+                    HoverColor: =Color.Red
+                    HoverFill: =RGBA(0,0,0,0)
+                    OnSelect: |+
+                        =Set(showLoading, true);
+                        ClearCollect(ads, ForAll(Distinct(Filter(TestAA11, DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate), Work_Order), {Result: ThisRecord.Value}));
+                        ClearCollect(sadsasdasd,
+                        Filter(TestAA11, DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate, Work_Order in ads.Result)
+                        //Filter(TestAA10, Work_Order in Distinct(TestAA10, Work_Order).Result)
+                        );
+                        
+                        ClearCollect(colOTByWO2, ShowColumns(AddColumns(sadsasdasd,
+                        "WO", "",
+                        "EM", "",
+                        "Date1", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 1, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date2", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 2, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date3", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 3, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date4", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 4, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date5", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 5, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date6", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 6, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date7", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 7, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date8", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 8, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date9", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 9, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date10", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 10, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date11", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 11, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date12", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 12, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date13", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 13, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date14", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 14, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "Date15", LookUp(TestAA11, Work_Order = ThisRecord.Work_Order And EmailMembers = ThisRecord.EmailMembers And DateValue = DateValue(Text(LookUp(Adj2, Value = 15, DateValue), "dd/mm/yyyy"))).MH_Hours,
+                        "total", Sum(Filter(TestAA11, DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate, Work_Order = ThisRecord.Work_Order, EmailMembers = ThisRecord.EmailMembers), MH_Hours)
+                        
+                        
+                        ), "WO","EM","Date1","Date2","Date3","Date4","Date5","Date6","Date7","Date8","Date9","Date10","Date11","Date12","Date13","Date14","Date15","total"));
+                        
+                        Clear(colOTByWO2);
+                        
+                        ForAll(GroupBy(Filter(TestAA11, DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate), "EmailMembers", "G1")  As Apatch,
+                            ForAll(GroupBy(Filter(TestAA11, DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate, EmailMembers=Apatch.EmailMembers ), "Work_Order", "G2") As Bpatch,
+                                Collect(colOTByWO2,
+                                    {
+                                        WO: Bpatch.Work_Order,
+                                        EM: LookUp('JTAS Members V2', EmailAddress = Apatch.EmailMembers).MemberName,
+                                        Date1: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 1, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date2: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 2, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date3: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 3, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date4: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 4, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date5: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 5, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date6: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 6, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date7: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 7, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date8: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 8, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date9: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 9, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date10: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 10, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date11: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 11, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date12: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 12, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date13: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 13, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date14: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 14, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date15: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 15, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        Date16: Sum(Filter(TestAA11, EmailMembers = Apatch.EmailMembers And Work_Order = Bpatch.Work_Order And DateValue = DateValue(Text(LookUp(Adj2, Value = 16, DateValue), "dd/mm/yyyy"))), MH_Hours),
+                                        total: Sum(Filter(TestAA11, DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate, Work_Order = Bpatch.Work_Order, EmailMembers = Apatch.EmailMembers), MH_Hours)
+                                    })
+                            )
+                        );
+                        
+                        
+                        
+                        UpdateContext({locWODataXML2: 
+                        "<?xml version=""1.0""?>
+                        <?mso-application progid=""Excel.Sheet""?>
+                        <Workbook xmlns=""urn:schemas-microsoft-com:office:spreadsheet""
+                         xmlns:o=""urn:schemas-microsoft-com:office:office""
+                         xmlns:x=""urn:schemas-microsoft-com:office:excel""
+                         xmlns:ss=""urn:schemas-microsoft-com:office:spreadsheet""
+                         xmlns:html=""http://www.w3.org/TR/REC-html40"">
+                         <DocumentProperties xmlns=""urn:schemas-microsoft-com:office:office"">
+                          <Author>Vincent_Klein Armenta</Author>
+                          <LastAuthor>Vincent_Klein Armenta</LastAuthor>
+                          <Created>2020-10-03T06:40:21Z</Created>
+                          <LastSaved>2020-10-03T06:57:24Z</LastSaved>
+                          <Version>16.00</Version>
+                         </DocumentProperties>
+                         <OfficeDocumentSettings xmlns=""urn:schemas-microsoft-com:office:office"">
+                          <AllowPNG/>
+                         </OfficeDocumentSettings>
+                         <ExcelWorkbook xmlns=""urn:schemas-microsoft-com:office:excel"">
+                          <WindowHeight>8820</WindowHeight>
+                          <WindowWidth>20490</WindowWidth>
+                          <WindowTopX>0</WindowTopX>
+                          <WindowTopY>0</WindowTopY>
+                          <ProtectStructure>False</ProtectStructure>
+                          <ProtectWindows>False</ProtectWindows>
+                         </ExcelWorkbook>
+                         <Styles>
+                          <Style ss:ID=""Default"" ss:Name=""Normal"">
+                           <Alignment ss:Vertical=""Bottom""/>
+                           <Borders/>
+                           <Font ss:FontName=""Calibri"" x:Family=""Swiss"" ss:Size=""11"" ss:Color=""#000000""/>
+                           <Interior/>
+                           <NumberFormat/>
+                           <Protection/>
+                          </Style>
+                          <Style ss:ID=""s16"">
+                           <Font ss:FontName=""Calibri"" x:Family=""Swiss"" ss:Size=""20"" ss:Color=""#000000""
+                            ss:Bold=""1""/>
+                          </Style>
+                          <Style ss:ID=""s17"">
+                           <Font ss:FontName=""Calibri"" x:Family=""Swiss"" ss:Size=""11"" ss:Color=""#000000""
+                            ss:Bold=""1""/>
+                          </Style>
+                          <Style ss:ID=""s18"">
+                           <Font ss:FontName=""Calibri"" x:Family=""Swiss"" ss:Size=""11"" ss:Color=""#000000""
+                            ss:Bold=""1""/>
+                           <NumberFormat ss:Format=""dd\-mmm""/>
+                          </Style>
+                          <Style ss:ID=""s19"">
+                           <Alignment ss:Horizontal=""Left"" ss:Vertical=""Bottom""/>
+                           <NumberFormat ss:Format=""mmmm\-yyyy""/>
+                          </Style>
+                          <Style ss:ID=""s20"">
+                           <NumberFormat ss:Format=""Fixed""/>
+                          </Style>
+                         </Styles>
+                         <Worksheet ss:Name=""Sheet1"">
+                          <Table ss:ExpandedColumnCount=""33"" ss:ExpandedRowCount=""" & CountRows(colOTByWO2) + 5 & """ x:FullColumns=""1""
+                           x:FullRows=""1"" ss:DefaultRowHeight=""15"">
+                           <Column ss:AutoFitWidth=""0"" ss:Width=""178.5""/>
+                           <Column ss:AutoFitWidth=""0"" ss:Width=""178.5""/>
+                           <Column ss:AutoFitWidth=""0"" ss:Width=""47.25""/>
+                           <Column ss:AutoFitWidth=""0"" ss:Width=""36.75"" ss:Span=""29""/>
+                           <Row ss:AutoFitHeight=""0"" ss:Height=""26.25"">
+                            <Cell ss:StyleID=""s16""><Data ss:Type=""String"">OT Summary Report</Data></Cell>
+                           </Row>
+                           <Row>
+                            <Cell ss:StyleID=""s19""><Data ss:Type=""String"">" & Text(DatePicker2.SelectedDate,"[$-en-US]yyyy-mmm-dd") & " to " & Text(DatePicker2_1.SelectedDate,"[$-en-US]yyyy-mmm-dd") & "</Data></Cell>
+                           </Row>
+                           <Row>
+                            <Cell><Data ss:Type=""String"">" & Dropdown3_4.Selected.SectionCode & "</Data></Cell>
+                           </Row>
+                           
+                            <Row ss:Index=""5"">
+                            <Cell ss:StyleID=""s17""><Data ss:Type=""String"">Member Name</Data></Cell>
+                            <Cell ss:StyleID=""s17""><Data ss:Type=""String"">Work Order</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 1, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 2, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 3, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 4, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 5, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 6, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 7, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 8, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 9, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 10, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 11, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 12, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 13, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 14, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s18""><Data ss:Type=""DateTime"">" & Text(DateValue(Text(LookUp(Adj2, Value = 15, DateValue))),"[$-en-US]yyyy-mm-dd") & "T00:00:00.000</Data></Cell>
+                            <Cell ss:StyleID=""s17""><Data ss:Type=""String"">Total</Data></Cell>
+                           </Row>
+                        
+                        " &
+                        Concat(SortByColumns(colOTByWO2, "EM"),
+                        "
+                        <Row>
+                            <Cell><Data ss:Type=""String"">" & EM & "</Data></Cell> 
+                            <Cell><Data ss:Type=""String"">" & WO & "</Data></Cell>" 
+                        
+                        
+                        
+                         & If(IsBlank(Date1),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date1 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date2),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date2 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date3),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date3 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date4),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date4 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date5),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date5 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date6),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date6 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date7),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date7 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date8),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date8 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date9),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date9 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date10),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date10 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date11),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date11 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date12),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date12 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date13),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date13 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date14),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date14 & "</Data></Cell>
+                        ")
+                        
+                         & If(IsBlank(Date15),"   <Cell ss:StyleID=""s20""/>
+                        ","    <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & Date15 & "</Data></Cell>
+                        ")
+                        & If(IsBlank(total),"   <Cell ss:StyleID=""s20""/>
+                        ","    
+                            <Cell ss:StyleID=""s20""><Data ss:Type=""Number"">" & total & "</Data></Cell> 
+                        ")
+                        
+                         & "
+                        </Row>
+                        
+                        ") &
+                        
+                        "
+                          </Table>
+                          <WorksheetOptions xmlns=""urn:schemas-microsoft-com:office:excel"">
+                           <PageSetup>
+                            <Header x:Margin=""0.3""/>
+                            <Footer x:Margin=""0.3""/>
+                            <PageMargins x:Bottom=""0.75"" x:Left=""0.7"" x:Right=""0.7"" x:Top=""0.75""/>
+                           </PageSetup>
+                           <Print>
+                            <ValidPrinterInfo/>
+                            <HorizontalResolution>600</HorizontalResolution>
+                            <VerticalResolution>600</VerticalResolution>
+                           </Print>
+                           <Selected/>
+                           <ProtectObjects>False</ProtectObjects>
+                           <ProtectScenarios>False</ProtectScenarios>
+                          </WorksheetOptions>
+                         </Worksheet>
+                        </Workbook>"
+                        });
+                        
+                        
+                        
+                        
+                        UpdateContext({locDownloadLink: ExportWODataToXML.Run("OT Summary "&Substitute(Substitute(Dropdown3_4.Selected.SectionCode,"-","")," ","")& " " &Text(DatePicker2.SelectedDate,"[$-en-US]yyyy-mmm-dd, yyyy")&" to " &Text(DatePicker2_1.SelectedDate,"[$-en-US]yyyy-mmm-dd"),locWODataXML2, Office365Users.MyProfileV2().mail)});
+                        Download(locDownloadLink.sharelink);
+                        //Launch("https://jgcgroup-my.sharepoint.com/");
+                        Set(showLoading, false);
+                        
+                    PressedFill: =RGBA(0,0,0,0)
+                    Size: =15
+                    Text: ="Download"
+                    Width: =132
+                    X: =1346
+                    Y: =90
+                    ZIndex: =6
+
+        Container34_1 As groupContainer.manualLayoutContainer:
+            BorderThickness: =1
+            Height: =Parent.Height - Container33_1.Height
+            Width: =Parent.Width
+            Y: =Container33_1.Height
+            ZIndex: =20
+
+            Container31 As groupContainer.manualLayoutContainer:
+                Height: |-
+                    =//Parent.Height 
+                    //(Label33.Height) * (CountRows(Gallery15.AllItems) + CountRows(Gallery10_5.AllItems))
+                    Label36.Height
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Rectangle9 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(247, 247, 247, 0.87)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Label36.Width
+                    X: =Label36.X
+                    ZIndex: =1
+
+                RowColsDis As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(255, 255, 255, 0.87)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Label36.Width
+                    X: =Label36.X
+                    ZIndex: =2
+
+                Rectangle9_1 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9.X + Rectangle9.Width
+                    ZIndex: =3
+
+                Rectangle9_2 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_1.X + Rectangle9_1.Width
+                    ZIndex: =4
+
+                Rectangle9_3 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_2.X + Rectangle9_2.Width
+                    ZIndex: =5
+
+                Rectangle9_4 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_3.X + Rectangle9_3.Width
+                    ZIndex: =6
+
+                Rectangle9_5 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_4.X + Rectangle9_4.Width
+                    ZIndex: =7
+
+                Rectangle9_6 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_5.X + Rectangle9_5.Width
+                    ZIndex: =8
+
+                Rectangle9_7 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_6.X + Rectangle9_6.Width
+                    ZIndex: =9
+
+                Rectangle9_8 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_7.X + Rectangle9_7.Width
+                    ZIndex: =10
+
+                Rectangle9_9 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_8.X + Rectangle9_8.Width
+                    ZIndex: =11
+
+                Rectangle9_10 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_9.X + Rectangle9_9.Width
+                    ZIndex: =12
+
+                Rectangle9_11 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_10.X + Rectangle9_10.Width
+                    ZIndex: =13
+
+                Rectangle9_12 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_11.X + Rectangle9_11.Width
+                    ZIndex: =14
+
+                Rectangle9_13 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_12.X + Rectangle9_12.Width
+                    ZIndex: =15
+
+                Rectangle9_14 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_13.X + Rectangle9_13.Width
+                    ZIndex: =16
+
+                Rectangle9_15 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_14.X + Rectangle9_14.Width
+                    ZIndex: =17
+
+                Rectangle9_16 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth
+                    X: =Rectangle9_15.X + Rectangle9_15.Width
+                    ZIndex: =18
+
+                Rectangle9_17 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_5.TemplateWidth + 6
+                    X: =Rectangle9_16.X + Rectangle9_16.Width
+                    ZIndex: =19
+
+            Gallery10_5 As gallery.galleryHorizontal:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                DisplayMode: =DisplayMode.View
+                Height: =41
+                Items: =Adj2
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =86
+                Width: =Parent.Width - Label36.Width
+                X: =Label36.X + Label36.Width
+                Y: =Label36.Y
+                ZIndex: =2
+
+                Container37 As groupContainer:
+                    Height: =41
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =4
+
+                    Label9_12 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.Lato
+                        FontWeight: =If(ThisItem.Value = 17,FontWeight.Bold ,FontWeight.Normal)
+                        Height: |-
+                            =//19
+                            If(ThisItem.Value = 17,Parent.Height ,19)
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =If(ThisItem.Value = 17,12 ,8)
+                        Text: =If(ThisItem.Value = 17, ThisItem.DateValue ,Text(DateValue(ThisItem.DateValue),"[$-en-US]mmm dd, yyyy"))
+                        Width: =Parent.Width
+                        Y: =If(ThisItem.Value = 17,0 ,22)
+                        ZIndex: =1
+
+                    Label9_11 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =19
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        Text: =If(ThisItem.Value = 17, "" ,Text(DateValue(ThisItem.DateValue),"[$-en-US]dddd"))
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+            Label36 As label:
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =41
+                Size: =13
+                Text: ="Member's Name"
+                Width: =200
+                Y: =
+                ZIndex: =3
+
+            Gallery15 As gallery.variableTemplateHeightGallery:
+                BorderThickness: =1
+                DisplayMode: =DisplayMode.View
+                Height: =Parent.Height - Gallery10_5.Height
+                Items: =GroupBy(Filter(TestAA11, DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate), "EmailMembers", "G12")
+                Layout: =Layout.Vertical
+                Selectable: =false
+                ShowNavigation: =true
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =200
+                Width: =Parent.Width
+                Y: =Label36.Height
+                ZIndex: =4
+
+                Container36 As groupContainer.manualLayoutContainer:
+                    Height: =Rectangle10.Y
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =1
+
+                    Rectangle9_18 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(247, 247, 247, 0.87)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Label36.Width
+                        X: =Label36.X
+                        ZIndex: =1
+
+                    RowColsDis_1 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(255, 255, 255, 0.87)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Label36.Width
+                        X: =Label36.X
+                        ZIndex: =2
+
+                    Rectangle9_19 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_18.X + Rectangle9_18.Width
+                        ZIndex: =3
+
+                    Rectangle9_20 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_18.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_19.X + Rectangle9_19.Width
+                        ZIndex: =4
+
+                    Rectangle9_21 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_20.X + Rectangle9_20.Width
+                        ZIndex: =5
+
+                    Rectangle9_22 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_18.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_21.X + Rectangle9_21.Width
+                        ZIndex: =6
+
+                    Rectangle9_23 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_22.X + Rectangle9_22.Width
+                        ZIndex: =7
+
+                    Rectangle9_24 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_18.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_23.X + Rectangle9_23.Width
+                        ZIndex: =8
+
+                    Rectangle9_25 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_24.X + Rectangle9_24.Width
+                        ZIndex: =9
+
+                    Rectangle9_26 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_18.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_25.X + Rectangle9_25.Width
+                        ZIndex: =10
+
+                    Rectangle9_27 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_26.X + Rectangle9_26.Width
+                        ZIndex: =11
+
+                    Rectangle9_28 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_18.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_27.X + Rectangle9_27.Width
+                        ZIndex: =12
+
+                    Rectangle9_29 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_28.X + Rectangle9_28.Width
+                        ZIndex: =13
+
+                    Rectangle9_30 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_18.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_29.X + Rectangle9_29.Width
+                        ZIndex: =14
+
+                    Rectangle9_31 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_30.X + Rectangle9_30.Width
+                        ZIndex: =15
+
+                    Rectangle9_32 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_18.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_31.X + Rectangle9_31.Width
+                        ZIndex: =16
+
+                    Rectangle9_33 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_32.X + Rectangle9_32.Width
+                        ZIndex: =17
+
+                    Rectangle9_34 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_18.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Rectangle9_33.X + Rectangle9_33.Width
+                        ZIndex: =18
+
+                    Rectangle9_35 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_5.TemplateWidth + 6
+                        X: =Rectangle9_34.X + Rectangle9_34.Width
+                        ZIndex: =19
+
+                Gallery16 As gallery.galleryVertical:
+                    Height: =CountRows(Self.AllItems) * 44
+                    Items: =GroupBy(Filter(TestAA11, EmailMembers = ThisItem.EmailMembers, DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate), "Work_Order","EmailMembers", "DD")
+                    Layout: =Layout.Vertical
+                    TemplatePadding: =0
+                    TemplateSize: =44
+                    Width: =Parent.TemplateWidth
+                    Y: =Label33.Height
+                    ZIndex: =2
+
+                    Label37 As label:
+                        Align: =Align.Right
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =9
+                        Text: =ThisItem.Work_Order
+                        Width: =Label33.Width
+                        ZIndex: =1
+
+                    Label37_1 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 1, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 1, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =200
+                        ZIndex: =2
+
+                    Label37_2 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 2, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 2, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =286
+                        ZIndex: =3
+
+                    Label37_3 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 3, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 3, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_2.Width + Label37_2.X
+                        ZIndex: =4
+
+                    Label37_4 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 4, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 4, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_3.Width + Label37_3.X
+                        ZIndex: =5
+
+                    Label37_5 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 5, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 5, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_4.Width + Label37_4.X
+                        ZIndex: =6
+
+                    Label37_6 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 6, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 6, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_5.Width + Label37_5.X
+                        ZIndex: =7
+
+                    Label37_7 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 7, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 7, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_6.Width + Label37_6.X
+                        ZIndex: =8
+
+                    Label37_8 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 8, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 8, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_7.Width + Label37_7.X
+                        ZIndex: =9
+
+                    Label37_9 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 9, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 9, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_8.Width + Label37_8.X
+                        ZIndex: =10
+
+                    Label37_10 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 10, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 10, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_9.Width + Label37_9.X
+                        ZIndex: =11
+
+                    Label37_11 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 11, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 11, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_10.Width + Label37_10.X
+                        ZIndex: =12
+
+                    Label37_12 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 12, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 12, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_11.Width + Label37_11.X
+                        ZIndex: =13
+
+                    Label37_13 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 13, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 13, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_12.Width + Label37_12.X
+                        ZIndex: =14
+
+                    Label37_14 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 14, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 14, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_13.Width + Label37_13.X
+                        ZIndex: =15
+
+                    Label37_15 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And DateValue = DateValue(Text(LookUp(Adj2, Value = 15, DateValue),"[$-en-US]mm/dd/yyyy")) ), MH_Hours)
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 15, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_14.Width + Label37_14.X
+                        ZIndex: =16
+
+                    Label37_16 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Bold
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: |-
+                            =LookUp(TestAA11, Work_Order = ThisItem.Work_Order And EmailMembers = ThisItem.EmailMembers 
+                            And  DateValue = DateValue(Text(LookUp(Adj2, Value = 16, DateValue),"[$-en-US]mm/dd/yyyy"))).MH_Hours
+                        Width: |-
+                            =If(IsBlank(LookUp(Adj2, Value = 16, DateValue)),0,
+                            Gallery10_5.TemplateWidth)
+                        X: =Label37_15.Width + Label37_15.X
+                        ZIndex: =17
+
+                    Label37_17 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: =Label33.Height
+                        OnSelect: =Select(Parent)
+                        Size: =12
+                        Text: =Sum(Filter(TestAA11, Work_Order = ThisItem.Work_Order And DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate And Status = "Approved", EmailMembers = ThisItem.EmailMembers), MH_Hours)
+                        Width: =Gallery10_5.TemplateWidth
+                        X: =Label37_16.Width + Label37_16.X
+                        ZIndex: =18
+
+                Label33 As label:
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Bold
+                    Height: =Label36.Height
+                    OnSelect: =Select(Parent)
+                    Text: |-
+                        =LookUp('JTAS Members V2', EmailAddress = ThisItem.EmailMembers, MemberName)
+                        //ThisItem.EmailMembers
+                    Width: =Label36.Width
+                    ZIndex: =3
+
+                Rectangle10 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =2
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =Select(Parent)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =1670
+                    Y: =Gallery16.Height + Gallery16.Y- 3
+                    ZIndex: =4
+
+    Button19 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(105, 121, 126, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+        OnSelect: |+
+            =
+            
+            ClearCollect(TestAA,{});
+            Clear(TestAA);
+            
+            ForAll(Filter('JTAS Members V2', Section =  Dropdown3_4.Selected.SectionCode) As Apatch,
+            
+            Collect(TestAA,
+            Filter('JTAS Overtime Request V3', EmailMembers =  Apatch.EmailAddress)
+            )
+            );
+            
+            
+            
+            
+            ClearCollect(TestAA2,
+                Filter(TestAA, 
+                                //Start_Date >= DatePicker2.SelectedDate && Start_Date <= DatePicker2.SelectedDate,
+                                 Start_Date >= DatePicker2.SelectedDate, Status = "Approved")
+            );
+            
+            ClearCollect(DateRangeData,{DateRangeSequence:"", DateRangeD1:"", DateRangeD2:""});
+            Clear(DateRangeData);
+            
+            
+            ForAll(Sequence(DateDiff(DatePicker2.SelectedDate, DatePicker2_1.SelectedDate, TimeUnit.Days) + 1, 0) As testBal,
+                ForAll(Sequence(DateDiff(DatePicker2.SelectedDate, DatePicker2_1.SelectedDate, TimeUnit.Days) + 1, 0) As aPatch,
+                            Collect(DateRangeData, 
+                                    {
+                                    DateRangeSequence: Text(DateAdd(DatePicker2.SelectedDate, testBal.Value, TimeUnit.Days), "dd") &"-"& Text(DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days), "dd"),                   
+                                    DateRange1: DateAdd(DatePicker2.SelectedDate, testBal.Value, TimeUnit.Days),
+                                    DateRange2: DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days)
+                                    }
+                                   )
+            
+                )
+            );
+            
+            ForAll(Sequence(DateDiff(DatePicker2.SelectedDate, DatePicker2_1.SelectedDate, TimeUnit.Days) + 1, 0) As aPatch,
+                            Collect(DateRangeData, 
+                                    {
+                                    DateRangeSequence: " "& Text(DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days), "dd") & ",",                   
+                                    DateRange1: DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days),
+                                    DateRange2: DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days)
+                                    }
+                                   )
+            
+                );
+            ForAll(Sequence(DateDiff(DatePicker2.SelectedDate, DatePicker2_1.SelectedDate, TimeUnit.Days) + 1, 0) As aPatch,
+                            Collect(DateRangeData, 
+                                    {
+                                    DateRangeSequence: Text(DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days), "mmm. ") & Text(DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days), "dd yyyy"),                   
+                                    DateRange1: DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days),
+                                    DateRange2: DateAdd(DatePicker2.SelectedDate, aPatch.Value, TimeUnit.Days)
+                                    }
+                                   )
+            
+                );
+            
+            
+            
+            
+            ClearCollect(TestAA10,{});
+            Clear(TestAA10);
+            ForAll(DateRangeData, 
+                Collect(TestAA10, 
+                    AddColumns(AddColumns(AddColumns(AddColumns(Filter(TestAA2, 
+                    Find(DateRangeSequence, DateRange)
+                    ), "DateRange1", DateRange1), "DateRange2", DateRange2), "DateRG", DateRangeSequence), "DateDifference", DateDiff(DateRange1, DateRange2))
+                )
+            );
+            
+            
+            
+            ClearCollect(TestAA11,{});
+            Clear(TestAA11);
+            
+            ForAll(TestAA10 As Apatch,
+                    ForAll(Sequence(Apatch.DateDifference + 1,0),
+                            Collect(TestAA11,
+                            AddColumns(Filter(TestAA10, DateRG = Apatch.DateRG And EmailMembers = Apatch.EmailMembers),"DateValue", DateAdd(Apatch.DateRange1, Value, TimeUnit.Days))
+                        )
+                    )
+                )
+            
+        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: =CountRows(DateRangeData)
+        Visible: =false
+        X: =1316
+        Y: =98
+        ZIndex: =4
+
+    Loading_5 As Loading:
+        Height: =Parent.Height
+        Visible: =showLoading
+        Width: =Parent.Width
+        ZIndex: =5
+
+    "'Test Table (Do not delete)' As dataTable.datatable":
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        HeadingColor: =RGBA(255, 255, 255, 1)
+        HeadingFill: =RGBA(105, 121, 126, 1)
+        HeadingFont: =Font.'Segoe UI'
+        HeadingFontWeight: =FontWeight.Normal
+        HeadingSize: =13
+        Height: =421
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(105, 121, 126, 1)
+        InputFill: =RGBA(255, 255, 255, 1)
+        InvertedColor: =RGBA(255, 255, 255, 1)
+        Items: =Filter(TestAA11, Members = "Herbie Lopez", DateValue >= DatePicker2.SelectedDate && DateValue <= DatePicker2_1.SelectedDate )
+        LinkColor: =RGBA(0, 134, 208, 1)
+        PrimaryColor1: =RGBA(105, 121, 126, 1)
+        PrimaryColor2: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PrimaryColor3: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+        SelectedColor: =RGBA(51, 51, 51, 1)
+        SelectedFill: =RGBA(105, 121, 126, .2)
+        Size: =13
+        Visible: =false
+        Width: =1920
+        X: =0
+        Y: =483
+        ZIndex: =6
+
+        DateDifference_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DateDifference"
+            FieldName: ="DateDifference"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.DateDifference
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =21
+
+        DateRange1_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DateRange1"
+            FieldName: ="DateRange1"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.DateRange1
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =22
+
+        DateRange2_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DateRange2"
+            FieldName: ="DateRange2"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.DateRange2
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =23
+
+        DateRange_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DateRange"
+            FieldName: ="DateRange"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.DateRange
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =24
+
+        Members_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Members"
+            FieldName: ="Members"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.Members
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =25
+
+        Work_Order_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Work_Order"
+            FieldName: ="Work_Order"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.Work_Order
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =26
+
+        DateValue_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DateValue"
+            FieldName: ="DateValue"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.DateValue
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =27
+
+        DateRG_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DateRG"
+            FieldName: ="DateRG"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.DateRG
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =28
+
+    DataTable3 As dataTable.datatable:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        HeadingColor: =RGBA(255, 255, 255, 1)
+        HeadingFill: =RGBA(105, 121, 126, 1)
+        HeadingFont: =Font.'Segoe UI'
+        HeadingFontWeight: =FontWeight.Normal
+        HeadingSize: =13
+        Height: =500
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(105, 121, 126, 1)
+        InputFill: =RGBA(255, 255, 255, 1)
+        InvertedColor: =RGBA(255, 255, 255, 1)
+        Items: =TestAA
+        LinkColor: =RGBA(0, 134, 208, 1)
+        PrimaryColor1: =RGBA(105, 121, 126, 1)
+        PrimaryColor2: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PrimaryColor3: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+        SelectedColor: =RGBA(51, 51, 51, 1)
+        SelectedFill: =RGBA(105, 121, 126, .2)
+        Size: =13
+        Visible: =false
+        Width: =800
+        X: =428
+        Y: =443
+        ZIndex: =7
+
+        EmailMembers_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="EmailMembers"
+            FieldName: ="EmailMembers"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.EmailMembers
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =29
+

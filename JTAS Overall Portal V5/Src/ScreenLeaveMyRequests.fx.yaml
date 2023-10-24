@@ -1,0 +1,2730 @@
+ScreenLeaveMyRequests As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    OnVisible: |
+        =If(IsBlank(isExpandPending), UpdateContext({isExpandPending: true}));
+        If(IsBlank(isExpandApproved), UpdateContext({isExpandApproved: false}));
+        If(IsBlank(isExpandDeclined), UpdateContext({isExpandDeclined: true}));
+        If(IsBlank(isAdvancedFilter), UpdateContext({isAdvancedFilter: false}));
+
+    ctnSidebarLeaveRequest As groupContainer:
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =Parent.Height - Self.Y
+        Width: =350
+        X: =LeftNavigation_10.Width
+        Y: =70
+        ZIndex: =1
+
+        Rectangle1_22 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(191, 191, 191, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(191, 191, 191, 1)
+            FocusedBorderThickness: =4
+            Height: =Parent.Height
+            HoverFill: =RGBA(105, 121, 126, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            Width: =1
+            X: =Parent.Width - Self.Width
+            ZIndex: =2
+
+        Container2_2 As groupContainer:
+            Height: =61
+            Width: =300
+            X: =48
+            Y: =11
+            ZIndex: =3
+
+            Circle1_1 As circle:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =40
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Width: =40
+                X: =30
+                Y: =12
+                ZIndex: =1
+
+            Label1_12 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Size: =13
+                Text: ="Add new request"
+                Width: =170
+                X: =78
+                Y: =12
+                ZIndex: =2
+
+            Icon2_1 As icon.Add:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(105, 121, 126, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =0
+                Height: =30
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Add
+                OnSelect: |
+                    =NewForm(frmAttachments);
+                    Set(viewLeave, true);
+                PaddingRight: =185
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =215
+                X: =35
+                Y: =17
+                ZIndex: =3
+
+        Container3_7 As groupContainer:
+            Height: =42
+            Width: =300
+            X: =25
+            Y: =84
+            ZIndex: =4
+
+            Icon3_6 As icon.Copy:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(105, 121, 126, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =DisplayMode.View
+                FocusedBorderThickness: =4
+                Height: =25
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Search
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =25
+                X: =10
+                Y: =(TextInput1_6.Height - Self.Height) / 2
+                ZIndex: =2
+
+            TextInput1_6 As text:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                HintText: ="Search leave request"
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                PaddingLeft: =45
+                PressedBorderColor: =RGBA(105, 121, 126, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =302
+                X: =-1
+                Y: =-1
+                ZIndex: =3
+
+        Container4_12 As groupContainer:
+            Height: =If(isAdvancedFilter, 180, 40)
+            Width: =350
+            Y: =Container3_7.Y + Container3_7.Height
+            ZIndex: =5
+
+            DatePicker1_10 As datepicker:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultDate: =DateAdd(Today(), -1, TimeUnit.Years)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                Format: ="mm/dd/yyyy"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(105, 121, 126, 1)
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "Select date submitted")
+                PaddingLeft: =10
+                PaddingTop: =5
+                SelectedDateFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                Width: =140
+                X: =25
+                Y: =111
+                ZIndex: =1
+
+            ComboBox2_14 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["SectionCode","ParentWorkOrderCode"]
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: =
+                IsSearchable: =false
+                Items: ='JTAS Section'
+                NoSelectionText: ="Select leave type"
+                OnChange: =
+                PaddingLeft: =12
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                SearchFields: =["AssignedMember"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                Width: =300
+                X: =25
+                Y: =41
+                ZIndex: =4
+
+            Label1_90 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(128, 128, 128, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                Size: =13
+                Text: |-
+                    ="From:"
+                X: =25
+                Y: =81
+                ZIndex: =5
+
+            DatePicker1_11 As datepicker:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultDate: =DateAdd(Today(), 1, TimeUnit.Years)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                Format: ="mm/dd/yyyy"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(105, 121, 126, 1)
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "Select date submitted")
+                PaddingLeft: =10
+                PaddingTop: =5
+                SelectedDateFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                Width: =140
+                X: =185
+                Y: =111
+                ZIndex: =6
+
+            Label1_91 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(128, 128, 128, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                Size: =13
+                Text: |-
+                    ="To:"
+                X: =185
+                Y: =81
+                ZIndex: =7
+
+            Container15_3 As groupContainer:
+                Height: =40
+                Width: =350
+                ZIndex: =8
+
+                Icon7_6 As icon.FilterFlat:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(105, 121, 126, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =20
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =If(isAdvancedFilter, Icon.FilterFlatFilled, Icon.FilterFlat)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =20
+                    X: =179
+                    Y: =(Parent.Height - Self.Height) / 2
+                    ZIndex: =1
+
+                Button1_21 As button:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    Font: =Font.'Segoe UI'
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =
+                    OnSelect: |-
+                        =UpdateContext({isAdvancedFilter: !isAdvancedFilter})
+                    PaddingLeft: =15
+                    PaddingRight: =25
+                    PressedBorderColor: =
+                    PressedColor: =RGBA(0, 0, 0, 1)
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Text: ="Advanced Filter"
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+        Gallery4_2 As gallery.variableTemplateHeightGallery:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Height: =Parent.Height - Self.Y - 25
+            Items: |-
+                =Table(
+                    {
+                        groupName: "Pending", 
+                        isExpand: isExpandPending,
+                        content: If(isExpandPending, SortByColumns(Filter('JTAS Leave Request V3', Status = "Pending", RequestBy = varUserEmail), "ID", SortOrder.Descending))
+                    },
+                    {
+                        groupName: "Declined", 
+                        isExpand: isExpandDeclined,
+                        content: If(isExpandDeclined, SortByColumns(Filter('JTAS Leave Request V3', Status = "Declined", RequestBy = varUserEmail), "ID", SortOrder.Descending))
+                    },
+                    {
+                        groupName: "Approved", 
+                        isExpand: isExpandApproved,
+                        content: If(isExpandApproved, SortByColumns(Filter('JTAS Leave Request V3', Status = "Approved", RequestBy = varUserEmail), "ID", SortOrder.Descending))
+                    }
+                )
+            Layout: =Layout.Vertical
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =127
+            Width: =320
+            X: =15
+            Y: =Container4_12.Y + Container4_12.Height
+            ZIndex: =6
+
+            Button1_7 As button:
+                Align: =Align.Left
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =
+                OnSelect: |
+                    =If(
+                        ThisItem.groupName = "Pending", UpdateContext({isExpandPending: !isExpandPending}),
+                        ThisItem.groupName = "Approved", UpdateContext({isExpandApproved: !isExpandApproved}),
+                        ThisItem.groupName = "Declined", UpdateContext({isExpandDeclined: !isExpandDeclined})
+                    )
+                PaddingLeft: =15
+                PressedBorderColor: =
+                PressedColor: =RGBA(0, 0, 0, 1)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Text: =If(ThisItem.isExpand, "▾", "▸") & " " & ThisItem.groupName
+                Width: =Parent.Width
+                ZIndex: =1
+
+            Gallery2_6 As gallery.galleryVertical:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Height: =CountRows(Self.AllItems) * (Self.TemplateHeight + Self.TemplatePadding) + 2 * Self.TemplatePadding
+                Items: =ThisItem.content
+                Layout: =Layout.Vertical
+                ShowNavigation: =true
+                ShowScrollbar: =false
+                TemplatePadding: =8
+                TemplateSize: =80
+                Width: =320
+                Y: =33
+                ZIndex: =2
+
+                Container4_13 As groupContainer:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.TemplateHeight
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =2
+
+                    Label2_41 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: =20
+                        OnSelect: =
+                        Size: =12
+                        Text: =Text(ThisItem.StartDate, "mmm. dd, yyyy") & " to " & Text(ThisItem.EndDate, "mmm. dd, yyyy")
+                        Width: =259
+                        X: =40
+                        Y: =Label2_34.Y + Label2_34.Height - 5
+                        ZIndex: =1
+
+                    Label2_34 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(51, 51, 51, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        OnSelect: =
+                        Size: =13
+                        Text: =LookUp('JTAS Nature of Leave', NLCode = ThisItem.NatureOfLeave, NLTitle)
+                        Width: =235
+                        Wrap: =false
+                        X: =40
+                        Y: =12
+                        ZIndex: =2
+
+                    Circle2_8 As circle:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledFill: =RGBA(105, 121, 126, 1)
+                        Fill: =RGBA(RandBetween(0,255),RandBetween(0,255),RandBetween(0,255),1)
+                        Height: =15
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =15
+                        X: |
+                            =15
+                        Y: =(Parent.Height - Self.Height) / 2
+                        ZIndex: =3
+
+                    Button1_22 As button:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(0, 0, 0, 1%)
+                        OnSelect: |-
+                            =UpdateContext({varSelectedLeave: ThisItem})
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(255, 255, 255, 10%)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.Width
+                        ZIndex: =4
+
+                    Rectangle1_23 As rectangle:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        DisabledFill: =RGBA(152, 208, 70, 1)
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(152, 208, 70, 1)
+                        FocusedBorderThickness: =4
+                        Height: =80
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Visible: =ThisItem.RequestDate = varSelectedLeave.RequestDate
+                        Width: =10
+                        X: =294
+                        ZIndex: =5
+
+    Header_10 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_10.Width
+        ZIndex: =2
+
+    LeftNavigation_10 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =3
+
+    ctnViewLeaveDetails As groupContainer:
+        BorderColor: =RGBA(230, 230, 230, 1)
+        BorderThickness: =1
+        Fill: =RGBA(249, 249, 249, 1)
+        Height: =Parent.Height-Self.Y-50
+        Visible: =!IsBlank(varSelectedLeave)
+        Width: =800
+        X: =ctnSidebarLeaveRequest.X + ctnSidebarLeaveRequest.Width + Max(0, (App.Width - (ctnSidebarLeaveRequest.X + ctnSidebarLeaveRequest.Width) - Self.Width) / 2)
+        Y: =Header_10.Y + Header_10.Height + 50
+        ZIndex: =4
+
+        icoTotalTimeRequested As icon.Document:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisplayMode: =DisplayMode.View
+            Height: =35
+            Icon: =Icon.Clock
+            Width: =35
+            X: =47
+            Y: =176
+            ZIndex: =2
+
+        lblTotalTimeRequested As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblTotalTimeRequested.BorderColor
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =lblTotalTimeRequested.BorderColor
+            HoverColor: =lblTotalTimeRequested.Color
+            HoverFill: =lblTotalTimeRequested.Fill
+            Live: =Live.Polite
+            PressedBorderColor: =lblTotalTimeRequested.BorderColor
+            PressedColor: =lblTotalTimeRequested.Color
+            PressedFill: =lblTotalTimeRequested.Fill
+            Size: =13
+            Text: ="TOTAL TIME REQUESTED"
+            VerticalAlign: =VerticalAlign.Bottom
+            Width: =216
+            X: =91
+            Y: =151
+            ZIndex: =3
+
+        lblEquivalentDays As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblEquivalentDays.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =lblEquivalentDays.BorderColor
+            HoverColor: =lblEquivalentDays.Color
+            HoverFill: =lblEquivalentDays.Fill
+            LineHeight: =1.1
+            Live: =Live.Polite
+            PressedBorderColor: =lblEquivalentDays.BorderColor
+            PressedColor: =lblEquivalentDays.Color
+            PressedFill: =lblEquivalentDays.Fill
+            Size: =13
+            Text: =If(varSelectedLeave.LeaveDuration = "Half Day", "Half Day (" & varSelectedLeave.HalfDay & ")", varSelectedLeave.EquivalentDays & " day/s")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =255
+            X: =91
+            Y: =192
+            ZIndex: =4
+
+        lblLeaveType As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblLeaveType.BorderColor
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =lblLeaveType.BorderColor
+            HoverColor: =lblLeaveType.Color
+            HoverFill: =lblLeaveType.Fill
+            Live: =Live.Polite
+            PressedBorderColor: =lblLeaveType.BorderColor
+            PressedColor: =lblLeaveType.Color
+            PressedFill: =lblLeaveType.Fill
+            Size: =13
+            Text: ="LEAVE TYPE"
+            VerticalAlign: =VerticalAlign.Bottom
+            Width: =235
+            X: =91
+            Y: =223
+            ZIndex: =5
+
+        lblLeaveDetails As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblLeaveDetails.BorderColor
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =lblLeaveDetails.BorderColor
+            HoverColor: =lblLeaveDetails.Color
+            HoverFill: =lblLeaveDetails.Fill
+            Live: =Live.Polite
+            PressedBorderColor: =lblLeaveDetails.BorderColor
+            PressedColor: =lblLeaveDetails.Color
+            PressedFill: =lblLeaveDetails.Fill
+            Size: =13
+            Text: ="LEAVE DETAILS"
+            VerticalAlign: =VerticalAlign.Bottom
+            Width: =235
+            X: =91
+            Y: =353
+            ZIndex: =6
+
+        icoLeaveType As icon.Document:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisplayMode: =DisplayMode.View
+            Height: =35
+            Icon: |-
+                ="builtinicon:" & LookUp('JTAS Nature of Leave', NLCode = varSelectedLeave.NatureOfLeave, NLIcon)
+            Width: =35
+            X: =47
+            Y: =247
+            ZIndex: =7
+
+        icoLeaveDetails As icon.Document:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisplayMode: =DisplayMode.View
+            Height: =35
+            Icon: =Icon.Hamburger
+            Width: =35
+            X: =47
+            Y: =377
+            ZIndex: =8
+
+        lblSelectedRequestLeaveType As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblSelectedRequestLeaveType.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =lblSelectedRequestLeaveType.BorderColor
+            HoverColor: =lblSelectedRequestLeaveType.Color
+            HoverFill: =lblSelectedRequestLeaveType.Fill
+            LineHeight: =1.1
+            Live: =Live.Polite
+            PressedBorderColor: =lblSelectedRequestLeaveType.BorderColor
+            PressedColor: =lblSelectedRequestLeaveType.Color
+            PressedFill: =lblSelectedRequestLeaveType.Fill
+            Size: =13
+            Text: =LookUp('JTAS Nature of Leave', NLCode = varSelectedLeave.NatureOfLeave, NLTitle)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =266
+            X: =91
+            Y: =263
+            ZIndex: =9
+
+        lblSelectedRequestDescription As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblSelectedRequestDescription.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =108
+            HoverBorderColor: =lblSelectedRequestDescription.BorderColor
+            HoverColor: =lblSelectedRequestDescription.Color
+            HoverFill: =lblSelectedRequestDescription.Fill
+            LineHeight: =1.1
+            Live: =Live.Polite
+            Overflow: =Overflow.Scroll
+            PressedBorderColor: =lblSelectedRequestDescription.BorderColor
+            PressedColor: =lblSelectedRequestDescription.Color
+            PressedFill: =lblSelectedRequestDescription.Fill
+            Size: =13
+            Text: =varSelectedLeave.Description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =266
+            X: =91
+            Y: =393
+            ZIndex: =10
+
+        galApprovalDetails As gallery.variableTemplateHeightGallery:
+            BorderColor: =Color.DarkRed
+            Height: =284
+            Items: |-
+                =FirstN(Table(
+                    {ApprovalBy: varSelectedLeave.ApproverName1, ApprovalStatus: varSelectedLeave.ApprovalStatus1, Comment: varSelectedLeave.ApproverComment1},
+                    {ApprovalBy: varSelectedLeave.ApproverName2, ApprovalStatus: varSelectedLeave.ApprovalStatus2, Comment: varSelectedLeave.ApproverComment2},
+                    {ApprovalBy: varSelectedLeave.ApproverName3, ApprovalStatus: varSelectedLeave.ApprovalStatus3, Comment: varSelectedLeave.ApproverComment3}), 
+                    If(!IsBlank(varSelectedLeave.ApproverName3), 3, If(!IsBlank(varSelectedLeave.ApproverName2), 2, If(!IsBlank(varSelectedLeave.ApproverName1), 1))))
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplateSize: =53
+            Transition: =Transition.Pop
+            Width: =340
+            X: =440
+            Y: =86
+            ZIndex: =11
+
+            Triangle1 As triangle.rightAngled:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                BorderThickness: =0.5
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Visible: =Label4_6.Visible
+                Width: =27
+                X: =22
+                Y: =28
+                ZIndex: =1
+
+            Image5 As image:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =35
+                Image: |-
+                    =IfError(Office365Users.UserPhoto(First(Office365Users.SearchUser({searchTerm:ThisItem.ApprovalBy})).Id),SampleImage)
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =30
+                RadiusBottomRight: =30
+                RadiusTopLeft: =30
+                RadiusTopRight: =30
+                Width: =35
+                X: =5
+                Y: =14
+                ZIndex: =2
+
+            Label1_80 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =LookUp('JTAS Members V2', EmailAddress = ThisItem.ApprovalBy, MemberName)
+                Width: =174
+                X: =38
+                Y: =13
+                ZIndex: =3
+
+            Button1_8 As button:
+                BorderColor: =Self.Color
+                Color: |-
+                    =If(Upper(ThisItem.ApprovalStatus)="PENDING",Color.Blue,
+                    Upper(ThisItem.ApprovalStatus)="DECLINED",RGBA(213, 0, 0, 1),
+                    Upper(ThisItem.ApprovalStatus)="APPROVED",RGBA(0, 128, 0, 1))
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+                Fill: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(54, 176, 75, 1)
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Size: =10.5
+                Text: =Upper(ThisItem.ApprovalStatus)
+                Width: =88
+                X: =227
+                Y: =19
+                ZIndex: =4
+
+            Rectangle12 As rectangle:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                BorderThickness: =1
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =Label4_6.Height
+                OnSelect: =Select(Parent)
+                Visible: =Label4_6.Visible
+                Width: =275
+                X: =40
+                Y: =19
+                ZIndex: =5
+
+            Rectangle12_1 As rectangle:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                BorderThickness: =1
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =Label4_6.Height
+                OnSelect: =Select(Parent)
+                Visible: =Label4_6.Visible
+                Width: =9
+                X: =13
+                Y: =19
+                ZIndex: =6
+
+            Rectangle12_2 As rectangle:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                BorderThickness: =1
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =Label4_6.Height-5
+                OnSelect: =Select(Parent)
+                Visible: =Label4_6.Visible
+                Width: =15
+                X: =24
+                Y: =24
+                ZIndex: =7
+
+            Label4_6 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                Height: =34
+                OnSelect: =Select(Parent)
+                PaddingBottom: =8
+                PaddingLeft: =8
+                PaddingRight: =8
+                PaddingTop: =8
+                Size: =10.5
+                Text: =ThisItem.Comment
+                VerticalAlign: =VerticalAlign.Top
+                Visible: =!IsBlank(Self.Text)
+                Width: =302
+                X: =13
+                Y: =19
+                ZIndex: =8
+
+        lblApprovalDetailsHeader As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =Color.DarkRed
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblApprovalDetailsHeader.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Bold
+            Height: =24
+            HoverBorderColor: =lblApprovalDetailsHeader.BorderColor
+            HoverColor: =lblApprovalDetailsHeader.Color
+            HoverFill: =lblApprovalDetailsHeader.Fill
+            PressedBorderColor: =lblApprovalDetailsHeader.BorderColor
+            PressedColor: =lblApprovalDetailsHeader.Color
+            PressedFill: =lblApprovalDetailsHeader.Fill
+            Size: =13.5
+            Text: ="Approval Details"
+            Width: =316
+            X: =452
+            Y: =40
+            ZIndex: =12
+
+        btnEmployeeCancel As button:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =ColorFade(btnEmployeeCancel.BorderColor, 70%)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =btnEmployeeCancel.BorderColor
+            FocusedBorderThickness: =2
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =ColorFade(btnEmployeeCancel.BorderColor, 20%)
+            HoverColor: =btnEmployeeCancel.Color
+            HoverFill: =btnEmployeeCancel.Fill
+            OnSelect: |-
+                =UpdateContext({varPopUp: "popConfirmCancelLeave"});
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =btnEmployeeCancel.Fill
+            PressedColor: =btnEmployeeCancel.Color
+            PressedFill: =btnEmployeeCancel.Fill
+            RadiusBottomLeft: =13
+            RadiusBottomRight: =13
+            RadiusTopLeft: =13
+            RadiusTopRight: =13
+            Size: =10.5
+            Text: ="Cancel"
+            Tooltip: ="Cancel Leave Application"
+            Width: =91
+            X: =689
+            Y: =14
+            ZIndex: =13
+
+        lblTotalTimeRequested_3 As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(47,41,43,1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblTotalTimeRequested_3.BorderColor
+            FocusedBorderThickness: =2
+            HoverBorderColor: =lblTotalTimeRequested_3.BorderColor
+            HoverColor: =lblTotalTimeRequested_3.Color
+            HoverFill: =lblTotalTimeRequested_3.Fill
+            Live: =Live.Polite
+            PressedBorderColor: =lblTotalTimeRequested_3.BorderColor
+            PressedColor: =lblTotalTimeRequested_3.Color
+            PressedFill: =lblTotalTimeRequested_3.Fill
+            Size: =13
+            Text: ="STATUS"
+            Width: =116
+            X: =91
+            Y: =312
+            ZIndex: =16
+
+        lblEquivalentDays_1 As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(47,41,43,1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblEquivalentDays_1.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Bold
+            HoverBorderColor: =lblEquivalentDays_1.BorderColor
+            HoverColor: =lblEquivalentDays_1.Color
+            HoverFill: =lblEquivalentDays_1.Fill
+            LineHeight: =1.1
+            Live: =Live.Polite
+            PressedBorderColor: =lblEquivalentDays_1.BorderColor
+            PressedColor: =lblEquivalentDays_1.Color
+            PressedFill: =lblEquivalentDays_1.Fill
+            Size: =13
+            Text: =varSelectedLeave.Status
+            Width: =153
+            X: =210
+            Y: =310
+            ZIndex: =17
+
+        lblApprovalDetailsHeader_1 As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =Color.DarkRed
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblApprovalDetailsHeader_1.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            HoverBorderColor: =lblApprovalDetailsHeader_1.BorderColor
+            HoverColor: =lblApprovalDetailsHeader_1.Color
+            HoverFill: =lblApprovalDetailsHeader_1.Fill
+            PressedBorderColor: =lblApprovalDetailsHeader_1.BorderColor
+            PressedColor: =lblApprovalDetailsHeader_1.Color
+            PressedFill: =lblApprovalDetailsHeader_1.Fill
+            Size: =13.5
+            Text: ="Leave Request Details"
+            Width: =316
+            X: =47
+            Y: =40
+            ZIndex: =18
+
+        lblLeaveDetails_1 As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(47,41,43,1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblLeaveDetails_1.BorderColor
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =lblLeaveDetails_1.BorderColor
+            HoverColor: =lblLeaveDetails_1.Color
+            HoverFill: =lblLeaveDetails_1.Fill
+            Live: =Live.Polite
+            PressedBorderColor: =lblLeaveDetails_1.BorderColor
+            PressedColor: =lblLeaveDetails_1.Color
+            PressedFill: =lblLeaveDetails_1.Fill
+            Size: =13
+            Text: ="ATTACHMENTS"
+            VerticalAlign: =VerticalAlign.Bottom
+            Width: =235
+            X: =492
+            Y: =367
+            ZIndex: =19
+
+        icoLeaveDetails_1 As icon.Document:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisplayMode: =DisplayMode.View
+            Height: =35
+            Icon: =Icon.PaperClip
+            Width: =35
+            X: =440
+            Y: =395
+            ZIndex: =20
+
+        icoTotalTimeRequested_1 As icon.Document:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisplayMode: =DisplayMode.View
+            Height: =35
+            Icon: =Icon.ChevronDown
+            Width: =35
+            X: =47
+            Y: =315
+            ZIndex: =22
+
+        Gallery3 As gallery.galleryVertical:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Height: =157
+            Items: =LookUp('JTAS Leave Request V3', ParentLeaveID = varSelectedLeave.ParentLeaveID).Attachments
+            Layout: =Layout.Vertical
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =40
+            Width: =293
+            X: =487
+            Y: =416
+            ZIndex: =23
+
+            Button6 As button:
+                Align: =Align.Left
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(47, 41, 43, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                Height: =Parent.TemplateHeight
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =
+                OnSelect: =Download(ThisItem.AbsoluteUri)
+                PaddingLeft: =10
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Text: =Left(ThisItem.DisplayName, 25) & "..." & Right(ThisItem.DisplayName, 3)
+                Width: =Parent.TemplateWidth
+                ZIndex: =1
+
+        icoTotalTimeRequested_2 As icon.Document:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisplayMode: =DisplayMode.View
+            Height: =35
+            Icon: =Icon.AddToCalendar
+            Width: =35
+            X: =47
+            Y: =87
+            ZIndex: =25
+
+        lblTotalTimeRequested_2 As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblTotalTimeRequested_2.BorderColor
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =lblTotalTimeRequested_2.BorderColor
+            HoverColor: =lblTotalTimeRequested_2.Color
+            HoverFill: =lblTotalTimeRequested_2.Fill
+            Live: =Live.Polite
+            PressedBorderColor: =lblTotalTimeRequested_2.BorderColor
+            PressedColor: =lblTotalTimeRequested_2.Color
+            PressedFill: =lblTotalTimeRequested_2.Fill
+            Size: =13
+            Text: ="LEAVE DATE"
+            VerticalAlign: =VerticalAlign.Bottom
+            Width: =216
+            X: =91
+            Y: =59
+            ZIndex: =26
+
+        lblEquivalentDays_3 As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblEquivalentDays_3.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =lblEquivalentDays_3.BorderColor
+            HoverColor: =lblEquivalentDays_3.Color
+            HoverFill: =lblEquivalentDays_3.Fill
+            LineHeight: =1.1
+            Live: =Live.Polite
+            PressedBorderColor: =lblEquivalentDays_3.BorderColor
+            PressedColor: =lblEquivalentDays_3.Color
+            PressedFill: =lblEquivalentDays_3.Fill
+            Size: =13
+            Text: =varSelectedLeave.StartDate & " to " & varSelectedLeave.EndDate
+            VerticalAlign: =VerticalAlign.Top
+            Width: =270
+            X: =91
+            Y: =102
+            ZIndex: =27
+
+        lblEquivalentDays_4 As label:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(47,41,43,1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =lblEquivalentDays_4.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =lblEquivalentDays_4.BorderColor
+            HoverColor: =lblEquivalentDays_4.Color
+            HoverFill: =lblEquivalentDays_4.Fill
+            LineHeight: =1.1
+            Live: =Live.Polite
+            PressedBorderColor: =lblEquivalentDays_4.BorderColor
+            PressedColor: =lblEquivalentDays_4.Color
+            PressedFill: =lblEquivalentDays_4.Fill
+            Size: =13
+            Text: ="No attachments"
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =IsEmpty(Gallery3.AllItems)
+            Width: =153
+            X: =492
+            Y: =407
+            ZIndex: =28
+
+    popAddModifyLeaveRequest As groupContainer:
+        Fill: =RGBA(0, 0, 0, 0.3)
+        Height: =Parent.Height - Self.Y
+        Visible: =viewLeave
+        Width: =Parent.Width - Self.X
+        ZIndex: =5
+
+        Container9_6 As groupContainer:
+            BorderColor: =RGBA(191, 191, 191, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =620
+            Width: =1000
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =1
+
+            Icon4_5 As icon.Cancel:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(105, 121, 126, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Cancel
+                OnSelect: =Set(viewLeave, false)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =40
+                X: =Parent.Width - Self.Width - 15
+                Y: =15
+                ZIndex: =1
+
+            Label1_79 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(36, 42, 44, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Size: =15
+                Text: ="Add new request"
+                Width: =236
+                X: =19
+                Y: =4
+                ZIndex: =2
+
+            LeaveStartDatePicker As datepicker:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                Format: ="mm/dd/yyyy"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(105, 121, 126, 1)
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "Select date submitted")
+                PaddingLeft: =10
+                PaddingTop: =5
+                SelectedDateFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                Width: =200
+                X: =509
+                Y: =164
+                ZIndex: =4
+
+            Label1_188 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(128, 128, 128, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                Size: =13
+                Text: |-
+                    ="From:"
+                X: =509
+                Y: =134
+                ZIndex: =5
+
+            LeaveEndDatePicker As datepicker:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                Format: ="mm/dd/yyyy"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(105, 121, 126, 1)
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "Select date submitted")
+                PaddingLeft: =10
+                PaddingTop: =5
+                SelectedDateFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                Width: =200
+                X: =739
+                Y: =165
+                ZIndex: =6
+
+            Label1_189 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(128, 128, 128, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                Size: =13
+                Text: |-
+                    ="To:"
+                X: =739
+                Y: =133
+                ZIndex: =7
+
+            chbHalfDay As checkbox:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                CheckboxSize: =30
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |-
+                    =//If(LeaveStartDatePicker.SelectedDate = LeaveEndDatePicker.SelectedDate,DisplayMode.Edit,DisplayMode.Disabled)
+                    DisplayMode.Edit
+                Font: =Font.Lato
+                Height: =40
+                HoverColor: =Color.DarkRed
+                Size: =13
+                Text: ="Half Day"
+                Tooltip: ="This checkbox is only available for a single day leave"
+                Width: =114
+                X: =519
+                Y: =222
+                ZIndex: =8
+
+            inputLeaveDetails As text:
+                AccessibleLabel: ="Leave detail"
+                BorderColor: =Color.Black
+                BorderThickness: =2
+                Color: =RGBA(47, 41, 43, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(159, 167, 165, 1)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+                FocusedBorderColor: =inputLeaveDetails.BorderColor
+                FocusedBorderThickness: =2
+                Font: =Font.Lato
+                Height: =120
+                HoverBorderColor: =Color.Black
+                HoverColor: =Color.Black
+                HoverFill: =RGBA(0,0,0,0)
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                PressedBorderColor: =inputLeaveDetails.HoverBorderColor
+                PressedColor: =inputLeaveDetails.Color
+                PressedFill: =inputLeaveDetails.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =10.5
+                Width: =230
+                X: =509
+                Y: =324
+                ZIndex: =9
+
+            frmAttachments As form:
+                AcceptsFocus: =false
+                BorderColor: =RGBA(0, 18, 107, 1)
+                DataSource: ='JTAS Leave Request V3'
+                Height: =186
+                Width: =251
+                X: =739
+                Y: =281
+                ZIndex: =10
+
+                Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="{Attachments}"
+                    Default: =ThisItem.Attachments
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: ="Attachments"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =174
+                    Required: =false
+                    Update: =DataCardValue1.Attachments
+                    Width: =249
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey1 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Bold
+                        Height: =34
+                        Size: =10.5
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue1 As attachments:
+                        BorderColor: =Color.Black
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.Lato
+                        Height: =126
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        IsInDataCard: =true
+                        ItemColor: =RGBA(255, 255, 255, 1)
+                        ItemFill: =RGBA(56, 96, 178, 1)
+                        ItemHoverColor: =RGBA(0, 0, 0, 1)
+                        ItemHoverFill: =RGBA(186, 202, 226, 1)
+                        Items: =Parent.Default
+                        NoAttachmentsText: ="There is nothing attached."
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 18, 107, 1)
+                        Size: =10.5
+                        Tooltip: =Parent.DisplayName
+                        Width: =186
+                        X: =30
+                        Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                        ZIndex: =2
+
+                    StarVisible1 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(0, 18, 107, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =DataCardKey1.Height
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey1.Y
+                        ZIndex: =4
+
+            NewRequestLeaveTypeGallery As gallery.galleryVertical:
+                BorderColor: =RGBA(255,255,255,1)
+                BorderThickness: =1
+                DisabledBorderColor: =NewRequestLeaveTypeGallery.BorderColor
+                DisabledFill: =NewRequestLeaveTypeGallery.Fill
+                Height: =217
+                HoverBorderColor: =NewRequestLeaveTypeGallery.BorderColor
+                HoverFill: =NewRequestLeaveTypeGallery.Fill
+                Items: |-
+                    =AddColumns(AddColumns('JTAS Nature of Leave',
+                    
+                    "TotalBalance",
+                    Switch(NLGroup,
+                    
+                    "VL/SL/EL", 
+                    If(CountRows(Filter('JTAS Assignments', Email_Add = varUserEmail,JTAS_ReturnDate = Blank())) >= 1, 0,
+                    
+                    (RoundDown(2*(Sum(AddColumns(AddColumns(
+                    Filter(AddColumns(
+                    //Retrieve and use JTAS Mobilization from SharePoint
+                    'JTAS Mobilization',
+                    
+                    //Add a computed column "JTAS_EndDateComputed"
+                    "JTAS_EndDateComputed", 
+                    If(IsBlank(JTAS_EndDate),Date(Year(Now()),12,31),JTAS_EndDate),
+                    
+                    "ValidThisYear",
+                    Year(JTAS_MobDate) = Year(Now()) || Year(JTAS_EndDate) = Year(Now()) || IsBlank(JTAS_EndDate)
+                     
+                    ), //If JTAS_EndDate is Blank, Date is the Dec 31, [Year today]
+                    
+                    //Filter entry should be same with the user email, mob date should be greater than or equal start of the year, end date should be less than or equal end of the year
+                    Email_Add = varUserEmail && ValidThisYear),
+                    
+                    //Add a computed column for the earning StartDate
+                    "StartDate",
+                    If(JTAS_MobDate<Date(Year(Now()),1,1), Date(Year(Now()),1,1), JTAS_MobDate),
+                    
+                    //Add a computed column for the earning EndDate
+                    "EndDate",
+                    If(JTAS_EndDateComputed<Now() Or Now()>= Date(Year(Now()),11,15),JTAS_EndDateComputed,Now())
+                    ),
+                    
+                    //Add a column for Earned Leave
+                    "CurrentEarnedLeave",
+                    (EndDate - StartDate)/
+                    (Date(Year(Now()),12,31) - Date(Year(Now()),1,1))
+                    *If(JTAS_Status in ["Regular Probationary","Contractual"],0,
+                    If(Value(Value(varUserData.Grade)) = 6,
+                    25,
+                    20)
+                    
+                    )
+                    ),
+                    
+                    //Sum the earned leave of all entries
+                    CurrentEarnedLeave
+                    )
+                    //Leave Adjustments
+                    
+                    + LookUp('JTAS Leave Adjustments', EmailAddress = varUserEmail && NatureOfLeave = "MPL" && ApplicableYear = Year(Now()) && AdjustmentType = "Addition", EquivalentDays)
+                    
+                    - LookUp('JTAS Leave Adjustments', EmailAddress = varUserEmail && NatureOfLeave = "MPL" && ApplicableYear = Year(Now()) && AdjustmentType = "Deduction", EquivalentDays))
+                    ,0)/2)
+                    
+                    
+                    //contractual leave..first get the status
+                    +If(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_Status = "Contractual", 
+                    
+                    If(
+                        //one year as contractual add 5
+                        Now()>DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,1,TimeUnit.Years) And
+                        Now()<DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,2,TimeUnit.Years), 
+                        5,
+                        
+                        //two years as contractual
+                        Now()>DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,2,TimeUnit.Years) And
+                        Now()<DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,3,TimeUnit.Years), 
+                        5,
+                        
+                        //three years as contractual
+                        Now()>DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,4,TimeUnit.Years) And
+                        Now()<DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,5,TimeUnit.Years), 
+                        5,
+                    
+                    
+                        //4 years as contractual
+                        Now()>DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,6,TimeUnit.Years) And
+                        Now()<DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,7,TimeUnit.Years), 
+                        5,
+                        
+                        0))
+                    
+                    
+                    +CountRows(Filter(AddColumns(
+                    //Use JTAS Holidays as source
+                    Filter(Filter('JTAS Holidays', HolidayDate >= Date(Year(Now()),1,1)), HolidayDate <= If(Now() >= Date(Year(Now()),11,15), Date(Year(Now()),12,31), Now())),
+                    
+                    //Add Computed Columns
+                    "UserOnJTAS",
+                    !IsEmpty(Filter(AddColumns('JTAS Mobilization',"EndDateBlank", IsBlank(JTAS_EndDate)), Email_Add = varUserEmail , JTAS_MobDate <= HolidayDate, JTAS_EndDate >= HolidayDate || EndDateBlank)),
+                    
+                    "UserNotOnAssignment",
+                    IsEmpty(Filter(AddColumns('JTAS Assignments',"EndDateBlank", IsBlank(JTAS_ReturnDate)), Email_Add = varUserEmail, PJ_MobDate <= HolidayDate, JTAS_ReturnDate >= HolidayDate || EndDateBlank)),
+                    
+                    "HolidayOnWeekend",
+                    Weekday(HolidayDate,2)>5
+                    ),
+                    
+                    //Conditions for the earned leave from Holiday
+                    HolidayType = "Legal",                                              //Should be legal Holiday
+                    HolidayOnWeekend,                                                   //Should happen on weekend
+                    HolidayDate >= Date(Year(Now()),1,1) And HolidayDate <= If(Now() >= Date(Year(Now()),11,15), Date(Year(Now()),12,31), Now()),   //Should happen from the start of the year until now
+                    UserOnJTAS,                                                         //User must be on JTAS during the holiday
+                    UserNotOnAssignment                                                 //User must not be on a assignment during the holiday
+                    ))
+                    
+                    - (RoundDown(Sum(Filter(AddColumns(
+                    
+                     //Use JTAS Assignment from SharePoint
+                    'JTAS Assignments',
+                    
+                     //Add computed columns
+                    "ActiveThisYear", 
+                    Year(PJ_MobDate) = Year(Now()) || Year(JTAS_ReturnDate) = Year(Now()),
+                    
+                    "StartDate", 
+                    If(PJ_MobDate<Date(Year(Now()),1,1),Date(Year(Now()),1,1),PJ_MobDate),
+                    
+                     "EndDate",
+                    If(JTAS_ReturnDate>Now(),Now(),JTAS_ReturnDate)
+                    ),
+                    
+                    //Filter items
+                    Email_Add = varUserEmail,                   //The items should only belong to the selected User
+                    ActiveThisYear                              //Should be active this year
+                    ),
+                    
+                    2*(
+                        If(IsBlank(EndDate), Date(Year(Now()),12,31), EndDate)
+                    
+                     - StartDate)/(Date(Year(Now()),12,31) - Date(Year(Now()),1,1))
+                    *If(Status in ["Regular Probationary","Contractual"],0,
+                    If(Value(varUserData.Grade) = 6,
+                    25,
+                    20))),0)/2)
+                    
+                    )
+                    
+                    ,
+                    
+                    "Company Leave",15,
+                    
+                    "Unpaid Leave", 999,
+                    
+                    "Solo Parent Leave", 7,
+                    
+                    "Maternity Leave", 105,
+                    
+                    "Paternity Leave", 7,
+                    
+                    "Bereavement Leave",5
+                    
+                    ) 
+                    
+                    -Sum(Filter(AddColumns(Filter('JTAS Leave Request V3', 
+                        RequestBy = varUserEmail, 
+                        StartDate >= Date(Year(Now()),1,1), 
+                        StartDate <= Date(Year(Now()),12,31), 
+                        Status = "Ongoing" Or Status = "Approved"),
+                            "RequestGroup", LookUp('JTAS Nature of Leave',NLCode=NatureOfLeave, NLGroup)), RequestGroup = NLGroup
+                        ),EquivalentDays)),
+                    
+                    "DisplayMode",
+                    If(varUserData.Gender = "Male" And NLTitle = "Paternity Leave" Or NLTitle ="Sick Leave" Or NLTitle ="Emergency Leave" Or NLTitle ="Vacation Leave" Or NLTitle ="Solo Parent Leave" Or NLTitle ="Bereavement Leave" Or NLTitle ="Unpaid Leave",
+                    
+                    DisplayMode.Edit,
+                    varUserData.Gender = "Female" And NLTitle = "Maternity Leave" Or NLTitle ="Sick Leave" Or NLTitle ="Emergency Leave" Or NLTitle ="Vacation Leave" Or NLTitle ="Solo Parent Leave" Or NLTitle ="Bereavement Leave" Or NLTitle ="Unpaid Leave",
+                    DisplayMode.Edit,
+                    
+                    DisplayMode.Disabled))
+                Layout: =Layout.Vertical
+                LoadingSpinnerColor: =NewRequestLeaveTypeGallery.BorderColor
+                OnSelect: =
+                PressedBorderColor: =NewRequestLeaveTypeGallery.BorderColor
+                PressedFill: =NewRequestLeaveTypeGallery.Fill
+                ShowNavigation: =true
+                ShowScrollbar: =false
+                TemplatePadding: =10
+                TemplateSize: =60
+                Width: =435
+                WrapCount: =2
+                X: =20
+                Y: =190
+                ZIndex: =11
+
+                NRLeaveCellBK As rectangle:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    DisabledFill: =NRLeaveCellBK.Fill
+                    DisplayMode: =
+                    Fill: =RGBA(62, 96, 170, 0)
+                    FocusedBorderColor: =NRLeaveCellBK.BorderColor
+                    FocusedBorderThickness: =0
+                    Height: =Parent.TemplateHeight
+                    HoverFill: =NRLeaveCellBK.Fill
+                    PressedFill: =NRLeaveCellBK.Fill
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =1
+
+                NRLeaveTypeButton As button:
+                    BorderColor: =Color.Black
+                    DisabledBorderColor: =ColorFade(NRLeaveTypeButton.BorderColor, 70%)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+                    DisplayMode: |-
+                        =If(varUserData.Gender = "Male" And ThisItem.NLTitle = "Paternity Leave" Or ThisItem.NLTitle ="Sick Leave" Or ThisItem.NLTitle ="Emergency Leave" Or ThisItem.NLTitle ="Vacation Leave" Or ThisItem.NLTitle ="Solo Parent Leave" Or ThisItem.NLTitle ="Bereavement Leave" Or ThisItem.NLTitle ="Unpaid Leave",
+                        
+                        DisplayMode.Edit,
+                        varUserData.Gender = "Female" And ThisItem.NLTitle = "Maternity Leave" Or ThisItem.NLTitle ="Sick Leave" Or ThisItem.NLTitle ="Emergency Leave" Or ThisItem.NLTitle ="Vacation Leave" Or ThisItem.NLTitle ="Solo Parent Leave" Or ThisItem.NLTitle ="Bereavement Leave" Or ThisItem.NLTitle ="Unpaid Leave",
+                        DisplayMode.Edit,
+                        
+                        DisplayMode.Disabled)
+                    Fill: =If(varSelectedType.NLCode=ThisItem.NLCode, RGBA(51,51,51,1), Color.White)
+                    FocusedBorderColor: =NRLeaveTypeButton.BorderColor
+                    FocusedBorderThickness: =0
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Bold
+                    Height: =Parent.TemplateHeight
+                    HoverBorderColor: =ColorFade(NRLeaveTypeButton.BorderColor, 20%)
+                    HoverColor: =NRLeaveTypeButton.Color
+                    HoverFill: =ColorFade(NRLeaveTypeButton.Fill, 20%)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    PressedBorderColor: =NRLeaveTypeButton.Fill
+                    PressedColor: =NRLeaveTypeButton.Fill
+                    PressedFill: =NRLeaveTypeButton.Color
+                    RadiusBottomLeft: =15
+                    RadiusBottomRight: =15
+                    RadiusTopLeft: =15
+                    RadiusTopRight: =15
+                    Size: =14
+                    Text: =""
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =2
+
+                NRLeaveTypeLabel As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =If(varSelectedType.NLCode=ThisItem.NLCode, Color.White, Color.Black)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    DisplayMode: =
+                    FocusedBorderColor: =NRLeaveTypeLabel.BorderColor
+                    Font: =Font.Lato
+                    Height: =Parent.TemplateHeight
+                    HoverBorderColor: =NRLeaveTypeLabel.BorderColor
+                    HoverColor: =NRLeaveTypeLabel.Color
+                    HoverFill: =NRLeaveTypeLabel.Fill
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =NRLeaveTypeLabel.BorderColor
+                    PressedColor: =NRLeaveTypeLabel.Color
+                    PressedFill: =NRLeaveTypeLabel.Fill
+                    Size: =13
+                    Text: =ThisItem.NLTitle
+                    Width: =100
+                    X: =51
+                    ZIndex: =3
+
+                Icon2_3 As icon.Add:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =If(varSelectedType.NLCode=ThisItem.NLCode,Color.White,Color.Black)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =
+                    Height: =30
+                    Icon: |-
+                        ="builtinicon:"&ThisItem.NLIcon
+                    Width: =30
+                    X: =13
+                    Y: =17
+                    ZIndex: =4
+
+                NRLeaveTypeLabel_1 As label:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =If(varSelectedType.NLCode=ThisItem.NLCode, Color.White, Color.Black)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    DisplayMode: =
+                    FocusedBorderColor: =NRLeaveTypeLabel_1.BorderColor
+                    Font: =Font.Lato
+                    Height: =Parent.TemplateHeight
+                    HoverBorderColor: =NRLeaveTypeLabel_1.BorderColor
+                    HoverColor: =NRLeaveTypeLabel_1.Color
+                    HoverFill: =NRLeaveTypeLabel_1.Fill
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =NRLeaveTypeLabel_1.BorderColor
+                    PressedColor: =NRLeaveTypeLabel_1.Color
+                    PressedFill: =NRLeaveTypeLabel_1.Fill
+                    Size: =If(Self.Text = "∞", 25, 13)
+                    Text: |-
+                        =If(
+                            ThisItem.TotalBalance > 200, "∞", Text(ThisItem.TotalBalance, "0.0"))
+                    Width: =50
+                    X: =131
+                    ZIndex: =5
+
+                Button1_18 As button:
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 0)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(230, 230, 230, 0.48)
+                    DisplayMode: |-
+                        =/*
+                        If(
+                        varUserData.Status in ["Regular Probationary", "Regular"] And ThisItem.NLTitle ="Sick Leave", DisplayMode.Edit,   
+                        varUserData.Status in ["Regular Probationary", "Regular"] And ThisItem.NLTitle ="Emergency Leave", DisplayMode.Edit,   
+                        varUserData.Status in ["Regular Probationary", "Regular"] And ThisItem.NLTitle ="Vacation Leave", DisplayMode.Edit, 
+                        
+                        If(
+                            
+                        varUserData.Gender = "Male" And ThisItem.NLTitle = "Paternity Leave" Or ThisItem.NLTitle ="Sick Leave" Or ThisItem.NLTitle ="Emergency Leave" Or ThisItem.NLTitle ="Vacation Leave" Or ThisItem.NLTitle ="Solo Parent Leave" Or ThisItem.NLTitle ="Bereavement Leave" Or ThisItem.NLTitle ="Unpaid Leave",
+                        
+                        DisplayMode.Edit,
+                        
+                        varUserData.Gender = "Female" And ThisItem.NLTitle = "Maternity Leave" Or ThisItem.NLTitle ="Sick Leave" Or ThisItem.NLTitle ="Emergency Leave" Or ThisItem.NLTitle ="Vacation Leave" Or ThisItem.NLTitle ="Solo Parent Leave" Or ThisItem.NLTitle ="Bereavement Leave" Or ThisItem.NLTitle ="Unpaid Leave",
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled)
+                        
+                        
+                        )*/
+                        
+                        Switch(ThisItem.NLTitle,
+                        "Sick Leave",
+                        If(Not(varUserData.Status in ["Regular"]), DisplayMode.Disabled),
+                        "Emergency Leave",
+                        If(Not(varUserData.Status in ["Regular"]), DisplayMode.Disabled),
+                        "Vacation Leave",
+                        If(Not(varUserData.Status in ["Regular"]), DisplayMode.Disabled),
+                        "Paternity Leave",
+                        If(Not(varUserData.Status in ["Regular"] And varUserData.Gender = "Male"), DisplayMode.Disabled),
+                        "Maternity Leave",
+                        If(Not(varUserData.Status in ["Regular"] And varUserData.Gender = "Female"), DisplayMode.Disabled),
+                        "Solo Parent Leave",
+                        If(Not(varUserData.Status in ["Regular"]), DisplayMode.Disabled),
+                        /*"Bereavement Leave",
+                        If(Not(varUserData.Status in ["Regular"]), DisplayMode.Disabled),*/
+                        DisplayMode.Edit)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    HoverColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0,0, 0)
+                    OnSelect: |-
+                        =UpdateContext({varSelectedType: ThisItem})
+                    RadiusBottomLeft: =15
+                    RadiusBottomRight: =15
+                    RadiusTopLeft: =15
+                    RadiusTopRight: =15
+                    Size: =15
+                    Text: =""
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =6
+
+            TypeRequestTitle As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(255, 37, 0, 0)
+                Color: =RGBA(74, 74, 74, 1)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                FocusedBorderColor: =TypeRequestTitle.BorderColor
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Bold
+                Height: =18
+                HoverBorderColor: =TypeRequestTitle.BorderColor
+                HoverColor: =TypeRequestTitle.Color
+                HoverFill: =TypeRequestTitle.Fill
+                LineHeight: =1
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =TypeRequestTitle.BorderColor
+                PressedColor: =TypeRequestTitle.Color
+                PressedFill: =TypeRequestTitle.Fill
+                Size: =13.5
+                Text: |-
+                    ="Select the type of leave you plan to take:"
+                Width: =339
+                X: =32
+                Y: =171
+                ZIndex: =12
+
+            Label1_13 As label:
+                BorderColor: =RGBA(101, 128, 187, 1)
+                Color: =RGBA(47,41,43,1)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                FocusedBorderColor: =Label1_13.BorderColor
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Bold
+                Height: =21
+                HoverBorderColor: =Label1_13.BorderColor
+                HoverColor: =Label1_13.Color
+                HoverFill: =Label1_13.Fill
+                PressedBorderColor: =Label1_13.BorderColor
+                PressedColor: =Label1_13.Color
+                PressedFill: =Label1_13.Fill
+                Size: =13.5
+                Text: |-
+                    ="Select dates:"
+                Width: =340
+                X: =509
+                Y: =108
+                ZIndex: =13
+
+            Label1_14 As label:
+                BorderColor: =RGBA(101, 128, 187, 1)
+                Color: =RGBA(47,41,43,1)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                FocusedBorderColor: =Label1_14.BorderColor
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Bold
+                Height: =21
+                HoverBorderColor: =Label1_14.BorderColor
+                HoverColor: =Label1_14.Color
+                HoverFill: =Label1_14.Fill
+                PressedBorderColor: =Label1_14.BorderColor
+                PressedColor: =Label1_14.Color
+                PressedFill: =Label1_14.Fill
+                Size: =13.5
+                Text: |-
+                    ="About your leave:"
+                Width: =300
+                X: =509
+                Y: =269
+                ZIndex: =14
+
+            DataCardKey1_1 As label:
+                AutoHeight: =true
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Bold
+                Height: =34
+                Size: =10.5
+                Text: |-
+                    ="*Reason for Leave:"
+                Width: =149
+                Wrap: =false
+                X: =510
+                Y: =298
+                ZIndex: =15
+
+            Label2_13 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =20
+                Size: =13
+                Text: =If(Toggle1_1.Value,"Morning","Afternoon")
+                Visible: =ScreenHomeGeneral_Toggle1.DisplayMode = DisplayMode.Edit
+                Width: =90
+                X: =681
+                Y: =233
+                ZIndex: =16
+
+            Toggle1_1 As toggleSwitch:
+                BorderColor: =Color.Black
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =true
+                DisabledBorderColor: =RGBA(179, 179, 179, 1)
+                DisplayMode: =If(chbHalfDay.Value And chbHalfDay.DisplayMode = DisplayMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                FalseFill: =RGBA(221, 79, 14, 1)
+                FalseText: ="Afternoon"
+                FocusedBorderThickness: =0
+                Font: =Font.Lato
+                HandleFill: =Color.White
+                Height: =19
+                LabelPaddingLeft: =0
+                ShowLabel: =false
+                Size: =13
+                TrueFill: =RGBA(187, 221, 140, 1)
+                TrueText: ="Morning"
+                Width: =123
+                X: =638
+                Y: =233
+                ZIndex: =17
+
+            Button1_20 As button:
+                Align: =LayoutAlignItems.Center
+                BorderColor: =RGBA(0,0,0,1)
+                BorderThickness: =0
+                Color: =RGBA(10, 106, 204, 1)
+                DisabledBorderColor: =ColorFade(Button1_20.BorderColor, 70%)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+                DisplayMode: =If(IsBlank(Trim(inputLeaveDetails.Text)) || Label1_76.Text="error" || IsBlank(LeaveStartDatePicker.SelectedDate) || IsBlank(LeaveEndDatePicker.SelectedDate) || LeaveEndDatePicker.SelectedDate < LeaveStartDatePicker.SelectedDate || NewRequestLeaveTypeGallery.Selected.DisplayMode = DisplayMode.Disabled, DisplayMode.Disabled, DisplayMode.Edit)
+                Fill: =Parent.Fill
+                FocusedBorderColor: =Button1_20.BorderColor
+                FontWeight: =FontWeight.Semibold
+                Height: =84
+                HoverBorderColor: =ColorFade(Button1_20.BorderColor, 20%)
+                HoverColor: =Button1_20.Color
+                HoverFill: =ColorFade(Button1_20.Fill, 20%)
+                OnSelect: |-
+                    =SubmitForm(frmAttachments);NewForm(frmAttachments);
+                    
+                    UpdateContext({varCreatedLeaveRequest: 
+                    First(SortByColumns('JTAS Leave Request V3', "ID", SortOrder.Descending))});
+                    
+                    //Create Leave Request Data
+                    With({ApproverList: GalleryApprovers.AllItems.Result},
+                    Patch('JTAS Leave Request V3', LookUp('JTAS Leave Request V3', ParentLeaveID = varCreatedLeaveRequest.ParentLeaveID),
+                    {
+                        RequestDate: Now(),
+                        RequestBy: varUserEmail,
+                        StartDate: LeaveStartDatePicker.SelectedDate,
+                        EndDate: LeaveEndDatePicker.SelectedDate,
+                        Description: inputLeaveDetails.Text,
+                        NatureOfLeave: varSelectedType.NLCode,
+                        EquivalentDays: Value(Label1_81.Text),
+                        Status:"Pending", 
+                        LeaveDuration: If(chbHalfDay.Value && chbHalfDay.DisplayMode = DisplayMode.Edit,"Half Day","Whole Day"),
+                        IsVisible:true,
+                        IsLocked:false,
+                        HalfDay: If(chbHalfDay.Value,If(Toggle1_1.Value, "Morning", "Afternoon")),
+                        ApproverName1: If(CountRows(ApproverList)>=1, Last(FirstN(ApproverList, 1)).Result),
+                        ApproverName2: If(CountRows(ApproverList)>=2, Last(FirstN(ApproverList, 2)).Result),
+                        ApproverName3: If(CountRows(ApproverList)>=3, Last(FirstN(ApproverList, 3)).Result),
+                        ApprovalStatus1: If(CountRows(ApproverList)>=1, "Pending"),
+                        ApprovalStatus2: If(CountRows(ApproverList)>=2, "Waiting"),
+                        ApprovalStatus3: If(CountRows(ApproverList)>=3, "Waiting")
+                    }));
+                    
+                    
+                    //Reset All Input Components
+                    Concurrent(Reset(NewRequestLeaveTypeGallery),Reset(LeaveStartDatePicker),Reset(LeaveEndDatePicker),Reset(inputLeaveDetails));
+                    Set(viewLeave, false);
+                    UpdateContext({varPopUp: "None"});
+                PressedBorderColor: =Button1_20.Fill
+                PressedColor: =Button1_20.Fill
+                PressedFill: =Button1_20.Color
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13.5
+                Text: ="Submit request"
+                Width: =448
+                X: =510
+                Y: =467
+                ZIndex: =18
+
+            GalleryApprovers As gallery.galleryVertical:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Height: =174
+                Items: |-
+                    =Filter(ForAll(Distinct(
+                        If(varUserData.MainCompany <> "JTAS",
+                            [
+                                "nonaka.hiroshi@jgc.com"
+                            ],
+                    
+                    
+                            [
+                                LookUp('JTAS Section',  ParentSectionCode = varUserData.Section, SectionManager),
+                                LookUp('JTAS Department', ParentDeptCode = varUserData.Department, DeptManager),
+                                LookUp('JTAS Members V2', Role= "General Manager", EmailAddress)
+                            ]
+                        ), Value), {Result: ThisRecord.Value}), Result<> varUserEmail, !IsBlank(Result))
+                Layout: =Layout.Vertical
+                TemplateSize: =48
+                Width: =423
+                X: =32
+                Y: =434
+                ZIndex: =19
+
+                Image2_13 As image:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    DisabledBorderColor: =RGBA(159, 167, 165, 1)
+                    DisabledFill: =RGBA(193, 193, 193, 0.95)
+                    FocusedBorderColor: =Image2_13.BorderColor
+                    Height: =35
+                    HoverBorderColor: =ColorFade(Image2_13.BorderColor, 20%)
+                    HoverFill: =ColorFade(Image2_13.Fill, 20%)
+                    Image: |-
+                        =IfError(Office365Users.UserPhoto(First(Office365Users.SearchUser({searchTerm:ThisItem.Result})).Id),SampleImage)
+                    PressedBorderColor: =ColorFade(Image2_13.BorderColor, -20%)
+                    PressedFill: =ColorFade(Image2_13.Fill, -20%)
+                    RadiusBottomLeft: =30
+                    RadiusBottomRight: =30
+                    RadiusTopLeft: =30
+                    RadiusTopRight: =30
+                    Width: =35
+                    X: =25
+                    Y: =6
+                    ZIndex: =1
+
+                Label1_26 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47,41,43,1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =Label1_26.BorderColor
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Bold
+                    Height: =42
+                    HoverBorderColor: =Label1_26.BorderColor
+                    HoverColor: =Label1_26.Color
+                    HoverFill: =Label1_26.Fill
+                    PressedBorderColor: =Label1_26.BorderColor
+                    PressedColor: =Label1_26.Color
+                    PressedFill: =Label1_26.Fill
+                    Size: =12
+                    Text: =LookUp('JTAS Members V2', EmailAddress = ThisItem.Result, MemberName)
+                    Width: =238
+                    X: =60
+                    Y: =6
+                    ZIndex: =2
+
+            Label1_77 As label:
+                BorderColor: =RGBA(101, 128, 187, 1)
+                Color: =RGBA(47,41,43,1)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                FocusedBorderColor: =Label1_77.BorderColor
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Bold
+                Height: =21
+                HoverBorderColor: =Label1_77.BorderColor
+                HoverColor: =Label1_77.Color
+                HoverFill: =Label1_77.Fill
+                PressedBorderColor: =Label1_77.BorderColor
+                PressedColor: =Label1_77.Color
+                PressedFill: =Label1_77.Fill
+                Size: =13.5
+                Text: |-
+                    ="Submit request to:"
+                Width: =300
+                X: =32
+                Y: =406
+                ZIndex: =20
+
+            Label1_76 As label:
+                BorderColor: =RGBA(101, 128, 187, 1)
+                Color: =RGBA(47,41,43,1)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                FocusedBorderColor: =Label1_76.BorderColor
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Semibold
+                Height: =21
+                HoverBorderColor: =Label1_76.BorderColor
+                HoverColor: =Label1_76.Color
+                HoverFill: =Label1_76.Fill
+                PressedBorderColor: =Label1_76.BorderColor
+                PressedColor: =Label1_76.Color
+                PressedFill: =Label1_76.Fill
+                Size: =10.5
+                Text: =If(Label1_78.Text - Label1_81.Text<0 || Label1_78.Text - Label1_81.Text>= Value(Label1_78.Text),"error",Label1_78.Text - Label1_81.Text)
+                Visible: =false
+                Width: =70
+                X: =888
+                Y: =262
+                ZIndex: =21
+
+            Label1_78 As label:
+                BorderColor: =RGBA(101, 128, 187, 1)
+                Color: =RGBA(47,41,43,1)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                FocusedBorderColor: =Label1_78.BorderColor
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Semibold
+                Height: =21
+                HoverBorderColor: =Label1_78.BorderColor
+                HoverColor: =Label1_78.Color
+                HoverFill: =Label1_78.Fill
+                PressedBorderColor: =Label1_78.BorderColor
+                PressedColor: =Label1_78.Color
+                PressedFill: =Label1_78.Fill
+                Size: =10.5
+                Text: =varSelectedType.TotalBalance
+                Visible: =false
+                Width: =70
+                X: =888
+                Y: =220
+                ZIndex: =22
+
+            Label1_81 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(101, 128, 187, 1)
+                Color: =RGBA(47,41,43,1)
+                DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                FocusedBorderColor: =Label1_81.BorderColor
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Semibold
+                Height: =21
+                HoverBorderColor: =Label1_81.BorderColor
+                HoverColor: =Label1_81.Color
+                HoverFill: =Label1_81.Fill
+                PressedBorderColor: =Label1_81.BorderColor
+                PressedColor: =Label1_81.Color
+                PressedFill: =Label1_81.Fill
+                Size: =10.5
+                Text: |+
+                    =//Total Request Days
+                    DateDiff(LeaveStartDatePicker.SelectedDate, LeaveEndDatePicker.SelectedDate) + 1
+                    -
+                    If(NewRequestLeaveTypeGallery.Selected.NLTitle <> "Maternity Leave", //If not maternity leave
+                    //Subtracted with the weekends
+                    (RoundDown((Weekday(LeaveStartDatePicker.SelectedDate,2)+LeaveEndDatePicker.SelectedDate-LeaveStartDatePicker.SelectedDate-1)/7,0) //Count of Saturday
+                    +RoundDown((Weekday(LeaveStartDatePicker.SelectedDate,2)+LeaveEndDatePicker.SelectedDate-LeaveStartDatePicker.SelectedDate)/7,0)) //Count of Sunday
+                    //Subtracted with the legal holidays on weekdays
+                    +
+                    Sum(AddColumns(Filter('JTAS Holidays', 
+                        HolidayDate >= Date(Year(Today()),1,1) And HolidayDate <= Date(Year(Today()),12,31),
+                        HolidayDate >= LeaveStartDatePicker.SelectedDate, HolidayDate <= LeaveEndDatePicker.SelectedDate
+                        ), "DayCount", If(
+                            Weekday(HolidayDate,2)
+                        
+                        <=5,1,0)
+                        
+                        ),DayCount)
+                    )
+                    
+                    //Subtract half day
+                    -If(chbHalfDay.Value && chbHalfDay.DisplayMode = DisplayMode.Edit,0.5,0)
+                    
+                Visible: =false
+                Width: =70
+                X: =888
+                Y: =241
+                ZIndex: =23
+
+            Label28 As label:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =28
+                Size: =13
+                Text: |-
+                    ="Earned MultiPurpose Leave:"
+                Width: =223
+                X: =32
+                Y: =42
+                ZIndex: =24
+
+            Label29 As label:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =28
+                Size: =13
+                Text: |-
+                    =If(CountRows(Filter('JTAS Assignments', Email_Add = varUserEmail, JTAS_ReturnDate = Blank())) > 0,
+                    0,
+                    RoundDown(2*(First(AddColumns(AddColumns(
+                    Filter(AddColumns(
+                    //Retrieve and use JTAS Mobilization from SharePoint
+                    'JTAS Mobilization',
+                    
+                    //Add a computed column "JTAS_EndDateComputed"
+                    "JTAS_EndDateComputed", 
+                    If(IsBlank(JTAS_EndDate),Date(Year(Now()),12,31),JTAS_EndDate),
+                    
+                    "ValidThisYear",
+                    Year(JTAS_MobDate) = Year(Now()) || Year(JTAS_EndDate) = Year(Now()) || IsBlank(JTAS_EndDate)
+                     
+                    ), //If JTAS_EndDate is Blank, Date is the Dec 31, [Year today]
+                    
+                    //Filter entry should be same with the user email, mob date should be greater than or equal start of the year, end date should be less than or equal end of the year
+                    Email_Add = varUserEmail && ValidThisYear),
+                    
+                    //Add a computed column for the earning StartDate
+                    "StartDate",
+                    If(JTAS_MobDate<Date(Year(Now()),1,1), Date(Year(Now()),1,1), JTAS_MobDate),
+                    
+                    //Add a computed column for the earning EndDate
+                    "EndDate",
+                    If(JTAS_EndDateComputed<Now() Or Now()>= Date(Year(Now()),11,15),JTAS_EndDateComputed,Now())
+                    ),
+                    
+                    //Add a column for Earned Leave
+                    "CurrentEarnedLeave",
+                    (EndDate - StartDate)/(Date(Year(Now()),12,31) - Date(Year(Now()),1,1))
+                    *If(JTAS_Status in ["Regular Probationary","Contractual"],0,
+                    If(Value(varUserData.Grade) = 6,
+                    25,
+                    20))
+                    )).CurrentEarnedLeave),0)/2
+                    
+                    //contractual leave..first get the status
+                    +If(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_Status = "Contractual", 
+                    
+                    If(
+                        //one year as contractual add 5
+                        Now()>DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,1,TimeUnit.Years) And
+                        Now()<DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,2,TimeUnit.Years), 
+                        5,
+                        
+                        //two years as contractual
+                        Now()>DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,2,TimeUnit.Years) And
+                        Now()<DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,3,TimeUnit.Years), 
+                        5,
+                        
+                        //three years as contractual
+                        Now()>DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,4,TimeUnit.Years) And
+                        Now()<DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,5,TimeUnit.Years), 
+                        5,
+                    
+                    
+                        //4 years as contractual
+                        Now()>DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,6,TimeUnit.Years) And
+                        Now()<DateAdd(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_MobDate,7,TimeUnit.Years), 
+                        5,
+                        
+                        0)) - 
+                    
+                    
+                    
+                    (RoundUp(Sum(Filter(AddColumns(
+                    
+                     //Use JTAS Assignment from SharePoint
+                    'JTAS Assignments',
+                    
+                     //Add computed columns
+                    "ActiveThisYear", 
+                    Year(PJ_MobDate) = Year(Now()) || Year(JTAS_ReturnDate) = Year(Now()),
+                    
+                    "StartDate", 
+                    If(PJ_MobDate<Date(Year(Now()),1,1),Date(Year(Now()),1,1),PJ_MobDate),
+                    
+                     "EndDate",
+                    If(JTAS_ReturnDate>Now(),Now(),JTAS_ReturnDate)
+                    ),
+                    
+                    //Filter items
+                    Email_Add = varUserEmail,                   //The items should only belong to the selected User
+                    ActiveThisYear                              //Should be active this year
+                    ),
+                    
+                    2*(If(IsBlank(EndDate), Date(Year(Now()),12,31), EndDate) - StartDate)/
+                    
+                    (Date(Year(Now()),12,31) - Date(Year(Now()),1,1))
+                     
+                     
+                     *If(Status in ["Regular Probationary","Contractual"], 0, If(Value(varUserData.Grade) = 6,
+                    25,
+                    20))),0)/2))
+                Tooltip: =If(Last(Filter('JTAS Mobilization', Email_Add = varUserEmail)).JTAS_Status = "Regular Probationary", "Total Accumlated leave credits will be computed after regularization")
+                Width: =49
+                X: =255
+                Y: =42
+                ZIndex: =25
+
+            Label28_1 As label:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =28
+                Size: =13
+                Text: |-
+                    ="Earned In Lieu Leave:"
+                Width: =223
+                X: =32
+                Y: =71
+                ZIndex: =26
+
+            Label29_1 As label:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =28
+                Size: =13
+                Text: |-
+                    =CountRows(Filter(AddColumns(
+                    
+                    //Use JTAS Holidays as source
+                    Filter(Filter('JTAS Holidays', HolidayDate >= Date(Year(Now()),1,1)), HolidayDate <= If(Now() >= Date(Year(Now()),11,15), Date(Year(Now()),12,31), Now())),
+                    
+                    //Add Computed Columns
+                    "UserOnJTAS",
+                    !IsEmpty(Filter(AddColumns('JTAS Mobilization',"EndDateBlank", IsBlank(JTAS_EndDate)), Email_Add = varUserEmail , JTAS_MobDate <= HolidayDate, JTAS_EndDate >= HolidayDate || EndDateBlank)),
+                    
+                    "UserNotOnAssignment",
+                    IsEmpty(Filter(AddColumns('JTAS Assignments',"EndDateBlank", IsBlank(JTAS_ReturnDate)), Email_Add = varUserEmail, PJ_MobDate <= HolidayDate, JTAS_ReturnDate >= HolidayDate || EndDateBlank)),
+                    
+                    "HolidayOnWeekend",
+                    Weekday(HolidayDate,2)>5
+                    ),
+                    
+                    //Conditions for the earned leave from Holiday
+                    HolidayType = "Legal",                                              //Should be legal Holiday
+                    HolidayOnWeekend,                                                   //Should happen on weekend
+                    HolidayDate >= Date(Year(Now()),1,1) And HolidayDate <= If(Now() >= Date(Year(Now()),11,15), Date(Year(Now()),12,31), Now()),   //Should happen from the start of the year until now
+                    UserOnJTAS,                                                         //User must be on JTAS during the holiday
+                    UserNotOnAssignment                                                 //User must not be on a assignment during the holiday
+                    ))
+                Width: =49
+                X: =255
+                Y: =71
+                ZIndex: =27
+
+            Label28_6 As label:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =28
+                Size: =13
+                Text: |-
+                    ="Used MultiPurpose Leave:"
+                Width: =223
+                X: =32
+                Y: =104
+                ZIndex: =28
+
+            Label29_6 As label:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =28
+                Size: =13
+                Text: |
+                    = If( IsBlank(Sum(
+                    Filter(  
+                    Filter(  
+                         Filter(
+                            'JTAS Leave Request V3', 
+                            StartDate >= Date(Year(Now()),1,1) And
+                             StartDate <= Date(Year(Today()),12,31)),
+                    
+                             Status = "Approved" And RequestBy = varUserEmail),
+                            NatureOfLeave in ["VL","EL","SL"])
+                    , EquivalentDays)), 0, 
+                        
+                        Sum(Filter(  
+                    Filter(  
+                         Filter(
+                            'JTAS Leave Request V3', 
+                            StartDate >= Date(Year(Now()),1,1) And
+                             StartDate <= Date(Year(Today()),12,31)),
+                    
+                             Status = "Approved" And RequestBy = varUserEmail),
+                            NatureOfLeave in ["VL","EL","SL"])
+                             
+                             , EquivalentDays)
+                        
+                        
+                        
+                        )
+                Width: =49
+                X: =255
+                Y: =104
+                ZIndex: =29
+
+            Label28_7 As label:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =28
+                Size: =13
+                Text: |-
+                    ="Remaining Leave:"
+                Width: =223
+                X: =32
+                Y: =136
+                ZIndex: =30
+
+            Label29_7 As label:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =28
+                Size: =13
+                Text: =LookUp(NewRequestLeaveTypeGallery.AllItems, NLTitle = "Sick Leave", TotalBalance)
+                Width: =49
+                X: =255
+                Y: =136
+                ZIndex: =31
+
+    popConfirmCancelLeave As groupContainer:
+        Fill: =RGBA(0, 0, 0, 0.3)
+        Height: =Parent.Height - Self.Y
+        Visible: =varPopUp = "popConfirmCancelLeave"
+        Width: =Parent.Width - Self.X
+        ZIndex: =6
+
+        Container9_5 As groupContainer:
+            BorderColor: =RGBA(191, 191, 191, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =480
+            Width: =600
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =1
+
+            Icon4_4 As icon.Cancel:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(105, 121, 126, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({varPopUp: "None"})
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =40
+                X: =Parent.Width - Self.Width - 15
+                Y: =15
+                ZIndex: =1
+
+            Label1_82 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(36, 42, 44, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Size: =15
+                Text: ="Cancel request"
+                Width: =236
+                X: =32
+                Y: =24
+                ZIndex: =2
+
+            Label1_83 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =95
+                OnSelect: =
+                Text: ="Are you sure you want to cancel this request(s)?"
+                Width: =350
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =100
+                ZIndex: =3
+
+            TextInput2_7 As text:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                Height: =109
+                HintText: ="Enter your comment here. (optional)"
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Mode: =TextMode.MultiLine
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(105, 121, 126, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =350
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =195
+                ZIndex: =8
+
+            Button2_6 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderThickness: =1
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                OnSelect: |-
+                    =Set(isLoading, true);
+                    
+                    Patch('JTAS Leave Request V3', LookUp('JTAS Leave Request V3', ParentLeaveID = varSelectedLeave.ParentLeaveID),
+                    {
+                        Status: "Cancelled",
+                        Remarks: TextInput2_7.Text
+                    });
+                    
+                    UpdateContext({varPopUp: "None"});
+                    Reset(TextInput2_7);
+                    
+                    UpdateContext({varSelectedLeave: Blank()});
+                    
+                    Set(isLoading, false);
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Confirm"
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =370
+                ZIndex: =9
+
+    Loading_6 As Loading:
+        Height: =Parent.Height
+        Visible: =isLoading
+        Width: =Parent.Width
+        ZIndex: =7
+
+    Container12_5 As groupContainer:
+        Height: =85
+        Visible: =User().Email in ["marasigan.raymond@jgc.com", "deleon.mariah@jgc.com", "mati.julius_irvin@jgc.com", "macalalad.junnie_mark1@jgc.com"]
+        Width: =335
+        X: =1170
+        ZIndex: =8
+
+        Button9_5 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(105, 121, 126, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+            OnSelect: |-
+                =Set(showLoading, true);
+                
+                Set(varCurrentTime, Now());
+                Set(varUserEmailBypassData, ComboBox3_4.Selected.Mail);
+                //Bypass email
+                Set(varUserEmail, Left(varUserEmailBypassData,Find("@",varUserEmailBypassData)) & "jgc.com");
+                //BypassEmain
+                
+                Set(varUserData, LookUp('JTAS Members V2', EmailAddress = varUserEmail));
+                ClearCollect(colJobCode, 'JTAS Job Code V2');
+                Set(isNavigationExpand, true);
+                
+                /*Set(varNavigationList,
+                Table(
+                {
+                    title: "Home Page", 
+                    screens: 
+                        Table(
+                            {screenName: "General", counter: 0, screenObject: ScreenHomeGeneral},
+                            {screenName: "My Profile", counter: 0, screenObject: ScreenHomeMyProfile}), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 306.773 306.773' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                <g xmlns='http://www.w3.org/2000/svg'>
+                	<path style='' d='M302.93,149.794c5.561-6.116,5.024-15.49-1.199-20.932L164.63,8.898   c-6.223-5.442-16.2-5.328-22.292,0.257L4.771,135.258c-6.092,5.585-6.391,14.947-0.662,20.902l3.449,3.592   c5.722,5.955,14.971,6.665,20.645,1.581l10.281-9.207v134.792c0,8.27,6.701,14.965,14.965,14.965h53.624   c8.264,0,14.965-6.695,14.965-14.965v-94.3h68.398v94.3c-0.119,8.264,5.794,14.959,14.058,14.959h56.828   c8.264,0,14.965-6.695,14.965-14.965V154.024c0,0,2.84,2.488,6.343,5.567c3.497,3.073,10.842,0.609,16.403-5.513L302.93,149.794z' fill='#bfbfbf' data-original='#010002' class=''/>
+                </g></svg>")
+                },
+                {
+                    title: "Daily Tracker", 
+                    screens: 
+                        Table(
+                            {screenName: "My Manhour", counter: 0, screenObject: ScreenTrackerMyManhour},
+                        If(!IsBlank(LookUp('JTAS Work Order', AssignedMember = varUserEmail, ParentWorkOrderCode)),
+                            {screenName: "My Approval", counter: CountRows(Filter('JTAS Daily Manhour', ApprovalBy = varUserEmail, Status = "Pending")), screenObject: ScreenTrackerMyApproval})), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                },
+                {
+                    title: "Overtime Request", 
+                    screens: 
+                        Table(
+                            {screenName: "My Requests", counter: 0, screenObject: ScreenOvertimeMyRequests}, 
+                        If(varUserData.Role <> "General Staff",
+                            {screenName: "My Approval", counter: CountRows(Filter('JTAS Overtime Request V3', And(Approver1 = varUserEmail, Status1 = "Pending") Or And(Approver2 = varUserEmail, Status2 = "Pending") Or And(Approver3 = varUserEmail, Status3 = "Pending"), Status = "Pending")), screenObject: ScreenOvertimeMyApproval})), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                <g xmlns='http://www.w3.org/2000/svg'>
+                	<path d='M256,0C114.841,0,0,114.841,0,256s114.841,256,256,256s256-114.841,256-256S397.159,0,256,0z M372.101,291.335H250.952    c-0.244,0-0.48-0.029-0.721-0.036c-0.241,0.009-0.477,0.036-0.721,0.036c-11.948,0-21.634-9.686-21.634-21.634V93.747    c0-11.948,9.686-21.634,21.634-21.634c11.948,0,21.634,9.686,21.634,21.634v154.321h100.958c11.948,0,21.634,9.686,21.634,21.634    S384.049,291.335,372.101,291.335z' fill='#bfbfbf' data-original='#000000' style='' class=''/>
+                </g></svg>")
+                },
+                {
+                    title: "Leave Request", 
+                    screens: 
+                        Table(
+                            {screenName: "My Requests", counter: 0, screenObject: ScreenLeaveMyRequests},
+                        If(varUserData.Role in ["Section Manager", "Department Manager", "General Manager"],
+                            {screenName: "My Approval", counter: CountRows(Filter('JTAS Leave Request V3', And(ApproverName1 = varUserEmail, ApprovalStatus1 = "Pending") Or And(ApproverName2 = varUserEmail, ApprovalStatus2 = "Pending") Or And(ApproverName3 = varUserEmail, ApprovalStatus3 = "Pending"), Status = "Pending")), screenObject: ScreenLeaveMyApproval})), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 512.001 512.001' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='M345.075,126.02V69.268c0-8.894-7.21-16.104-16.104-16.104H183.029c-8.894,0-16.104,7.21-16.104,16.104v56.752h-45.663    v332.818h269.475V126.02H345.075z M312.867,125.892H199.133v-40.52h113.733V125.892z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g><g xmlns='http://www.w3.org/2000/svg'><path d='M54.741,126.02C24.557,126.02,0,150.576,0,180.76v223.337c0,30.183,24.557,54.74,54.741,54.74h34.313V126.02H54.741z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g><g xmlns='http://www.w3.org/2000/svg'><path d='M457.26,126.02h-34.313v332.818h34.313c30.184,0,54.741-24.557,54.741-54.74V180.76    C512,150.576,487.443,126.02,457.26,126.02z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>
+                ")
+                },
+                {
+                    title: "Reports", 
+                    screens: 
+                        Table(
+                            {screenName: "Member Summary", counter: 0, screenObject: ScreenReportsMemberSummary},
+                            {screenName: "Work Order Summary", counter: 0, screenObject: ScreenReportsWorkOrderSummary}), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                }*/
+                /*,
+                {
+                    title: "Timesheet", 
+                    screens: 
+                        Table(
+                            {screenName: "Timesheet", counter: 0, screenObject: ScreenReportsTimesheet},
+                            {screenName: "Timesheet Approval", counter: 0, screenObject: ScreenReportsTimesheetApproval},
+                            {screenName: "Billing", counter: 0, screenObject: ScreenReportsBilling}), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                }));*/
+                
+                /*
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 30.462 30.461' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                <g xmlns='http://www.w3.org/2000/svg'>
+                	<path d='M16.109,13.997l-4.312-4.479L1.426,20.058L0,18.656L11.812,6.651l4.354,4.522l7.49-7.172l-2.146-2.145h5.603v5.601   L25.07,5.415L16.109,13.997z M4.962,28.606h6.75v-9.5h-6.75V28.606z M14.337,28.606h6.75v-12.5h-6.75V28.606z M23.712,9.856v18.75   h6.75V9.856H23.712z' fill='#bfbfbf' data-original='#000000' style=''/>
+                </g></svg>"*/
+                
+                Set(showLoading, false);
+            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: ="Go"
+            Width: =328
+            Y: =40
+            ZIndex: =2
+
+        ComboBox3_4 As combobox:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(33, 33, 33, 1)
+            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayFields: =["Mail"]
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(212, 212, 212, 1)
+            Items: |-
+                =Office365Users.SearchUserV2({searchTerm:Self.SearchText}).value.Mail
+            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            SearchFields: =["Mail"]
+            SearchItems: |-
+                =Search(Office365Users.SearchUserV2({searchTerm:Self.SearchText}).value.Mail,ComboBox3_4.SearchText,"Mail")
+            SelectionFill: =RGBA(105, 121, 126, 1)
+            SelectMultiple: =false
+            Size: =13
+            ZIndex: =3
+

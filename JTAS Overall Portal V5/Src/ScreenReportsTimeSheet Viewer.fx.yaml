@@ -1,0 +1,809 @@
+"'ScreenReportsTimeSheet Viewer' As screen":
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+
+    Header_22 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_22.Width
+        ZIndex: =5
+
+    LeftNavigation_22 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =6
+
+    Container44 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height - Header_22.Height
+        Width: =Header_22.Width
+        X: =Header_22.X
+        Y: =Header_22.Y + Header_22.Height
+        ZIndex: =7
+
+        Gallery24 As gallery.galleryVertical:
+            BorderThickness: =1
+            Height: =Parent.Height - Container50.Height
+            Items: |+
+                =Filter(Filter('JTAS Timesheet', RangeStart = ComboBox2_22.Selected.rangeStart And RangeEnd = ComboBox2_22.Selected.rangeEnd),
+                If(!IsBlank(ComboBox2_25.Selected.TeamCode),
+                Team = ComboBox2_25.Selected.TeamCode,
+                Section = ComboBox2_24.Selected.ParentSectionCode And Department = ComboBox2_24.Selected.DeptCode
+                )
+                )
+                
+                
+            Layout: =Layout.Vertical
+            OnSelect: =ThisItem.'Link to item'
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =50
+            Width: =Parent.Width
+            Y: =Container50.Height
+            ZIndex: =1
+
+            Label13 As label:
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =50
+                OnSelect: =Select(Parent)
+                PaddingLeft: =25
+                Size: =13
+                Text: =LookUp('JTAS Members V2', EmailAddress = ThisItem.SubmittedBy, MemberName)
+                Width: =Label13_5.Width
+                X: =Label13_5.X
+                ZIndex: =1
+
+            Label13_1 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =50
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =ThisItem.MHCount
+                Width: =Label13_6.Width
+                X: =Label13_6.X
+                ZIndex: =2
+
+            Label13_2 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =50
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =ThisItem.OTCount
+                Width: =Label13_7.Width
+                X: =Label13_7.X
+                ZIndex: =3
+
+            Label13_3 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =50
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =ThisItem.LeaveCount
+                Width: =Label13_8.Width
+                X: =Label13_8.X
+                ZIndex: =4
+
+            Label13_4 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =50
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: |-
+                    =Switch(true,
+                    !IsBlank(ThisItem.ApprovalStatus1) And ThisItem.ApprovalStatus1 in "Pending",
+                    LookUp('JTAS Members V2', EmailAddress = ThisItem.ApprovalBy1, MemberName) & " (Pending)",
+                    
+                    !IsBlank(ThisItem.ApprovalStatus2) And ThisItem.ApprovalStatus2 in "Pending",
+                    LookUp('JTAS Members V2', EmailAddress = ThisItem.ApprovalBy2, MemberName) & " (Pending)",
+                    
+                    !IsBlank(ThisItem.ApprovalStatus3) And ThisItem.ApprovalStatus3 in "Pending",
+                    LookUp('JTAS Members V2', EmailAddress = ThisItem.ApprovalBy3, MemberName) & " (Pending)",
+                    
+                    !IsBlank(ThisItem.ApprovalStatus4) And ThisItem.ApprovalStatus4 in "Pending",
+                    LookUp('JTAS Members V2', EmailAddress = ThisItem.ApprovalBy4, MemberName) & " (Pending)",
+                    
+                    "Approved"
+                    
+                    
+                    )
+                Width: =Label13_9.Width
+                X: =Label13_9.X
+                ZIndex: =5
+
+            Label13_11 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =50
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =LookUp('JTAS Department', ParentDeptCode = ThisItem.Department, DeptTitle)
+                Width: =Label13_10.Width
+                X: =Label13_10.X
+                ZIndex: =6
+
+            Label13_14 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =50
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =LookUp('JTAS Section', ParentSectionCode = ThisItem.Section, SectionTitle)
+                Width: =Label13_12.Width
+                X: =Label13_12.X
+                ZIndex: =7
+
+            Label13_15 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =50
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =LookUp('JTAS Team', TeamCode = ThisItem.Team, TeamTitle)
+                Width: =Label13_13.Width
+                X: =Label13_13.X
+                ZIndex: =8
+
+            Button30 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =50
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(0, 0, 0, 0.19)
+                OnSelect: =Launch(ThisItem.'Link to item',{}, LaunchTarget.New)
+                PressedBorderColor: =RGBA(0, 0, 0, 0.15)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 0, 0, 0.18)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: =""
+                Visible: =false
+                Width: =Parent.Width
+                ZIndex: =9
+
+            Button1_67 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =50
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(204, 231, 246, .3)
+                OnSelect: |-
+                    =Set(isLoading, true);
+                    
+                    UpdateContext({varTSContent: '[PortalV2]GetSharePointPDFContent'.Run("/JTAS Timesheet Library/" & ThisItem.'File name with extension').content});
+                    
+                    Set(isLoading, false);
+                    
+                    UpdateContext({varPopUp: "ViewTS"})
+                PressedBorderColor: =
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(255, 255, 255, 10%)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: =""
+                Width: =Parent.Width - Self.X
+                ZIndex: =10
+
+        Container50 As groupContainer.manualLayoutContainer:
+            Height: =202
+            Width: =Parent.Width
+            ZIndex: =2
+
+            ComboBox2_22 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =First(ComboBox2_23.Selected.groupData)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["cutOffPeriod","ParentWorkOrderCode"]
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: =""
+                IsSearchable: =false
+                Items: |
+                    =ComboBox2_23.Selected.groupData
+                NoSelectionText: ="Select a cut-off period"
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Reset: =true
+                SearchFields: =["cutOffPeriod"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                Width: =150
+                X: =Label1_268.X
+                Y: =Label1_268.Y + Label1_268.Height
+                ZIndex: =1
+
+            ComboBox2_23 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: |-
+                    =First(GroupBy(Filter(Ungroup(AddColumns(RenameColumns(Sequence(6), "Value", "index"), 
+                    	"datePeriod", 
+                    		AddColumns(Table(
+                    			{
+                    				cutOffPeriod: "1st Half", 
+                    				rangeStart: Date(Year(Today()), Month(Today()) - index + 1, 1), 
+                    				rangeEnd: Date(Year(Today()), Month(Today()) - index + 1, 15)
+                    			},
+                    			{
+                    				cutOffPeriod: "2nd Half", 
+                    				rangeStart: Date(Year(Today()), Month(Today()) - index + 1, 16), 
+                    				rangeEnd: Date(Year(Today()), Month(Today()) - index + 1 + 1, 0)
+                    			}
+                    		), "label", Text(rangeStart, "mmmm yyyy"))
+                    	), "datePeriod"),
+                    	rangeEnd < If(Day(Today()) > 15, Date(Year(Today()), Month(Today()) + 1, 1), Date(Year(Today()), Month(Today()), 16)),
+                        IsBlank(LookUp('JTAS Timesheet', SubmittedBy = varUserEmail And RangeEnd = rangeEnd And Status = "Approved"))
+                    ), "label", "groupData"))
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["label","ParentWorkOrderCode"]
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Choose a month"
+                IsSearchable: =false
+                Items: |-
+                    =GroupBy(
+                        Filter(
+                            Ungroup(
+                                AddColumns(
+                                    RenameColumns(
+                                        Sequence(6),
+                                        "Value",
+                                        "index"
+                                    ),
+                                    "datePeriod",
+                                    AddColumns(
+                                        Table(
+                                            {
+                                                cutOffPeriod: "1st Half",
+                                                rangeStart: Date(
+                                                    Year(Today()),
+                                                    Month(Today()) - index + 1,
+                                                    1
+                                                ),
+                                                rangeEnd: Date(
+                                                    Year(Today()),
+                                                    Month(Today()) - index + 1,
+                                                    15
+                                                )
+                                            },
+                                            {
+                                                cutOffPeriod: "2nd Half",
+                                                rangeStart: Date(
+                                                    Year(Today()),
+                                                    Month(Today()) - index + 1,
+                                                    16
+                                                ),
+                                                rangeEnd: Date(
+                                                    Year(Today()),
+                                                    Month(Today()) - index + 1 + 1,
+                                                    0
+                                                )
+                                            }
+                                        ),
+                                        "label",
+                                        Text(
+                                            rangeStart,
+                                            "mmmm yyyy"
+                                        )
+                                    )
+                                ),
+                                "datePeriod"
+                            ),
+                            rangeEnd < If(
+                                Day(Today()) > 15,
+                                Date(
+                                    Year(Today()),
+                                    Month(Today()) + 1,
+                                    1
+                                ),
+                                Date(
+                                    Year(Today()),
+                                    Month(Today()),
+                                    16
+                                )
+                            ),
+                            IsBlank(
+                                LookUp(
+                                    'JTAS Timesheet',
+                                    SubmittedBy = varUserEmail And RangeEnd = rangeEnd And Status in ["Approved","Pending"]
+                                )
+                            )
+                        ),
+                        "label",
+                        "groupData"
+                    )
+                NoSelectionText: ="Choose a month"
+                OnChange: =Reset(ComboBox2_22);
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                SearchFields: =["label"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                Width: =469
+                X: =Label1_267.X
+                Y: =Label1_267.Y  + Label1_267.Height
+                ZIndex: =2
+
+            Label1_267 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Size: =13
+                Text: ="Inclusive Month"
+                Width: =469
+                X: =12
+                Y: =21
+                ZIndex: =3
+
+            Label1_268 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Size: =13
+                Text: ="Cut-Off Period"
+                X: =Label1_267.X  + 10 + Label1_267.Width
+                Y: =Label1_267.Y
+                ZIndex: =4
+
+            Container51 As groupContainer.manualLayoutContainer:
+                BorderThickness: =1
+                Height: =50
+                Width: =Parent.Width
+                Y: =Parent.Height - Self.Height
+                ZIndex: =5
+
+                Label13_5 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Member's Name"
+                    Width: =Parent.Width * 0.2
+                    ZIndex: =1
+
+                Label13_6 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Total Man-Hour"
+                    Width: =Parent.Width *0.06
+                    X: =Label13_13.X + Label13_13.Width
+                    ZIndex: =2
+
+                Label13_7 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Total OT"
+                    Width: =Parent.Width *0.06
+                    X: =Label13_6.X + Label13_6.Width
+                    ZIndex: =3
+
+                Label13_8 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Total Leave"
+                    Width: =Parent.Width *0.06
+                    X: =Label13_7.X + Label13_7.Width
+                    ZIndex: =4
+
+                Label13_9 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Status"
+                    Width: =Parent.Width * 0.155
+                    X: =Label13_8.Width + Label13_8.X
+                    ZIndex: =5
+
+                Label13_10 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Department"
+                    Width: =Parent.Width * 0.155
+                    X: =Label13_5.X + Label13_5.Width
+                    ZIndex: =6
+
+                Label13_12 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Section"
+                    Width: =Parent.Width * 0.155
+                    X: =Label13_10.X + Label13_10.Width
+                    ZIndex: =7
+
+                Label13_13 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Team"
+                    Width: =Parent.Width * 0.155
+                    X: =Label13_12.X + Label13_12.Width
+                    ZIndex: =8
+
+            ComboBox2_24 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =First(ComboBox2_23.Selected.groupData)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["SectionTitle","ParentWorkOrderCode"]
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Lighter
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: =""
+                IsSearchable: =false
+                Items: ='JTAS Section'
+                NoSelectionText: ="Select a Section"
+                OnChange: =Reset(ComboBox2_25)
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Reset: =true
+                SearchFields: =["SectionTitle"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                Width: =Label1_269.Width
+                X: =Label1_269.X
+                Y: =Label1_269.Y + Label1_269.Height
+                ZIndex: =6
+
+            Label1_269 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Size: =13
+                Text: ="Section"
+                Width: =250
+                X: =Label1_268.X + Label1_268.Width + 10
+                Y: =Label1_267.Y
+                ZIndex: =7
+
+            ComboBox2_25 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =First(ComboBox2_23.Selected.groupData)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["TeamTitle","ParentWorkOrderCode"]
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Lighter
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: =""
+                IsSearchable: =false
+                Items: =Filter('JTAS Team', SectionCode = ComboBox2_24.Selected.ParentSectionCode)
+                NoSelectionText: ="Select a Team"
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Reset: =true
+                SearchFields: =["TeamTitle"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                Width: =Label1_270.Width
+                X: =Label1_269.Width + Label1_269.X + 10
+                Y: =Label1_270.Y + Label1_270.Height
+                ZIndex: =8
+
+            Label1_270 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Size: =13
+                Text: ="Team"
+                Width: =250
+                X: =Label1_269.Width + Label1_269.X + 10
+                Y: =Label1_267.Y
+                ZIndex: =9
+
+    popViewTS_4 As groupContainer:
+        Fill: =RGBA(0, 0, 0, 0.3)
+        Height: =Parent.Height - Self.Y
+        Visible: =varPopUp = "ViewTS"
+        Width: =Parent.Width - Self.X
+        ZIndex: =8
+
+        Container9_26 As groupContainer:
+            BorderColor: =RGBA(191, 191, 191, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =700
+            Width: =1000
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =1
+
+            Icon4_26 As icon.Cancel:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(105, 121, 126, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({varPopUp: "None"})
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =40
+                X: =Parent.Width - Self.Width - 15
+                Y: =15
+                ZIndex: =1
+
+            Label1_293 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(36, 42, 44, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Size: =15
+                Text: ="View timesheet"
+                Width: =236
+                X: =32
+                Y: =24
+                ZIndex: =2
+
+            Canvas2_5 As fluidGrid.fluidGridWithBlankCard:
+                BorderThickness: =0
+                Height: =Parent.Height - Self.Y
+                Width: =Parent.Width
+                Y: =RectQuickActionBar2.Y + RectQuickActionBar2.Height
+                ZIndex: =11
+
+                DataCard1_11 As dataCard.blankCard:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =819
+                    Width: =1000
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    Container17_2 As groupContainer.manualLayoutContainer:
+                        Height: =758
+                        Width: =895
+                        X: =40
+                        ZIndex: =1
+
+                        PdfViewer1_5 As pdfViewer:
+                            Document: =varTSContent
+                            Height: =Parent.Height
+                            Width: =895
+                            ZIndex: =1
+
+                        Rectangle8_1 As rectangle:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: =DisplayMode.Disabled
+                            Fill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =Parent.Height
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =Parent.Width
+                            ZIndex: =2
+

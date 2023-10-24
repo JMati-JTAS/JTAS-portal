@@ -1,0 +1,70 @@
+Loading As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0.3)
+    Height: =768
+    Width: =1700
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Container9_3 As groupContainer:
+        BorderColor: =RGBA(191, 191, 191, 1)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =400
+        Width: =400
+        X: =(Parent.Width - Self.Width) / 2
+        Y: =(Parent.Height - Self.Height) / 2
+        ZIndex: =1
+
+        Label1_55 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(36, 42, 44, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =
+            Size: =15
+            Text: ="Loading"
+            Width: =87
+            X: =151
+            Y: =250
+            ZIndex: =2
+
+        Image2_10 As image:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =150
+            Image: |-
+                ="data:image/svg+xml;utf8," & 
+                EncodeUrl(
+                "<svg id='Capa_1' enable-background='new 0 0 497 497' height='512' viewBox='0 0 512 512' width='512' xmlns='http://www.w3.org/2000/svg'><g><circle cx='98' cy='376' fill='#909ba6' r='53'/><circle cx='439' cy='336' fill='#c8d2dc' r='46'/><circle cx='397' cy='112' fill='#e9edf1' r='38'/><ellipse cx='56.245' cy='244.754' fill='#7e8b96' rx='56.245' ry='54.874'/><ellipse cx='217.821' cy='447.175' fill='#a2abb8' rx='51.132' ry='49.825'/><ellipse cx='349.229' cy='427.873' fill='#b9c3cd' rx='48.575' ry='47.297'/><ellipse cx='117.092' cy='114.794' fill='#5f6c75' rx='58.801' ry='57.397'/><ellipse cx='453.538' cy='216.477' fill='#dce6eb' rx='43.462' ry='42.656'/><circle cx='263' cy='62' fill='#4e5a61' r='62'/>  <animateTransform attributeName='transform' type='rotate' dur='2s' from='0 256 256' to='360 256 256' repeatCount='indefinite' /></g></svg>")
+            Width: =150
+            X: =120
+            Y: =80
+            ZIndex: =3
+
+        Label1_56 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(36, 42, 44, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =30
+            OnSelect: =
+            Size: =13
+            Text: ="Please wait..."
+            Width: =106
+            X: =142
+            Y: =300
+            ZIndex: =4
+

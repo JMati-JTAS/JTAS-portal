@@ -1,0 +1,237 @@
+SidebarItems As CanvasComponent:
+    DefaultGroupCollapse: |-
+        =Table(
+            {groupName: "SampleGroup1", isVisible: true},
+            {groupName: "SampleGroup2", isVisible: true},
+            {groupName: "SampleGroup3", isVisible: true}
+        )
+    DefaultSelectedId: ="SampleId"
+    Fill: =RGBA(0, 0, 0, 0)
+    GroupVisibility: =varDefaultVisibleGroup
+    Height: =CountRows(Filter(Self.Items, !IsBlank(groupName))) * (40 + 10) + CountRows(Ungroup(Filter(Self.Items, groupName in Filter(Self.GroupVisibility, isVisible).groupName),"items")) * (80 + 10) 
+    Items: |-
+        =Table(
+            {
+                groupName: "SampleGroup1",
+                items: Table(
+                    {id: "SampleId1", circleColor: Color.White, fillColor: Color.Black, fontColor: Color.White, title: "SampleTitle1", subTitle: "SampleSubTitle1"},
+                    {id: "SampleId2", circleColor: Color.White, fillColor: Color.Black, fontColor: Color.White, title: "SampleTitle2", subTitle: "SampleSubTitle2"},
+                    {id: "SampleId3", circleColor: Color.White, fillColor: Color.Black, fontColor: Color.White, title: "SampleTitle3", subTitle: "SampleSubTitle3"}
+                )
+            },
+            {
+                groupName: "SampleGroup2",
+                items: Table(
+                    {id: "SampleId4", circleColor: Color.Black, fillColor: Color.White, fontColor: Color.Black, title: "SampleTitle1", subTitle: "SampleSubTitle1"},
+                    {id: "SampleId5", circleColor: Color.Black, fillColor: Color.White, fontColor: Color.Black, title: "SampleTitle2", subTitle: "SampleSubTitle2"},
+                    {id: "SampleId6", circleColor: Color.Black, fillColor: Color.White, fontColor: Color.Black, title: "SampleTitle3", subTitle: "SampleSubTitle3"}
+                )
+            },
+            {
+                groupName: "SampleGroup3", groupFillColor: Color.White, groupFontColor: Color.Black,
+                items: Table(
+                    {id: "SampleId7", circleColor: Color.Black, title: "SampleTitle1", subTitle: "SampleSubTitle1"},
+                    {id: "SampleId8", circleColor: Color.Black, title: "SampleTitle2", subTitle: "SampleSubTitle2"},
+                    {id: "SampleId9", circleColor: Color.Black, title: "SampleTitle3", subTitle: "SampleSubTitle3"}
+                )
+            }
+        )
+    OnReset: |-
+        =If(IsBlank(Filter(varDefaultVisibleGroup, !IsBlank(isVisible))), Set(varDefaultVisibleGroup, SidebarItems.DefaultGroupCollapse));
+        Set(varSelected, SidebarItems.DefaultSelectedId);
+    OnSelect: =true
+    SelectedId: =varSelected
+    ShowNavigation: =true
+    Width: =320
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Gallery4_7 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        Items: =SidebarItems.Items
+        Layout: =Layout.Vertical
+        ShowNavigation: =SidebarItems.ShowNavigation
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =127
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container11 As groupContainer:
+            Height: =40
+            Visible: =!IsBlank(ThisItem.groupName) And !IsEmpty(ThisItem.items)
+            Width: =320
+            ZIndex: =1
+
+            Icon12 As icon.ChevronRight:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(36, 42, 44, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =0
+                Height: =20
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =If(LookUp(varDefaultVisibleGroup, groupName = ThisItem.groupName, isVisible), Icon.ChevronDown, Icon.ChevronRight)
+                OnSelect: =
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =20
+                X: =15
+                Y: =10
+                ZIndex: =1
+
+            Button1_47 As button:
+                Align: =Align.Left
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(36, 42, 44, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =
+                OnSelect: |-
+                    =Set(varDefaultVisibleGroup, 
+                        Ungroup(
+                            Table(
+                                {Value: Filter(varDefaultVisibleGroup, groupName <> ThisItem.groupName)}, 
+                                {Value: Table({groupName: ThisItem.groupName, isVisible: LookUp(varDefaultVisibleGroup, groupName = ThisItem.groupName, !isVisible)})}
+                            ), "Value"))
+                PaddingLeft: =50
+                PressedBorderColor: =
+                PressedColor: =RGBA(0, 0, 0, 1)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Text: =ThisItem.groupName
+                Width: =Parent.Width
+                ZIndex: =2
+
+        Gallery2_15 As gallery.galleryVertical:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Height: =CountRows(Self.AllItems) * (Self.TemplateHeight + Self.TemplatePadding) + 2 * Self.TemplatePadding
+            Items: =If(LookUp(varDefaultVisibleGroup, groupName = ThisItem.groupName, isVisible), ThisItem.items)
+            Layout: =Layout.Vertical
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplatePadding: =8
+            TemplateSize: =80
+            Visible: =!IsEmpty(ThisItem.items)
+            Width: =Parent.TemplateWidth
+            Y: =If(Container11.Visible, Container11.Height - 5, 0)
+            ZIndex: =2
+
+            Container4_16 As groupContainer:
+                Fill: =ThisItem.fillColor
+                Height: =Parent.TemplateHeight
+                Width: =Parent.TemplateWidth
+                ZIndex: =2
+
+                Label2_12 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =ThisItem.fontColor
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =20
+                    OnSelect: =
+                    Size: =12
+                    Text: =ThisItem.subTitle
+                    Width: =259
+                    X: =40
+                    Y: =Label2_11.Y + Label2_11.Height - 5
+                    ZIndex: =1
+
+                Label2_11 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =ThisItem.fontColor
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(51, 51, 51, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    OnSelect: =
+                    Size: =13
+                    Text: =ThisItem.title
+                    Width: =235
+                    Wrap: =false
+                    X: =40
+                    Y: =12
+                    ZIndex: =2
+
+                Circle2_10 As circle:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(105, 121, 126, 1)
+                    Fill: =ThisItem.circleColor
+                    Height: =15
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =15
+                    X: |
+                        =15
+                    Y: =(Parent.Height - Self.Height) / 2
+                    ZIndex: =3
+
+                Rectangle1_29 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    DisabledFill: =RGBA(152, 208, 70, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(152, 208, 70, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Visible: =varSelected = ThisItem.id
+                    Width: =10
+                    X: =Parent.Width - Self.Width
+                    ZIndex: =4
+
+                Button1_48 As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =RGBA(0, 0, 0, 1%)
+                    OnSelect: |-
+                        =Set(varSelected, ThisItem.id);
+                        SidebarItems.OnSelect();
+                    PressedBorderColor: =
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(255, 255, 255, 10%)
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =15
+                    Text: =""
+                    Width: =Parent.Width
+                    ZIndex: =5
+

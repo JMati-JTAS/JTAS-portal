@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "653a8a4e-f03e-40b4-9c5e-bbc455d1abfc",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "GeneratePDFFromHTMLV2",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

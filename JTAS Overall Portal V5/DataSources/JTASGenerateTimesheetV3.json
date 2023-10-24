@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "d4b37fba-d7a6-476d-8f6c-926b01895a61",
+    "Name": "JTASGenerateTimesheetV3",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "3d688887-f655-ee11-be6f-000d3acd143b"
+  }
+]

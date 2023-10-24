@@ -1,0 +1,60 @@
+SearchBar As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =42
+    HintText: ="Search text"
+    Width: =300
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Icon3_8 As icon.Copy:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(105, 121, 126, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =DisplayMode.View
+        FocusedBorderThickness: =4
+        Height: =Parent.Height / 1.75
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Search
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =Self.Height
+        X: =Self.Y
+        Y: =(Parent.Height - Self.Height) / 2
+        ZIndex: =1
+
+    TextInput1_8 As text:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Clear: =true
+        Color: =RGBA(51, 51, 51, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =2
+        Font: =Font.'Segoe UI'
+        Height: =Parent.Height + Self.BorderThickness
+        HintText: =Parent.HintText
+        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PaddingLeft: =Parent.Height
+        PressedBorderColor: =RGBA(105, 121, 126, 1)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Width: =Parent.Width + 4 * Self.BorderThickness
+        X: =Self.BorderThickness * -2
+        Y: =Self.BorderThickness * -2
+        ZIndex: =2
+

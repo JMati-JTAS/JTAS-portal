@@ -1,0 +1,61 @@
+"'Safety Calendar' As CanvasComponent":
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =320
+    Width: =700
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    "Gallery23 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Default: =LookUp('JTAS Safeday_Setting', IDNo = Month(Now()))
+        DelayItemLoading: =true
+        Height: =Parent.Height
+        Items: |-
+            =Sort(
+                'JTAS Safeday_Setting'
+            ,IDNo, SortOrder.Ascending)
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =Min(440, Self.Height - 60)
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Image9 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =320
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =ThisItem.'Winner Photo'
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =243
+            ZIndex: =1
+
+        Title7 As label:
+            Align: =Align.Center
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 0.59)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =20
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =260
+            Y: =280
+            ZIndex: =2
+

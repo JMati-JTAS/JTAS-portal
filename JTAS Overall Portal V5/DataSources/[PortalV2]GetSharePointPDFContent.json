@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "0ba45f82-3068-49fb-b44b-3027be4dfbe1",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "[PortalV2]GetSharePointPDFContent",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

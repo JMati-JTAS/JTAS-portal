@@ -1,0 +1,181 @@
+MembersDataOrg As CanvasComponent:
+    DataAction():
+        ThisProperty:
+            Default: ="Text"
+    Department: ="Text"
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    MemberImage: =SampleImage
+    Name: ="Text"
+    PlaneColor: |-
+        ="#ff5757"
+    Position: ="Text"
+    Role: ="Text"
+    Section: ="Text"
+    Team: ="Text"
+    Visible: =If(MembersDataOrg.Role = "President", false, true)
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Container52 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        X: |
+            =0
+        Y: |
+            =0
+        ZIndex: =1
+
+        Container53 As groupContainer.manualLayoutContainer:
+            Height: =110
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =If(MembersDataOrg.Role = "President", false, true)
+            Width: |
+                =Parent.Width
+            ZIndex: =1
+
+            Rectangle16 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =Parent.Height
+                HoverFill: =RGBA(105, 121, 126, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =5
+                X: =(Parent.Width - Self.Width) / 2
+                ZIndex: =1
+
+        Image14 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =545
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                =sgvConnector & EncodeUrl("
+                
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='500' zoomAndPan='magnify' viewBox='0 0 375 374.999991' height='500' preserveAspectRatio='xMidYMid meet' version='1.0'>
+                
+                <defs>
+                <clipPath id='d38be87b62'>
+                <path d='M 12.5 213.429688 L 362.5 213.429688 L 362.5 343.546875 L 12.5 343.546875 Z M 12.5 213.429688 ' clip-rule='nonzero'/>
+                </clipPath>
+                
+                <clipPath id='b8de761e42'>
+                <path d='M 20 213.429688 L 355 213.429688 C 359.140625 213.429688 362.5 216.789062 362.5 220.929688 L 362.5 336.046875 C 362.5 340.191406 359.140625 343.546875 355 343.546875 L 20 343.546875 C 15.859375 343.546875 12.5 340.191406 12.5 336.046875 L 12.5 220.929688 C 12.5 216.789062 15.859375 213.429688 20 213.429688 ' clip-rule='nonzero'/>
+                </clipPath>
+                
+                <clipPath id='4acb1b66bb'>
+                <path d='M 81.757812 32.066406 L 293.242188 32.066406 L 293.242188 243.550781 L 81.757812 243.550781 Z M 81.757812 32.066406 ' clip-rule='nonzero'/>
+                </clipPath>
+                
+                <clipPath id='885a12b1ca'>
+                <path d='M 187.5 32.066406 C 129.101562 32.066406 81.757812 79.40625 81.757812 137.808594 C 81.757812 196.207031 129.101562 243.550781 187.5 243.550781 C 245.898438 243.550781 293.242188 196.207031 293.242188 137.808594 C 293.242188 79.40625 245.898438 32.066406 187.5 32.066406 ' clip-rule='nonzero'/>
+                </clipPath>
+                
+                <clipPath id='f9e5ae85c1'>
+                <path d='M 84.472656 34.777344 L 290.527344 34.777344 L 290.527344 240.835938 L 84.472656 240.835938 Z M 84.472656 34.777344 ' clip-rule='nonzero'/>
+                </clipPath>
+                
+                <clipPath id='20095834d0'>
+                
+                <path d='M 187.5 34.921875 C 130.675781 34.921875 84.613281 80.984375 84.613281 137.808594 C 84.613281 194.628906 130.675781 240.695312 187.5 240.695312 C 244.324219 240.695312 290.386719 194.628906 290.386719 137.808594 C 290.386719 80.984375 244.324219 34.921875 187.5 34.921875 ' clip-rule='nonzero'/>
+                </clipPath>
+                
+                <clipPath id='92e9d64e92'>
+                <path d='M 89.71875 40.023438 L 285.28125 40.023438 L 285.28125 235 L 89.71875 235 Z M 89.71875 40.023438 ' clip-rule='nonzero'/></clipPath><clipPath id='98a20ee8ce'><path d='M 187.5 40.074219 C 133.523438 40.074219 89.765625 83.832031 89.765625 137.808594 C 89.765625 191.785156 133.523438 235.539062 187.5 235.539062 C 241.476562 235.539062 285.234375 191.785156 285.234375 137.808594 C 285.234375 83.832031 241.476562 40.074219 187.5 40.074219 ' clip-rule='nonzero'/>
+                </clipPath>
+                
+                <image x='0' y='0' width='1438' xlink:href='"& MembersDataOrg.MemberImage &"' id='07304e9a34' height='560' preserveAspectRatio='xMidYMid meet'/></defs><g clip-path='url(#d38be87b62)'><g clip-path='url(#b8de761e42)'>
+                
+                <path fill='"&MembersDataOrg.PlaneColor&"' d='M 12.5 213.429688 L 362.5 213.429688 L 362.5 343.546875 L 12.5 343.546875 Z M 12.5 213.429688 ' fill-opacity='1' fill-rule='nonzero'/></g></g><g clip-path='url(#4acb1b66bb)'>
+                
+                <g clip-path='url(#885a12b1ca)'>
+                
+                <path fill='#85583c' d='M 81.757812 32.066406 L 293.242188 32.066406 L 293.242188 243.550781 L 81.757812 243.550781 Z M 81.757812 32.066406 ' fill-opacity='1' fill-rule='nonzero'/></g></g><g clip-path='url(#f9e5ae85c1)'>
+                
+                <g clip-path='url(#20095834d0)'>
+                <path fill='#ffffff' d='M 81.757812 32.066406 L 293.242188 32.066406 L 293.242188 243.550781 L 81.757812 243.550781 Z M 81.757812 32.066406 ' fill-opacity='1' fill-rule='nonzero'/></g></g><g clip-path='url(#92e9d64e92)'>
+                
+                <g clip-path='url(#98a20ee8ce)'>
+                
+                <g transform='matrix(0.348988, 0, 0, 0.348898, -63.463599, 40.074432)'><image x='0' y='0' width='1438' xlink:href='" & MembersDataOrg.MemberImage & "' height='560' preserveAspectRatio='xMidYMid meet'/>
+                </g>
+                </g>
+                </g>
+                </svg>")
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =Parent.Width
+            Y: =31
+            ZIndex: =3
+
+        Label52 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Size: =20
+            Text: ="Text"
+            Width: =Image14.Width - (70 * 2)
+            X: =Image14.Width - (Parent.Width-70)
+            Y: =Image14.Y + Image14.Height - 180
+            ZIndex: =4
+
+        Label52_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Size: =20
+            Text: ="Text"
+            Width: =Label52.Width
+            X: =Label52.X
+            Y: =Label52.Y + Label52.Height
+            ZIndex: =5
+
+        Label52_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =20
+            Text: ="Text"
+            Width: =Label52.Width
+            X: =Label52_1.X
+            Y: =Label52_1.Y + Label52_1.Height
+            ZIndex: =6
+

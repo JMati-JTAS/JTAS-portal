@@ -1,0 +1,567 @@
+LeaveCalendarScreen As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    OnVisible: |+
+        =
+        Set(showLoading, true);
+        
+        ClearCollect(colJTASHolidays, 
+        ShowColumns(
+        AddColumns(
+        Filter('JTAS Holidays', HolidayDate >= Date(Year(Today()),1,1)),
+        "title1", HolidayName,
+        "StartDate", HolidayDate,
+        "NatureOfLeave", "1Holiday",
+        "EquivalentDays", 1,
+        "EndDate", HolidayDate), "title1", "StartDate", "EndDate", "EquivalentDays", "NatureOfLeave")
+        );
+        
+        ClearCollect(colLeaveCalendar12, 
+        
+        ShowColumns(
+        AddColumns(colLeaveList, "title1", LookUp(colMembers, RequestBy = EmailAddress, MemberName)),
+        "StartDate", "EndDate", "title1", "RequestBy", "HalfDay", "EquivalentDays", "NatureOfLeave")
+        
+        );
+        
+        ClearCollect(colLeaveCalendar, SortByColumns(Collect(colLeaveCalendar12, colJTASHolidays), "StartDate", SortOrder.Descending));
+        Set(showLoading, false);
+        
+
+    galMain_1 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderStyle: =BorderStyle.None
+        Default: |-
+            =First(Filter(With(
+            {
+                MinStartDate: DateValue(Text(Min(colLeaveCalendar,  StartDate), DateTimeFormat.ShortDate)),
+                MaxEndDate: DateValue(Text(Max(colLeaveCalendar,   EndDate), DateTimeFormat.ShortDate))
+            },
+            With(
+            {
+                MonthStartDate: Date(Year(MinStartDate), Month(MinStartDate), 1),
+                MonthEndDate: Date(Year(MaxEndDate), Month(MaxEndDate) + 1, 0)
+            },
+            With(
+            {
+                CorrectedStartDate: DateAdd(MonthStartDate, - Weekday(MonthStartDate, 2)),
+                CorrectedEndDate: DateAdd(MonthEndDate, Weekday(MaxEndDate, 2))
+            },
+            AddColumns(Sequence(RoundUp(DateDiff(CorrectedStartDate, CorrectedEndDate, TimeUnit.Days) / 7, 0)),
+                //"WeekStartDate", CorrectedStartDate + (Value -1 ) * 7,
+                "WeekStartDate", CorrectedStartDate + (Value-1)*7,
+                "MinStartDate", MinStartDate,
+                "MaxEndDate", MaxEndDate,
+                "MonthStartDate", MonthStartDate,
+                "MonthEndDate", MonthEndDate,
+                "CorrectedStartDate", CorrectedStartDate,
+                "CorrectedEndDate", CorrectedEndDate)))), WeekStartDate >= Today()))
+        Height: =Parent.Height - Self.Y
+        Items: |
+            =With(
+            {
+                MinStartDate: DateValue(Text(Min(colLeaveCalendar, StartDate), DateTimeFormat.ShortDate)),
+                MaxEndDate: DateValue(Text(Max(colLeaveCalendar, EndDate), DateTimeFormat.ShortDate))
+            },
+            With(
+            {
+                MonthStartDate: Date(Year(MinStartDate), Month(MinStartDate), 1),
+                MonthEndDate: Date(Year(MaxEndDate), Month(MaxEndDate) + 1, 0)
+            },
+            With(
+            {
+                CorrectedStartDate: DateAdd(MonthStartDate, - Weekday(MonthStartDate, 2)),
+                CorrectedEndDate: DateAdd(MonthEndDate, Weekday(MaxEndDate, 2))
+            },
+            AddColumns(Sequence(RoundUp(DateDiff(CorrectedStartDate, CorrectedEndDate, TimeUnit.Days) / 7, 0)),
+                //"WeekStartDate", CorrectedStartDate + (Value -1 ) * 7,
+                "WeekStartDate", CorrectedStartDate + (Value-1)*7,
+                "MinStartDate", MinStartDate,
+                "MaxEndDate", MaxEndDate,
+                "MonthStartDate", MonthStartDate,
+                "MonthEndDate", MonthEndDate,
+                "CorrectedStartDate", CorrectedStartDate,
+                "CorrectedEndDate", CorrectedEndDate))))
+        Layout: =Layout.Vertical
+        OnSelect: =Remove(colSelectedDate, galMain_1.AllItems)
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =250
+        Width: =Parent.Width - Self.X -35
+        X: =40
+        Y: =150
+        ZIndex: =1
+
+        Container4_5 As groupContainer:
+            Height: =210
+            Width: =Parent.Width
+            Y: =40
+            ZIndex: =1
+
+            galActivityContent_1 As gallery.galleryVertical:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                Height: =210
+                Items: |-
+                    =/*With({RawTable: 
+                    Filter(colLeaveCalendar, EndDate >= ThisItem.WeekStartDate And StartDate < ThisItem.WeekStartDate +7 And title1 in filterColCalendar )},
+                    AddColumns(Sequence(CountRows(RawTable)), 
+                        "title1", Last(FirstN(RawTable, Value)).title1,
+                        "EquivalentDays", Last(FirstN(RawTable, Value)).EquivalentDays,
+                     //   "color", Last(FirstN(RawTable, Value)).color,
+                        "startDate", Last(FirstN(RawTable, Value)).StartDate,
+                        "endDate", Last(FirstN(RawTable, Value)).EndDate+7,
+                        "WeekStartDate", ThisItem.WeekStartDate,
+                        "NatureOfLeave",Last(FirstN(RawTable, Value)).NatureOfLeave,
+                       // "SiteID", Last(FirstN(RawTable, Value)).siteID,
+                        "HalfDay", Last(FirstN(RawTable, Value)).HalfDay,
+                        "MinStartDate", ThisItem.MinStartDate,
+                        "MaxEndDate", ThisItem.MaxEndDate,
+                        "MonthStartDate", ThisItem.MonthStartDate,
+                        "MonthEndDate", ThisItem.MonthEndDate,
+                        "DateValue", ThisItem.WeekStartDate + Value - 1,
+                        "CorrectedStartDate", ThisItem.CorrectedStartDate,
+                        "CorrectedEndDate", ThisItem.CorrectedEndDate))*/
+                    
+                    With({filter: If( First(filterColCalendar).Value = Blank(), "blank", "notBlank")},
+                        With({RawTable:
+                    
+                        If( filter = "blank", Filter(colLeaveCalendar, EndDate >= ThisItem.WeekStartDate And StartDate < ThisItem.WeekStartDate +7),
+                    
+                    Filter(colLeaveCalendar, EndDate >= ThisItem.WeekStartDate And StartDate < ThisItem.WeekStartDate +7 And title1 in filterColCalendar ))},
+                    
+                    AddColumns(Sequence(CountRows(RawTable)), 
+                        "title1", Last(FirstN(RawTable, Value)).title1,
+                        "EquivalentDays", Last(FirstN(RawTable, Value)).EquivalentDays,
+                     //   "color", Last(FirstN(RawTable, Value)).color,
+                        "startDate", Last(FirstN(RawTable, Value)).StartDate,
+                        "endDate", Last(FirstN(RawTable, Value)).EndDate+7,
+                        "WeekStartDate", ThisItem.WeekStartDate,
+                        "NatureOfLeave",Last(FirstN(RawTable, Value)).NatureOfLeave,
+                       // "SiteID", Last(FirstN(RawTable, Value)).siteID,
+                        "HalfDay", Last(FirstN(RawTable, Value)).HalfDay,
+                        "MinStartDate", ThisItem.MinStartDate,
+                        "MaxEndDate", ThisItem.MaxEndDate,
+                        "MonthStartDate", ThisItem.MonthStartDate,
+                        "MonthEndDate", ThisItem.MonthEndDate,
+                        "DateValue", ThisItem.WeekStartDate + Value - 1,
+                        "CorrectedStartDate", ThisItem.CorrectedStartDate,
+                        "CorrectedEndDate", ThisItem.CorrectedEndDate)))
+                Layout: =Layout.Vertical
+                TemplatePadding: =0
+                TemplateSize: =25
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Container8_2 As groupContainer:
+                    BorderThickness: =2
+                    Fill: |-
+                        =//ColorValue("#a9a9a9")
+                        
+                        Switch(ThisItem.HalfDay,
+                        Blank(), Color!Green,
+                        "Morning", Color!DodgerBlue,
+                        "Afternoon", Color!HotPink)
+                    Height: =Parent.TemplateHeight
+                    Visible: =If(ThisItem.NatureOfLeave = "1Holiday", false, true)
+                    Width: |-
+                        =If(
+                        DateDiff(Coalesce(ThisItem.WeekStartDate, ThisItem.endDate-7),ThisItem.endDate-7,  TimeUnit.Days) = 0, galGridLabel_1.TemplateWidth,
+                        DateDiff(ThisItem.WeekStartDate, ThisItem.endDate - 7, TimeUnit.Days) >= 7,
+                        (7 - Weekday(Max(ThisItem.startDate, ThisItem.WeekStartDate)) +1) * galGridLabel_1.TemplateWidth,
+                        (DateDiff(Max(ThisItem.startDate, ThisItem.WeekStartDate), ThisItem.endDate - 7)+1) * galGridLabel_1.TemplateWidth)
+                    X: =Max(0, DateDiff(ThisItem.WeekStartDate, ThisItem.startDate, TimeUnit.Days)) * galGridLabel_1.TemplateWidth
+                    ZIndex: =1
+
+                    Label19_5 As label:
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Bold
+                        Height: =Parent.Height
+                        OnSelect: =
+                        PaddingLeft: =0
+                        PaddingTop: =3
+                        Size: =9
+                        Text: =ThisItem.title1
+                        Width: =Min(Parent.Width,Len(Self.Text)*9)
+                        X: =Parent.Width/2-Self.Width/2
+                        ZIndex: =1
+
+                    Image5_3 As image:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =Parent.Height
+                        Image: |
+                            =Switch(ThisItem.NatureOfLeave, 
+                            "EL", MPImage, 
+                            "SL", MPImage,
+                            "VL", MPImage,
+                            "PL", PLImage,
+                            "BL", BLImage,
+                            "UL", ULImage,
+                            "ML", MLImage,
+                            "SPL", SPLImage)
+                        Width: =23
+                        X: =If(ThisItem.EquivalentDays <= 1, 0, Label19_5.X-Self.Width)
+                        ZIndex: =2
+
+                Button13 As button:
+                    Align: =Align.Left
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(100, 118, 132, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                    Size: =15
+                    Text: =ThisItem.title1&ThisItem.DateValue
+                    Visible: =false
+                    Width: |
+                        =If(
+                        DateDiff(Coalesce(ThisItem.WeekStartDate, ThisItem.endDate-7),ThisItem.endDate-7,  TimeUnit.Days) = 0, galGridLabel_1.TemplateWidth,
+                        DateDiff(ThisItem.WeekStartDate, ThisItem.endDate - 7, TimeUnit.Days) >= 7,
+                        (7 - Weekday(Max(ThisItem.startDate, ThisItem.WeekStartDate)) +1) * galGridLabel_1.TemplateWidth,
+                        (DateDiff(Max(ThisItem.startDate, ThisItem.WeekStartDate), ThisItem.endDate - 7)+1) * galGridLabel_1.TemplateWidth)
+                    X: |
+                        =Max(0, DateDiff(ThisItem.WeekStartDate, ThisItem.startDate, TimeUnit.Days)) * galGridLabel_1.TemplateWidth
+                    ZIndex: =2
+
+        galGridLabel_1 As gallery.galleryHorizontal:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =1
+            Height: =Parent.TemplateHeight
+            Items: |-
+                =AddColumns(Sequence(7), 
+                    "DateValue", ThisItem.WeekStartDate + Value - 1,
+                    "MinStartDate", ThisItem.MinStartDate,
+                    "MaxEndDate", ThisItem.MaxEndDate,
+                    "MonthStartDate", ThisItem.MonthStartDate,
+                    "MonthEndDate", ThisItem.MonthEndDate,
+                    "CorrectedStartDate", ThisItem.CorrectedStartDate,
+                    "CorrectedEndDate", ThisItem.CorrectedEndDate)
+            TemplatePadding: =0
+            TemplateSize: =Self.Width / CountRows(Self.AllItems)
+            Width: =Parent.TemplateWidth-15
+            X: =1
+            ZIndex: =2
+
+            Label4_9 As label:
+                Align: =Align.Right
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =1
+                Color: =If(ThisItem.DateValue >= ThisItem.MonthStartDate And ThisItem.DateValue <= ThisItem.MonthEndDate, RGBA(51, 51, 51, 1), RGBA(0, 0, 0, 0))
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: |-
+                    =If(
+                    !IsBlank(LookUp(colJTASHolidays, ThisItem.DateValue = StartDate)), RGBA(219, 219, 219, 1),
+                    ThisItem.DateValue >= ThisItem.MonthStartDate And ThisItem.DateValue <= ThisItem.MonthEndDate, RGBA(0, 0, 0, 0), RGBA(249, 249, 250, 1))
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                FontWeight: =If(Day(ThisItem.DateValue) = 1, FontWeight.Bold, FontWeight.Normal)
+                Height: =Parent.TemplateHeight
+                OnSelect: =Select(Parent)
+                PaddingBottom: =15
+                PaddingLeft: =15
+                PaddingRight: =15
+                PaddingTop: =15
+                Size: =13
+                Text: =Upper(Text(ThisItem.DateValue, If(Day(ThisItem.DateValue)  > 0, "mmm d", "d")))
+                VerticalAlign: =VerticalAlign.Top
+                Width: =If( Text(ThisItem.DateValue, "dddd") = "Saturday", Parent.TemplateWidth, Parent.TemplateWidth)
+                ZIndex: =2
+
+            HolidayLabel As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =72
+                OnSelect: =
+                Size: =13
+                Text: =LookUp(colJTASHolidays, ThisItem.DateValue = StartDate, title1)
+                Width: =If( Text(ThisItem.DateValue, "dddd") = "Saturday", Parent.TemplateWidth, Parent.TemplateWidth)
+                Y: =60
+                ZIndex: =3
+
+    galWeekLabel_1 As gallery.galleryHorizontal:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Items: =["SUN","MON","TUES","WED","THURS","FRI","SAT"]
+        ShowScrollbar: =false
+        TemplatePadding: =1
+        TemplateSize: =Self.Width / CountRows(Self.AllItems)
+        Width: =galMain_1.Width-20
+        X: =40
+        Y: =galMain_1.Y-Self.Height
+        ZIndex: =2
+
+        Label8_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(74, 85, 88, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =26
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =ThisItem.Value
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+
+    Dropdown_Period_3 As dropdown:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        ChevronBackground: =RGBA(100, 118, 132, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(90, 106, 119, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        ChevronHoverFill: =RGBA(100, 118, 132, 1)
+        Default: ="Please select"
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Lato
+        Height: =36
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(205, 209, 213, 1)
+        Items: |-
+            =AddColumns(AddColumns(RenameColumns(Sequence(1), "Value", "index"), 
+            
+            "year", Text(Today()-(index-1)*365, "yyyy")),
+            "rangeStart", Date(year, 1 , 1),
+            "rangeEnd", Date(year, 12, 31))
+        OnChange: |-
+            =
+            UpdateContext({showLoadingLeaveCalendar: true});
+            ClearCollect(colLeaveList, Sort(Filter('JTAS Leave Request V3', 
+                RequestDate >= Date(Year(Today()),1,1), 
+                RequestDate <= Date(Year(Today()),12,31), 
+                Status = "Ongoing" Or Status = "Approved"), RequestDate, SortOrder.Descending));
+             
+            
+            ClearCollect(colLeaveCalendar, 
+            
+            ShowColumns(
+            AddColumns(colLeaveList, "title1", LookUp(colMembers, RequestBy = EmailAddress, MemberName)),
+            "StartDate", "EndDate", "title1", "RequestBy", "HalfDay", "EquivalentDays", "NatureOfLeave")
+            
+            );
+            
+            UpdateContext({showLoadingLeaveCalendar: false});
+        PressedColor: =RGBA(0, 0, 0, 1)
+        PressedFill: =RGBA(32, 54, 71, 1)
+        SelectionFill: =RGBA(0, 0, 0, 1)
+        Size: =12
+        Width: =142
+        X: =472
+        Y: =75
+        ZIndex: =3
+
+    Label10_1 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =31
+        Size: =12
+        Text: |-
+            ="Year:"
+        Width: =67
+        X: =405
+        Y: =81
+        ZIndex: =4
+
+    searchItems_2 As combobox:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayFields: =["Result"]
+        Height: =31
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(205, 209, 213, 1)
+        InputTextPlaceholder: ="Search.."
+        Items: |-
+            =ForAll(Distinct('JTAS Members V2', MemberName), {Result: ThisRecord.Value})
+        OnChange: =ClearCollect(filterColCalendar, Self.Selected.Result)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(32, 54, 71, 1)
+        SearchFields: =["Result"]
+        SearchItems: |-
+            =Search(ForAll(Distinct('JTAS Members V2', MemberName), {Result: ThisRecord.Value}),searchItems_2.SearchText,"Result")
+        SelectionFill: =RGBA(100, 118, 132, 1)
+        SelectMultiple: =false
+        Size: =12
+        Width: =265
+        X: =112
+        Y: =81
+        ZIndex: =5
+
+    Label10_2 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =31
+        Size: =12
+        Text: |-
+            ="Name:"
+        Width: =67
+        X: =45
+        Y: =81
+        ZIndex: =6
+
+    Container19 As groupContainer:
+        Height: =115
+        Width: =604
+        X: =galWeekLabel_1.X + galWeekLabel_1.Width - Self.Width
+        Y: =12
+        ZIndex: =10
+
+        Label5_4 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            Size: =12
+            Text: |-
+                ="Legend:"
+            Width: =80
+            ZIndex: =1
+
+        Gallery7_2 As gallery.galleryVertical:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =80
+            Items: |
+                =Table({legend: "WholeDay", color: Color!Green},
+                {legend: "HalfDay Morning", color: Color!DodgerBlue},
+                {legend: "HalfDay Afternoon", color: Color!HotPink},
+                {legend: "Holiday", color: Color!DarkSlateGray})
+            Layout: =Layout.Vertical
+            TemplatePadding: =2
+            TemplateSize: =16
+            Width: =190
+            X: =80
+            Y: =12
+            ZIndex: =2
+
+            Label22 As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =16
+                OnSelect: =Select(Parent)
+                Size: =9
+                Text: =ThisItem.legend
+                X: =24
+                ZIndex: =1
+
+            Label22_1 As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =ThisItem.color
+                Height: =16
+                OnSelect: =Select(Parent)
+                Size: =9
+                Text: =""
+                Width: =24
+                ZIndex: =2
+
+        Gallery7_3 As gallery.galleryVertical:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =80
+            Items: |+
+                =
+                
+                Table(
+                {legend:"Multi Purpose Leave", image:MPImage}, 
+                {legend:"Unpaid Leave", image: ULImage},
+                {legend:"Paternity Leave", image:PLImage},
+                {legend:"Bereavement Leave", image:BLImage},
+                {legend:"Maternity Leave", image:MLImage},
+                {legend:"Solo Parent Leave", image:SPLImage})
+                
+                
+            Layout: =Layout.Vertical
+            TemplateSize: =20
+            Width: =366
+            WrapCount: =2
+            X: =233
+            Y: =12
+            ZIndex: =3
+
+            Label22_3 As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =16
+                OnSelect: =Select(Parent)
+                Size: =9
+                Text: =ThisItem.legend
+                X: =25
+                ZIndex: =1
+
+            Image6_1 As image:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Image: =ThisItem.image
+                Width: =25
+                ZIndex: =2
+
+    Loading_13 As Loading:
+        Height: =Parent.Height
+        Visible: =showLoading
+        Width: =Parent.Width
+        ZIndex: =11
+
+    Icon16 As icon.BackArrow:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(105, 121, 126, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =42
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(ScreenHomeGeneral)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =56
+        ZIndex: =12
+

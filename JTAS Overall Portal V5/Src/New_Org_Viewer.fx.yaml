@@ -1,0 +1,1625 @@
+"New_Org_Viewer As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    OnVisible: |-
+        =Set(Sizess, 10);
+        ClearCollect(ADM, Filter('JTAS Members V2',
+        Team = "ADM", EmploymentStatus = "Active"));
+        
+        Collect(ADM, Filter('JTAS Members V2', EmailAddress = "reambonanza.judalyn@jgc.com"));
+        Set(collapse2, "None")
+
+    Canvas3 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width + 20
+        Y: =Button1_10
+        ZIndex: =3
+
+        DataCard2 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: |-
+                =Max(Container35_2.Y+Container35_2.Height,
+                Container35_1.Y+Container35_1.Height,
+                Container35.Y+Container35.Height) + 50
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            NewOrgList_1 As NewOrgList:
+                GalleryITem: |-
+                    =Filter('JTAS Members V2',
+                    Role=Self.Role, EmploymentStatus = "Active")
+                Role: ="President"
+                Team: =Blank()
+                X: =(Parent.Width - Self.Width) / 2
+                Y: |
+                    =50
+
+            NewOrgList_2 As NewOrgList:
+                Department: ="Director"
+                GalleryITem: |-
+                    =Filter('JTAS Members V2',
+                    Role="Director", EmploymentStatus = "Active")
+                Role: ="Department Manager"
+                Team: =Blank()
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =NewOrgList_1.Height + NewOrgList_1.Y + 50
+                ZIndex: =2
+
+            Rectangle3_12 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =10
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =Parent.Width - (Container35_2.Width / 2) - (Container35.Width / 2) 
+                X: =((Container35.Width + Container35.X) / 2) + 15
+                Y: =Rectangle3_19.Y
+                ZIndex: =3
+
+            Rectangle3_13 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =50
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =10
+                X: =(Parent.Width-Self.Width) / 2
+                Y: =NewOrgList_1.Height + NewOrgList_1.Y
+                ZIndex: =4
+
+            Rectangle3_14 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =20
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =10
+                X: =(Parent.Width-Self.Width) / 2
+                Y: =NewOrgList_32.Height + NewOrgList_32.Y
+                ZIndex: =5
+
+            Rectangle3_18 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =35
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =10
+                X: =((Container35.Width + Container35.X) / 2) + 15
+                Y: =Container35.Y - Self.Height
+                ZIndex: =6
+
+            Container35 As groupContainer.manualLayoutContainer:
+                Height: |-
+                    =Max(NewOrgList_19.Y+NewOrgList_19.Height,
+                    NewOrgList_24.Y+NewOrgList_24.Height,
+                    NewOrgList_11.Y+NewOrgList_11.Height) + 50
+                Width: =(Parent.Width-80) / 3
+                X: =50
+                Y: =NewOrgList_32.Height + NewOrgList_32.Y + 50
+                ZIndex: =7
+
+                NewOrgList_3 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Department Manager", Department = "BMT", EmploymentStatus = "Active")
+                    Role: ="Department Manager"
+                    X: =(Parent.Width - Self.Width) / 2
+
+                NewOrgList_6 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Section Manager", Section="FM", EmploymentStatus = "Active")
+                    Role: ="Section Manager"
+                    Section: ="Financial Management"
+                    X: =30
+                    Y: =NewOrgList_3.Height + NewOrgList_3.Y + 50
+                    ZIndex: =2
+
+                NewOrgList_7 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Section Manager", Section="OM", EmploymentStatus = "Active")
+                    Role: ="Section Manager"
+                    Section: ="Operations Management"
+                    X: =NewOrgList_3.X
+                    Y: =NewOrgList_3.Height + NewOrgList_3.Y + 50
+                    ZIndex: =3
+
+                NewOrgList_8 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Section Manager", Section="BMDS", EmploymentStatus = "Active")
+                    Role: ="Section Manager"
+                    Section: ="-"
+                    X: =Parent.Width - Self.Width - 30
+                    Y: =NewOrgList_3.Height + NewOrgList_3.Y + 50
+                    ZIndex: =4
+
+                NewOrgList_9 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "ACC", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Financial Management"
+                    Team: ="Accounting"
+                    X: =30
+                    Y: =NewOrgList_6.Y + NewOrgList_6.Height + 50
+                    ZIndex: =5
+
+                NewOrgList_10 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |+
+                        =SortByColumns(Filter(ADM, Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"]) )
+                        , "Role")
+                        
+                    Section: ="Operations Management"
+                    Team: ="Administration"
+                    X: =NewOrgList_3.X
+                    Y: =NewOrgList_6.Y + NewOrgList_6.Height + 50
+                    ZIndex: =6
+
+                NewOrgList_11 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team="S&M" , EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="-"
+                    Team: ="Sales & Marketing"
+                    X: =Parent.Width - Self.Width - 30
+                    Y: =NewOrgList_6.Y + NewOrgList_6.Height + 50
+                    ZIndex: =7
+
+                NewOrgList_19 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "P&R", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Financial Management"
+                    Team: ="Payroll & Recruitment"
+                    X: =30
+                    Y: =NewOrgList_9.Height + NewOrgList_9.Y + 50
+                    ZIndex: =8
+
+                NewOrgList_22 As NewOrgList:
+                    Department: ="Business Management"
+                    Section: ="Operations Management"
+                    Team: ="Corporate IT"
+                    X: =NewOrgList_10.X
+                    Y: =NewOrgList_10.Height + NewOrgList_10.Y + 50
+                    ZIndex: =10
+
+                NewOrgList_23 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "DMT", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Operations Management"
+                    Team: ="Document Handling"
+                    X: =NewOrgList_22.X
+                    Y: =NewOrgList_22.Height + NewOrgList_22.Y + 50
+                    ZIndex: =11
+
+                NewOrgList_24 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "HSE", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Operations Management"
+                    Team: ="HSSE"
+                    X: =NewOrgList_22.X
+                    Y: =NewOrgList_23.Height + NewOrgList_23.Y + 50
+                    ZIndex: =12
+
+                Rectangle3_15 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =50
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =10
+                    X: =(Parent.Width-Self.Width) / 2
+                    Y: =NewOrgList_3.Height + NewOrgList_3.Y
+                    ZIndex: =13
+
+                Rectangle3_20 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =10
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Parent.Width - ((NewOrgList_6.X * 2) + (NewOrgList_6.Width / 2)) - ((NewOrgList_8.Width / 2) - 9.5)
+                    X: =((Parent.Width - Self.Width ) / 2) + 3.8
+                    Y: =Rectangle3_15.Y + (Rectangle3_15.Height / 2) - Self.Height
+                    ZIndex: =14
+
+                Rectangle3_21 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =35
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =10
+                    X: =NewOrgList_8.X + (NewOrgList_8.Width / 2)
+                    Y: = Rectangle3_20.Y
+                    ZIndex: =15
+
+                Rectangle3_22 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =35
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =10
+                    X: =NewOrgList_6.X + (NewOrgList_6.Width / 2) - 2
+                    Y: = Rectangle3_20.Y
+                    ZIndex: =16
+
+                Rectangle3_23 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =NewOrgList_6.Height + NewOrgList_9.Height + 100
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Sizess
+                    X: =1
+                    Y: =NewOrgList_6.Y + (NewOrgList_6.Height / 2)
+                    ZIndex: =17
+
+                Rectangle3_24 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =Rectangle3_23.X
+                    Y: =Rectangle3_23.Y
+                    ZIndex: =18
+
+                Rectangle3_25 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =Rectangle3_23.X
+                    Y: =NewOrgList_9.Y + NewOrgList_9.Height + 90
+                    ZIndex: =19
+
+                Rectangle3_26 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =Rectangle3_23.X
+                    Y: =NewOrgList_6.Y + NewOrgList_6.Height + 90
+                    ZIndex: =20
+
+                Rectangle3_27 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =NewOrgList_7.Height + NewOrgList_10.Height + NewOrgList_22.Height + NewOrgList_23.Height + (50*4)
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Sizess
+                    X: =Rectangle3_28.X - Self.Width + 5
+                    Y: =NewOrgList_7.Y + (NewOrgList_7.Height / 2)
+                    ZIndex: =21
+
+                Rectangle3_28 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_7.X - Self.Width
+                    Y: =Rectangle3_27.Y
+                    ZIndex: =22
+
+                Rectangle3_29 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_7.X - Self.Width
+                    Y: =NewOrgList_23.Y + NewOrgList_23.Height + 90
+                    ZIndex: =23
+
+                Rectangle3_30 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_7.X - Self.Width
+                    Y: =NewOrgList_7.Y + NewOrgList_7.Height + 90
+                    ZIndex: =24
+
+                Rectangle3_31 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_7.X - Self.Width
+                    Y: =NewOrgList_10.Y + NewOrgList_10.Height + 90
+                    ZIndex: =25
+
+                Rectangle3_32 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_7.X - Self.Width
+                    Y: =NewOrgList_22.Y + NewOrgList_22.Height + 90
+                    ZIndex: =26
+
+                Rectangle3_33 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =NewOrgList_8.Height + 100
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Sizess
+                    X: =Rectangle3_34.X
+                    Y: =195
+                    ZIndex: =27
+
+                Rectangle3_34 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_8.X - Self.Width
+                    Y: =Rectangle3_33.Y
+                    ZIndex: =28
+
+                Rectangle3_35 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_8.X - Self.Width
+                    Y: =Rectangle3_33.Y +  Rectangle3_33.Height - Self.Height
+                    ZIndex: =29
+
+            Container35_1 As groupContainer.manualLayoutContainer:
+                ContentLanguage: =
+                Height: =Max(NewOrgList_27.Height +NewOrgList_27.Y, NewOrgList_30.Y + NewOrgList_30.Height, NewOrgList_20.Y + NewOrgList_20.Height) + 50
+                Width: =(Parent.Width-80) / 3
+                X: =Container35.Width + Container35.X + 38
+                Y: =Container35.Y
+                ZIndex: =8
+
+                NewOrgList_4 As NewOrgList:
+                    Department: ="Project Operations"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Department Manager", Department = "PJO", EmploymentStatus = "Active")
+                    Role: ="Department Manager"
+                    X: =(Parent.Width - Self.Width) / 2
+
+                NewOrgList_12 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Section Manager", Section="CST", EmploymentStatus = "Active")
+                    Role: ="Section Manager"
+                    Section: ="Construction Services"
+                    X: =30
+                    Y: =152
+                    ZIndex: =2
+
+                NewOrgList_13 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Section Manager", Section="ENG", EmploymentStatus = "Active")
+                    Role: ="Section Manager"
+                    Section: ="Engineering Services"
+                    X: =NewOrgList_3.X
+                    Y: =NewOrgList_3.Height + NewOrgList_3.Y + 50
+                    ZIndex: =3
+
+                NewOrgList_14 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Section Manager", Section in ["D&I"], EmploymentStatus = "Active")
+                    Role: ="Section Manager"
+                    Section: ="Development & Innovations"
+                    X: =Parent.Width - Self.Width - 30
+                    Y: =NewOrgList_3.Height + NewOrgList_3.Y + 50
+                    ZIndex: =4
+
+                NewOrgList_15 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "PIP", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Construction Services"
+                    Team: ="Piping Technology"
+                    Visible: =true
+                    X: =30
+                    Y: =NewOrgList_12.Y + NewOrgList_12.Height + 50
+                    ZIndex: =5
+
+                NewOrgList_16 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "C&S", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Engineering Services"
+                    Team: ="Civil & Structural"
+                    X: =NewOrgList_3.X
+                    Y: =NewOrgList_13.Y + NewOrgList_13.Height + 50
+                    ZIndex: =6
+
+                NewOrgList_17 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "DX", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Development & Innovation"
+                    X: =Parent.Width - Self.Width - 30
+                    Y: =NewOrgList_12.Y + NewOrgList_12.Height + 50
+                    ZIndex: =7
+
+                Rectangle3_16 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =50
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =10
+                    X: =(Parent.Width-Self.Width) / 2
+                    Y: =NewOrgList_4.Height + NewOrgList_4.Y
+                    ZIndex: =8
+
+                Rectangle3_36 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =10
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Parent.Width - ((NewOrgList_6.X * 2) + (NewOrgList_6.Width / 2)) - ((NewOrgList_8.Width / 2) - 9.5)
+                    X: =((Parent.Width - Self.Width ) / 2) + 3.8
+                    Y: =Rectangle3_15.Y + (Rectangle3_15.Height / 2) - Self.Height
+                    ZIndex: =9
+
+                Rectangle3_37 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =35
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =10
+                    X: =NewOrgList_8.X + (NewOrgList_8.Width / 2)
+                    Y: = Rectangle3_20.Y
+                    ZIndex: =10
+
+                Rectangle3_38 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =35
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =10
+                    X: =NewOrgList_6.X + (NewOrgList_6.Width / 2) - 2
+                    Y: = Rectangle3_20.Y
+                    ZIndex: =11
+
+                Rectangle3_39 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =NewOrgList_12.Height + (50 * 4) + NewOrgList_15.Height + NewOrgList_25.Height  + NewOrgList_26.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Sizess
+                    X: =Rectangle3_40.X - Self.Width
+                    Y: =NewOrgList_12.Y + (NewOrgList_12.Height / 2) - 4.5
+                    ZIndex: =12
+
+                Rectangle3_40 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_12.X - Self.Width
+                    Y: =Rectangle3_39.Y
+                    ZIndex: =13
+
+                Rectangle3_41 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_12.X - Self.Width
+                    Y: =Rectangle3_39.Height + Rectangle3_39.Y - 1
+                    ZIndex: =14
+
+                Rectangle3_42 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =NewOrgList_13.Height  + (50 * 4) + NewOrgList_16.Height + NewOrgList_28.Height + NewOrgList_29.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Sizess
+                    X: =Rectangle3_43.X - Self.Width
+                    Y: =NewOrgList_12.Y + (NewOrgList_12.Height / 2) - 4.5
+                    ZIndex: =15
+
+                Rectangle3_43 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_13.X - Self.Width
+                    Y: =Rectangle3_42.Y
+                    ZIndex: =16
+
+                Rectangle3_44 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_13.X - Self.Width
+                    Y: =Rectangle3_42.Height + Rectangle3_42.Y - 1
+                    ZIndex: =17
+
+                Rectangle3_45 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =NewOrgList_17.Height + NewOrgList_14.Height + 100
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Sizess
+                    X: =Rectangle3_46.X - Self.Width
+                    Y: =NewOrgList_12.Y + (NewOrgList_12.Height / 2) - 4.5
+                    ZIndex: =18
+
+                Rectangle3_46 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_14.X - Self.Width
+                    Y: =Rectangle3_45.Y
+                    ZIndex: =19
+
+                Rectangle3_47 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_14.X - Self.Width
+                    Y: =Rectangle3_45.Height + Rectangle3_45.Y - 1
+                    ZIndex: =20
+
+                NewOrgList_20 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "TEX", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Development & Innovation"
+                    Team: ="Technology Exploration"
+                    X: =NewOrgList_17.X
+                    Y: =NewOrgList_17.Height + NewOrgList_17.Y + 50
+                    ZIndex: =21
+
+                Rectangle3_51 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =Rectangle3_45.X + Rectangle3_45.Width
+                    Y: =NewOrgList_17.Y + 45
+                    ZIndex: =22
+
+                NewOrgList_25 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "SOS", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Construction Services"
+                    Team: ="System Operation Support"
+                    Visible: =true
+                    X: =30
+                    Y: =NewOrgList_15.Y + NewOrgList_15.Height + 50
+                    ZIndex: =23
+
+                Rectangle3_52 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_12.X - Self.Width
+                    Y: =NewOrgList_12.Height + NewOrgList_12.Y + 90
+                    ZIndex: =24
+
+                NewOrgList_26 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "PLN", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Construction Services"
+                    Team: ="Construction Planning"
+                    Visible: =true
+                    X: =30
+                    Y: =NewOrgList_25.Y + NewOrgList_25.Height + 50 
+                    ZIndex: =25
+
+                Rectangle3_53 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_12.X - Self.Width
+                    Y: =NewOrgList_15.Height + NewOrgList_15.Y + 90
+                    ZIndex: =26
+
+                NewOrgList_27 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "PO&M", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Construction Services"
+                    Team: ="Plant Ops & Maintenance"
+                    Visible: =true
+                    X: =30
+                    Y: =NewOrgList_26.Y + NewOrgList_26.Height + 50 
+                    ZIndex: =27
+
+                Rectangle3_54 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_12.X - Self.Width
+                    Y: =NewOrgList_25.Height + NewOrgList_25.Y + 90
+                    ZIndex: =28
+
+                NewOrgList_28 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "P&M", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Engineering Services"
+                    Team: ="Piping & Mechanical"
+                    X: =NewOrgList_3.X
+                    Y: =NewOrgList_16.Y + NewOrgList_16.Height + 50
+                    ZIndex: =29
+
+                NewOrgList_29 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "E&I", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Engineering Services"
+                    Team: ="Electrical & Instrument"
+                    X: =NewOrgList_3.X
+                    Y: =NewOrgList_28.Height + 50 + NewOrgList_28.Y
+                    ZIndex: =30
+
+                NewOrgList_30 As NewOrgList:
+                    Department: ="Project Operation"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "B&HL", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: ="Engineering Services"
+                    Team: ="BIM & HL"
+                    X: =NewOrgList_3.X
+                    Y: =NewOrgList_29.Height + 50 + NewOrgList_29.Y
+                    ZIndex: =31
+
+                Rectangle3_55 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_13.X - Self.Width
+                    Y: =NewOrgList_28.Height + NewOrgList_28.Y + 90
+                    ZIndex: =32
+
+                Rectangle3_56 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_13.X - Self.Width
+                    Y: =NewOrgList_16.Height + NewOrgList_16.Y + 90
+                    ZIndex: =33
+
+                Rectangle3_57 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_13.X - Self.Width
+                    Y: =NewOrgList_13.Height + NewOrgList_13.Y + 90
+                    ZIndex: =34
+
+            Container35_2 As groupContainer.manualLayoutContainer:
+                Height: =NewOrgList_21.Y + NewOrgList_21.Height + 50
+                Width: =(Parent.Width-80) / 3
+                X: =Container35_1.Width + Container35_1.X + 30
+                Y: =Container35.Y
+                ZIndex: =9
+
+                NewOrgList_5 As NewOrgList:
+                    Department: ="Estimation & Contracts"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Department Manager", Department = "E&C", EmploymentStatus = "Active")
+                    Role: ="Department Manager"
+                    Team: =""
+                    X: =(Parent.Width - Self.Width) / 2
+
+                NewOrgList_18 As NewOrgList:
+                    Department: ="Estimation & Contract"
+                    GalleryITem: =SortByColumns(Filter('JTAS Members V2', Team="CST", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: =""
+                    Team: ="Construction Support"
+                    X: =(Parent.Width - Self.Width) / 2
+                    Y: =NewOrgList_31.Height + NewOrgList_31.Y + 50
+                    ZIndex: =2
+
+                NewOrgList_21 As NewOrgList:
+                    Department: ="Estimation & Contract"
+                    GalleryITem: |-
+                        =SortByColumns(Filter('JTAS Members V2',
+                        Team = "PRC", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+                    Section: =""
+                    Team: ="Procurment Support"
+                    X: =(Parent.Width - Self.Width) / 2
+                    Y: =NewOrgList_18.Y + NewOrgList_18.Height + 50
+                    ZIndex: =5
+
+                Rectangle3_17 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =50
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =10
+                    X: =(Parent.Width-Self.Width) / 2
+                    Y: =NewOrgList_5.Height + NewOrgList_5.Y
+                    ZIndex: =6
+
+                Rectangle3_48 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =NewOrgList_18.Height + (50 * 4)
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Sizess
+                    X: =Rectangle3_49.X - Self.Width
+                    Y: =NewOrgList_12.Y + (NewOrgList_12.Height / 2) - 4.5
+                    ZIndex: =7
+
+                Rectangle3_49 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_18.X - Self.Width
+                    Y: =Rectangle3_48.Y
+                    ZIndex: =8
+
+                Rectangle3_50 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =30
+                    X: =NewOrgList_18.X - Self.Width
+                    Y: =Rectangle3_48.Height + Rectangle3_48.Y - 1
+                    ZIndex: =9
+
+                NewOrgList_31 As NewOrgList:
+                    Department: ="Business Management"
+                    GalleryITem: |-
+                        =Filter('JTAS Members V2',
+                        Role="Section Manager", Section="E&CS", EmploymentStatus = "Active")
+                    Role: ="Section Manager"
+                    Section: ="-"
+                    X: =NewOrgList_5.X
+                    Y: =NewOrgList_3.Height + NewOrgList_3.Y + 50
+                    ZIndex: =10
+
+                Rectangle3_58 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Sizess
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =20
+                    X: =NewOrgList_18.X - Self.Width
+                    Y: =NewOrgList_31.Y + NewOrgList_31.Height + 100
+                    ZIndex: =11
+
+            Rectangle3_19 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =35
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =10
+                X: =Rectangle3_12.Width + Rectangle3_12.X - Self.Width
+                Y: =Container35_2.Y - Self.Height
+                ZIndex: =10
+
+            NewOrgList_32 As NewOrgList:
+                GalleryITem: |-
+                    =Filter('JTAS Members V2',
+                    Role=Self.Role, EmploymentStatus = "Active")
+                Role: ="General Manager"
+                Team: =""
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =NewOrgList_2.Height + NewOrgList_2.Y + 50
+                ZIndex: =14
+
+            Rectangle3_59 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =50
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =10
+                X: =(Parent.Width-Self.Width) / 2
+                Y: =NewOrgList_2.Height + NewOrgList_2.Y
+                ZIndex: =15
+
+            Rectangle3_60 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderThickness: =4
+                Height: =30
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =10
+                X: =Rectangle3_14.X + 40
+                Y: =Container35_1.Y - Self.Height
+                ZIndex: =16
+
+    Container42 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.76)
+        Height: =Parent.Height
+        Visible: =showEmpData
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Container43 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =300
+            Width: =1300
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =1
+
+            Image2_22 As image:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                BorderThickness: =1
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =235
+                Image: =Office365Users.UserPhotoV2(EmpData)
+                OnSelect: =
+                RadiusBottomLeft: =Self.Height / 2
+                RadiusBottomRight: =Self.Height / 2
+                RadiusTopLeft: =Self.Height / 2
+                RadiusTopRight: =Self.Height / 2
+                Width: =244
+                X: =40
+                Y: =50
+                ZIndex: =1
+
+            Container7_9 As groupContainer:
+                ContentLanguage: =LookUp('JTAS Team', TeamCode = LookUp('JTAS Members V2', EmailAddress = EmpData, Team), TeamTitle)
+                Height: =186
+                Width: =995
+                X: =Image2_22.Width + Image2_22.X
+                Y: =Image2_22.Y
+                ZIndex: =2
+
+                Label2_14 As label:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    Size: =13
+                    Text: |-
+                        ="Full Name:"
+                    Width: =120
+                    X: =11
+                    Y: =49
+                    ZIndex: =2
+
+                Label2_84 As label:
+                    Align: =Align.Right
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =Label15_32.Height
+                    Size: =13
+                    Text: |-
+                        ="Team:"
+                    Width: =Label2_14.Width
+                    X: =Label2_14.X
+                    Y: =Label2_14.Y + Label2_14.Height
+                    ZIndex: =7
+
+                Label2_92 As label:
+                    Align: =Align.Right
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =Label15_32.Height
+                    Size: =13
+                    Text: |-
+                        ="Section:"
+                    Width: =Label2_14.Width
+                    X: =Label2_14.X
+                    Y: =Label2_84.Y + Label2_84.Height
+                    ZIndex: =9
+
+                Label2_73 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Label15_32.Height
+                    Size: =13
+                    Text: =LookUp('JTAS Members V2', EmailAddress = EmpData, MemberName)
+                    Width: =285
+                    X: =Label2_14.X + Label2_14.Width + 30
+                    Y: =Label2_14.Y
+                    ZIndex: =10
+
+                Label2_85 As label:
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Label15_32.Height
+                    Size: =13
+                    Text: =LookUp('JTAS Team', TeamCode = LookUp('JTAS Members V2', EmailAddress = EmpData, Team), TeamTitle)
+                    Width: =Label2_73.Width
+                    X: =Label2_73.X
+                    Y: =Label2_84.Y
+                    ZIndex: =13
+
+                Label2_93 As label:
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Label15_32.Height
+                    Size: =13
+                    Text: =LookUp('JTAS Department', ParentDeptCode in LookUp('JTAS Members V2', EmailAddress = EmpData, Department), DeptTitle)
+                    Width: =Label2_73.Width
+                    X: =Label2_73.X
+                    Y: =Label2_88.Y
+                    ZIndex: =14
+
+                Label15_32 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(74, 85, 88, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =33
+                    Size: =15
+                    Text: ="Personnel Information"
+                    Width: =985
+                    X: =10
+                    Y: =4
+                    ZIndex: =16
+
+                recNavigationLine_10 As rectangle:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Fill: =RGBA(102, 182, 227, 1)
+                    FocusedBorderColor: =recNavigationLine_10.BorderColor
+                    Height: =5
+                    Width: =984
+                    X: =11
+                    ZIndex: =17
+
+                Label2_88 As label:
+                    Align: =Align.Right
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =Label15_32.Height
+                    Size: =13
+                    Text: |-
+                        ="Department:"
+                    Width: =Label2_14.Width
+                    X: =Label2_14.X
+                    Y: =Label2_92.Y + Label2_92.Height
+                    ZIndex: =18
+
+                Label2_89 As label:
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Label15_32.Height
+                    Size: =13
+                    Text: =LookUp('JTAS Section', ParentSectionCode = LookUp('JTAS Members V2', EmailAddress = EmpData, Section), SectionTitle)
+                    Width: =Label2_73.Width
+                    X: =Label2_73.X
+                    Y: =Label2_92.Y
+                    ZIndex: =19
+
+                Label2_82 As label:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =Label2_14.Height
+                    Size: =13
+                    Text: |-
+                        ="Email:"
+                    Width: =Label2_78.Width
+                    X: =Label2_78.X
+                    Y: =Label2_78.Height + Label2_78.Y
+                    ZIndex: =21
+
+                Label2_78 As label:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =Label2_14.Height
+                    Size: =13
+                    Text: |-
+                        ="Position:"
+                    Width: =100
+                    X: =Label2_73.Width + Label2_73.X + 50
+                    Y: =Label2_73.Y
+                    ZIndex: =23
+
+                Label2_94 As label:
+                    Align: =Align.Right
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =Label2_14.Height
+                    Size: =13
+                    Text: |-
+                        ="Manager:"
+                    Width: =Label2_78.Width
+                    X: =Label2_78.X
+                    Y: =Label2_90.Y + Label2_90.Height
+                    ZIndex: =24
+
+                Label2_79 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Label2_14.Height
+                    Size: =13
+                    Text: =LookUp('JTAS Members V2', EmailAddress = EmpData, Position)
+                    Width: =Label2_73.Width + 50
+                    X: =Label2_78.Width + Label2_78.X + 30
+                    Y: =Label2_78.Y
+                    ZIndex: =26
+
+                Label2_83 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Label2_14.Height
+                    Size: =13
+                    Text: =EmpData
+                    Width: =Label2_73.Width + 50
+                    X: =Label2_79.X
+                    Y: =Label2_82.Y
+                    ZIndex: =27
+
+                Label2_95 As label:
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Label2_14.Height
+                    Size: =13
+                    Text: |-
+                        =Switch(false,
+                        IsBlank(LookUp('JTAS Section', ParentSectionCode = LookUp('JTAS Members V2', EmailAddress = EmpData, Section), SectionManager)),
+                        LookUp('JTAS Section', ParentSectionCode = LookUp('JTAS Members V2', EmailAddress = EmpData, Section), SectionManager),
+                        
+                        IsBlank(LookUp('JTAS Department', ParentDeptCode = LookUp('JTAS Members V2', EmailAddress = EmpData, Department), DeptManager)),
+                        LookUp('JTAS Department', ParentDeptCode = LookUp('JTAS Members V2', EmailAddress = EmpData, Department), DeptManager)
+                        )
+                    Width: =Label2_73.Width + 50
+                    X: =618
+                    Y: =Label2_94.Y
+                    ZIndex: =29
+
+                Label2_90 As label:
+                    Align: =Align.Right
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =Label2_14.Height
+                    Size: =13
+                    Text: |-
+                        ="Gender:"
+                    Width: =Label2_78.Width
+                    X: =Label2_78.X
+                    Y: =Label2_82.Y + Label2_82.Height
+                    ZIndex: =30
+
+                Label2_91 As label:
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Label2_14.Height
+                    Size: =13
+                    Text: =LookUp('JTAS Members V2', EmailAddress = EmpData, Gender)
+                    Width: =Label2_73.Width + 50
+                    X: =Label2_79.X
+                    Y: =Label2_90.Y
+                    ZIndex: =31
+
+            Icon18_2 As icon.BackArrow:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(105, 121, 126, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =44
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.BackArrow
+                OnSelect: =Set(showEmpData, false)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =50
+                X: =5
+                Y: =5
+                ZIndex: =3
+
+    Button14_1 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(105, 121, 126, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+        OnSelect: |-
+            =If(collapse2 = "ViewAll", Set(collapse2, "None"),
+            Set(collapse2, "ViewAll"))
+        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =12
+        Text: ="View All Members"
+        Width: =170
+        X: =Parent.Width-Self.Width-20
+        ZIndex: =5
+
+    Label17_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(255, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Size: =10
+        Text: |-
+            ="Note: Zoom Out to Fit View"
+        Width: =170
+        X: =1730
+        Y: =30
+        ZIndex: =6
+
+    Icon18_1 As icon.BackArrow:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(105, 121, 126, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =44
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(ScreenHomeGeneral)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =50
+        ZIndex: =7
+

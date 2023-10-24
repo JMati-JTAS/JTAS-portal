@@ -1,0 +1,421 @@
+"Screen1 As screen.'tabletLayout_Calendar_ver3.0'":
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+
+    Canvas1_3 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width
+        ZIndex: =20
+
+        DataCard1_3 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =2540
+            Width: =1920
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            HtmlText2 As htmlViewer:
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =1
+                Height: =2864
+                HtmlText: |+
+                    ="<!DOCTYPE html>
+                    
+                    <html>
+                    <head>
+                    <style>
+                    table.tb1 {
+                      border:1.5px solid black;
+                      border-collapse:collapse;
+                    }
+                    </style>
+                    </head>
+                    
+                    <body>
+                    <div style='margin-left: 30px; margin-right:30px; font-size: 11px;'>
+                    
+                    
+                    <br><br>
+                    <br><br>
+                    
+                    
+                    <table style='width:100%'>
+                      <tr>
+                        <th style='width:100%'>WORK ORDER</th>
+                        <th></th>
+                      </tr>
+                    </table>  
+                    
+                    <br><br>
+                    <br><br>
+                    
+                    
+                    
+                    
+                    <table style='width:100%'>
+                      <tr>
+                        <th style='width:30%'></th>
+                        <th></th>
+                      </tr>
+                    
+                      <tr>
+                    <td style = 'font-weight: bold;'>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</td>
+                    <td style = 'font-weight: bold; '>FEB 1 2022</td>
+                      </tr>
+                    
+                      <tr>
+                    <td style = 'font-weight: bold;'>Work Order No.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</td>
+                    <td style = 'font-weight: bold;'>JTAS-YOC-WO-15005-00</td>
+                      </tr>
+                    
+                    
+                    <tr>
+                    <td style = 'font-weight: bold;'>Team&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</td>
+                    <td style = 'font-weight: bold;'>Digital Transformation</td>
+                    </tr>
+                    </table>
+                    
+                    <br><br>
+                    
+                    
+                    <B>1.&nbsp;&nbsp;&nbsp; GENERAL</B>
+                    
+                    <table style='width:100%'>
+                      <tr>
+                        <th style='width:20%'></th>
+                        <th style='width:1%'></th>
+                        <th></th>
+                      </tr>
+                    
+                    <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JobCode</td>
+                    <td>:</td>
+                    <td>123123123</td>
+                    </tr>
+                    
+                    <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Project Name</td>
+                    <td>:</td>
+                    <td>ProjectX</td>
+                    </tr>
+                    
+                    <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Project Location</td>
+                    <td>:</td>
+                    <td>Basrah, Iraq</td>
+                    </tr>
+                    
+                    <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Owner/Company</td>
+                    <td>:</td>
+                    <td>South Refineries Company </td>
+                    </tr>
+                    
+                    <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main Contractor</td>
+                    <td>:</td>
+                    <td>JGC Corporation</td>
+                    </tr>
+                    
+                    <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contractor</td>
+                    <td>:</td>
+                    <td>JGC Technical Assistance Services Philippines Inc. (JTAS)</td>
+                    </tr>
+                    </table>
+                    
+                    <br><br>
+                    <B>2.&nbsp;&nbsp;&nbsp;JOB DESCRIPTION</B><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planning and preparation of drawing layouts & BQ for the Temporary Facilities.
+                    
+                    <br><br>
+                    <B>3.&nbsp;&nbsp;&nbsp;SCOPE OF WORK</B><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planning and preparation of drawing layouts & BQ for the Temporary Facilities.
+                    
+                    <br><br>
+                    <B>4.&nbsp;&nbsp;&nbsp;SCHEDULE</B><br><br>
+                    
+                    <table style='width:70%; border-collapse:collapse;text-align: center;''>
+                      <tr>
+                        <th style='width:5%'></th>
+                        <th style='border:1px solid black;width:5%'>Day</th>
+                        <th style='border:1px solid black; width:5%'>Month</th>
+                        <th style='border:1px solid black; width:5%'>Year</th>
+                      </tr>
+                    
+                    <tr>
+                    <td style='border:1px solid black'>Commencement Date</td>
+                    <td style='border:1px solid black'>01</td>
+                    <td style='border:1px solid black'>April</td>
+                    <td style='border:1px solid black'>2021</td>
+                    </tr>
+                    
+                    <tr>
+                    <td style='border:1px solid black'>Completion Date</td>
+                    <td style='border:1px solid black'>01</td>
+                    <td style='border:1px solid black'>August</td>
+                    <td style='border:1px solid black'>2022</td>
+                    </tr>
+                    </table>
+                    
+                    <br><br>
+                    <B>5.&nbsp;&nbsp;&nbsp;TYPE OF CONTRACT AND RATE</B><br><br>
+                    
+                    
+                    <table style='width:90%; border-collapse:collapse;text-align: center;''>
+                      <tr>
+                        <th style='width: 5%'></th>
+                        <th style='width:22%'></th>
+                        <th style='border:1px solid black;width:22%'>Price<br>(US$)</th>
+                        <th style='border:1px solid black; width:22%'>Estimated<br>Manhour</th>
+                        <th style='border:1px solid black; width:22%'>Estimated Total Cost<br>(US$)</th>
+                      </tr>
+                    
+                    <tr>
+                    <td style='border:1px solid black'>X</td>
+                    <td style='border:1px solid black'>Unit Rate</td>
+                    <td style='border:1px solid black'>9.8 / MH</td>
+                    <td style='border:1px solid black'>900</td>
+                    <td style='border:1px solid black'><b>8,820.00<b></td>
+                    </tr>
+                    
+                    <tr>
+                    <td style='border:1px solid black'></td>
+                    <td style='border:1px solid black'>Man-hour Reimbursable</td>
+                    <td style='border:1px solid black'></td>
+                    <td style='border:1px solid black'></td>
+                    <td style='border:1px solid black'><b><b></td>
+                    </tr>
+                    
+                    <tr>
+                    <td style='border:1px solid black'></td>
+                    <td style='border:1px solid black'>Lump Sum</td>
+                    <td style='border:1px solid black'></td>
+                    <td style='border:1px solid black'></td>
+                    <td style='border:1px solid black'><b><b></td>
+                    </tr>
+                    </table>
+                    <br>
+                    
+                    <table style='width:50'>
+                      <tr>
+                        <th style='width:40%'>5.1</th>
+                        <th style='text-align: left'>Assigned Person/s:</th>
+                      </tr>
+                    
+                    <tr>
+                    <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td >Multiple (2 persons in peak).</td>
+                    </tr>
+                    
+                    </table>
+                    
+                    
+                    
+                    <br><br>
+                    <B>6.&nbsp;&nbsp;&nbsp;CONDITIONS</B><br><br>
+                    
+                    <table>
+                    
+                    <tr>
+                    <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td >   6.1	Support will be done remotely in JTAS (Office / WFH))</td>
+                    </tr>
+                    
+                    </table>
+                    
+                    
+                    <br><br>
+                    
+                    
+                    <B>7.&nbsp;&nbsp;&nbsp;TERMS OF PAYMENT</B><br><br>
+                    
+                    <table>
+                    
+                    <tr>
+                    <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td > 7.1	Monthly billing based on the actual issuances/man-hour spent</td>
+                    </tr>
+                    
+                    <tr>
+                    <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td > 7.2	Payment shall be made by means of Telegraphic Transfer Remittance (TTR) within 30 days after Client’s receipt of invoice.</td>
+                    </tr>
+                    
+                    <tr>
+                    <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td > 7.3	All payment for Contractor’s invoice shall be made to</td>
+                    </tr>
+                    </table>
+                    
+                    
+                    <table style='width:70%; border-collapse:collapse;text-align: center;''>
+                      <tr>
+                        <th style='width:45%'> </th>
+                        <th style='width:5%'></th>
+                        <th style='width:45%'></th>
+                      </tr>
+                    
+                    <tr style= 'vertical-align: top'>
+                    <td  >Bank</td>
+                    <td style= 'text-align: left'> :</td>
+                    <td style= 'text-align: left'> Mizuho Bank, Ltd., Manila Branch</td>
+                    </tr>
+                    
+                    <tr style= 'vertical-align: top'>
+                    <td  >Address</td>
+                    <td style= 'text-align: left'> :</td>
+                    <td style= 'text-align: left' > 25th Floor, Zuellig Building Paseo de Roxas Corner Makati Avenue Makati City, Philippines</td>
+                    </tr>
+                    
+                    <tr style= 'vertical-align: top'>
+                    <td  >Account Number</td>
+                    <td style= 'text-align: left'> :</td>
+                    <td style= 'text-align: left' > F15-789-117854 </td>
+                    </tr>
+                    
+                    
+                    <tr style= 'vertical-align: top'>
+                    <td  >Swift Code</td>
+                    <td style= 'text-align: left'> :</td>
+                    <td style= 'text-align: left' > MHCBPHMM </td>
+                    </tr>
+                    </table>
+                    
+                    
+                    <br>
+                    <table>
+                    <tr>
+                    <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td > 7.4 This Work Order shall be valid as backup of invoicing.</td>
+                    </tr>
+                    </table>
+                    
+                    
+                    <br><br>
+                    <B>8.&nbsp;&nbsp;&nbsp;ADDRESS OF INVOICE</B><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoice will be addressed to 
+                    
+                    <table style='width:80%; border-collapse:collapse;text-align: center;''>
+                      <tr>
+                        <th style='width:45%'> </th>
+                        <th style='width:5%'></th>
+                        <th style='width:45%'></th>
+                      </tr>
+                    
+                    <tr style= 'vertical-align: top'>
+                    <td  >Attention</td>
+                    <td style= 'text-align: left'> :</td>
+                    <td style= 'text-align: left' > Mr. Masanori Hirooka<br> Project Manager</td>
+                    </tr>
+                    
+                    <tr style= 'vertical-align: top'>
+                    <td  >To</td>
+                    <td style= 'text-align: left'> :</td>
+                    <td style= 'text-align: left' >JGC CORPORATION</td>
+                    </tr>
+                    
+                    
+                    <tr style= 'vertical-align: top'>
+                    <td border:1px solid black >Address</td>
+                    <td style= 'text-align: left'> :</td>
+                    <td style= 'text-align: left; vertical-align: top' >Yokohama World Operations Center 2-3-1,<br> Minato Mirai, Nishi-ku <br>Yokohama 220-6001, Japan</td>
+                    </tr>
+                    
+                    <tr style= 'vertical-align: top'>
+                    <td border:1px solid black >Contact No.</td>
+                    <td style= 'text-align: left'> :</td>
+                    <td style= 'text-align: left; vertical-align: top' >+81-45-682-8301, Ext : 51071</td>
+                    </tr>
+                    </table>
+                    
+                    <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Should the above be acceptable to you, please indicate your acceptance by signing and returning the duplicate copy of this Work Order to JGC.
+                    
+                    <br><br>
+                    Accepted by, 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                     
+                    
+                    <table width = 100% style='text-align: center;margin-left: auto;margin-right: auto;'>
+                      <tr>
+                        <th style='width:50%; '> JGC Technical Assistance Services Philippines Inc.</th>
+                        <th style='width:50%; '> JGC Corp </th>
+                      </tr>
+                    
+                    <tr style= 'vertical-align: bottom; '>
+                    <td style= 'text-align: center; height:75px'   >____________________________________________________</td>
+                    <td style= 'text-align: center; height:75px'> ____________________________________________________</td>
+                    </tr>
+                    
+                    
+                    <tr style= 'vertical-align: top; text-align: center'>
+                    <td style= 'text-align: center; height:75px'   ><b>Ms. Mariah De Leon</b> / Date <br> Construction Manager<br> Project Operations Department</td>
+                    <td style= 'text-align: center;  height:75px'><b> Mr. Shinya Sato<b> <br> Project Manager<br>Project</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr style= 'vertical-align: bottom; '>
+                    <td style= 'text-align: center; height:75px'   >____________________________________________________</td>
+                    <td style= 'text-align: center; height:75px'>____________________________________________________</td>
+                    </tr>
+                    
+                    
+                    <tr style= 'vertical-align: top; text-align: center'>
+                    <td style= 'text-align: center;  height:75px'   ><b>Mr. Hirotsugu Ito </b> / Date <br> Director/Treasurer</td>
+                    <td style= 'text-align: center; b height:75px'> <b>Mr. Masanori Hirooka</b><br> Project Manager<br>Project</td>
+                    </tr>
+                    
+                    
+                    </div>
+                    </body>
+                    </html>"
+                    
+                    
+                Width: =979
+                X: =62
+                ZIndex: =1
+
+            Button4_8 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderThickness: =0
+                Color: =RGBA(191, 191, 191, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(51, 51, 51, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                FocusedBorderThickness: =0
+                Font: =Font.'Segoe UI'
+                Height: =70
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                OnSelect: |+
+                    =
+                    
+                    '[PortalV2]GenerateTimesheet'.Run(
+                        "create", 
+                        HtmlText2.HtmlText)
+                    
+                    
+                    
+                PaddingLeft: =60
+                PaddingRight: =20
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Size: =14
+                Text: ="Submit for Approval"
+                Width: =250
+                X: =1124
+                Y: =52
+                ZIndex: =4
+

@@ -1,0 +1,12 @@
+ScreenReportsBilling As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+
+    Header_12 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_12.Width
+        ZIndex: =5
+
+    LeftNavigation_12 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =6
+

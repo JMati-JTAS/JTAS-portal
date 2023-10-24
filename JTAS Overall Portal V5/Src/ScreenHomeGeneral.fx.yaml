@@ -1,0 +1,1972 @@
+ScreenHomeGeneral As screen:
+    Fill: =RGBA(245, 245, 245, 1)
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    OnVisible: |-
+        =Set(Data31, "");
+        Set(MopVis, false)
+
+    Header_6 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_6.Width
+        ZIndex: =3
+
+    LeftNavigation_6 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =4
+
+    Container6_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height - Self.Y
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_6.Width
+        Y: =Header_6.Y + Header_6.Height
+        ZIndex: =5
+
+        Container12_1 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            LayoutWrap: =true
+            PaddingBottom: =30
+            PaddingLeft: =30
+            PaddingRight: =30
+            PaddingTop: =10
+            ZIndex: =2
+
+            Container7_3 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                Fill: =RGBA(230, 230, 230, 1)
+                Height: =300
+                LayoutMinHeight: =100
+                LayoutMinWidth: =Parent.Width - Parent.PaddingLeft - Parent.PaddingRight - 25
+                Width: =Parent.Width - Parent.PaddingLeft - Parent.PaddingRight - 25
+                X: =LeftNavigation_6.Width
+                Y: =70
+                ZIndex: =1
+
+                Image4 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =58
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        ="data:image/png;base64,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"
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =615
+                    X: =Parent.Width - Self.Width - 72
+                    Y: =210
+                    ZIndex: =1
+
+                Label2_17 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Size: =18
+                    Text: |-
+                        =If(TimeValue(varCurrentTime) < TimeValue("12:00"), "Good Morning", TimeValue(varCurrentTime) < TimeValue("18:00"), "Good Afternoon", "Good Evening") & " " & varUserData.FirstName & "!"
+                    Width: =740
+                    X: =72
+                    Y: =26
+                    ZIndex: =2
+
+                Label2_18 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    Size: =13
+                    Text: |-
+                        =With(
+                        {
+                            LogInTime: LookUp('JTAS Time Log V2', LogDate = Today() And LoggedBy = varUserEmail And LogType = "Time In", LogTime),
+                            LogOutTime: LookUp('JTAS Time Log V2', LogDate = Today() And LoggedBy = varUserEmail And LogType = "Time Out", LogTime),
+                            HolidayName: LookUp('JTAS Holidays', HolidayDate = Today(), HolidayName)
+                        },
+                        If(
+                            !IsBlank(LogOutTime), "You're logged out. Thank you for today!",
+                            !IsBlank(LogInTime), "You're logged in. Make this day productive!",
+                            !IsBlank(HolidayName), "Happy " & HolidayName & "!. Are you going to work today?",
+                            "How are you? Ready for work? :)"
+                        ))
+                    Width: =573
+                    X: =72
+                    Y: =66
+                    ZIndex: =3
+
+                Label2_19 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    Size: =13
+                    Text: ="Today is " & Text(varCurrentTime, "dddd (mmm. dd).")
+                    Width: =573
+                    X: =72
+                    Y: =96
+                    ZIndex: =4
+
+                ScreenHomeGeneral_Toggle1 As toggleSwitch:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =RGBA(51, 51, 51, 1)
+                    Default: |-
+                        =With({ a: CountRows(Filter('JTAS Time Log V2',LoggedBy = varUserEmail And LogType = "Time Out" And LogTime=Blank())),
+                        In: Filter('JTAS Time Log V2', LoggedBy = varUserEmail And LogType="Time In"  Or LogType = "Break In" Or LogType="Break Out")},
+                            
+                        If(a<>0, LookUp(SortByColumns(In, "ID", SortOrder.Descending), LoggedBy = varUserEmail And LogDate = Today(), LogType) in ["Time In", "Break In", Blank()],
+                        
+                        LookUp(SortByColumns('JTAS Time Log V2', "ID", SortOrder.Descending), LoggedBy = varUserEmail And LogDate = Today(), LogType) in ["Time In", "Break In", Blank()]
+                        
+                        ))
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FalseFill: =RGBA(102, 102, 102, 1)
+                    FalseHoverFill: =RGBA(33, 33, 33, 1)
+                    FalseText: ="You're OUT"
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Height: =35
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    LabelPaddingLeft: =2
+                    OnCheck: =
+                    OnSelect: |+
+                        =Set(showLoading, true);
+                        
+                        With(
+                        {
+                            PartialLoginData:
+                                Patch('JTAS Time Log V2', Defaults('JTAS Time Log V2'), 
+                                {
+                                    LoggedBy: varUserEmail, 
+                                    LogType: Switch(LookUp(SortByColumns('JTAS Time Log V2', "ID", SortOrder.Descending), LoggedBy = varUserEmail And LogDate = Today(), LogType),
+                                        "Break Out", "Break In", "Break Out")
+                                })
+                        },
+                        With(
+                        {
+                            CorrectedTimeValue:
+                                DateAdd(PartialLoginData.Created, TimeZoneOffset(PartialLoginData.Created) + 8 * 60, TimeUnit.Minutes)
+                        },
+                        Patch('JTAS Time Log V2', PartialLoginData, 
+                        {
+                            LogDate: DateValue(CorrectedTimeValue), 
+                            LogTime: Text(CorrectedTimeValue, "hh:mm")
+                        
+                        });
+                        Set(DateTimeS, Text(CorrectedTimeValue, "hh:mm"))
+                        ));
+                        
+                        
+                        If(LookUp('JTAS Members V2', EmailAddress = varUserEmail, Section) in ["BMT", "BMTS"],
+                            JTAS_OverAll_Send_Notif_BreakIn_Out.Run(
+                                LookUp('JTAS Section', ParentSectionCode = "BMTS", SectionManager),
+                                //"mati.julius_irvin@jgc.com",
+                                LookUp('JTAS Members V2', EmailAddress = varUserEmail, MemberName),
+                                Switch(Self.Value, false, "Break Out","Break In"), 
+                                DateTimeS,"");
+                        );
+                        
+                        
+                        Set(showLoading, false);
+                        
+                    OnUncheck: =
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    Size: =11
+                    TrueFill: =RGBA(54, 176, 75, 1)
+                    TrueHoverFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    TrueText: ="You're IN"
+                    Visible: |-
+                        =!IsBlank(LookUp(SortByColumns('JTAS Time Log V2', "ID", SortOrder.Descending), LoggedBy = varUserEmail And LogDate = Today() And LogType = "Time In", LogTime)) And 
+                        IsBlank(LookUp(SortByColumns('JTAS Time Log V2', "ID", SortOrder.Descending), LoggedBy = varUserEmail And LogDate = Today() And LogType = "Time Out", LogTime))
+                    Width: =160
+                    X: =498
+                    Y: =66
+                    ZIndex: =5
+
+                Label2_38 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    Size: =13
+                    Text: ="Break Status"
+                    Visible: |-
+                        =!IsBlank(LookUp(SortByColumns('JTAS Time Log V2', "ID", SortOrder.Descending), LoggedBy = varUserEmail And LogDate = Today() And LogType = "Time In", LogTime)) And 
+                        IsBlank(LookUp(SortByColumns('JTAS Time Log V2', "ID", SortOrder.Descending), LoggedBy = varUserEmail And LogDate = Today() And LogType = "Time Out", LogTime))
+                    Width: =174
+                    X: =498
+                    Y: =26
+                    ZIndex: =6
+
+                Label2_46 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(36, 42, 44, 1)
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =52
+                    Size: =25
+                    Text: |-
+                        =Text(varCurrentTime, "hh:mm AM/PM")
+                    Width: =200
+                    X: =Parent.Width - Self.Width - 72
+                    Y: =121
+                    ZIndex: =7
+
+                Label2_51 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(36, 42, 44, 1)
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    Size: =13
+                    Text: |-
+                        ="Time Now:"
+                    Width: =200
+                    X: =Parent.Width - Self.Width - 72
+                    Y: =91
+                    ZIndex: =8
+
+                Radio1 As radio:
+                    BorderColor: =RGBA(51, 51, 51, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =134
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Items: =["Morning Shift", "Mid Shift", "Night Shift"]
+                    PaddingBottom: =5
+                    PaddingTop: =5
+                    PressedColor: =RGBA(51, 51, 51, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadioBorderColor: =RGBA(51, 51, 51, 1)
+                    RadioSelectionFill: =RGBA(105, 121, 126, 1)
+                    Size: =13
+                    Visible: =false
+                    Width: =201
+                    X: =72
+                    Y: =146
+                    ZIndex: =9
+
+                Button4_1 As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: |-
+                        =With(
+                            {
+                                previousLogOut: Sort(
+                                    Filter(
+                                        'JTAS Time Log V2',
+                                        LoggedBy = varUserEmail And LogType = "Time Out" And LogTime = Blank()
+                                    ),
+                                    ID,
+                                    SortOrder.Ascending
+                                )
+                            },
+                            If(
+                                varUserEmail in colShift And Radio1.Selected.Value = Blank(),
+                                DisplayMode.Disabled,
+                                CountRows(previousLogOut) <> 0,
+                                DisplayMode.Disabled,
+                                If(
+                                    Self.Text = "Logged Out",
+                                    DisplayMode.Disabled,
+                                    DisplayMode.Edit
+                                )
+                            )
+                        )
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    Font: =Font.'Segoe UI'
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                    OnSelect: |-
+                        =/*Set(showLoading, true);
+                        
+                        With({PartialLoginData:Patch('JTAS Time Log V2', Defaults('JTAS Time Log V2'), {LoggedBy: varUserEmail, LogType: "Time In"})},
+                        With({CorrectedTimeValue:DateAdd(PartialLoginData.Created, TimeZoneOffset(PartialLoginData.Created) + 8 * 60, Minutes)},
+                        With({PartialLogOutData:Patch('JTAS Time Log V2', Defaults('JTAS Time Log V2'), {LoggedBy: varUserEmail, LogType: "Time Out"})},
+                        
+                        Patch('JTAS Time Log V2', PartialLoginData, 
+                        {
+                            LogDate: DateValue(CorrectedTimeValue), 
+                            LogTime: Text(CorrectedTimeValue, "hh:mm"),
+                            LogDateAndTime: DateAdd(    DateAdd( Now(), -TimeZoneOffset(Now()), Minutes ), 7, Hours),
+                            Shift: Radio1.Selected.Value
+                        });
+                        
+                        Patch('JTAS Time Log V2', PartialLogOutData, 
+                        {
+                            LogDate: DateValue(CorrectedTimeValue), 
+                            LogTime: Blank(),
+                            Shift: Radio1.Selected.Value
+                        });
+                        
+                        
+                        )));
+                        
+                        Set(showLoading, false);*/
+                        If(Self.Text = "Logged Out",
+                        Set(MopVis, false),Set(MopVis, true))
+                    PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Text: |-
+                        =With({LogOutTime: LookUp('JTAS Time Log V2', LogDate = Today() And LoggedBy = varUserEmail And LogType = "Time Out", LogTime)},
+                        If(!IsBlank(LogOutTime), "Logged Out", "Log in"))
+                    Visible: |+
+                        =With(
+                            {
+                                LogInTime: LookUp('JTAS Time Log V2', LogDate = Today() And LoggedBy = varUserEmail And LogType = "Time In", LogTime),
+                                LogOutTime: LookUp('JTAS Time Log V2', LogDate = Today() And LoggedBy = varUserEmail And LogType = "Time Out", LogTime)
+                            },
+                            IsBlank(LogInTime) Or !IsBlank(LogOutTime)
+                        )
+                        
+                        
+                        
+                        
+                    X: =If(varUserEmail in colShift, 278, 72)
+                    Y: =170
+                    ZIndex: =10
+
+                Label12 As label:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    Size: =8
+                    Text: ="V 17/10/2023"
+                    Width: =85
+                    X: =Parent.Width-Self.Width
+                    ZIndex: =11
+
+                AccessMamAmor As groupContainer.manualLayoutContainer:
+                    Height: =81
+                    Visible: =User().Email in ["mati.julius_irvin@jgc.com", "hernandez.roma_amor@jgc.com"]
+                    Width: |
+                        =250
+                    X: =Label2_46.X - Self.Width - 50
+                    Y: =Label2_51.Y
+                    ZIndex: =15
+
+                    ComboBox4 As combobox:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        ChevronBackground: =RGBA(255, 255, 255, 1)
+                        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                        ChevronFill: =RGBA(33, 33, 33, 1)
+                        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                        Color: =RGBA(51, 51, 51, 1)
+                        DefaultSelectedItems: =
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["EmailAddress"]
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(212, 212, 212, 1)
+                        IsSearchable: =false
+                        Items: =Filter('JTAS Members V2', EmailAddress in [User().Email, "roldan.paul@jgc.com", "galicia_oselito1@jgc.com"] Or EmployeeNo = "23-0126")
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        SearchFields: =["EmailAddress"]
+                        SearchItems: =[]
+                        SelectionFill: =RGBA(105, 121, 126, 1)
+                        SelectMultiple: =false
+                        Size: =13
+                        Width: =250
+                        ZIndex: =1
+
+                    Button29 As button:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(105, 121, 126, 1)
+                        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                        OnSelect: |-
+                            =Set(showLoading, true);
+                            
+                            Set(varCurrentTime, Now());
+                            Set(varUserEmailBypassData, ComboBox4.Selected.EmailAddress);
+                            //Bypass email
+                            Set(varUserEmail, ComboBox4.Selected.EmailAddress);
+                            //BypassEmain
+                            
+                            Set(varUserData, LookUp('JTAS Members V2', EmailAddress = varUserEmail));
+                            ClearCollect(colJobCode, 'JTAS Job Code V2');
+                            Set(isNavigationExpand, true);
+                            
+                            /*Set(varNavigationList,
+                            Table(
+                            {
+                                title: "Home Page", 
+                                screens: 
+                                    Table(
+                                        {screenName: "General", counter: 0, screenObject: ScreenHomeGeneral},
+                                        {screenName: "My Profile", counter: 0, screenObject: ScreenHomeMyProfile}), 
+                                icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                            <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 306.773 306.773' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                            <g xmlns='http://www.w3.org/2000/svg'>
+                            	<path style='' d='M302.93,149.794c5.561-6.116,5.024-15.49-1.199-20.932L164.63,8.898   c-6.223-5.442-16.2-5.328-22.292,0.257L4.771,135.258c-6.092,5.585-6.391,14.947-0.662,20.902l3.449,3.592   c5.722,5.955,14.971,6.665,20.645,1.581l10.281-9.207v134.792c0,8.27,6.701,14.965,14.965,14.965h53.624   c8.264,0,14.965-6.695,14.965-14.965v-94.3h68.398v94.3c-0.119,8.264,5.794,14.959,14.058,14.959h56.828   c8.264,0,14.965-6.695,14.965-14.965V154.024c0,0,2.84,2.488,6.343,5.567c3.497,3.073,10.842,0.609,16.403-5.513L302.93,149.794z' fill='#bfbfbf' data-original='#010002' class=''/>
+                            </g></svg>")
+                            },
+                            {
+                                title: "Daily Tracker", 
+                                screens: 
+                                    Table(
+                                        {screenName: "My Manhour", counter: 0, screenObject: ScreenTrackerMyManhour},
+                                    If(!IsBlank(LookUp('JTAS Work Order', AssignedMember = varUserEmail, ParentWorkOrderCode)),
+                                        {screenName: "My Approval", counter: CountRows(Filter('JTAS Daily Manhour', ApprovalBy = varUserEmail, Status = "Pending")), screenObject: ScreenTrackerMyApproval})), 
+                                icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                            <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                            },
+                            {
+                                title: "Overtime Request", 
+                                screens: 
+                                    Table(
+                                        {screenName: "My Requests", counter: 0, screenObject: ScreenOvertimeMyRequests}, 
+                                    If(varUserData.Role <> "General Staff",
+                                        {screenName: "My Approval", counter: CountRows(Filter('JTAS Overtime Request V3', And(Approver1 = varUserEmail, Status1 = "Pending") Or And(Approver2 = varUserEmail, Status2 = "Pending") Or And(Approver3 = varUserEmail, Status3 = "Pending"), Status = "Pending")), screenObject: ScreenOvertimeMyApproval})), 
+                                icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                            <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                            <g xmlns='http://www.w3.org/2000/svg'>
+                            	<path d='M256,0C114.841,0,0,114.841,0,256s114.841,256,256,256s256-114.841,256-256S397.159,0,256,0z M372.101,291.335H250.952    c-0.244,0-0.48-0.029-0.721-0.036c-0.241,0.009-0.477,0.036-0.721,0.036c-11.948,0-21.634-9.686-21.634-21.634V93.747    c0-11.948,9.686-21.634,21.634-21.634c11.948,0,21.634,9.686,21.634,21.634v154.321h100.958c11.948,0,21.634,9.686,21.634,21.634    S384.049,291.335,372.101,291.335z' fill='#bfbfbf' data-original='#000000' style='' class=''/>
+                            </g></svg>")
+                            },
+                            {
+                                title: "Leave Request", 
+                                screens: 
+                                    Table(
+                                        {screenName: "My Requests", counter: 0, screenObject: ScreenLeaveMyRequests},
+                                    If(varUserData.Role in ["Section Manager", "Department Manager", "General Manager"],
+                                        {screenName: "My Approval", counter: CountRows(Filter('JTAS Leave Request V3', And(ApproverName1 = varUserEmail, ApprovalStatus1 = "Pending") Or And(ApproverName2 = varUserEmail, ApprovalStatus2 = "Pending") Or And(ApproverName3 = varUserEmail, ApprovalStatus3 = "Pending"), Status = "Pending")), screenObject: ScreenLeaveMyApproval})), 
+                                icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                            <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 512.001 512.001' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='M345.075,126.02V69.268c0-8.894-7.21-16.104-16.104-16.104H183.029c-8.894,0-16.104,7.21-16.104,16.104v56.752h-45.663    v332.818h269.475V126.02H345.075z M312.867,125.892H199.133v-40.52h113.733V125.892z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g><g xmlns='http://www.w3.org/2000/svg'><path d='M54.741,126.02C24.557,126.02,0,150.576,0,180.76v223.337c0,30.183,24.557,54.74,54.741,54.74h34.313V126.02H54.741z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g><g xmlns='http://www.w3.org/2000/svg'><path d='M457.26,126.02h-34.313v332.818h34.313c30.184,0,54.741-24.557,54.741-54.74V180.76    C512,150.576,487.443,126.02,457.26,126.02z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>
+                            ")
+                            },
+                            {
+                                title: "Reports", 
+                                screens: 
+                                    Table(
+                                        {screenName: "Member Summary", counter: 0, screenObject: ScreenReportsMemberSummary},
+                                        {screenName: "Work Order Summary", counter: 0, screenObject: ScreenReportsWorkOrderSummary}), 
+                                icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                            <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                            }*/
+                            /*,
+                            {
+                                title: "Timesheet", 
+                                screens: 
+                                    Table(
+                                        {screenName: "Timesheet", counter: 0, screenObject: ScreenReportsTimesheet},
+                                        {screenName: "Timesheet Approval", counter: 0, screenObject: ScreenReportsTimesheetApproval},
+                                        {screenName: "Billing", counter: 0, screenObject: ScreenReportsBilling}), 
+                                icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                            <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                            }));*/
+                            
+                            /*
+                                icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                            <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 30.462 30.461' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                            <g xmlns='http://www.w3.org/2000/svg'>
+                            	<path d='M16.109,13.997l-4.312-4.479L1.426,20.058L0,18.656L11.812,6.651l4.354,4.522l7.49-7.172l-2.146-2.145h5.603v5.601   L25.07,5.415L16.109,13.997z M4.962,28.606h6.75v-9.5h-6.75V28.606z M14.337,28.606h6.75v-12.5h-6.75V28.606z M23.712,9.856v18.75   h6.75V9.856H23.712z' fill='#bfbfbf' data-original='#000000' style=''/>
+                            </g></svg>"*/
+                            
+                            Set(showLoading, false);
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Submit"
+                        Width: =250
+                        Y: =40
+                        ZIndex: =2
+
+            Container11_6 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(230, 230, 230, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =1.5
+                Height: =400
+                LayoutMinHeight: =100
+                LayoutMinWidth: =600
+                Width: =600
+                X: =513
+                Y: =447
+                ZIndex: =2
+
+                Label2_24 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="JTAS Applications"
+                    Width: =327
+                    X: =20
+                    Y: =20
+                    ZIndex: =1
+
+                Gallery5_1 As gallery.galleryHorizontal:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Height: =320
+                    Items: =JTAS_OverAll_Application_Launcher
+                    TemplateSize: =120
+                    Width: =Parent.Width - 2 * Self.X
+                    WrapCount: =RoundUp(CountRows(Self.AllItems) / RoundDown((Self.Width - Self.TemplatePadding)/(Self.TemplateWidth + Self.TemplatePadding), 0), 0)
+                    Y: =60
+                    ZIndex: =2
+
+                    Container13_1 As groupContainer:
+                        Fill: =RGBA(51, 59, 62, 1)
+                        Height: =150
+                        Width: =120
+                        ZIndex: =1
+
+                        Image3_1 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =50
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: =ThisItem.image
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =50
+                            X: =(Parent.Width - Self.Width) / 2
+                            Y: =9
+                            ZIndex: =1
+
+                        Label4_4 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            Height: =51
+                            Size: =13
+                            Text: =ThisItem.Title
+                            Width: =120
+                            Y: =59
+                            ZIndex: =2
+
+                        Label4_5 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(204, 204, 204, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            Height: =30
+                            Size: =13
+                            Text: ="Open"
+                            Width: =120
+                            Y: =110
+                            ZIndex: =3
+
+                        Button5_8 As button:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderThickness: =0
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                            FocusedBorderThickness: =0
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =
+                            OnSelect: =Launch(ThisItem.link)
+                            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =15
+                            Text: =""
+                            Tooltip: =ThisItem.toolTip
+                            Width: =Parent.Width
+                            ZIndex: =4
+
+                Icon21 As icon.Reload:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(105, 121, 126, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =35
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Reload
+                    OnSelect: =Refresh(JTAS_OverAll_Application_Launcher)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Visible: =false
+                    Width: =39
+                    X: =624
+                    ZIndex: =3
+
+                Timer4 As timer:
+                    AutoPause: =false
+                    AutoStart: =true
+                    BorderColor: =RGBA(105, 121, 126, 1)
+                    BorderStyle: =BorderStyle.None
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Duration: =30000
+                    Fill: =RGBA(105, 121, 126, 1)
+                    Font: =Font.'Segoe UI'
+                    HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                    OnTimerEnd: =Select(Icon21)
+                    PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    Repeat: =true
+                    Visible: =false
+                    X: =252
+                    ZIndex: =4
+
+            Container8_1 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(230, 230, 230, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =400
+                LayoutMinHeight: =100
+                LayoutMinWidth: =430
+                Width: =430
+                X: =88
+                Y: =280
+                ZIndex: =3
+
+                Label2_20 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Organization Chart"
+                    Width: =291
+                    X: =20
+                    Y: =20
+                    ZIndex: =1
+
+                PdfViewer1_1 As pdfViewer:
+                    Document: =
+                    Height: =Parent.Height - Self.Y - 20
+                    Width: =Parent.Width - 2 * Self.X
+                    X: =30
+                    Y: =70
+                    ZIndex: =2
+
+                Icon8_1 As icon.Download:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(105, 121, 126, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =30
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Download
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Visible: =false
+                    Width: =30
+                    X: =Parent.Width - Self.Width - 30
+                    Y: =25
+                    ZIndex: =3
+
+                Label10 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Size: =13
+                    Text: ="View Org Chart"
+                    X: =(Parent.Width - Self.Width) / 2
+                    Y: =(Parent.Height - Self.Height) / 2
+                    ZIndex: =4
+
+                Button7 As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(0, 0, 0, 0)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =310
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =
+                    OnSelect: |-
+                        =/*Set(showLoading, true);
+                        
+                        UpdateContext(
+                        {
+                            varOrgChartData: 
+                                SortByColumns(AddColumns(ShowColumns(RenameColumns(Filter('JTAS Team', Not("INH" in SectionCode)), "SortOrder", "TeamNumber"), "TeamCode", "TeamNumber", "TeamTitle", "SectionCode", "DeptCode") As Team, 
+                                        "SectionNumber", LookUp('JTAS Section', ParentSectionCode = Team.SectionCode, SectionNumber), 
+                                        "SectionTitle", LookUp('JTAS Section', ParentSectionCode = Team.SectionCode, SectionTitle), 
+                                        "SectionManager", LookUp('JTAS Section', ParentSectionCode = Team.SectionCode, SectionManager),
+                                        "DepartmentNumber", LookUp('JTAS Department', ParentDeptCode = Team.DeptCode, SortOrder),
+                                        "DepartmentTitle", LookUp('JTAS Department', ParentDeptCode = Team.DeptCode, DeptTitle),
+                                        "DepartmentManager", LookUp('JTAS Department', ParentDeptCode = Team.DeptCode, DeptManager)), 
+                                            "DepartmentNumber", Ascending, "SectionNumber", Ascending, "TeamNumber", Ascending)
+                        });
+                        
+                        Set(showLoading, false);
+                        
+                        UpdateContext({varPopUp: "popOrgChart"})*/
+                        Navigate(New_Org_Viewer)
+                    PressedBorderColor: =
+                    PressedColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =15
+                    Text: =""
+                    Width: =383
+                    X: =30
+                    Y: =70
+                    ZIndex: =5
+
+            Container11_5 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(230, 230, 230, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =400
+                LayoutMinHeight: =100
+                LayoutMinWidth: =400
+                Width: =400
+                X: =931
+                Y: =304
+                ZIndex: =4
+
+                Label2_23 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Notification"
+                    Width: =305
+                    X: =20
+                    Y: =20
+                    ZIndex: =1
+
+                Gallery10 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Height: =Parent.Height - Self.Y - 20
+                    Items: |-
+                        =With(
+                        {
+                            Manhour: ShowColumns(AddColumns(Filter(SortByColumns('JTAS Daily Manhour', "Modified", SortOrder.Descending), (SubmittedBy = varUserEmail And Status = "Approved") Or (ApprovalBy = varUserEmail And Or(Status = "Pending", Status = "Approved", Status = "Declined"))), 
+                                "Class", "Manhour", 
+                                "Type", Switch(varUserEmail, ApprovalBy, "My Approval", SubmittedBy, "My Request"), 
+                                "From", Switch(varUserEmail, ApprovalBy, SubmittedBy, SubmittedBy, ApprovalBy), 
+                                "When", Created, 
+                                "ItemStatus", ApprovalStatus), 
+                                    "Class", "Type", "From", "When", "ItemStatus"),
+                            Overtime: ShowColumns(AddColumns(Filter(SortByColumns('JTAS Overtime Request V3', "Modified", SortOrder.Descending), (EmailMembers = varUserEmail And Status = "Approved") Or Approver1 = varUserEmail Or Approver2 = varUserEmail Or Approver3 = varUserEmail), 
+                                "Class", "Overtime", 
+                                "Type", If(varUserEmail = EmailMembers, "My Request", "My Approval"), 
+                                "From", If(varUserEmail <> EmailMembers, EmailMembers, If(Status3 <> "Pending", Approver3, Status2 <> "Pending", Approver2, Status1 <> "Pending", Approver1)), 
+                                "When", Created, 
+                                "ItemStatus", If(Status1 = "Pending", "Pending", "Approved")), 
+                                    "Class", "Type", "From", "When", "ItemStatus"),
+                            Leave: ShowColumns(AddColumns(Filter(SortByColumns('JTAS Leave Request V3', "Modified", SortOrder.Descending), (RequestBy = varUserEmail And Status = "Approved") Or ApproverName1 = varUserEmail Or ApproverName2 = varUserEmail Or ApproverName3 = varUserEmail), 
+                                "Class", "Leave", 
+                                "Type", If(varUserEmail = RequestBy, "My Request", "My Approval"), 
+                                "From", If(varUserEmail <> RequestBy, RequestBy, If(ApprovalStatus3 <> "Pending", ApproverName3, ApprovalStatus2 <> "Pending", ApproverName2, ApprovalStatus1 <> "Pending", ApproverName1)), 
+                                "When", Created, 
+                                "ItemStatus", If(ApprovalStatus1 = "Pending", "Pending", "Approved")), 
+                                    "Class", "Type", "From", "When", "ItemStatus")
+                        },
+                        GroupBy(AddColumns(SortByColumns(Ungroup([Manhour, Overtime, Leave], "Value"), "When", SortOrder.Descending), "NotificationDate", Text(When, "ddd, mmm. dd, yyyy")), "NotificationDate", "groupData"))
+                    Layout: =Layout.Vertical
+                    ShowNavigation: =true
+                    ShowScrollbar: =false
+                    TemplatePadding: =0
+                    TemplateSize: =280
+                    Width: =Parent.Width - 2 * Self.X
+                    X: =40
+                    Y: =70
+                    ZIndex: =3
+
+                    Gallery3_10 As gallery.galleryVertical:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        Height: =CountRows(Self.AllItems) * (Self.TemplateHeight + Self.TemplatePadding) + Self.TemplatePadding
+                        Items: =ThisItem.groupData
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =10
+                        TemplateSize: =50
+                        Width: =Parent.Width
+                        Y: =40
+                        ZIndex: =1
+
+                        Image2_12 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: =Office365Users.UserPhotoV2(ThisItem.From)
+                            OnSelect: =Select(Parent)
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            RadiusBottomLeft: =Self.Height / 2
+                            RadiusBottomRight: =Self.Height / 2
+                            RadiusTopLeft: =Self.Height / 2
+                            RadiusTopRight: =Self.Height / 2
+                            Width: =40
+                            Y: =Parent.TemplateHeight/2-Self.Height/2
+                            ZIndex: =2
+
+                        Button5_7 As button:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderThickness: =0
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                            FocusedBorderThickness: =0
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =
+                            OnSelect: =Select(Parent)
+                            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =15
+                            Text: =""
+                            Width: =Parent.TemplateWidth
+                            ZIndex: =3
+
+                        HtmlText1_3 As htmlViewer:
+                            Color: =RGBA(51, 51, 51, 1)
+                            Font: =Font.'Segoe UI'
+                            Height: =Parent.TemplateHeight
+                            HtmlText: |-
+                                ="<b>" & LookUp('JTAS Members V2', EmailAddress = ThisItem.From, MemberName) & "</b> " & 
+                                Switch(ThisItem.Type, 
+                                    "My Request", 
+                                        Lower(ThisItem.ItemStatus) & " your " & Lower(ThisItem.Class) & " request.", 
+                                    "My Approval", 
+                                        "sent a " & Lower(ThisItem.Class) & " request for your approval.")
+                                /*["<b>Mariah De Leon</b> approved your leave request.", "<b>Aldren Gacute</b> sent a leave request for your approval."]*/
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =10
+                            PaddingRight: =0
+                            Width: =Parent.TemplateWidth - Self.X - 20
+                            X: =Image2_12.Width
+                            ZIndex: =4
+
+                    Label2_45 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Size: =13
+                        Text: =ThisItem.NotificationDate
+                        Width: =305
+                        ZIndex: =2
+
+            Container11_4 As groupContainer:
+                AlignInContainer: =AlignInContainer.Start
+                BorderColor: =RGBA(230, 230, 230, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =400
+                LayoutMinHeight: =100
+                LayoutMinWidth: =400
+                Width: =400
+                X: =736
+                Y: =96
+                ZIndex: =5
+
+                Label2_22 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Member Status Board"
+                    Width: =Parent.Width
+                    X: =20
+                    Y: =20
+                    ZIndex: =1
+
+                Gallery3_9 As gallery.galleryVertical:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Height: =Parent.Height - Self.Y - 20
+                    Items: |-
+                        =With({JTASTimeLogCorrect: Filter(SortByColumns( 'JTAS Time Log V2', "Created",SortOrder.Descending), LogTime<> Blank() )},
+                        
+                        Filter(
+                            SortByColumns(
+                                JTASTimeLogCorrect,
+                                "Created",
+                                SortOrder.Descending
+                            ),
+                            LoggedBy in Filter(
+                                'JTAS Members V2',
+                                StartsWith(
+                                    Department,
+                                    If(
+                                        IsBlank(ComboBox2_9.Selected.ParentDeptCode),
+                                        "",
+                                        ComboBox2_9.Selected.ParentDeptCode
+                                    )
+                                ),
+                                StartsWith(
+                                    Section,
+                                    If(
+                                        IsBlank(ComboBox2_10.Selected.ParentSectionCode),
+                                        "",
+                                        ComboBox2_10.Selected.ParentSectionCode
+                                    )
+                                ),
+                                StartsWith(
+                                    FirstName,
+                                    TextInput1_3.Text
+                                ) Or
+                                StartsWith(
+                                    LastName,
+                                    TextInput1_3.Text
+                                )
+                            ).EmailAddress
+                        ))
+                    Layout: =Layout.Vertical
+                    ShowNavigation: =true
+                    ShowScrollbar: =false
+                    TemplatePadding: =10
+                    TemplateSize: =50
+                    Width: =Parent.Width - 2 * Self.X
+                    X: =30
+                    Y: =Container14_1.Y + Container14_1.Height
+                    ZIndex: =2
+
+                    Image2_11 As image:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =4
+                        Height: =40
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: =Office365Users.UserPhotoV2(ThisItem.LoggedBy)
+                        OnSelect: =Select(Parent)
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        RadiusBottomLeft: =Self.Height / 2
+                        RadiusBottomRight: =Self.Height / 2
+                        RadiusTopLeft: =Self.Height / 2
+                        RadiusTopRight: =Self.Height / 2
+                        Width: =40
+                        ZIndex: =2
+
+                    HtmlText1_2 As htmlViewer:
+                        Color: =RGBA(51, 51, 51, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.TemplateHeight
+                        HtmlText: |-
+                            =With({MemberName: LookUp('JTAS Members V2', EmailAddress = ThisItem.LoggedBy, MemberName)},
+                            "<b>" & MemberName &"</b>" & " has " & Switch(ThisItem.LogType, "Time In", "logged in", "Time Out", "logged out", "Break In", "break in", "Break Out", "break out") & " at " & Text(TimeValue(ThisItem.LogTime), "h:mm AM/PM"))
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =10
+                        PaddingRight: =0
+                        Width: =Parent.TemplateWidth - Self.X - 20
+                        X: =Image2_11.Width
+                        ZIndex: =4
+
+                Container14_1 As groupContainer:
+                    Height: =If(isAdvancedFilter, 200, 80)
+                    Width: =Parent.Width - 2 * Self.X
+                    X: =50
+                    Y: =70
+                    ZIndex: =3
+
+                    Container3_4 As groupContainer:
+                        Height: =42
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        Icon3_3 As icon.Copy:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =RGBA(105, 121, 126, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: =DisplayMode.View
+                            FocusedBorderThickness: =4
+                            Height: =25
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Search
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =25
+                            X: =10
+                            Y: =(TextInput1_3.Height - Self.Height) / 2
+                            ZIndex: =2
+
+                        TextInput1_3 As text:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =0
+                            Color: =RGBA(51, 51, 51, 1)
+                            Default: =""
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =2
+                            Font: =Font.'Segoe UI'
+                            Height: =42
+                            HintText: ="Search member"
+                            HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverColor: =RGBA(51, 51, 51, 1)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            PaddingLeft: =45
+                            PressedBorderColor: =RGBA(105, 121, 126, 1)
+                            PressedColor: =RGBA(51, 51, 51, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =13
+                            Width: =Parent.Width - 2 * Self.X
+                            ZIndex: =3
+
+                        Rectangle4 As rectangle:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledFill: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(105, 121, 126, 1)
+                            FocusedBorderThickness: =4
+                            Height: =1
+                            HoverFill: =RGBA(105, 121, 126, 1)
+                            PressedFill: =RGBA(105, 121, 126, 1)
+                            Width: =Parent.Width
+                            Y: =Parent.Height - Self.Height
+                            ZIndex: =4
+
+                    Container15_2 As groupContainer:
+                        Height: =40
+                        Width: =Parent.Width
+                        Y: =42
+                        ZIndex: =2
+
+                        Icon7_3 As icon.FilterFlat:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =RGBA(105, 121, 126, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =20
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =If(isAdvancedFilter, Icon.FilterFlatFilled, Icon.FilterFlat)
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =20
+                            X: =Parent.Width - Self.Width - 150
+                            Y: =(Parent.Height - Self.Height) / 2
+                            ZIndex: =1
+
+                        Button1_19 As button:
+                            Align: =Align.Right
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                            Font: =Font.'Segoe UI'
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =
+                            OnSelect: |-
+                                =UpdateContext({isAdvancedFilter: !isAdvancedFilter})
+                            PaddingLeft: =15
+                            PaddingRight: =25
+                            PressedBorderColor: =
+                            PressedColor: =RGBA(0, 0, 0, 1)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Text: ="Advanced Filter"
+                            Width: =Parent.Width
+                            ZIndex: =2
+
+                    ComboBox2_9 As combobox:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(255, 255, 255, 1)
+                        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                        ChevronFill: =RGBA(33, 33, 33, 1)
+                        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["DeptTitle","ParentWorkOrderCode"]
+                        Fill: =RGBA(237, 237, 237, 1)
+                        FocusedBorderThickness: =1
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(212, 212, 212, 1)
+                        InputTextPlaceholder: =
+                        IsSearchable: =false
+                        Items: ='JTAS Department'
+                        NoSelectionText: ="Select department"
+                        OnChange: =Reset(ComboBox2_10)
+                        PaddingLeft: =12
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        SearchFields: =["DeptTitle"]
+                        SearchItems: =[]
+                        SelectionFill: =RGBA(105, 121, 126, 1)
+                        SelectMultiple: =false
+                        Size: =13
+                        Width: =Parent.Width - 2 * Self.X
+                        X: =1
+                        Y: =88
+                        ZIndex: =3
+
+                    ComboBox2_10 As combobox:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(255, 255, 255, 1)
+                        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                        ChevronFill: =RGBA(33, 33, 33, 1)
+                        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["SectionCode","ParentWorkOrderCode"]
+                        Fill: =RGBA(237, 237, 237, 1)
+                        FocusedBorderThickness: =1
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(212, 212, 212, 1)
+                        InputTextPlaceholder: =
+                        IsSearchable: =false
+                        Items: =If(IsBlank(ComboBox2_9.Selected.DeptTitle), 'JTAS Section', Filter('JTAS Section', StartsWith(ParentSectionCode, ComboBox2_9.Selected.ParentDeptCode)))
+                        NoSelectionText: ="Select section"
+                        OnChange: =Reset(ComboBox2_2)
+                        PaddingLeft: =12
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        SearchFields: =["AssignedMember"]
+                        SearchItems: =[]
+                        SelectionFill: =RGBA(105, 121, 126, 1)
+                        SelectMultiple: =false
+                        Size: =13
+                        Width: =Parent.Width - 2 * Self.X
+                        X: =1
+                        Y: =142
+                        ZIndex: =4
+
+            Container11_8 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(230, 230, 230, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =400
+                LayoutMinHeight: =100
+                LayoutMinWidth: =500
+                Width: =400
+                X: =931
+                Y: =304
+                ZIndex: =6
+
+                Icon14 As icon.Mail:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(105, 121, 126, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =49
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.AddToCalendar
+                    OnSelect: =Navigate(LeaveCalendarScreen)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Tooltip: ="View Leave on Calendar"
+                    Width: =51
+                    X: =Parent.Width-Self.Width
+                    ZIndex: =1
+
+                Label2_52 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Members On-Leave"
+                    Width: =305
+                    X: =20
+                    Y: =20
+                    ZIndex: =2
+
+                Gallery10_1 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.None
+                    Height: =Parent.Height - Self.Y - 20
+                    Items: |-
+                        =Table(
+                            {
+                                GroupName: "Today",
+                                GroupData: SortByColumns(
+                                    Filter(
+                                        'JTAS Leave Request V3',
+                                        Status = "Approved" Or Status = "Pending",
+                                        StartDate <= Today(),
+                                        EndDate >= Today()
+                                    ),
+                                    "StartDate",
+                                    SortOrder.Descending
+                                )
+                            },
+                            {
+                                GroupName: "Future",
+                                GroupData: SortByColumns(
+                                    Filter(
+                                        'JTAS Leave Request V3',
+                                        Status = "Approved" Or Status = "Pending",
+                                        StartDate > Today()
+                                    ),
+                                    "StartDate",
+                                    SortOrder.Ascending
+                                )
+                            }
+                        )
+                    Layout: =Layout.Vertical
+                    ShowNavigation: =true
+                    ShowScrollbar: =false
+                    TemplatePadding: =0
+                    TemplateSize: =280
+                    Width: =Parent.Width - 2 * Self.X
+                    X: =40
+                    Y: =70
+                    ZIndex: =3
+
+                    Gallery3_14 As gallery.galleryVertical:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        BorderStyle: =BorderStyle.None
+                        Height: =CountRows(Self.AllItems) * (Self.TemplateHeight + Self.TemplatePadding) + Self.TemplatePadding
+                        Items: =AddColumns(ThisItem.GroupData, "GroupName", ThisItem.GroupName)
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =10
+                        TemplateSize: =70
+                        Width: =Parent.Width
+                        Y: =40
+                        ZIndex: =1
+
+                        Image2_15 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: =Office365Users.UserPhotoV2(ThisItem.RequestBy)
+                            OnSelect: =Select(Parent)
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            RadiusBottomLeft: =Self.Height / 2
+                            RadiusBottomRight: =Self.Height / 2
+                            RadiusTopLeft: =Self.Height / 2
+                            RadiusTopRight: =Self.Height / 2
+                            Width: =40
+                            Y: =Parent.TemplateHeight/2-Self.Height/2
+                            ZIndex: =2
+
+                        Button5_10 As button:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderThickness: =0
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                            FocusedBorderThickness: =0
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =
+                            OnSelect: =Select(Parent)
+                            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =15
+                            Text: =""
+                            Width: =Parent.TemplateWidth
+                            ZIndex: =3
+
+                        HtmlText1_4 As htmlViewer:
+                            Color: =RGBA(51, 51, 51, 1)
+                            Font: =Font.'Segoe UI'
+                            Height: =70
+                            HtmlText: ="<b>" & LookUp('JTAS Members V2', EmailAddress = ThisItem.RequestBy, MemberName) & "</b> is on " & LookUp('JTAS Nature of Leave', NLCode = ThisItem.NatureOfLeave, NLTitle&"("&ThisItem.HalfDay&")") & " (" & Text(ThisItem.StartDate, "ddd, mmm. dd, yyyy") & " - " & Text(ThisItem.EndDate, "ddd, mmm. dd, yyyy") & ")"
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =10
+                            PaddingRight: =0
+                            Width: =375
+                            X: =40
+                            ZIndex: =4
+
+                    Label2_53 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Size: =13
+                        Text: =ThisItem.GroupName & " (" & Text(CountRows(ThisItem.GroupData)) & ")"
+                        Width: =200
+                        ZIndex: =2
+
+            Container10_1 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(230, 230, 230, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =400
+                LayoutMinHeight: =100
+                LayoutMinWidth: =400
+                Width: =400
+                X: =558
+                Y: =316
+                ZIndex: =7
+
+                Label2_21 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Quick Links"
+                    Width: =327
+                    X: =20
+                    Y: =20
+                    ZIndex: =1
+
+                Gallery3_8 As gallery.galleryVertical:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Height: =Parent.Height - Self.Y - 20
+                    Items: |-
+                        =Table(
+                            {
+                                title: "Yammer", 
+                                Data: "Link",
+                                link: "https://www.yammer.com/jgcgroup.onmicrosoft.com/#/threads/inGroup?type=in_group&feedId=31781953536&view=all",
+                                image: "data:image/png;base64,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"
+                            },
+                            {
+                                title: "JTAS Client Site", 
+                                Data: "Link",
+                                link: "https://jgcgroup.sharepoint.com/sites/JTAS-Client-Portal",
+                                image: "data:image/svg+xml," & EncodeUrl("
+                        <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48' fill='#2963cf'>
+                        <path d='M24 44q-4.15 0-7.8-1.575-3.65-1.575-6.35-4.275-2.7-2.7-4.275-6.35Q4 28.15 4 24t1.575-7.8Q7.15 12.55 9.85 9.85q2.7-2.7 6.35-4.275Q19.85 4 24 4t7.8 1.575q3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24t-1.575 7.8q-1.575 3.65-4.275 6.35-2.7 2.7-6.35 4.275Q28.15 44 24 44Zm-2.15-3.05v-4.1q-1.75 0-2.95-1.3-1.2-1.3-1.2-3.05v-2.2L7.45 20.05q-.25 1-.35 1.975Q7 23 7 24q0 6.5 4.225 11.35t10.625 5.6Zm14.7-5.4q1.1-1.2 1.925-2.55.825-1.35 1.4-2.825t.85-3.025Q41 25.6 41 24q0-5.3-2.9-9.625T30.35 8.05v.9q0 1.75-1.2 3.05-1.2 1.3-2.95 1.3h-4.35v4.35q0 .85-.675 1.4-.675.55-1.525.55H15.5V24h12.9q.85 0 1.4.65.55.65.55 1.5v6.35h2.15q1.45 0 2.55.85 1.1.85 1.5 2.2Z' fill='#2963cf'/>
+                        </svg>")
+                            },
+                            {
+                                title: "Emergency Hotlines", 
+                                Data: "Download",
+                                link: LookUp(Documents,StartsWith('File name with extension', "EMERGENCY HOTLINE")).'Link to item',
+                                image: "data:image/svg+xml," & EncodeUrl("
+                        <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48' fill='#2963cf'><path d='M34.75 23.75h2.5v-3.6l3.1 1.8 1.25-2.15-3.1-1.8 3.1-1.8-1.25-2.15-3.1 1.75v-3.55h-2.5v3.55l-3.05-1.75-1.25 2.15L33.5 18l-3.05 1.8 1.25 2.15 3.05-1.8ZM2.75 43Q1.3 43 .2 41.9q-1.1-1.1-1.1-2.55V8.6q0-1.45 1.1-2.55 1.1-1.1 2.55-1.1H45.2q1.45 0 2.55 1.1 1.1 1.1 1.1 2.55v30.75q0 1.45-1.1 2.55-1.1 1.1-2.55 1.1Zm28.15-3.65h14.3V8.6H2.75v30.75h.5q2.2-4 5.85-6.1 3.65-2.1 8-2.1 4.3 0 7.925 2.1t5.875 6.1Zm-13.8-12.5q2.6 0 4.425-1.825Q23.35 23.2 23.35 20.55q0-2.6-1.825-4.425Q19.7 14.3 17.1 14.3q-2.65 0-4.475 1.825Q10.8 17.95 10.8 20.55q0 2.65 1.825 4.475Q14.45 26.85 17.1 26.85Zm-9.3 12.5h18.55Q24.45 37 22.1 35.9t-5-1.1q-2.7 0-5.1 1.05-2.4 1.05-4.2 3.5Zm9.3-16.15q-1.1 0-1.875-.775-.775-.775-.775-1.825 0-1.1.775-1.875.775-.775 1.825-.775 1.1 0 1.875.75.775.75.775 1.85t-.75 1.875q-.75.775-1.85.775Zm6.9.75Z' fill='#2963cf'/></svg>")
+                            },
+                            {
+                                title: "Company Policy",
+                                Data: "Download",
+                                link:  LookUp(Documents,StartsWith('File name with extension', "JTAS Employee Handbook 2019 version")).'Link to item',
+                                image: "data:image/svg+xml," & EncodeUrl("
+                        <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48' fill='#2963cf'>
+                        <path d='M24 28.3q1.85 0 3.15-1.275 1.3-1.275 1.3-3.175 0-1.85-1.3-3.15-1.3-1.3-3.15-1.3-1.85 0-3.15 1.3-1.3 1.3-1.3 3.15 0 1.9 1.3 3.175T24 28.3Zm0 12.6q2.35-.8 4.8-2.525 2.45-1.725 3.95-3.925l-4.6-4.4q-.95.55-2 .9T24 31.3q-3.1 0-5.275-2.15-2.175-2.15-2.175-5.3 0-3.1 2.175-5.275Q20.9 16.4 24 16.4q3.1 0 5.275 2.175Q31.45 20.75 31.45 23.9q0 1.05-.3 2.1t-.95 1.9l4.2 4q1.2-2.15 1.9-4.725.7-2.575.7-5.275V12L24 7.25 11 12v9.9q0 6.55 3.625 11.825Q18.25 39 24 40.9Zm0 3.1q-7-1.75-11.5-8.125T8 21.9V10l16-6 16 6v11.9q0 7.6-4.5 13.975T24 44Zm0-19.95Z' fill='#2963cf' />
+                        </svg>")
+                            },
+                            {
+                                title: "General Common Forms",
+                                Data: "Link",
+                                link:  "https://jgcgroup.sharepoint.com/:f:/r/sites/JTAS_testbyIto-00_JTASGeneral/Shared%20Documents/00_JTAS%20General/03_JTAS%20Official%20Forms?csf=1&web=1&e=5jxh6e",
+                                image: "data:image/svg+xml," & EncodeUrl("
+                        <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24' fill='#2963cf'><path d='M600-40q-33 0-56.5-23.5T520-120q0-23 11-41t29-29v-221q-18-11-29-28.5T520-480q0-33 23.5-56.5T600-560q33 0 56.5 23.5T680-480q0 23-11 40.5T640-411v115l160-53v-62q-18-11-29-28.5T760-480q0-33 23.5-56.5T840-560q33 0 56.5 23.5T920-480q0 23-11 40.5T880-411v119l-240 80v22q18 11 29 29t11 41q0 33-23.5 56.5T600-40ZM160-240v-480 480Zm0 80q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480h280v80H160Z' fill='#2963cf'/></svg>")
+                            }
+                        )
+                    Layout: =Layout.Vertical
+                    TemplatePadding: =10
+                    TemplateSize: =40
+                    Width: =Parent.Width - 2 * Self.X
+                    X: =30
+                    Y: =70
+                    ZIndex: =2
+
+                    Label3_4 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.TemplateHeight
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =15
+                        Size: =13
+                        Text: =ThisItem.title
+                        Width: =Parent.TemplateWidth - Self.X
+                        X: =Image2_9.Width
+                        ZIndex: =1
+
+                    Image2_9 As image:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.TemplateHeight
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: =ThisItem.image
+                        OnSelect: =Select(Parent)
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =Parent.TemplateHeight
+                        ZIndex: =2
+
+                    Button5_5 As button:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderThickness: =0
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.TemplateHeight
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =
+                        OnSelect: |-
+                            =If(ThisItem.Data = "Link",
+                            Launch(ThisItem.link,{},LaunchTarget.New), Download(ThisItem.link))
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.TemplateWidth
+                        ZIndex: =3
+
+            Container11_7 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(230, 230, 230, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =400
+                LayoutMinHeight: =100
+                LayoutMinWidth: =400
+                Width: =400
+                X: =777
+                Y: =87
+                ZIndex: =8
+
+                Label2_25 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Upcoming Holidays / Offwork"
+                    Width: =327
+                    X: =20
+                    Y: =20
+                    ZIndex: =1
+
+                Gallery3_11 As gallery.galleryVertical:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Height: =Parent.Height - Self.Y - 20
+                    Items: |-
+                        =Filter(SortByColumns('JTAS Holidays', "HolidayDate", SortOrder.Ascending), HolidayDate >= Today())
+                        /*["Special Holiday on November 1", "Your are on leave October 25 to October 29", "Legal Holiday on November 2"]*/
+                    Layout: =Layout.Vertical
+                    ShowNavigation: =true
+                    ShowScrollbar: =false
+                    TemplatePadding: =10
+                    TemplateSize: =50
+                    Width: =Parent.Width - 2 * Self.X
+                    X: =30
+                    Y: =70
+                    ZIndex: =2
+
+                    Button5_9 As button:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderThickness: =0
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.TemplateHeight
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =
+                        OnSelect: =Select(Parent)
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.TemplateWidth
+                        ZIndex: =3
+
+                    Circle5_1 As circle:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        BorderStyle: =BorderStyle.None
+                        DisabledFill: =RGBA(105, 121, 126, 1)
+                        Fill: =RGBA(RandBetween(0, 255), RandBetween(0, 255), RandBetween(0, 255), 1)
+                        Height: =25
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =25
+                        Y: =(Parent.TemplateHeight - Self.Height) / 2
+                        ZIndex: =5
+
+                    Label3_5 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.TemplateHeight
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =15
+                        Size: =13
+                        Text: =ThisItem.HolidayName & " (" & Text(ThisItem.HolidayDate, "mmm. dd, yyyy") & ")"
+                        Width: =Parent.TemplateWidth - Self.X
+                        X: =Circle5_1.Width
+                        ZIndex: =6
+
+            Container11_9 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(230, 230, 230, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =400
+                LayoutMinHeight: =100
+                LayoutMinWidth: =400
+                Width: =400
+                X: =777
+                Y: =87
+                ZIndex: =9
+
+                "'Safety Calendar_1' As 'Safety Calendar'":
+                    Height: =Parent.Height - Label2_87.Y - Label2_87.Height - 20
+                    Width: =Parent.Width - 50
+                    X: =(Parent.Width - Self.Width) / 2
+                    Y: =Label2_87.Height + Label2_87.Y
+
+                Label2_87 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Safety Day Calendar"
+                    Width: =327
+                    X: =20
+                    Y: =20
+                    ZIndex: =2
+
+    Container12 As groupContainer:
+        Height: =85
+        Visible: =User().Email in ["marasigan.raymond@jgc.com", "deleon.mariah@jgc.com", "mati.julius_irvin@jgc.com", "macalalad.junnie_mark1@jgc.com"]
+        Width: =335
+        X: =1138
+        ZIndex: =6
+
+        Button9 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(105, 121, 126, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+            OnSelect: |-
+                =Set(showLoading, true);
+                
+                Set(varCurrentTime, Now());
+                Set(varUserEmailBypassData, ComboBox3.Selected.Mail);
+                //Bypass email
+                Set(varUserEmail, Left(varUserEmailBypassData,Find("@",varUserEmailBypassData)) & "jgc.com");
+                //BypassEmain
+                
+                Set(varUserData, LookUp('JTAS Members V2', EmailAddress = varUserEmail));
+                ClearCollect(colJobCode, 'JTAS Job Code V2');
+                Set(isNavigationExpand, true);
+                
+                /*Set(varNavigationList,
+                Table(
+                {
+                    title: "Home Page", 
+                    screens: 
+                        Table(
+                            {screenName: "General", counter: 0, screenObject: ScreenHomeGeneral},
+                            {screenName: "My Profile", counter: 0, screenObject: ScreenHomeMyProfile}), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 306.773 306.773' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                <g xmlns='http://www.w3.org/2000/svg'>
+                	<path style='' d='M302.93,149.794c5.561-6.116,5.024-15.49-1.199-20.932L164.63,8.898   c-6.223-5.442-16.2-5.328-22.292,0.257L4.771,135.258c-6.092,5.585-6.391,14.947-0.662,20.902l3.449,3.592   c5.722,5.955,14.971,6.665,20.645,1.581l10.281-9.207v134.792c0,8.27,6.701,14.965,14.965,14.965h53.624   c8.264,0,14.965-6.695,14.965-14.965v-94.3h68.398v94.3c-0.119,8.264,5.794,14.959,14.058,14.959h56.828   c8.264,0,14.965-6.695,14.965-14.965V154.024c0,0,2.84,2.488,6.343,5.567c3.497,3.073,10.842,0.609,16.403-5.513L302.93,149.794z' fill='#bfbfbf' data-original='#010002' class=''/>
+                </g></svg>")
+                },
+                {
+                    title: "Daily Tracker", 
+                    screens: 
+                        Table(
+                            {screenName: "My Manhour", counter: 0, screenObject: ScreenTrackerMyManhour},
+                        If(!IsBlank(LookUp('JTAS Work Order', AssignedMember = varUserEmail, ParentWorkOrderCode)),
+                            {screenName: "My Approval", counter: CountRows(Filter('JTAS Daily Manhour', ApprovalBy = varUserEmail, Status = "Pending")), screenObject: ScreenTrackerMyApproval})), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                },
+                {
+                    title: "Overtime Request", 
+                    screens: 
+                        Table(
+                            {screenName: "My Requests", counter: 0, screenObject: ScreenOvertimeMyRequests}, 
+                        If(varUserData.Role <> "General Staff",
+                            {screenName: "My Approval", counter: CountRows(Filter('JTAS Overtime Request V3', And(Approver1 = varUserEmail, Status1 = "Pending") Or And(Approver2 = varUserEmail, Status2 = "Pending") Or And(Approver3 = varUserEmail, Status3 = "Pending"), Status = "Pending")), screenObject: ScreenOvertimeMyApproval})), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                <g xmlns='http://www.w3.org/2000/svg'>
+                	<path d='M256,0C114.841,0,0,114.841,0,256s114.841,256,256,256s256-114.841,256-256S397.159,0,256,0z M372.101,291.335H250.952    c-0.244,0-0.48-0.029-0.721-0.036c-0.241,0.009-0.477,0.036-0.721,0.036c-11.948,0-21.634-9.686-21.634-21.634V93.747    c0-11.948,9.686-21.634,21.634-21.634c11.948,0,21.634,9.686,21.634,21.634v154.321h100.958c11.948,0,21.634,9.686,21.634,21.634    S384.049,291.335,372.101,291.335z' fill='#bfbfbf' data-original='#000000' style='' class=''/>
+                </g></svg>")
+                },
+                {
+                    title: "Leave Request", 
+                    screens: 
+                        Table(
+                            {screenName: "My Requests", counter: 0, screenObject: ScreenLeaveMyRequests},
+                        If(varUserData.Role in ["Section Manager", "Department Manager", "General Manager"],
+                            {screenName: "My Approval", counter: CountRows(Filter('JTAS Leave Request V3', And(ApproverName1 = varUserEmail, ApprovalStatus1 = "Pending") Or And(ApproverName2 = varUserEmail, ApprovalStatus2 = "Pending") Or And(ApproverName3 = varUserEmail, ApprovalStatus3 = "Pending"), Status = "Pending")), screenObject: ScreenLeaveMyApproval})), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 512.001 512.001' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='M345.075,126.02V69.268c0-8.894-7.21-16.104-16.104-16.104H183.029c-8.894,0-16.104,7.21-16.104,16.104v56.752h-45.663    v332.818h269.475V126.02H345.075z M312.867,125.892H199.133v-40.52h113.733V125.892z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g><g xmlns='http://www.w3.org/2000/svg'><path d='M54.741,126.02C24.557,126.02,0,150.576,0,180.76v223.337c0,30.183,24.557,54.74,54.741,54.74h34.313V126.02H54.741z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g><g xmlns='http://www.w3.org/2000/svg'><path d='M457.26,126.02h-34.313v332.818h34.313c30.184,0,54.741-24.557,54.741-54.74V180.76    C512,150.576,487.443,126.02,457.26,126.02z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>
+                ")
+                },
+                {
+                    title: "Reports", 
+                    screens: 
+                        Table(
+                            {screenName: "Member Summary", counter: 0, screenObject: ScreenReportsMemberSummary},
+                            {screenName: "Work Order Summary", counter: 0, screenObject: ScreenReportsWorkOrderSummary}), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                }*/
+                /*,
+                {
+                    title: "Timesheet", 
+                    screens: 
+                        Table(
+                            {screenName: "Timesheet", counter: 0, screenObject: ScreenReportsTimesheet},
+                            {screenName: "Timesheet Approval", counter: 0, screenObject: ScreenReportsTimesheetApproval},
+                            {screenName: "Billing", counter: 0, screenObject: ScreenReportsBilling}), 
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 513.272 513.272' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><g xmlns='http://www.w3.org/2000/svg'><path d='m389.914 0h-286.708c-8.467 0-15.33 6.864-15.33 15.33v34.504h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v30.697h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v31.864h-28.789c-8.82 0-15.97 7.15-15.97 15.97s7.15 15.97 15.97 15.97h28.789v34.504c0 8.467 6.864 15.33 15.33 15.33h286.707v-513.265zm-160.227 102.211h98.657c8.82 0 15.97 7.15 15.97 15.97s-7.15 15.97-15.97 15.97h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97zm98.657 95.745h-98.657c-8.82 0-15.97-7.15-15.97-15.97s7.15-15.97 15.97-15.97h98.657c8.82 0 15.97 7.15 15.97 15.97.001 8.82-7.15 15.97-15.97 15.97z' fill='#bfbfbf' data-original='#000000' style='' class=''/><path d='m454.825 0h-32.97v513.272h32.97c8.467 0 15.331-6.864 15.331-15.33v-482.612c-.001-8.466-6.865-15.33-15.331-15.33z' fill='#bfbfbf' data-original='#000000' style='' class=''/></g></g></svg>")
+                }));*/
+                
+                /*
+                    icon: "data:image/svg+xml," & EncodeUrl("<?xml version='1.0'?>
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 30.462 30.461' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''>
+                <g xmlns='http://www.w3.org/2000/svg'>
+                	<path d='M16.109,13.997l-4.312-4.479L1.426,20.058L0,18.656L11.812,6.651l4.354,4.522l7.49-7.172l-2.146-2.145h5.603v5.601   L25.07,5.415L16.109,13.997z M4.962,28.606h6.75v-9.5h-6.75V28.606z M14.337,28.606h6.75v-12.5h-6.75V28.606z M23.712,9.856v18.75   h6.75V9.856H23.712z' fill='#bfbfbf' data-original='#000000' style=''/>
+                </g></svg>"*/
+                
+                Set(showLoading, false);
+            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: ="Go"
+            Width: =328
+            Y: =40
+            ZIndex: =2
+
+        ComboBox3 As combobox:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(33, 33, 33, 1)
+            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayFields: =["Mail"]
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(212, 212, 212, 1)
+            Items: |-
+                =Office365Users.SearchUserV2({searchTerm:Self.SearchText}).value.Mail
+            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            SearchFields: =["Mail"]
+            SearchItems: |-
+                =Search(Office365Users.SearchUserV2({searchTerm:Self.SearchText}).value.Mail,ComboBox3.SearchText,"Mail")
+            SelectionFill: =RGBA(105, 121, 126, 1)
+            SelectMultiple: =false
+            Size: =13
+            ZIndex: =3
+
+    Loading_8 As Loading:
+        Height: =Parent.Height
+        Visible: =showLoading
+        Width: =Parent.Width
+        ZIndex: =7
+
+    MopComponent_1 As MopComponent:
+        Height: =Parent.Height
+        Visible: |
+            =MopVis
+            
+            //true
+        Width: =Parent.Width
+        ZIndex: =8
+

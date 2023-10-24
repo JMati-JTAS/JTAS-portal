@@ -1,0 +1,2854 @@
+ScreenInternetAllowance As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    OnVisible: |+
+        =Set(
+            NoAttachment,
+            "data:image/png;base64,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"
+        );
+        Clear(ColsMonthYear);
+        Switch(
+            Now() >= Date(
+                Year(Today()),
+                Month(Today()) + 1,
+                -0.5
+            ),
+            true,
+            ForAll(
+                Sequence(2) As Number,
+                Patch(
+                    ColsMonthYear,
+                    Defaults(ColsMonthYear),
+                    {
+                        label: Text(
+                            DateAdd(
+                                DateAdd(
+                                    Now(),
+                                    2,
+                                    TimeUnit.Months
+                                ),
+                                -Number.Value,
+                                TimeUnit.Months
+                            ),
+                            "mmmm yyyy"
+                        )
+                    }
+                )
+            );
+            ForAll(
+                Sequence(4) As Number,
+                Patch(
+                    ColsMonthYear,
+                    Defaults(ColsMonthYear),
+                    {
+                        label: Text(
+                            DateAdd(
+                                Now(),
+                                -Number.Value,
+                                TimeUnit.Months
+                            ),
+                            "mmmm yyyy"
+                        )
+                    }
+                )
+            );
+            ,
+            ForAll(
+                Sequence(6) As Number,
+                Patch(
+                    ColsMonthYear,
+                    Defaults(ColsMonthYear),
+                    {
+                        label: Text(
+                            DateAdd(
+                                DateAdd(
+                                    Now(),
+                                    1,
+                                    TimeUnit.Months
+                                ),
+                                -Number.Value,
+                                TimeUnit.Months
+                            ),
+                            "mmmm yyyy"
+                        )
+                    }
+                )
+            );
+            
+        );
+        
+
+    Container21 As groupContainer.manualLayoutContainer:
+        BorderThickness: =1
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_15.Width
+        Y: =Header_15.Height
+        ZIndex: =1
+
+        Container24 As groupContainer:
+            BorderThickness: =1
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =50
+            Width: =Gallery12.Width
+            X: =Gallery12.X
+            Y: =Gallery12.Y - Self.Height
+            ZIndex: =1
+
+            Label9 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =Container24.Height
+                Size: =18
+                Text: ="Month"
+                Width: =Parent.Width * .16
+                ZIndex: =2
+
+            Label9_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =Container24.Height
+                Size: =18
+                Text: ="Plan"
+                Width: =Parent.Width * .16
+                X: =Label9.Width + Label9.X
+                ZIndex: =3
+
+            Label9_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =Container24.Height
+                Size: =18
+                Text: ="Files"
+                Width: =Parent.Width * .10
+                X: =Label9_9.Width + Label9_9.X
+                ZIndex: =4
+
+            Label9_5 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =Container24.Height
+                Size: =18
+                Text: ="Submited"
+                Width: =Parent.Width * .18
+                X: =Label9_10.Width + Label9_10.X
+                ZIndex: =5
+
+            Label9_9 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =Container24.Height
+                Size: =18
+                Text: ="From - To"
+                Width: =Parent.Width * .23
+                X: =Label9_5.Width + Label9_5.X
+                ZIndex: =6
+
+            Label9_10 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =Container24.Height
+                Size: =18
+                Text: ="Amount"
+                Width: =Parent.Width * .17
+                X: =Label9_2.Width + Label9_2.X
+                ZIndex: =7
+
+        Gallery12 As gallery.galleryVertical:
+            BorderColor: =RGBA(116, 116, 116, 1)
+            BorderThickness: =2
+            Height: =Parent.Height - Self.Y - 20
+            Items: =SortByColumns(Filter('JTAS Internet Allowance', MembersEmail = varUserEmail), "Created", SortOrder.Descending)
+            Layout: =Layout.Vertical
+            ShowNavigation: =true
+            TemplateFill: |-
+                =If(ThisItem.IsSelected,
+                RGBA(161, 156, 156, 0.47), 
+                RGBA(0, 0, 0, 0)
+                )
+            TemplatePadding: =0
+            TemplateSize: =58
+            Transition: =Transition.Push
+            Width: =Parent.Width / 2
+            X: =20
+            Y: =Button16.Height + Label27.Height + 50
+            ZIndex: =2
+
+            Label4 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =DisplayMode.View
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =59
+                OnSelect: =Set(GImage,  First(ThisItem.Attachments).AbsoluteUri)
+                Size: =18
+                Text: =ThisItem.Title
+                Width: =Label9.Width
+                ZIndex: =1
+
+            Label4_1 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =DisplayMode.View
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =59
+                OnSelect: =Set(GImage,  First(ThisItem.Attachments).AbsoluteUri)
+                Size: =18
+                Text: =ThisItem.PlanType.Value
+                Width: =Label9_2.Width
+                X: =Label4.Width+Label4.X
+                ZIndex: =2
+
+            Image10 As image:
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =DisplayMode.View
+                FocusedBorderThickness: =4
+                Height: =59
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: |-
+                    ="https://jgcgroup.sharepoint.com/_layouts/15/getpreview.ashx?path="& Last(ThisItem.Attachments).AbsoluteUri
+                       
+                OnSelect: =Set(GImage,  First(ThisItem.Attachments).AbsoluteUri)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =Label9_3.Width
+                X: =Label4_11.Width + Label4_11.X
+                ZIndex: =3
+
+            Label4_10 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =DisplayMode.View
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =58
+                OnSelect: =Set(GImage,  First(ThisItem.Attachments).AbsoluteUri)
+                Size: =18
+                Text: =Text(ThisItem.Created,"mm/dd/yyyy")
+                Width: =Label9_5.Width
+                X: =Label4_12.Width+Label4_12.X
+                ZIndex: =4
+
+            Label4_11 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =DisplayMode.View
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =58
+                OnSelect: =Set(GImage,  First(ThisItem.Attachments).AbsoluteUri)
+                Size: =18
+                Text: =Text(ThisItem.'Bill Duration from',"mm/dd/yyyy") & " - " & Text(ThisItem.'Bill Duration to',"mm/dd/yyyy")
+                Width: =Label9_9.Width
+                X: =Label4_10.Width+Label4_10.X
+                ZIndex: =5
+
+            Label4_12 As label:
+                Align: =Align.Center
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =DisplayMode.View
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =58
+                OnSelect: =Set(GImage,  First(ThisItem.Attachments).AbsoluteUri)
+                Size: =18
+                Text: =ThisItem.Amount
+                Width: =Label9_10.Width
+                X: =Label4_1.Width+Label4_1.X
+                ZIndex: =6
+
+            Rectangle6 As rectangle:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =58
+                HoverFill: =RGBA(110, 105, 105, 0.35)
+                OnSelect: |-
+                    =Set(IdSelect, ThisItem.ID);
+                    Set(GImage,  First(Filter(ThisItem.Attachments, Last(Split(DisplayName, ".")).Value in ["pdf", "PDF"])).AbsoluteUri)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =Gallery12.Width
+                ZIndex: =7
+
+        Button16 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(191, 191, 191, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: |
+                =If(Value(Label47.Text) >= 10 And  Value(Label47.Text) <=
+                 Value(Text(LastDayOfMonth, "d"))
+                 //Value(30)
+                 , 
+                 If(CountRows(Filter(JTAS_MemberReport_to_Client, Employee.Email = varUserEmail)) > 1, DisplayMode.Disabled, 
+                 
+                 
+                 
+                 
+                 DisplayMode.Edit)
+                 ,  DisplayMode.Disabled)
+                
+                //DisplayMode.Edit
+            Fill: =RGBA(51, 51, 51, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =64
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+            OnSelect: |-
+                =UpdateContext({
+                    showLoading2:
+                    true
+                });
+                
+                Switch(CountRows(ColsMonthYear) < 1, false,
+                
+                
+                Set(
+                    FormAllowance,
+                    false
+                );
+                Set(
+                    ColsVis,
+                    true
+                );
+                UpdateContext({AttachNum: true});
+                ForAll(
+                    Gallery12.AllItems As G,
+                    RemoveIf(
+                        ColsMonthYear,
+                        label = G.Title
+                    )
+                );
+                Reset(ComboBox1);, Notify("You file enough Internet Allowance try it next month", NotificationType.Error));
+                
+                
+                
+                UpdateContext({
+                    showLoading2:
+                    false
+                });
+            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Size: =20
+            Text: ="Add Allowance"
+            Visible: =false
+            Width: =210
+            X: =Parent.Width - Button16.Width - 50
+            Y: =Label27.Y
+            ZIndex: =3
+
+        Image13 As image:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            DisplayMode: =DisplayMode.View
+            FocusedBorderThickness: =4
+            Height: =Gallery12.Height + Container24.Height
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                =If(IsBlankOrError(GImage) = true, NoAttachment, GImage)
+                //Gallery12.Selected.First(Attachments).AbsoluteUri)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: =false
+            Width: =Parent.Width - Gallery12.Width - 90
+            X: =Gallery12.Width + Gallery12.X + 50
+            Y: =Container24.Y
+            ZIndex: =4
+
+        Label27 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =45
+            Size: =20
+            Text: ="Internet Allowance"
+            Width: =269
+            X: =Gallery12.X
+            Y: =Gallery12.Y - Container24.Height - Label27.Height - 30
+            ZIndex: =5
+
+        Label25 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =70
+            Size: =13
+            Text: =GImage
+            Visible: =false
+            Width: =370
+            X: =972
+            Y: =21
+            ZIndex: =6
+
+        Rectangle7 As rectangle:
+            BorderColor: =RGBA(116, 116, 116, 1)
+            BorderThickness: =1
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =Image13.Height
+            HoverFill: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            Visible: =false
+            Width: =Image13.Width
+            X: =Image13.X
+            Y: =Image13.Y
+            ZIndex: =7
+
+        Icon20 As icon.Download:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(105, 121, 126, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =40
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Download
+            OnSelect: |-
+                =Download("https://jgcgroup.sharepoint.com/:b:/r/sites/JTAS_testbyIto/Shared%20Documents/JTAS%20Internet%20Allowance%20Guidelines.pdf?csf=1&web=1&e=Er1e31")
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =51
+            X: =Label27.X+Label27.Width
+            Y: =36
+            ZIndex: =8
+
+        Label26 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =13
+            Text: ="View Manual"
+            X: =328
+            Y: =36
+            ZIndex: =9
+
+        Label24 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(230, 230, 230, .3)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =Parent.Height
+            Size: =13
+            Text: =""
+            Visible: |
+                =ColsVis
+            Width: =Parent.Width
+            ZIndex: =10
+
+        Label47 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =13
+            Text: |
+                =Value(Text(Now(),"dd"))
+            Visible: =false
+            X: =616
+            Y: =9
+            ZIndex: =11
+
+        Label47_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =13
+            Text: |-
+                = Text(DateAdd(
+                        DateAdd(
+                            Today(),
+                            1,
+                            TimeUnit.Months
+                        ),
+                        -Day(Today()),
+                        TimeUnit.Days
+                    ), "dd")
+            Visible: =false
+            X: =755
+            Y: =9
+            ZIndex: =12
+
+        Label42 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =13
+            Text: =Day(DateAdd(DateAdd(Now(), 1, "Months"), If(Day(Now()) = 31, 31, -Day(Now()), "Days")))
+            Visible: =false
+            X: =936
+            Y: =34
+            ZIndex: =13
+
+    PdfViewer3 As pdfViewer:
+        Document: |-
+            =Last(Gallery12.Selected.Attachments).Value
+            
+            //"https://jgcgroup.sharepoint.com/layouts/15/getpreview.ashx?path=https://jgcgroup.sharepoint.com/sites/JTASInternalDataV2/Lists/JTAS%20Internet%20Allowance/Attachments/114/BILLING.pdf"
+        Height: =Rectangle7.Height
+        ShowControls: =true
+        Width: =Rectangle7.Width
+        X: =Rectangle7.X + LeftNavigation_15.Width
+        Y: =Rectangle7.Y + Header_15.Height
+        ZIndex: =2
+
+    Header_15 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_15.Width
+        ZIndex: =3
+
+    LeftNavigation_15 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =4
+
+    Loading_14 As Loading:
+        Height: =Parent.Height
+        Visible: =showLoading2
+        Width: =Parent.Width
+        ZIndex: =5
+
+    Container22 As groupContainer.manualLayoutContainer:
+        Height: =Container21.Height
+        Visible: |+
+            =Switch(true, ColsVis, true, 
+            VerifySub, true, false)
+            
+        Width: =Container21.Width
+        X: =Container21.X
+        Y: =Container21.Y
+        ZIndex: =6
+
+        Container23 As groupContainer.manualLayoutContainer:
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =809
+            Visible: =ColsVis
+            X: =(Parent.Width - Container23.Width) / 2
+            Y: =(Parent.Height - Container23.Height) / 2
+            ZIndex: =1
+
+            Label21 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Size: =13
+                Text: ="Month"
+                Width: =102
+                X: =35
+                Y: =69
+                ZIndex: =1
+
+            ComboBox1 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["label"]
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                IsSearchable: =false
+                Items: =ColsMonthYear
+                OnChange: =Switch(ComboBox1.Selected.label, "", Set(FormAllowance, false), Set(FormAllowance, true));
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Reset: =true
+                SearchFields: =["label"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                X: =137
+                Y: =69
+                ZIndex: =3
+
+            Label23 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =52
+                Size: =20
+                Text: ="Internet Allowance Allocation"
+                Width: =500
+                Y: =3
+                ZIndex: =7
+
+            Button17 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(191, 191, 191, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =Switch(
+                        true,
+                        IsBlank(DataCardValue10.Text),
+                        DisplayMode.Disabled,
+                        IsBlank(DataCardValue16.SelectedDate),
+                        DisplayMode.Disabled,
+                        IsBlank(DataCardValue17.SelectedDate),
+                        DisplayMode.Disabled,
+                        IsBlank(DataCardValue18.Selected.Value),
+                        DisplayMode.Disabled,
+                        AttachNum,
+                        DisplayMode.Disabled,
+                        Switch(DataCardValue18.Selected.Value,"PostPaid",
+                         Switch(true, 
+                                IsBlank(DataCardValue3.Selected.Value), DisplayMode.Disabled,
+                                IsBlank(DataCardValue2.Selected.Value), DisplayMode.Disabled
+                                ,DisplayMode.Edit
+                        )
+                        ,DisplayMode.Edit
+                        )
+                    )
+                    
+                    //DataCardValue11
+                    
+                    /*Switch(
+                            true,
+                            AttachNum,
+                            DisplayMode.Disabled,
+                            Switch(
+                                true,
+                                IsBlank(AttachNum),
+                                DisplayMode.Disabled,
+                                DisplayMode.Edit
+                            )
+                        )*/
+                Fill: =RGBA(51, 51, 51, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =52
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                OnSelect: |-
+                    =UpdateContext({VerifySub: true});
+                    Set(
+                            FormAllowance,
+                            false
+                        );
+                    
+                    
+                    Set(ColsVis,false);
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Size: =18
+                Text: ="Submit"
+                Width: =188
+                X: =49
+                Y: =734
+                ZIndex: =8
+
+            Button17_1 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =52
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                OnSelect: |
+                    =Set(FormAllowance, false);
+                    Set(ColsVis, false);
+                    Refresh('JTAS Internet Allowance');
+                    ResetForm(Form3);
+                    Reset(ComboBox1)
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Size: =18
+                Text: ="Cancel"
+                Width: =188
+                X: =262
+                Y: =734
+                ZIndex: =9
+
+            Form3 As form:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                DataSource: ='JTAS Internet Allowance'
+                DefaultMode: =FormMode.New
+                Height: =565
+                NumberOfColumns: =1
+                Visible: =Switch(IsBlank(ComboBox1.SelectedItems.label), true, false, true)
+                Width: =500
+                Y: =123
+                ZIndex: =10
+
+                "'Provider and Plan_DataCard1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="ProviderandPlan"
+                    Default: =ThisItem.'Provider and Plan'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"ProviderandPlan")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue3.Selected
+                    Visible: =If(DataCardValue18.Selected.Value = "PostPaid", true, false)
+                    Width: =500
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey3 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue3 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        ChevronBackground: =RGBA(255, 255, 255, 1)
+                        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                        ChevronFill: =RGBA(33, 33, 33, 1)
+                        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                        Color: =RGBA(51, 51, 51, 1)
+                        DefaultSelectedItems: =Parent.Default
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(212, 212, 212, 1)
+                        Items: =Choices([@'JTAS Internet Allowance'].'Provider and Plan')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices('JTAS Internet Allowance'.'Provider and Plan',DataCardValue3.SearchText)
+                        SelectionFill: =RGBA(105, 121, 126, 1)
+                        SelectMultiple: =false
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage2 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue3.Y + DataCardValue3.Height
+                        ZIndex: =3
+
+                    StarVisible3 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey3.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey3.Y
+                        ZIndex: =4
+
+                Bundle_DataCard1 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Bundle"
+                    Default: =ThisItem.Bundle
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Bundle")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue2.Selected
+                    Visible: =If(DataCardValue18.Selected.Value = "PostPaid", true, false)
+                    Width: =500
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey2 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue2 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        ChevronBackground: =RGBA(255, 255, 255, 1)
+                        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                        ChevronFill: =RGBA(33, 33, 33, 1)
+                        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                        Color: =RGBA(51, 51, 51, 1)
+                        DefaultSelectedItems: =Parent.Default
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(212, 212, 212, 1)
+                        Items: =Choices([@'JTAS Internet Allowance'].Bundle)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices('JTAS Internet Allowance'.Bundle,DataCardValue2.SearchText)
+                        SelectionFill: =RGBA(105, 121, 126, 1)
+                        SelectMultiple: =false
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage1 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue2.Y + DataCardValue2.Height
+                        ZIndex: =3
+
+                    StarVisible2 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey2.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey2.Y
+                        ZIndex: =4
+
+                PlanType_DataCard2 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="PlanType"
+                    Default: =ThisItem.PlanType
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"PlanType")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue18.Selected
+                    Width: =500
+                    X: =0
+                    Y: =0
+                    ZIndex: =11
+
+                    DataCardKey18 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue18 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        ChevronBackground: =RGBA(255, 255, 255, 1)
+                        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                        ChevronFill: =RGBA(33, 33, 33, 1)
+                        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                        Color: =RGBA(51, 51, 51, 1)
+                        DefaultSelectedItems: =Parent.Default
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(212, 212, 212, 1)
+                        IsSearchable: =false
+                        Items: =Choices([@'JTAS Internet Allowance'].PlanType)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =RGBA(105, 121, 126, 1)
+                        SelectMultiple: =false
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage16 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue18.Y + DataCardValue18.Height
+                        ZIndex: =3
+
+                    StarVisible17 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey18.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey18.Y
+                        ZIndex: =4
+
+                Amount_DataCard2 As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Amount"
+                    Default: =ThisItem.Amount
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Amount")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =79
+                    MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "Amount")
+                    Required: =false
+                    Update: =DataCardValue10.Text
+                    Width: =500
+                    X: =0
+                    Y: =3
+                    ZIndex: =11
+
+                    DataCardKey10 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue10 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage9 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue10.Y + DataCardValue10.Height
+                        ZIndex: =3
+
+                    StarVisible10 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey10.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey10.Y
+                        ZIndex: =4
+
+                "'Bill Duration from_DataCard2' As typedDataCard.dateEditCard":
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="BillDurationfrom"
+                    Default: =ThisItem.'Bill Duration from'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"BillDurationfrom")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue16.SelectedDate
+                    Width: =500
+                    X: =0
+                    Y: =4
+                    ZIndex: =11
+
+                    DataCardKey16 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue16 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        Color: =RGBA(51, 51, 51, 1)
+                        DefaultDate: =Now()
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Font: =Font.'Segoe UI'
+                        HoverDateFill: =RGBA(200, 200, 200, 1)
+                        IconBackground: =RGBA(105, 121, 126, 1)
+                        IsEditable: =true
+                        PaddingBottom: =0
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SelectedDateFill: =RGBA(105, 121, 126, 1)
+                        Size: =13
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey16.Y + DataCardKey16.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage14 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue16.Y + DataCardValue16.Height
+                        ZIndex: =3
+
+                    StarVisible15 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey16.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey16.Y
+                        ZIndex: =4
+
+                "'Bill Duration to_DataCard2' As typedDataCard.dateEditCard":
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="BillDurationto"
+                    Default: =ThisItem.'Bill Duration to'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"BillDurationto")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue17.SelectedDate
+                    Width: =500
+                    X: =0
+                    Y: =5
+                    ZIndex: =11
+
+                    DataCardKey17 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue17 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        Color: =RGBA(51, 51, 51, 1)
+                        DefaultDate: =DateAdd(DataCardValue16.SelectedDate, 30)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Font: =Font.'Segoe UI'
+                        HoverDateFill: =RGBA(200, 200, 200, 1)
+                        IconBackground: =RGBA(105, 121, 126, 1)
+                        IsEditable: =true
+                        PaddingBottom: =0
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SelectedDateFill: =RGBA(105, 121, 126, 1)
+                        Size: =13
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage15 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue17.Y + DataCardValue17.Height
+                        ZIndex: =3
+
+                    StarVisible16 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey17.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey17.Y
+                        ZIndex: =4
+
+                "'JTAS Share_DataCard1' As typedDataCard.textualEditCard":
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="JTASShare"
+                    Default: =ThisItem.'JTAS Share'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"JTASShare")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "JTASShare")
+                    Required: =false
+                    Update: =DataCardValue15.Text
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =6
+                    ZIndex: =11
+
+                    DataCardKey15 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue15 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey15.Y + DataCardKey15.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage13 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue15.Y + DataCardValue15.Height
+                        ZIndex: =3
+
+                    StarVisible14 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey15.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey15.Y
+                        ZIndex: =4
+
+                "'JTAS Share2_DataCard1' As typedDataCard.textualViewCard":
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="JTAS_x0020_Share"
+                    Default: =ThisItem.'JTAS Share2'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"JTAS_x0020_Share")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =7
+                    ZIndex: =11
+
+                    DataCardKey14 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue14 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                        ZIndex: =2
+
+                MinShare_DataCard1 As typedDataCard.numberEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="MinShare"
+                    Default: =ThisItem.MinShare
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"MinShare")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =Value(DataCardValue13.Text)
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =8
+                    ZIndex: =11
+
+                    DataCardKey13 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue13 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage12 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue13.Y + DataCardValue13.Height
+                        ZIndex: =3
+
+                    StarVisible13 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey13.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey13.Y
+                        ZIndex: =4
+
+                MaxShare_DataCard1 As typedDataCard.numberEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="MaxShare"
+                    Default: =ThisItem.MaxShare
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"MaxShare")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =Value(DataCardValue12.Text)
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =9
+                    ZIndex: =11
+
+                    DataCardKey12 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue12 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage11 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue12.Y + DataCardValue12.Height
+                        ZIndex: =3
+
+                    StarVisible12 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey12.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey12.Y
+                        ZIndex: =4
+
+                Divided_DataCard1 As typedDataCard.numberEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Divided"
+                    Default: =ThisItem.Divided
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Divided")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =Value(DataCardValue11.Text)
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =10
+                    ZIndex: =11
+
+                    DataCardKey11 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue11 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage10 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue11.Y + DataCardValue11.Height
+                        ZIndex: =3
+
+                    StarVisible11 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey11.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey11.Y
+                        ZIndex: =4
+
+                Year_DataCard1 As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Year"
+                    Default: =ThisItem.Year
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Year")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "Year")
+                    Required: =false
+                    Update: =DataCardValue9.Text
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =11
+                    ZIndex: =11
+
+                    DataCardKey9 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue9 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =Right(ComboBox1.Selected.label, 4)
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage8 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue9.Y + DataCardValue9.Height
+                        ZIndex: =3
+
+                    StarVisible9 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey9.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey9.Y
+                        ZIndex: =4
+
+                Month_DataCard1 As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Month"
+                    Default: =ThisItem.Month
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Month")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "Month")
+                    Required: =false
+                    Update: =DataCardValue8.Text
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =12
+                    ZIndex: =11
+
+                    DataCardKey8 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue8 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =Left(ComboBox1.Selected.label,Len(ComboBox1.Selected.label) -4)
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage7 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue8.Y + DataCardValue8.Height
+                        ZIndex: =3
+
+                    StarVisible8 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey8.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey8.Y
+                        ZIndex: =4
+
+                MembersEmail_DataCard1 As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="MembersEmail"
+                    Default: =ThisItem.MembersEmail
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"MembersEmail")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "MembersEmail")
+                    Required: =false
+                    Update: =DataCardValue7.Text
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =13
+                    ZIndex: =11
+
+                    DataCardKey7 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue7 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =varUserEmail
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage6 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue7.Y + DataCardValue7.Height
+                        ZIndex: =3
+
+                    StarVisible7 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey7.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey7.Y
+                        ZIndex: =4
+
+                Title_DataCard1 As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Title"
+                    Default: =ThisItem.Title
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Title")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "Title")
+                    Required: =true
+                    Update: =DataCardValue6.Text
+                    Visible: =false
+                    Width: =500
+                    X: =0
+                    Y: =14
+                    ZIndex: =11
+
+                    DataCardKey6 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue6 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        Default: =ComboBox1.Selected.label
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        PressedBorderColor: =RGBA(105, 121, 126, 1)
+                        PressedColor: =RGBA(51, 51, 51, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage5 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue6.Y + DataCardValue6.Height
+                        ZIndex: =3
+
+                    StarVisible6 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey6.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey6.Y
+                        ZIndex: =4
+
+                Attachments_DataCard2 As typedDataCard.attachmentsEditCard:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="{Attachments}"
+                    Default: =ThisItem.Attachments
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"{Attachments}")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue19.Attachments
+                    Width: =500
+                    X: =0
+                    Y: =15
+                    ZIndex: =11
+
+                    DataCardKey19 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue19 As attachments:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: =121
+                        HoverColor: =RGBA(51, 51, 51, 1)
+                        HoverFill: =RGBA(212, 212, 212, 1)
+                        IsInDataCard: =true
+                        ItemColor: =RGBA(0, 0, 0, 1)
+                        ItemFill: =RGBA(105, 121, 126, 1)
+                        ItemHoverColor: =RGBA(51, 51, 51, 1)
+                        ItemHoverFill: =RGBA(212, 212, 212, 1)
+                        Items: =Parent.Default
+                        ItemSpacing: =12
+                        MaxAttachments: =2
+                        NoAttachmentsColor: =RGBA(166, 166, 166, 1)
+                        OnAddFile: |
+                            =Switch(
+                               Last(ForAll(Split(First(Self.Attachments).Name, "."), {Result: ThisRecord.Value})).Result,
+                                "jpg",
+                                UpdateContext({AttachNum: false}),
+                                "png",
+                                UpdateContext({AttachNum: false}),
+                                "JPG",
+                                UpdateContext({AttachNum: false}),
+                                 "JPEG",
+                                UpdateContext({AttachNum: false}),
+                                 "jpeg",
+                                UpdateContext({AttachNum: false}),
+                                 "PNG",
+                                UpdateContext({AttachNum: false}),
+                                "pdf",
+                                UpdateContext({AttachNum: false}),
+                                "PDF",
+                                UpdateContext({AttachNum: false}),
+                                UpdateContext({AttachNum: true});
+                                Notify("Please add file in image fomat! " & Concat(
+                                    Self.Attachments.Name,
+                                    Name & "."
+                                ), NotificationType.Error);
+                                Reset(Self)
+                            );
+                        OnRemoveFile: |-
+                            =UpdateContext({AttachNum: true})
+                        OnUndoRemoveFile: |-
+                            =UpdateContext({AttachNum: false})
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey19.Y + DataCardKey19.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage17 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue19.Y + DataCardValue19.Height
+                        ZIndex: =3
+
+                    StarVisible18 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey19.Height
+                        PaddingLeft: =0
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey19.Y
+                        ZIndex: =4
+
+                    Label26_1 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(255, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =37
+                        Italic: =true
+                        Size: =9
+                        Text: |-
+                            ="Note: Only PDF file will be accepted for file uploading."
+                        Width: =328
+                        X: =142
+                        Y: =10
+                        ZIndex: =5
+
+        Container23_1 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(116, 116, 116, 1)
+            BorderThickness: =3
+            Fill: =RGBA(94, 91, 91, 0.29)
+            Height: =Parent.Height
+            Visible: =VerifySub
+            Width: =Parent.Width
+            X: =(Parent.Width - Container23_1.Width) / 2
+            Y: =(Parent.Height - Container23_1.Height) / 2
+            ZIndex: =2
+
+            Container22_1 As groupContainer.manualLayoutContainer:
+                BorderThickness: =2
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =300
+                X: =(Parent.Width - Self.Width)/2
+                Y: =(Parent.Height - Self.Height)/2
+                ZIndex: =13
+
+                Label23_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =52
+                    Size: =20
+                    Text: ="Internet Allowance Allocation"
+                    Width: =500
+                    Y: =52
+                    ZIndex: =1
+
+                Button17_2 As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(191, 191, 191, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(51, 51, 51, 1)
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =52
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                    OnSelect: |
+                        =UpdateContext({VerifySub: false});
+                        UpdateContext({
+                            showLoading2:
+                            true
+                        });
+                        If(
+                            IsBlank(
+                                LookUp(
+                                    'JTAS Internet Allowance',
+                                    MembersEmail = varUserEmail And Title =  ComboBox1.Selected.label
+                                )
+                            ) = true,
+                            SubmitForm(Form3);
+                            ResetForm(Form3);
+                            Refresh('JTAS Internet Allowance');
+                            Set(
+                                FormAllowance,
+                                false
+                            );
+                            Set(
+                                ColsVis,
+                                false
+                            );
+                            ,
+                            Notify(
+                                "You already set a allowance for " & ComboBox1.Selected.label,
+                                NotificationType.Warning
+                            );
+                             ResetForm(Form3);
+                            Refresh('JTAS Internet Allowance');
+                            Set(
+                                FormAllowance,
+                                false
+                            );
+                            Set(
+                                ColsVis,
+                                false
+                            );
+                            Reset(ComboBox1)
+                        );
+                        UpdateContext({VerifySub: false});
+                        UpdateContext({
+                            showLoading2:
+                            false
+                        });
+                    PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =18
+                    Text: ="Yes"
+                    Width: =188
+                    X: =47
+                    Y: =197
+                    ZIndex: =2
+
+                Button17_3 As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =52
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                    OnSelect: |
+                        =UpdateContext({VerifySub: false});
+                        Set(FormAllowance, true);
+                        Set(ColsVis, true);
+                    PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =18
+                    Text: ="No"
+                    Width: =188
+                    X: =265
+                    Y: =197
+                    ZIndex: =3
+
+                Label24_1 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =77
+                    Size: =15
+                    Text: ="Do you wish to submit your internet allowance?"
+                    Width: =265
+                    X: =176
+                    Y: =101
+                    ZIndex: =4
+
+                Icon19 As icon.Warning:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(255, 191, 0, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =77
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Warning
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =103
+                    X: =73
+                    Y: =101
+                    ZIndex: =5
+

@@ -1,0 +1,11 @@
+ScreenSettings As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+
+    Header_4 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_4.Width
+
+    LeftNavigation_4 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =2
+

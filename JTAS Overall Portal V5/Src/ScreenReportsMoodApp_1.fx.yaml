@@ -1,0 +1,1146 @@
+ScreenReportsMoodApp_1 As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+
+    Header_20 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_20.Width
+        ZIndex: =5
+
+    LeftNavigation_20 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =6
+
+    Container29_4 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height - Header_20.Height
+        Width: =Parent.Width - LeftNavigation_20.Width
+        X: =LeftNavigation_20.Width
+        Y: =Header_20.Height
+        ZIndex: =7
+
+        Label1_245 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =13
+            Text: =//LookUp(colJobCode, ParentJobCode = locWOCode.JobCode, JobTitle)
+            Width: =416
+            X: =84
+            Y: =80
+            ZIndex: =4
+
+        Label1_244 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            Height: =43
+            Size: =13
+            Text: =//locWOCode.Description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =486
+            X: =14
+            Y: =37
+            ZIndex: =5
+
+        Label1_246 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            Height: =29
+            Size: =13
+            Text: ="Choose Work Order Number"
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =430
+            X: =70
+            Y: =81
+            ZIndex: =7
+
+        Container33_4 As groupContainer.manualLayoutContainer:
+            Height: =150
+            Width: =Parent.Width
+            ZIndex: =19
+
+            Label1_242 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =27
+                Size: =13
+                Text: ="Choose Date"
+                VerticalAlign: =VerticalAlign.Top
+                Width: =200
+                X: =5
+                Y: =Label1_241.Y + 60
+                ZIndex: =3
+
+            Dropdown3_6 As dropdown:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                ChevronBackground: =RGBA(128, 128, 128, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.Lato
+                Height: =43
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(186, 202, 226, 1)
+                Items: ='JTAS Section'
+                OnChange: |-
+                    =Clear(Mood1);
+                    Clear(Mood2);
+                    Clear(moodAdj);
+                    //Reset(DatePicker2);
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 18, 107, 1)
+                SelectionFill: =RGBA(128, 128, 128, 1)
+                Size: =13
+                Width: =430
+                X: =Label1_241.X + Label1_241.Width + 5
+                Y: =Label1_241.Y -3
+                ZIndex: =4
+
+            Label1_241 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =29
+                Size: =13
+                Text: ="Choose Section"
+                VerticalAlign: =VerticalAlign.Top
+                Width: =200
+                X: =5
+                Y: =15
+                ZIndex: =5
+
+            DatePicker2_4 As datepicker:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                Format: ="dd mmm, yyyy"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(105, 121, 126, 1)
+                OnChange: =
+                OnSelect: =
+                PaddingTop: =5
+                Reset: =true
+                SelectedDateFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                X: =Label1_242.X +Label1_242.Width + 5
+                Y: =Label1_242.Y - 3
+                ZIndex: =7
+
+            DatePicker2_5 As datepicker:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultDate: =DateAdd(DatePicker2_4.SelectedDate, 14, TimeUnit.Days)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                Format: ="dd mmm, yyyy"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(105, 121, 126, 1)
+                PaddingTop: =5
+                SelectedDateFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                X: =Label1_243.X + Label1_243.Width + 20
+                Y: =Label1_243.Y - 3
+                ZIndex: =8
+
+            Label1_243 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =27
+                Size: =13
+                Text: ="To"
+                VerticalAlign: =VerticalAlign.Top
+                Width: =30
+                X: =DatePicker2_4.X + DatePicker2_4.Width + 20
+                Y: =DatePicker2_4.Y + 5
+                ZIndex: =9
+
+            Button4_13 As button:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(128, 128, 128, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =41
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                OnSelect: |+
+                    =If(DateDiff(DatePicker2_4.SelectedDate, DatePicker2_5.SelectedDate) > 15,
+                    Notify("Please set the date in less than or equal to 16 days only", NotificationType.Error),
+                    
+                    Set(showLoading, true);
+                    Set(DateD, DateDiff(DatePicker2_4.SelectedDate, DatePicker2_5.SelectedDate, TimeUnit.Days)+1);
+                    
+                    
+                    ClearCollect(moodAdj, {DateValue:"", Value:1});
+                    Clear(moodAdj);
+                    ForAll(Sequence(DateD,0) As aPatch,
+                        Collect(moodAdj,
+                        {
+                            DateValue: Text(DateAdd(DatePicker2_4.SelectedDate, aPatch.Value, TimeUnit.Days)),
+                            Value: Value(If(CountRows(moodAdj) < 1, 1, Last(SortByColumns(moodAdj,"Value")).Value + 1))
+                    
+                        })
+                    );
+                    
+                    
+                    
+                    ClearCollect(
+                        Mood1,
+                         /*Filter(
+                                'JTAS Time Log V2'
+                                ,LogDate in moodAdj.DateValue
+                                )*/
+                                {}
+                    );
+                    Clear(Mood1);
+                    ForAll(Filter('JTAS Members V2', Section = Dropdown3_6.Selected.ParentSectionCode) As aPatch,
+                            Collect(Mood1,
+                                Filter(
+                                'JTAS Time Log V2'
+                                ,LoggedBy = aPatch.EmailAddress
+                                )
+                        )
+                    );
+                    
+                    
+                    
+                    ClearCollect(Mood2, {});
+                    Clear(Mood2);
+                    
+                    ForAll(moodAdj.DateValue As dpatch,
+                        Collect(Mood2, 
+                            Filter(Mood1, LogDate = DateValue(dpatch.DateValue))
+                        )
+                    );
+                    
+                    
+                    
+                    Set(showLoading, false);
+                    )
+                    
+                    
+                Size: =15
+                Text: ="Go"
+                Width: =75
+                X: =955
+                Y: =75
+                ZIndex: =10
+
+            Label44_2 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Size: =13
+                Text: ="Total Generated Data"
+                Width: =190
+                X: =Dropdown3_6.Width + Dropdown3_6.X + 50
+                Y: =Dropdown3_6.Y
+                ZIndex: =11
+
+            Label42_4 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Size: =13
+                Text: =CountRows(Mood1)
+                Width: =76
+                X: =Label44_2.X + Label44_2.Width + 5
+                Y: =Label44_2.Y
+                ZIndex: =12
+
+            Label42_3 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Size: =13
+                Text: =CountRows(Mood2)
+                X: =Label44_3.X + Label44_3.Width
+                Y: =Label44_3.Y
+                ZIndex: =13
+
+            Label44_3 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Size: =13
+                Text: ="Total Generated Data"
+                Width: =190
+                X: =Label42_4.X + Label42_4.Width + 20
+                Y: =Label42_4.Y
+                ZIndex: =14
+
+            Group5_5 As group:
+                Height: =5
+                Width: =5
+                X: =-263
+                Y: =-29
+                ZIndex: =23
+
+                Icon3_15 As icon.Download:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =If(CountRows(Gallery15_3.AllItems) < 1, DisplayMode.Disabled, DisplayMode.Edit)
+                    Height: =23
+                    Icon: =Icon.Download
+                    OnSelect: =Navigate(Screen3)
+                    Width: =34
+                    X: =1346
+                    Y: =95
+                    ZIndex: =2
+
+                Button7_6 As button:
+                    Align: =Align.Right
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If(CountRows(Gallery15_3.AllItems) < 1, DisplayMode.Disabled, DisplayMode.Edit)
+                    Fill: =RGBA(0,0,0,0)
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Semibold
+                    Height: =32
+                    HoverColor: =Color.Red
+                    HoverFill: =RGBA(0,0,0,0)
+                    OnSelect: =Navigate(Screen3)
+                    PressedFill: =RGBA(0,0,0,0)
+                    Size: =15
+                    Text: ="Download"
+                    Width: =132
+                    X: =1346
+                    Y: =90
+                    ZIndex: =6
+
+        Container34_5 As groupContainer.manualLayoutContainer:
+            BorderThickness: =1
+            Height: =Parent.Height - Container33_4.Height
+            Width: =Parent.Width
+            Y: =Container33_4.Height
+            ZIndex: =20
+
+            Container31_3 As groupContainer.manualLayoutContainer:
+                BorderThickness: =1
+                Height: |-
+                    =//Parent.Height 
+                    //(Label33.Height) * (CountRows(Gallery15.AllItems) + CountRows(Gallery10_5.AllItems))
+                    Label36_3.Height
+                Width: =CountRows(moodAdj) * Gallery10_12.TemplateWidth + Label36_3.Width
+                ZIndex: =1
+
+                Rectangle9_104 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(247, 247, 247, 0.87)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Label36_3.Width
+                    X: =Label36_3.X
+                    ZIndex: =1
+
+                RowColsDis_6 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(255, 255, 255, 0.87)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Label36_3.Width
+                    X: =Label36_3.X
+                    ZIndex: =2
+
+                Rectangle9_105 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =3
+
+                Rectangle9_106 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9_104.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =4
+
+                Rectangle9_107 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =5
+
+                Rectangle9_108 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9_104.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =6
+
+                Rectangle9_109 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =7
+
+                Rectangle9_110 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9_104.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =8
+
+                Rectangle9_111 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =9
+
+                Rectangle9_112 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9_104.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =10
+
+                Rectangle9_113 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =11
+
+                Rectangle9_114 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9_104.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =12
+
+                Rectangle9_115 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =13
+
+                Rectangle9_116 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9_104.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =14
+
+                Rectangle9_117 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =15
+
+                Rectangle9_118 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9_104.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =16
+
+                Rectangle9_119 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =17
+
+                Rectangle9_120 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =Rectangle9_104.Fill
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth
+                    X: =229
+                    ZIndex: =18
+
+                Rectangle9_121 As rectangle:
+                    BorderColor: =Self.Fill
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(253, 222, 207, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =Gallery10_12.TemplateWidth + 6
+                    X: =223
+                    ZIndex: =19
+
+            Gallery10_12 As gallery.galleryHorizontal:
+                BorderThickness: =1
+                DisplayMode: =DisplayMode.View
+                Height: =Label36_3.Height
+                Items: =moodAdj
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: |-
+                    =//100
+                    If(CountRows(moodAdj) = 15, 100 , Self.Width / CountRows(moodAdj))
+                Width: =Parent.Width - Label36_3.Width
+                X: =Label36_3.X + Label36_3.Width
+                Y: =Label36_3.Y
+                ZIndex: =2
+
+                Container37_3 As groupContainer:
+                    Height: =Parent.TemplateHeight
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =4
+
+                    Label9_26 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.Lato
+                        FontWeight: =If(ThisItem.Value = 17,FontWeight.Bold ,FontWeight.Normal)
+                        Height: |-
+                            =//19
+                            If(ThisItem.Value = 17,Parent.Height ,19)
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =If(ThisItem.Value = 17,12 ,8)
+                        Text: =Text(DateValue(ThisItem.DateValue),"[$-en-US]mmm dd, yyyy")
+                        Width: =Parent.Width
+                        Y: =If(ThisItem.Value = 17,0 ,22)
+                        ZIndex: =1
+
+                    Label9_25 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =19
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        Text: =Text(DateValue(ThisItem.DateValue),"[$-en-US]dddd")
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                    Label9_27 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.Lato
+                        FontWeight: =If(ThisItem.Value = 17,FontWeight.Bold ,FontWeight.Normal)
+                        Height: =19
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =If(ThisItem.Value = 17,12 ,8)
+                        Text: ="IN"
+                        Width: =Parent.Width / 2
+                        Y: =Label9_26.Height + Label9_26.Y
+                        ZIndex: =3
+
+                    Label9_28 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.Lato
+                        FontWeight: =If(ThisItem.Value = 17,FontWeight.Bold ,FontWeight.Normal)
+                        Height: =19
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =If(ThisItem.Value = 17,12 ,8)
+                        Text: ="OUT"
+                        Width: =Parent.Width / 2
+                        X: =(Parent.Width - Self.Width)
+                        Y: =Label9_27.Y
+                        ZIndex: =4
+
+            Label36_3 As label:
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =60
+                Size: =13
+                Text: ="Member's Name"
+                Width: |-
+                    =//175
+                    If(CountRows(moodAdj) < 15, 230,175)
+                Y: =
+                ZIndex: =3
+
+            Gallery15_3 As gallery.variableTemplateHeightGallery:
+                BorderThickness: =1
+                DisplayMode: =DisplayMode.View
+                Height: =Parent.Height - Gallery10_12.Height
+                Items: =GroupBy(Mood2, "LoggedBy", "G3") 
+                Layout: =Layout.Vertical
+                Selectable: =false
+                ShowNavigation: =true
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =200
+                Width: =Parent.Width
+                Y: =Label36_3.Height
+                ZIndex: =4
+
+                Container36_3 As groupContainer.manualLayoutContainer:
+                    BorderThickness: =1
+                    Height: =Rectangle10_3.Y
+                    Width: =Rectangle10_3.Width
+                    ZIndex: =1
+
+                    Rectangle9_122 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(247, 247, 247, 0.87)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Label36_3.Width
+                        X: =Label36_3.X
+                        ZIndex: =1
+
+                    RowColsDis_7 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(255, 255, 255, 0.87)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Label36_3.Width
+                        X: =Label36_3.X
+                        ZIndex: =2
+
+                    Rectangle9_123 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =3
+
+                    Rectangle9_124 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_122.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =4
+
+                    Rectangle9_125 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =5
+
+                    Rectangle9_126 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_122.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =6
+
+                    Rectangle9_127 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =7
+
+                    Rectangle9_128 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_122.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =8
+
+                    Rectangle9_129 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =9
+
+                    Rectangle9_130 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_122.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =10
+
+                    Rectangle9_131 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =11
+
+                    Rectangle9_132 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_122.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =12
+
+                    Rectangle9_133 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =13
+
+                    Rectangle9_134 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_122.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =14
+
+                    Rectangle9_135 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =15
+
+                    Rectangle9_136 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =Rectangle9_122.Fill
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =16
+
+                    Rectangle9_137 As rectangle:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverFill: =RGBA(105, 121, 126, 1)
+                        PressedFill: =RGBA(105, 121, 126, 1)
+                        Width: =Gallery10_12.TemplateWidth
+                        X: =229
+                        ZIndex: =17
+
+                Label33_3 As label:
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: |-
+                        =//37
+                        If(CountRows(moodAdj) = 15, 45 , 37)
+                    OnSelect: =Select(Parent)
+                    Size: |-
+                        =//14
+                        If(CountRows(moodAdj) = 15, 12 , 14)
+                    Text: =LookUp('JTAS Members V2', EmailAddress = ThisItem.LoggedBy, MemberName)
+                    Tooltip: =ThisItem.LoggedBy
+                    Width: =Label36_3.Width
+                    ZIndex: =2
+
+                Rectangle10_3 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderThickness: =4
+                    Height: =1
+                    HoverFill: =RGBA(105, 121, 126, 1)
+                    OnSelect: =Select(Parent)
+                    PressedFill: =RGBA(105, 121, 126, 1)
+                    Width: =CountRows(moodAdj) * Gallery10_12.TemplateWidth + Label36_3.Width
+                    Y: =Label33_3.Height + Label33_3.Y + 5
+                    ZIndex: =3
+
+                Gallery14_2 As gallery.galleryHorizontal:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Height: =Label33_3.Height + 3
+                    Items: =moodAdj
+                    ShowScrollbar: =false
+                    TemplatePadding: =0
+                    TemplateSize: =Gallery10_12.TemplateWidth
+                    Width: =Parent.Width - Label33_3.Width
+                    X: =Label33_3.Width
+                    ZIndex: =4
+
+                    Label39_6 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Courier New'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =19
+                        OnSelect: =Select(Parent)
+                        Size: |-
+                            =//8
+                            If(CountRows(moodAdj)  < 12, 8, 9)
+                        Text: |-
+                            =If(CountRows(moodAdj) = 15,Text(TimeValue(LookUp(Mood2, LogDate = DateValue(Text(ThisItem.DateValue, "[$-en-US]mm/dd/yyyy")) And LoggedBy = Label33_3.Tooltip And LogType = "Time In").LogTime), "hh:mm"),
+                            Text(TimeValue(LookUp(Mood2, LogDate = DateValue(Text(ThisItem.DateValue, "[$-en-US]mm/dd/yyyy")) And LoggedBy = Label33_3.Tooltip And LogType = "Time In").LogTime), "hh:mm AM/PM"))
+                        Width: =Parent.TemplateWidth / 2
+                        ZIndex: =1
+
+                    Label39_7 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Courier New'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =19
+                        OnSelect: =Select(Parent)
+                        Size: |-
+                            =//8
+                            If(CountRows(moodAdj)  < 12, 8, 9)
+                        Text: |-
+                            =If(CountRows(moodAdj) = 15,
+                            Text(TimeValue(LookUp(Mood2, LogDate = DateValue(Text(ThisItem.DateValue, "[$-en-US]mm/dd/yyyy")) And LoggedBy = Label33_3.Tooltip And LogType = "Time Out").LogTime), "hh:mm"), Text(TimeValue(LookUp(Mood2, LogDate = DateValue(Text(ThisItem.DateValue, "[$-en-US]mm/dd/yyyy")) And LoggedBy = Label33_3.Tooltip And LogType = "Time Out").LogTime), "hh:mm AM/PM"))
+                        Width: =Parent.TemplateWidth / 2
+                        X: =Parent.TemplateWidth - Self.Width
+                        ZIndex: =2
+
+                    Label39_8 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =19
+                        OnSelect: =Select(Parent)
+                        Size: |-
+                            =//8
+                            If(CountRows(moodAdj)  = 15, 8, 9)
+                        Text: =LookUp(Mood2, LogDate = DateValue(Text(ThisItem.DateValue, "[$-en-US]mm/dd/yyyy")) And LoggedBy = Label33_3.Tooltip And LogType = "Time In").'Feeling Today'
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                        ZIndex: =3
+
+                    Label41_2 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Bold
+                        Height: =Parent.TemplateHeight
+                        OnSelect: =Select(Parent)
+                        Size: =13
+                        Text: = LookUp('JTAS Leave Request V3', RequestBy = Label33_3.Tooltip And Status = "Approved" And StartDate = DateValue(Text(ThisItem.DateValue, "[$-en-US]mm/dd/yyyy"))).NatureOfLeave
+                        Visible: =If(IsBlank(LookUp('JTAS Leave Request V3', RequestBy = Label33_3.Tooltip And Status = "Approved" And StartDate = DateValue(Text(ThisItem.DateValue, "[$-en-US]mm/dd/yyyy")) And LeaveDuration = "Whole Day").NatureOfLeave) And Label39_6.Text <> "", false, true)
+                        Width: =Parent.TemplateWidth
+                        ZIndex: =4
+
+    Loading_16 As Loading:
+        Height: =Parent.Height
+        Visible: =showLoading
+        Width: =Parent.Width
+        ZIndex: =8
+
+    Label31_7 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Size: =13
+        Text: |-
+            =CountRows(Filter(OTSummary,
+                                    DateValue(Text(Start_Date,"[$-en-US]mm/dd/yyyy")) >=  DateValue(Text(DatePicker2_4.SelectedDate,"[$-en-US]mm/dd/yyyy")) && DateValue(Text(Start_Date,"[$-en-US]mm/dd/yyyy")) <= DateValue(Text(DatePicker2_5.SelectedDate,"[$-en-US]mm/dd/yyyy"))))
+        Visible: =false
+        X: =1476
+        Y: =98
+        ZIndex: =10
+
+    Label31_6 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Size: =13
+        Text: =CountRows(OTSummary)
+        Visible: =false
+        X: =1386
+        Y: =84
+        ZIndex: =11
+
+    Label31_8 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Size: =13
+        Text: =LookUp(Adj2, Value = 10, DateValue)
+        Visible: =false
+        X: =1386
+        Y: =138
+        ZIndex: =12
+

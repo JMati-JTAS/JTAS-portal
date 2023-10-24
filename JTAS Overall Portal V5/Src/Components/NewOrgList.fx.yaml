@@ -1,0 +1,205 @@
+NewOrgList As CanvasComponent:
+    ContentLanguage: =
+    Department: =Blank()
+    Fill: =RGBA(0, 0, 0, 0)
+    GalleryITem: |-
+        =SortByColumns(Filter('JTAS Members V2',
+        Team = "CIT", EmploymentStatus = "Active", Role in If(collapse2 = "None", ["Chief Staff"], ["Chief Staff","General Staff"])), "Role")
+    Height: |-
+        =If(collapse2 = "ViewAll", (CountRows(Self.GalleryITem) + 1) * 50,
+        If(collapse2 = Self.Team, (CountRows(Self.GalleryITem) + 1) * 50,
+        If(collapse2 = Self.Section, (CountRows(Self.GalleryITem) + 1) * 50,
+        If(collapse2 = Self.Department, (CountRows(Self.GalleryITem) + 1) * 50, 
+        If(collapse2 = "None", 
+        If(CountRows(Self.GalleryITem) = 0,
+        100,
+        (CountRows(Self.GalleryITem) + 1) * 50)
+        
+        
+        , 100)
+        
+        ))))
+    Role: ="Team Manager"
+    Section: =Blank()
+    Team: ="Digital Transformation"
+    Width: =150
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Rectangle13 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =2
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =4
+        Height: =Parent.Height
+        HoverFill: =RGBA(105, 121, 126, 1)
+        PressedFill: =RGBA(105, 121, 126, 1)
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Gallery18 As gallery.galleryVertical:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =1
+        Height: =Parent.Height - 50
+        Items: |-
+            =If(CountRows(Parent.GalleryITem) = 0,
+            Table({
+            EmailAddress: Blank(),
+            MemberName:"TBA"
+            }),
+            Parent.GalleryITem)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =50
+        Width: =150
+        Y: =Label43.Height
+        ZIndex: =2
+
+        Image7 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =Parent.TemplateHeight - 10
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                =If(IsBlank(ThisItem.EmailAddress), 
+                "data:image/svg+xml," & EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path d='M40.65 44.95 35.7 40H8v-4.7q0-1.9.95-3.25T11.4 30q3-1.35 5.775-2.1 2.775-.75 5.575-.85L3.05 7.35 5.2 5.2l37.6 37.6ZM11 37h21.7l-6.95-6.95q-.4-.05-.85-.05H24q-2.85 0-5.55.575-2.7.575-5.85 2.125-.7.35-1.15 1.075Q11 34.5 11 35.3Zm25.55-7q1.55.7 2.5 2.05.95 1.35.95 3.25v.4l-7.15-7.15q.9.3 1.825.675.925.375 1.875.775Zm-9.05-6.8-2.4-2.4q1.5-.35 2.45-1.55.95-1.2.95-2.8 0-1.9-1.3-3.2-1.3-1.3-3.2-1.3-1.6 0-2.8.95-1.2.95-1.55 2.45l-2.4-2.4q.95-1.9 2.775-2.95Q21.85 8.95 24 8.95q3.15 0 5.325 2.175Q31.5 13.3 31.5 16.45q0 2.15-1.05 3.975Q29.4 22.25 27.5 23.2ZM32.7 37H11h21.7ZM22.4 18.05Z'/></svg>"),
+                
+                If(IsBlank(First(Office365Users.SearchUserV2({searchTerm: ThisItem.EmailAddress}).value).Id),
+                "data:image/svg+xml," & EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path d='M40.65 44.95 35.7 40H8v-4.7q0-1.9.95-3.25T11.4 30q3-1.35 5.775-2.1 2.775-.75 5.575-.85L3.05 7.35 5.2 5.2l37.6 37.6ZM11 37h21.7l-6.95-6.95q-.4-.05-.85-.05H24q-2.85 0-5.55.575-2.7.575-5.85 2.125-.7.35-1.15 1.075Q11 34.5 11 35.3Zm25.55-7q1.55.7 2.5 2.05.95 1.35.95 3.25v.4l-7.15-7.15q.9.3 1.825.675.925.375 1.875.775Zm-9.05-6.8-2.4-2.4q1.5-.35 2.45-1.55.95-1.2.95-2.8 0-1.9-1.3-3.2-1.3-1.3-3.2-1.3-1.6 0-2.8.95-1.2.95-1.55 2.45l-2.4-2.4q.95-1.9 2.775-2.95Q21.85 8.95 24 8.95q3.15 0 5.325 2.175Q31.5 13.3 31.5 16.45q0 2.15-1.05 3.975Q29.4 22.25 27.5 23.2ZM32.7 37H11h21.7ZM22.4 18.05Z'/></svg>")
+                
+                ,Office365Users.UserPhotoV2(First(Office365Users.SearchUserV2({searchTerm: ThisItem.EmailAddress}).value).Id)))
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =300
+            RadiusBottomRight: =300
+            RadiusTopLeft: =300
+            RadiusTopRight: =300
+            Width: =Self.Height
+            X: =5
+            Y: =5
+            ZIndex: =1
+
+        Label14_2 As label:
+            Align: =Align.Center
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =50
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.MemberName
+            Width: =Parent.TemplateWidth - Image7.X - Image7.Width
+            X: =Image7.Width + Image7.X
+            ZIndex: =2
+
+        Button27 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight
+            HoverBorderColor: =RGBA(128, 128, 128, 1)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(0, 0, 0, 0.1)
+            OnSelect: |-
+                =Set(EmpData, ThisItem.EmailAddress);
+                Set(showEmpData, true)
+            PressedBorderColor: =
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: =""
+            Width: =Parent.TemplateWidth
+            ZIndex: =3
+
+    Rectangle11 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(105, 121, 126, 1)
+        FocusedBorderThickness: =4
+        Height: =Label43.Height
+        HoverFill: =RGBA(105, 121, 126, 1)
+        PressedFill: =RGBA(105, 121, 126, 1)
+        Width: =Parent.Width
+        ZIndex: =3
+
+    Label43 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(105, 121, 126, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Size: =10
+        Text: |-
+            =Switch(
+                Parent.Role,
+                "President",
+                "President",
+                "General Manager",
+                "General Manager",
+                "Department Manager",
+                Parent.Department,
+                "Section Manager",
+                Parent.Section,
+                Parent.Team)
+        Width: =Parent.Width - Icon25.Width - 5
+        ZIndex: =4
+
+    Icon25 As icon.ChevronDown:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =25
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.ChevronDown
+        OnSelect: |
+            =If(collapse2 <> "None",
+            Set(collapse2, "None"),
+            Switch(
+                Parent.Role,
+                "Department Manager",
+                Set(collapse2, Parent.Department),
+                "Section Manager",
+                Set(collapse2, Parent.Section),
+                Set(collapse2, Parent.Team)))
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =25
+        X: =Label43.Width 
+        Y: =(Label43.Height - Self.Height) / 2
+        ZIndex: =5
+

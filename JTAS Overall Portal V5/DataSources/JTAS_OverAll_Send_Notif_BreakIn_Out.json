@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "d5fe9d16-4843-45ab-a5b7-fa66fa24737c",
+    "Name": "JTAS_OverAll_Send_Notif_BreakIn_Out",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": null
+  }
+]
