@@ -671,7 +671,7 @@ ScreenInternetAllowance As screen:
                 RadiusTopLeft: =50
                 RadiusTopRight: =50
                 Size: =18
-                Text: =If(IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)), "Please register your internet.", "Update you internet?")
+                Text: =If(IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)), "Please register your internet.", "Update your internet?")
                 Visible: =If(IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)), false, true)
                 Width: =454
                 X: =23
@@ -760,25 +760,11 @@ ScreenInternetAllowance As screen:
                     
                     ,Switch(
                         true,
-                        IsBlank(DataCardValue10.Text),
-                        DisplayMode.Disabled,
-                        IsBlank(DataCardValue16.SelectedDate),
-                        DisplayMode.Disabled,
-                        IsBlank(DataCardValue17.SelectedDate),
-                        DisplayMode.Disabled,
-                        IsBlank(DataCardValue18.Selected.Value),
-                        DisplayMode.Disabled,
-                        AttachNum,
-                        DisplayMode.Disabled,
-                        Switch(DataCardValue18.Selected.Value,"PostPaid",
-                         Switch(true, 
-                                IsBlank(DataCardValue3.Selected.Value), DisplayMode.Disabled,
-                                IsBlank(DataCardValue2.Selected.Value), DisplayMode.Disabled
-                                ,DisplayMode.Edit
-                        )
+                      CountRows(DataCardValue19.Attachments) > 0,
+                        DisplayMode.Disabled
                         ,DisplayMode.Edit
                         )
-                    )
+                    
                     
                     //DataCardValue11
                     
