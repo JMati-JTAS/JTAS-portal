@@ -568,8 +568,7 @@
           "JTAS Overtime Request V3_1": {
             "tableName": "b15dd74d-394c-494e-a2fe-f5e4bde1ebee",
             "tableNameOverride": {
-              "environmentVariableName": "new_shared_sharepointonline_d90ad0b9f7ee408489c66cccbc94bf40",
-              "name": "b15dd74d-394c-494e-a2fe-f5e4bde1ebee"
+              "environmentVariableName": "new_shared_sharepointonline_d90ad0b9f7ee408489c66cccbc94bf40"
             }
           }
         }
