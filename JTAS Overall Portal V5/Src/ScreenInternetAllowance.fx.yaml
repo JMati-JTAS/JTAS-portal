@@ -75,7 +75,8 @@ ScreenInternetAllowance As screen:
             );
             
         );
-        UpdateContext({ExpandForm:false})
+        UpdateContext({ExpandForm: CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail).MembersEmail) >= 1});
+        
         
 
     Container21 As groupContainer.manualLayoutContainer:
@@ -660,9 +661,8 @@ ScreenInternetAllowance As screen:
                 HoverBorderColor: =RGBA(0, 0, 0, 0)
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
-                OnSelect: |-
+                OnSelect: |
                     =UpdateContext({ExpandForm:!ExpandForm});
-                    NewForm(Form2);
                 PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
@@ -842,13 +842,18 @@ ScreenInternetAllowance As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
                 OnSelect: |
-                    =Switch(true, 
-                    Form2.X = 0 And IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)) = false,
-                    UpdateContext({ExpandForm:!ExpandForm});
+                    =If(
+                    Form2.X = 0 And InternetMaster >= 1 ,
+                    UpdateContext({ExpandForm: true});
                     ResetForm(Form2);,
-                    Form2.X = 0 And IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)) = true,
-                    Set(ColsVis, false);
-                    Form2.X > 0,
+                    
+                    
+                    Form2.X = 0 And CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail).MembersEmail) <= 0 ,
+                    Set(ColsVis, false);,
+                    
+                    
+                    
+                    
                     ResetForm(Form2);,
                     Set(FormAllowance, false);
                     Set(ColsVis, false);
@@ -2729,13 +2734,15 @@ ScreenInternetAllowance As screen:
             Form2 As form:
                 BorderColor: =RGBA(166, 166, 166, 1)
                 DataSource: =JTAS_InternetAllowance_Masterfile
+                DefaultMode: =If(InternetMaster > 0, FormMode.Edit, FormMode.New)
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =681
+                Item: =LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)
                 NumberOfColumns: =1
                 Width: =Form3.Width
                 X: |-
-                    =If(IsBlank(LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)), 0,
-                    If(ExpandForm, 492, 0))
+                    =
+                    If(ExpandForm, 492, 0)
                 Y: =53
                 ZIndex: =8
 
@@ -3142,13 +3149,13 @@ ScreenInternetAllowance As screen:
                         HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
                         HoverColor: =RGBA(51, 51, 51, 1)
                         HoverFill: =RGBA(212, 212, 212, 1)
-                        Items: =Choices([@JTAS_InternetAllowance_Masterfile].field_3)
+                        Items: =Choices([@JTAS_InternetAllowance_Masterfile].PlanType)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(105, 121, 126, 1)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(JTAS_InternetAllowance_Masterfile.field_3,DataCardValue22.SearchText)
+                        SearchItems: =Choices(JTAS_InternetAllowance_Masterfile.PlanType,DataCardValue22.SearchText)
                         SelectionFill: =RGBA(105, 121, 126, 1)
                         SelectMultiple: =false
                         Size: =13
@@ -3260,13 +3267,13 @@ ScreenInternetAllowance As screen:
                         HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
                         HoverColor: =RGBA(51, 51, 51, 1)
                         HoverFill: =RGBA(212, 212, 212, 1)
-                        Items: =Choices([@JTAS_InternetAllowance_Masterfile].field_4)
+                        Items: =Choices([@JTAS_InternetAllowance_Masterfile].Bundle)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(105, 121, 126, 1)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(JTAS_InternetAllowance_Masterfile.field_4,DataCardValue26.SearchText)
+                        SearchItems: =Choices(JTAS_InternetAllowance_Masterfile.Bundle,DataCardValue26.SearchText)
                         SelectionFill: =RGBA(105, 121, 126, 1)
                         SelectMultiple: =false
                         Size: =13

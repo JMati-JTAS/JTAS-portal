@@ -90,7 +90,7 @@
       "Name": "DataAction",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "34",
+        "PropertyScopeRuleNamespaceKey": "57",
         "PropertyScopeRulesKey": []
       },
       "Tooltip": "A custom property",
@@ -105,7 +105,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638337101708896215",
+  "LastModifiedTimestamp": "638337156429134842",
   "Name": "dacbc567ffdf411fa07ed30adb1c6bd5",
   "OverridableProperties": {},
   "Version": "638289143398242985"

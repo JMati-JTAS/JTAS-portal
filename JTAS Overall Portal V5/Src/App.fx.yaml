@@ -3,6 +3,11 @@ App As appinfo:
     Formulas: |-
         =sgvConnector = "data:image/svg+xml;utf8,";
         LastDayOfMonth =  DateAdd( DateAdd( Date(Year(Today()), Month(Today()), 1), 1, TimeUnit.Months), -1, TimeUnit.Days);
+        
+        
+        InternetMaster = CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail).MembersEmail);
+        
+        ExpandFormData = If(InternetMaster >= 1, FormMode.Edit, FormMode.New);
     OnError: |-
         =Trace("Error at " & FirstError.Observed & ": " & FirstError.Message)
     OnStart: |
