@@ -24,6 +24,12 @@
           },
           "JTAS Time Log V2": {
             "tableName": "c2320a17-9dc9-4fe1-99f3-19e262cbb14b"
+          },
+          "JTAS_Intermet_Allowance": {
+            "tableName": "059ab6d3-2833-41e3-a004-0ec52c568c81"
+          },
+          "JTAS_InternetAllowance_Masterfile": {
+            "tableName": "4520cee0-3d2f-4230-879d-9b1464d83808"
           }
         }
       }
@@ -51,7 +57,9 @@
       "JTAS Safeday_Setting",
       "Documents",
       "JTAS TimeSheet Data",
-      "JTAS_MemberReport_to_Client"
+      "JTAS_MemberReport_to_Client",
+      "JTAS_Intermet_Allowance",
+      "JTAS_InternetAllowance_Masterfile"
     ],
     "dependencies": {},
     "dependents": [],

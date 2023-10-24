@@ -287,7 +287,7 @@ LeftNavigation As CanvasComponent:
                             }
                         ),
                         icon: "data:image/svg+xml," & EncodeUrl("<svg id='Icons' height='512' viewBox='0 0 60 60' width='512' xmlns='http://www.w3.org/2000/svg'><path d='m56 5a3 3 0 0 1 3 3v45a3 3 0 0 1 -3 3h-20.394a3 3 0 0 0 -2.5 1.336 3.736 3.736 0 0 1 -3.106 1.664 3.736 3.736 0 0 1 -3.109-1.664 3 3 0 0 0 -2.497-1.336h-20.394a3 3 0 0 1 -3-3v-45a3 3 0 0 1 3-3z' fill='#bfbfbf'/><path d='m55 4v45a3 3 0 0 1 -3 3h-18a3.984 3.984 0 0 0 -3 1.36l-.18.21a1.021 1.021 0 0 1 -1.64 0l-.18-.21a3.984 3.984 0 0 0 -3-1.36h-18a3 3 0 0 1 -3-3v-45a3 3 0 0 1 3-3h18a4.009 4.009 0 0 1 4 4 4.009 4.009 0 0 1 4-4h18a3 3 0 0 1 3 3z' fill='#bfbfbf'/><g fill='#333333'><path d='m26 16h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m20 9h-11a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2z'/><path d='m26 21h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m26 26h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m26 31h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m26 36h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m26 41h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m26 46h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m51 16h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m45 9h-11a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2z'/><path d='m51 21h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m51 26h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m51 31h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m51 36h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m51 41h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/><path d='m51 46h-17a1 1 0 0 1 0-2h17a1 1 0 0 1 0 2z'/></g><path d='m55 4v2a3 3 0 0 0 -3-3h-18.036a3.1 3.1 0 0 0 -2.964 3.159v47.2l-.18.21a1.021 1.021 0 0 1 -1.64 0l-.18-.209v-47.201a3.1 3.1 0 0 0 -2.964-3.159h-18.036a3 3 0 0 0 -3 3v-2a3 3 0 0 1 3-3h18a4.009 4.009 0 0 1 4 4 4.009 4.009 0 0 1 4-4h18a3 3 0 0 1 3 3z' fill='#bfbfbf'/></svg>")
-                    }/*,{
+                    },{
                         title: "Internet Allowance",
                         screens: Table(
                             {
@@ -299,7 +299,7 @@ LeftNavigation As CanvasComponent:
                         icon: "data:image/svg+xml," & EncodeUrl(
                             "<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#bfbfbf'><path d='M0 0h24v24H0V0zm0 0h24v24H0V0z' fill='none'/><path d='M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z'/></svg>"
                         )
-                    }*/
+                    }
                 )
             Layout: =Layout.Vertical
             TemplatePadding: =0
