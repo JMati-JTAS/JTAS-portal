@@ -51,7 +51,7 @@ ScreenTrackerMyManhour As screen:
             BorderColor: =RGBA(0, 0, 0, 0)
             Height: =Parent.Height - Self.Y - 25
             Items: |-
-                =GroupBy(
+                =/*GroupBy(
                     Filter(
                         Filter(
                             SortByColumns(
@@ -77,6 +77,25 @@ ScreenTrackerMyManhour As screen:
                     ),
                     "ManhourDate",
                     "DayData"
+                )*/
+                AddColumns(
+                    AddColumns(
+                    Sequence(DateDiff(DatePicker1_18.SelectedDate, DatePicker1_19.SelectedDate, TimeUnit.Days)),
+                    "ManhourDate", DateAdd(Today(), -Value , TimeUnit.Days)) As Y,
+                "DayData", Filter(
+                        Filter(SortByColumns('JTAS Daily Manhour',"ManhourDate",SortOrder.Descending),
+                            StartsWith(WOCode, TextInput1_10.Text),
+                            SubmittedBy = varUserEmail,
+                            ManhourDate = Y.ManhourDate
+                        ),
+                        If(
+                            IsBlank(ComboBox2_20.Selected.ParentSectionCode),
+                            true,
+                            WOCode in Filter(
+                                'JTAS Work Order',
+                                Section = ComboBox2_20.Selected.ParentSectionCode
+                            ).ParentWorkOrderCode
+                        ))
                 )
             Layout: =Layout.Vertical
             ShowNavigation: =true
@@ -140,7 +159,10 @@ ScreenTrackerMyManhour As screen:
                     BorderStyle: =BorderStyle.None
                     BorderThickness: =2
                     DisabledFill: =RGBA(105, 121, 126, 1)
-                    Fill: =If("Pending" in ThisItem.DayData.Status, Color.Orange, Color.Green)
+                    Fill: |-
+                        =If(CountRows(ThisItem.DayData)=0, Color.Black,
+                        
+                        If("Pending" in ThisItem.DayData.Status, Color.Orange, Color.Green))
                     Height: =15
                     HoverFill: =RGBA(105, 121, 126, 1)
                     PressedFill: =RGBA(105, 121, 126, 1)
@@ -164,22 +186,18 @@ ScreenTrackerMyManhour As screen:
                     HoverColor: =RGBA(255, 255, 255, 1)
                     HoverFill: =RGBA(0, 0, 0, 1%)
                     OnSelect: |-
-                        =ClearCollect(colMHView, ThisItem.DayData);
+                        =Set(showLoading, true);
+                        
+                        ClearCollect(colMHView, ThisItem.DayData);
                         UpdateContext({varSelectedDate: ThisItem.ManhourDate});
-                        UpdateContext({varScreenMode: "Day View"})
+                        //UpdateContext({varScreenMode: "Day View"});
+                        UpdateContext({varScreenMode: "Submit"});
                         
-                        /*ClearCollect(colLeaveApproval, AddColumns(ThisItem.GroupDetails, "IsChecked", true));
+                        ClearCollect(colMHInput, 
+                            ShowColumns(AddColumns(ThisItem.DayData, "MHID", GUID(), "MHDate", ThisItem.ManhourDate),
+                                    "ID", "MHID", "JobCode", "WOCode", "ConsumedMH", "ActualWorkOrProduct", "TotalIssued", "ApprovalStatus", "Status","MH_Type", "MHDate"));
                         
-                        
-                        UpdateContext(
-                            {
-                                varSelectedSection: {
-                                    title: LookUp('JTAS Section', SectionCode = ThisItem.SectionGroup, SectionTitle),
-                                    subtitle: ThisItem.SectionGroup
-                                },
-                                varScreenMode: If(ThisItem.groupName = "Pending", "Edit", "View")
-                            }
-                        );*/
+                        Set(showLoading, false);
                     PressedBorderColor: =
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =RGBA(255, 255, 255, 10%)
@@ -2195,7 +2213,7 @@ ScreenTrackerMyManhour As screen:
                 FocusedBorderThickness: =4
                 Font: =Font.'Segoe UI'
                 OnSelect: =
-                Size: =11.5
+                Size: =9
                 Text: =Coalesce(LookUp('JTAS Work Order', ParentWorkOrderCode = Dropdown2_2.Selected.ParentWorkOrderCode, Description), "Please select a work order code.")
                 Width: =401
                 Y: =140
@@ -2369,8 +2387,8 @@ ScreenTrackerMyManhour As screen:
                 Size: =13
                 Text: ="Approval By"
                 Width: =160
-                X: =5
-                Y: =187
+                X: =1
+                Y: =170
                 ZIndex: =9
 
             Image2_34 As image:
@@ -2392,8 +2410,8 @@ ScreenTrackerMyManhour As screen:
                 RadiusTopLeft: =20
                 RadiusTopRight: =20
                 Width: =40
-                X: =5
-                Y: =217
+                X: =1
+                Y: =200
                 ZIndex: =10
 
             Label1_339 As label:
@@ -2406,12 +2424,13 @@ ScreenTrackerMyManhour As screen:
                 FocusedBorderThickness: =4
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
+                Height: =30
                 OnSelect: =
                 Size: =13
                 Text: =Coalesce(LookUp('JTAS Members V2', EmailAddress = Dropdown2_2.Selected.AssignedMember, MemberName), "No approver")
                 Width: =312
-                X: =58
-                Y: =217
+                X: =41
+                Y: =206
                 ZIndex: =11
 
             Container6_10 As groupContainer:
@@ -2456,7 +2475,7 @@ ScreenTrackerMyManhour As screen:
                             MainID: Patch('JTAS Daily Manhour', Defaults('JTAS Daily Manhour'), {SubmittedBy: varUserEmail, ManhourDate: varCurrentTime}).ID
                         
                         },
-                        Patch(colActivityInput, Defaults(colActivityInput), {MHID: Patch(colMHInput, Defaults(colMHInput), {ID: MainID, JobCode: Blank(), MHID: GUID()}).MHID, ActivityID: GUID()})
+                        Patch(colMHInput, Defaults(colMHInput), {ID: MainID, JobCode: Blank(), MHID: GUID(), ApprovalStatus:"Pending", MHDate:varSelectedDate, Status: ThisItem.Status})
                         )
                     PaddingBottom: =5
                     PaddingLeft: =5
@@ -2728,7 +2747,7 @@ ScreenTrackerMyManhour As screen:
                 HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
                 HoverColor: =RGBA(51, 51, 51, 1)
                 HoverFill: =RGBA(212, 212, 212, 1)
-                Items: =["Regular", "OT"]
+                Items: =["Regular", "Overtime"]
                 OnChange: |-
                     =Patch(colMHInput, LookUp(colMHInput, MHID = ThisItem.MHID), {MH_Type: Self.Selected.Value});
                 OnSelect: =Select(Parent)
@@ -2780,9 +2799,50 @@ ScreenTrackerMyManhour As screen:
                 Y: =30
                 ZIndex: =25
 
+            Label1_331 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(36, 42, 44, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                OnSelect: =
+                Size: =11
+                Text: =ThisItem.Status
+                Width: =100
+                X: =61
+                Y: =230
+                ZIndex: =27
+
+            Circle5_3 As circle:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(105, 121, 126, 1)
+                Fill: |-
+                    =Switch(Label1_331.Text, 
+                        "Pending", Color.Orange,
+                        "Approved", Color.Green,
+                        "Declined", Color.Red
+                    )
+                Height: =20
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =Select(Parent)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Width: =20
+                X: =42
+                Y: =237
+                ZIndex: =28
+
     ctnManhourViewDaily As groupContainer:
+        Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height - Self.Y
-        Visible: =varScreenMode = "Day View"
+        Visible: |
+            =varScreenMode = "Day View"
         Width: =Parent.Width - Self.X
         X: =ctnMHSubmitSidebar.X + ctnMHSubmitSidebar.Width
         Y: =Header_7.Y + Header_7.Height
@@ -3599,7 +3659,7 @@ ScreenTrackerMyManhour As screen:
                           
                     
                     Set(showLoading, false);
-                    
+                    Refresh('JTAS Daily Manhour');
                     UpdateContext({varPopUp: "None"});
                     
                     Launch("https://jtas.hrhub.ph/Login.aspx", {}, LaunchTarget.Replace)
@@ -4164,16 +4224,11 @@ ScreenTrackerMyManhour As screen:
         FocusedBorderColor: =ColorFade(Self.Fill, -75%)
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Semibold
+        Height: =360
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
-        OnSelect: |
-            =ClearCollect(asdasdads, 
-            AddColumns(
-            Sequence(DateDiff(DatePicker1_18.SelectedDate, DatePicker1_19.SelectedDate, TimeUnit.Days)),
-            "MH Date", DateAdd(Today(), -Value , TimeUnit.Days)
-            
-            ))
+        OnSelect: =Refresh('JTAS Daily Manhour')
         PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
@@ -4183,237 +4238,7 @@ ScreenTrackerMyManhour As screen:
         RadiusTopRight: =0
         Size: =15
         Text: ="Button"
-        X: =40
-        Y: =40
+        Width: =161
+        Y: =462
         ZIndex: =14
-
-    galMHSubmit_1 As gallery.variableTemplateHeightGallery:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        Height: =CountRows(Self.AllItems) * 48 + CountRows(Ungroup(Self.AllItems.content, "content")) * (Gallery2_20.TemplateHeight + Gallery2_20.TemplatePadding) + Gallery2_20.TemplatePadding
-        Items: |-
-            =Filter(
-            With(
-            {
-                MHToday: GroupBy(Filter(SortByColumns('JTAS Daily Manhour', "ID", SortOrder.Descending), SubmittedBy = varUserEmail, ManhourDate = varCurrentTime), "ManhourDate", "GroupData"),
-                MHDeclined: AddColumns(GroupBy(Filter(SortByColumns('JTAS Daily Manhour', "ID", SortOrder.Descending), SubmittedBy = varUserEmail, Status = "Declined"), "ManhourDate", "GroupData"), "groupName", "Declined")
-            },
-            Table(
-                {
-                    groupName: "Today", 
-                    isExpand: isExpandToday,
-                    content: If(isExpandToday, AddColumns(If(IsEmpty(MHToday),GroupBy(Table(Defaults('JTAS Daily Manhour')), "ManhourDate", "GroupData"), MHToday), "groupName", "Today"))
-                }, 
-                If(!IsEmpty(MHDeclined),
-                {
-                    groupName: "Declined", 
-                    isExpand: isExpandDeclined,
-                    content: If(isExpandDeclined, MHDeclined)
-                })
-            )), !IsBlank(groupName))
-        Layout: =Layout.Vertical
-        ShowScrollbar: =false
-        TemplatePadding: =0
-        TemplateSize: =127
-        Width: =320
-        X: =1212
-        ZIndex: =15
-
-        Button1_74 As button:
-            Align: =Align.Left
-            BorderColor: =RGBA(0, 0, 0, 0)
-            Color: =RGBA(51, 51, 51, 1)
-            DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            Fill: =RGBA(0, 0, 0, 0)
-            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
-            Font: =Font.'Segoe UI'
-            HoverBorderColor: =RGBA(0, 0, 0, 0)
-            HoverColor: =RGBA(0, 0, 0, 1)
-            HoverFill: =
-            OnSelect: |
-                =If(
-                    ThisItem.groupName = "Today", UpdateContext({isExpandToday: !isExpandToday}),
-                    ThisItem.groupName = "Declined", UpdateContext({isExpandDeclined: !isExpandDeclined})
-                )
-            PaddingLeft: =50
-            PressedBorderColor: =
-            PressedColor: =RGBA(0, 0, 0, 1)
-            PressedFill: =
-            RadiusBottomLeft: =0
-            RadiusBottomRight: =0
-            RadiusTopLeft: =0
-            RadiusTopRight: =0
-            Text: =ThisItem.groupName
-            Width: =Parent.Width
-            ZIndex: =1
-
-        Gallery2_20 As gallery.galleryVertical:
-            BorderColor: =RGBA(166, 166, 166, 1)
-            Height: =CountRows(Self.AllItems) * (Self.TemplateHeight + Self.TemplatePadding) + 2 * Self.TemplatePadding
-            Items: =ThisItem.content
-            Layout: =Layout.Vertical
-            ShowNavigation: =true
-            ShowScrollbar: =false
-            TemplatePadding: =8
-            TemplateSize: =80
-            Width: =320
-            Y: =33
-            ZIndex: =2
-
-            Container4_27 As groupContainer:
-                Fill: =If(ThisItem.groupName = "Today", RGBA(51,51,51,1), Color.White)
-                Height: =Parent.TemplateHeight
-                Width: =Parent.TemplateWidth
-                ZIndex: =2
-
-                Label2_101 As label:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    Color: =If(ThisItem.groupName = "Today", RGBA(191,191,191,1), RGBA(51,51,51,1))
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FocusedBorderThickness: =4
-                    Font: =Font.'Segoe UI'
-                    Height: =20
-                    OnSelect: =
-                    Size: =12
-                    Text: =Text(Coalesce(Sum(ThisItem.GroupData, ConsumedMH), 0), "0.00") & " MH"
-                    Width: =259
-                    X: =40
-                    Y: =Label2_100.Y + Label2_100.Height - 5
-                    ZIndex: =1
-
-                Label2_100 As label:
-                    AutoHeight: =true
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    Color: =If(ThisItem.groupName = "Today", RGBA(191,191,191,1), RGBA(51,51,51,1))
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(51, 51, 51, 1)
-                    FocusedBorderThickness: =4
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    OnSelect: =
-                    Size: =13
-                    Text: |
-                        =If(ThisItem.groupName = "Declined", ThisItem.ManhourDate,
-                        
-                        Text(Coalesce(varCurrentTime, Today()), "ddd, mmm. dd, yyyy"))
-                    Width: =235
-                    Wrap: =false
-                    X: =40
-                    Y: =12
-                    ZIndex: =2
-
-                Circle2_17 As circle:
-                    BorderColor: =RGBA(166, 166, 166, 1)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    DisabledFill: =RGBA(105, 121, 126, 1)
-                    Fill: =If(ThisItem.groupName = "Today", RGBA(191,191,191,1), Color.Red)
-                    Height: =15
-                    HoverFill: =RGBA(105, 121, 126, 1)
-                    PressedFill: =RGBA(105, 121, 126, 1)
-                    Width: =15
-                    X: |
-                        =15
-                    Y: =(Parent.Height - Self.Height) / 2
-                    ZIndex: =3
-
-                Button1_75 As button:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    Fill: =RGBA(0, 0, 0, 0)
-                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =Parent.Height
-                    HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    HoverColor: =RGBA(255, 255, 255, 1)
-                    HoverFill: =RGBA(0, 0, 0, 1%)
-                    OnSelect: |-
-                        =ClearCollect(colMHInput, 
-                            ShowColumns(AddColumns(ThisItem.GroupData, "MHID", GUID(), "MHDate", ThisItem.ManhourDate),
-                                    "ID", "MHID", "JobCode", "WOCode", "ConsumedMH", "ActualWorkOrProduct", "TotalIssued", "ApprovalStatus", "Status","MH_Type", "MHDate"));
-                        /*
-                        ClearCollect(colActivityInput, 
-                            ShowColumns(Ungroup(AddColumns(colMHInput,
-                                "ActivityList", 
-                                    If(IsBlank(ActualWorkOrProduct),
-                                        Table({ActivityID: GUID(), OutputType: "", Qty: 0, Details: ""}),
-                                        AddColumns(AddColumns(ForAll(Split(ActualWorkOrProduct, "\v/"), {Result: ThisRecord.Value}), 
-                                            "ActivityID", GUID()), 
-                                            "OutputType", Last(FirstN(ForAll(Split(Result, "<|>"), {Result: ThisRecord.Value}), 1)).Result,
-                                            "Qty", Value(Last(FirstN(ForAll(Split(Result, "<|>"), {Result: ThisRecord.Value}), 2)).Result),
-                                            "Details", Last(FirstN(ForAll(Split(Result, "<|>"), {Result: ThisRecord.Value}), 3)).Result))), "ActivityList"), 
-                                    "MHID", "ActivityID", "OutputType", "Qty", "Details"));
-                          */          
-                        UpdateContext({varSelectedDate: Coalesce(ThisItem.ManhourDate, varCurrentTime)});
-                        UpdateContext({varSelectedGroup: ThisItem.groupName});
-                        UpdateContext({varScreenMode: "Submit"})
-                        
-                        /*ClearCollect(colMHInput, 
-                            ShowColumns(AddColumns(With({RetrievedMHToday: Filter('JTAS Daily Manhour', SubmittedBy = varUserEmail, ManhourDate = Today())},
-                                If(IsEmpty(RetrievedMHToday), Table(Defaults('JTAS Daily Manhour')), RetrievedMHToday)), "MHID", GUID()),
-                                    "ID", "MHID", "JobCode", "WOCode", "ConsumedMH", "ActualWorkOrProduct", "TotalIssued"));
-                        
-                        
-                        
-                        UpdateContext({varSelectedItemId: Self.SelectedId});
-                        UpdateContext({varSelectedItemStatus: LookUp('JTAS Daily Manhour', ID = Value(Self.SelectedId), Status)});
-                        
-                        UpdateContext({varScreenMode: "Submit"});*/
-                    PressedBorderColor: =
-                    PressedColor: =RGBA(255, 255, 255, 1)
-                    PressedFill: =RGBA(255, 255, 255, 10%)
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =15
-                    Text: =""
-                    Width: =Parent.Width
-                    ZIndex: =4
-
-                Rectangle1_47 As rectangle:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    DisabledFill: =RGBA(152, 208, 70, 1)
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(152, 208, 70, 1)
-                    FocusedBorderThickness: =4
-                    Height: =80
-                    HoverFill: =RGBA(105, 121, 126, 1)
-                    PressedFill: =RGBA(105, 121, 126, 1)
-                    Visible: =ThisItem.ManhourDate = varSelectedDate
-                    Width: =10
-                    X: =Parent.Width - Self.Width
-                    ZIndex: =5
-
-        Icon12_4 As icon.ChevronRight:
-            BorderColor: =RGBA(166, 166, 166, 1)
-            Color: =RGBA(36, 42, 44, 1)
-            DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            DisabledColor: =RGBA(220, 220, 220, 1)
-            DisabledFill: =RGBA(0, 0, 0, 0)
-            FocusedBorderThickness: =4
-            Height: =20
-            HoverBorderColor: =RGBA(0, 0, 0, 0)
-            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-            HoverFill: =RGBA(0, 0, 0, 0)
-            Icon: =If(ThisItem.isExpand, Icon.ChevronDown, Icon.ChevronRight)
-            OnSelect: =
-            PressedBorderColor: =RGBA(0, 0, 0, 0)
-            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-            PressedFill: =RGBA(0, 0, 0, 0)
-            Width: =20
-            X: =15
-            Y: =10
-            ZIndex: =3
 
