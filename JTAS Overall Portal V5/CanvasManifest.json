@@ -97,7 +97,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 150,
+    "BindingErrorCount": 147,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 1000,
     "DocumentAppType": "DesktopOrTablet",
@@ -116,7 +116,7 @@
     "ManualOfflineProfileId": "",
     "Name": "JTAS Overall V5",
     "OriginatingVersion": "1.317",
-    "ParserErrorCount": 2,
+    "ParserErrorCount": 1,
     "ShowStatusBar": false
   },
   "PublishInfo": {
