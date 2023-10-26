@@ -1298,10 +1298,16 @@ ScreenTrackerMyManhour As screen:
                     =If(
                         !IsEmpty(Filter(galMHInput_1.AllItems, 
                     	CountRows(Filter(colMHInput, IsBlank(JobCode))) <> 0 Or
-                    		CountRows(Filter(colMHInput, IsBlank(WOCode))) <> 0 Or
-                    			CountRows(Filter(colMHInput, IsBlank(ConsumedMH))) <> 0 Or
-                    				CountRows(Filter(colMHInput, IsBlank(ActualWorkOrProduct))) <> 0 Or
-                    								CountRows(Filter(colMHInput, IsBlank(MH_Type))) <> 0 
+                    	CountRows(Filter(colMHInput, IsBlank(WOCode))) <> 0 Or
+                    	CountRows(Filter(colMHInput, IsBlank(ConsumedMH))) <> 0 Or
+                        CountRows(Filter(colMHInput, IsBlank(ActualWorkOrProduct))) <> 0 Or
+                    	CountRows(Filter(colMHInput, IsBlank(MH_Type))) <> 0 Or
+                        timeIN_Hours.Selected.H = Blank() Or
+                        timeIN_Min.Selected.H = Blank() Or
+                        timeOUT_Hours.Selected.H = Blank() Or
+                        timeOUT_Min.Selected.H = Blank() 
+                    
+                    
                         )),
                         UpdateContext({varPopUp: "ManhourSubmitBlank"}),
                     
