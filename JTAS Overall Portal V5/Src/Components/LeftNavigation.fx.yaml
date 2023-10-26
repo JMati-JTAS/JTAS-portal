@@ -246,6 +246,11 @@ LeftNavigation As CanvasComponent:
                     {
                         title: "Reports",
                         screens: Table(
+                                {
+                                    screenName: "MH Verification",
+                                    counter: 0,
+                                    screenObject: ScreenReportsOTPerWorkOrder
+                                },
                             {
                                 screenName: "Member Summary",
                                 counter: 0,
@@ -260,11 +265,6 @@ LeftNavigation As CanvasComponent:
                                     screenName: "Work Order Summary by member",
                                     counter: 0,
                                     screenObject: ScreenReportsWorkOrderSummaryPerMember
-                                },
-                                {
-                                    screenName: "MH Verification",
-                                    counter: 0,
-                                    screenObject: ScreenReportsOTPerWorkOrder
                                 }
                         ),
                         icon: "data:image/svg+xml," & EncodeUrl(

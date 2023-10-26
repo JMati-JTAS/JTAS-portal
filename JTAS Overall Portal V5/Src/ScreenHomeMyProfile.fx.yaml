@@ -23,6 +23,7 @@ ScreenHomeMyProfile As screen:
 
             Container7_4 As groupContainer:
                 Height: =304
+                Visible: =false
                 Width: =995
                 X: =Container7.X
                 Y: =Container7.Height + Container7.Y
@@ -1136,7 +1137,7 @@ ScreenHomeMyProfile As screen:
                 Height: =756
                 Width: =995
                 X: =Container7_4.X
-                Y: =Container7_4.Height + Container7_4.Y
+                Y: =Container7.Height + Container7.Y
                 ZIndex: =3
 
                 "Gallery14 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":

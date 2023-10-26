@@ -548,13 +548,20 @@ Header As CanvasComponent:
                         {
                             title: "Reports",
                             screens: Table(
+                If(varUserData.Role in ["Department Manager", "General Manager", "Section Manager", "President"],
+                                {
+                                    screenName: "MH Verification",
+                                    counter: 0,
+                                    screenObject: ScreenReportsOTPerWorkOrder
+                                }
+                                ),
                                 If(varUserEmail in ["ito.hirotsugu@jgc.com","deleon.mariah@jgc.com"],
                                  {
                                     screenName: "TimeSheet Summary",
                                     counter: 0,
                                     screenObject: 'ScreenReportsTimeSheet Viewer'
                                 }),
-                                {
+                                /*{
                                     screenName: "Member Summary",
                                     counter: 0,
                                     screenObject: ScreenReportsMemberSummary
@@ -563,19 +570,13 @@ Header As CanvasComponent:
                                     screenName: "Work Order Summary",
                                     counter: 0,
                                     screenObject: ScreenReportsWorkOrderSummary
-                                },
+                                },*/
                                 {
                                     screenName: "Work Order Summary by member",
                                     counter: 0,
                                     screenObject: ScreenReportsWorkOrderSummaryPerMember
                                 },
-                                If(varUserData.Role in ["Department Manager", "General Manager", "Section Manager", "President"],
-                                {
-                                    screenName: "MH Verification",
-                                    counter: 0,
-                                    screenObject: ScreenReportsOTPerWorkOrder
-                                }
-                                ),
+                                
                                 If(varUserData.Role in ["Department Manager", "General Manager", "Section Manager", "President"],
                                 {
                                     screenName: "Mood Report",
