@@ -160,7 +160,7 @@ ScreenTrackerMyManhour As screen:
                     BorderThickness: =2
                     DisabledFill: =RGBA(105, 121, 126, 1)
                     Fill: |-
-                        =If(CountRows(ThisItem.DayData)=0, Color.Black,
+                        =If(CountRows(ThisItem.DayData)=0 Or "Saved" in ThisItem.DayData.Status , Color.Black,
                         
                         If("Pending" in ThisItem.DayData.Status, Color.Orange, Color.Green))
                     Height: =15
@@ -193,11 +193,26 @@ ScreenTrackerMyManhour As screen:
                         //UpdateContext({varScreenMode: "Day View"});
                         UpdateContext({varScreenMode: "Submit"});
                         
-                        ClearCollect(colMHInput, 
-                            ShowColumns(AddColumns(ThisItem.DayData, "MHID", GUID(), "MHDate", ThisItem.ManhourDate),
-                                    "ID", "MHID", "JobCode", "WOCode", "ConsumedMH", "ActualWorkOrProduct", "TotalIssued", "ApprovalStatus", "Status","MH_Type", "MHDate"));
                         
-                        Set(showLoading, false);
+                        If(CountRows(ThisItem.DayData)=0,
+                        
+                        With(
+                        {
+                            MHID1: GUID(), 
+                            MainID: Patch('JTAS Daily Manhour', Defaults('JTAS Daily Manhour'), {SubmittedBy: varUserEmail, ManhourDate: varSelectedDate, ApprovalStatus:"Waiting", Status: "Saved" }).ID
+                        
+                        },
+                        Clear(colMHInput);
+                        Patch(colMHInput, Defaults(colMHInput), { ID: MainID, JobCode: Blank(), MHID: GUID(), ApprovalStatus:"Waiting", MHDate:varSelectedDate, Status: "Saved"})
+                        );  ,
+                        
+                        ClearCollect(colMHInput, ShowColumns(AddColumns(ThisItem.DayData, "MHID", GUID(), "MHDate", ThisItem.ManhourDate),
+                                    "ID", "MHID", "JobCode", "WOCode", "ConsumedMH", "ActualWorkOrProduct", "TotalIssued", "ApprovalStatus", "Status","MH_Type", "MHDate")));
+                        
+                        
+                        
+                        
+                        Set(showLoading, false)
                     PressedBorderColor: =
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =RGBA(255, 255, 255, 10%)
@@ -786,182 +801,6 @@ ScreenTrackerMyManhour As screen:
                 Y: =10
                 ZIndex: =3
 
-        galMHWeek As gallery.variableTemplateHeightGallery:
-            BorderColor: =RGBA(0, 0, 0, 0)
-            Height: =Parent.Height - Self.Y - 25
-            Items: |-
-                =GroupBy(
-                    AddColumns(
-                        Filter(
-                            Filter(
-                                SortByColumns(
-                                    'JTAS Daily Manhour',
-                                    "ManhourDate",
-                                    SortOrder.Descending
-                                ),
-                                StartsWith(
-                                    WOCode,
-                                    TextInput1_10.Text
-                                ),
-                                SubmittedBy = varUserEmail,
-                                ManhourDate <> Today(),
-                                ManhourDate <= DatePicker1_19.SelectedDate,
-                                ManhourDate >= DatePicker1_18.SelectedDate
-                            ),
-                            If(
-                                IsBlank(ComboBox2_20.Selected.ParentSectionCode),
-                                true,
-                                WOCode in Filter(
-                                    'JTAS Work Order',
-                                    Section = ComboBox2_20.Selected.ParentSectionCode
-                                ).ParentWorkOrderCode
-                            )
-                        ),
-                        "WeekStartDate",
-                        ManhourDate - Weekday(
-                            ManhourDate,
-                            3
-                        )
-                    ),
-                    "WeekStartDate",
-                    "WeekData"
-                )
-            Layout: =Layout.Vertical
-            ShowNavigation: =true
-            ShowScrollbar: =false
-            TemplatePadding: =8
-            TemplateSize: =80
-            Visible: =Toggle1_2.Value And isExpandPastManhour
-            Width: =320
-            X: =15
-            Y: =Container4_19.Y + Container4_19.Height
-            ZIndex: =8
-
-            Container4_21 As groupContainer:
-                Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.TemplateHeight
-                Width: =Parent.TemplateWidth
-                ZIndex: =1
-
-                Label2_50 As label:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    Color: =RGBA(51, 51, 51, 1)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FocusedBorderThickness: =4
-                    Font: =Font.'Segoe UI'
-                    Height: =20
-                    OnSelect: =
-                    Size: =12
-                    Text: =Text(Sum(ThisItem.WeekData, ConsumedMH), "0.00") & " MH"
-                    Width: =259
-                    Wrap: =false
-                    X: =40
-                    Y: =Label2_49.Y + Label2_49.Height - 5
-                    ZIndex: =1
-
-                Label2_49 As label:
-                    AutoHeight: =true
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    Color: =RGBA(51, 51, 51, 1)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(51, 51, 51, 1)
-                    FocusedBorderThickness: =4
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    OnSelect: =
-                    Size: =13
-                    Text: |-
-                        =Text(
-                            ThisItem.WeekStartDate,
-                            "mmm. dd" & If(Not(Year(ThisItem.WeekStartDate) = Year(ThisItem.WeekStartDate + 6)), ", yyyy")
-                        ) & " to " & Text(
-                            ThisItem.WeekStartDate + 6,
-                            If(Not(Month(ThisItem.WeekStartDate) = Month(ThisItem.WeekStartDate + 6)), "mmm. ") & "dd, yyyy"
-                        )
-                    Width: =235
-                    Wrap: =false
-                    X: =40
-                    Y: =12
-                    ZIndex: =2
-
-                Circle2_13 As circle:
-                    BorderColor: =RGBA(166, 166, 166, 1)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    DisabledFill: =RGBA(105, 121, 126, 1)
-                    Fill: =If("Pending" in ThisItem.WeekData.Status, Color.Orange, Color.Green)
-                    Height: =15
-                    HoverFill: =RGBA(105, 121, 126, 1)
-                    PressedFill: =RGBA(105, 121, 126, 1)
-                    Width: =15
-                    X: |
-                        =15
-                    Y: =(Parent.Height - Self.Height) / 2
-                    ZIndex: =3
-
-                Button1_56 As button:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    Fill: =RGBA(0, 0, 0, 0)
-                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =Parent.Height
-                    HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    HoverColor: =RGBA(255, 255, 255, 1)
-                    HoverFill: =RGBA(0, 0, 0, 1%)
-                    OnSelect: |-
-                        =ClearCollect(colMHView, ThisItem.WeekData);
-                        UpdateContext({varSelectedDate: ThisItem.WeekStartDate});
-                        UpdateContext({varScreenMode: "Week View"})
-                        
-                        /*ClearCollect(colLeaveApproval, AddColumns(ThisItem.GroupDetails, "IsChecked", true));
-                        
-                        
-                        UpdateContext(
-                            {
-                                varSelectedSection: {
-                                    title: LookUp('JTAS Section', SectionCode = ThisItem.SectionGroup, SectionTitle),
-                                    subtitle: ThisItem.SectionGroup
-                                },
-                                varScreenMode: If(ThisItem.groupName = "Pending", "Edit", "View")
-                            }
-                        );*/
-                    PressedBorderColor: =
-                    PressedColor: =RGBA(255, 255, 255, 1)
-                    PressedFill: =RGBA(255, 255, 255, 10%)
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =15
-                    Text: =""
-                    Width: =Parent.Width
-                    ZIndex: =4
-
-                Rectangle1_30 As rectangle:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    DisabledFill: =RGBA(152, 208, 70, 1)
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(152, 208, 70, 1)
-                    FocusedBorderThickness: =4
-                    Height: =80
-                    HoverFill: =RGBA(105, 121, 126, 1)
-                    PressedFill: =RGBA(105, 121, 126, 1)
-                    Visible: =varSelectedDate in ThisItem.WeekData.ManhourDate
-                    Width: =10
-                    X: =Parent.Width - Self.Width
-                    ZIndex: =5
-
     Header_7 As Header:
         Width: =Parent.Width - Self.X
         X: =LeftNavigation_7.Width
@@ -1257,7 +1096,12 @@ ScreenTrackerMyManhour As screen:
                     ChevronHoverFill: =RGBA(33, 33, 33, 1)
                     Color: =RGBA(51, 51, 51, 1)
                     Default: |-
-                        =LookUp('JTAS Time Log V2', LoggedBy =  varUserEmail && LogDate = varSelectedDate && LogType = "Time Out", Left(LogTime, Find(":",LogTime)-1))
+                        =If( LookUp('JTAS Time Log V2', LoggedBy =  varUserEmail && LogDate = varSelectedDate && LogType = "Time Out", LogTime) = Blank(),
+                        
+                        Left(Text(Now(), "hh:mm"), Find(":",Text(Now(), "hh:mm"))-1),
+                        
+                        
+                        LookUp('JTAS Time Log V2', LoggedBy =  varUserEmail && LogDate = varSelectedDate && LogType = "Time Out", Left(LogTime, Find(":",LogTime)-1)))
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1293,7 +1137,12 @@ ScreenTrackerMyManhour As screen:
                     ChevronHoverFill: =RGBA(33, 33, 33, 1)
                     Color: =RGBA(51, 51, 51, 1)
                     Default: |-
-                        =LookUp('JTAS Time Log V2', LoggedBy =  varUserEmail && LogDate = varSelectedDate && LogType = "Time Out", Right(LogTime, Find(":",LogTime) -1 ))
+                        =If( LookUp('JTAS Time Log V2', LoggedBy =  varUserEmail && LogDate = varSelectedDate && LogType = "Time Out", LogTime) = Blank(),
+                        
+                        Right(Text(Now(), "hh:mm"), Find(":",Text(Now(), "hh:mm"))-1),
+                        
+                        
+                        LookUp('JTAS Time Log V2', LoggedBy =  varUserEmail && LogDate = varSelectedDate && LogType = "Time Out", Right(LogTime, Find(":",LogTime) -1 )))
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -3071,7 +2920,7 @@ ScreenTrackerMyManhour As screen:
                             }))).Created});
                     
                             Remove('JTAS Daily Manhour', Filter('JTAS Daily Manhour', SubmittedBy = varUserEmail, ManhourDate = varSelectedDate, JobCode=Blank() ) );
-                    
+                    /*
                             With({TimeLogData: First(Sort(Filter('JTAS Time Log V2',LoggedBy = varUserEmail And LogType = "Time Out" And LogTime=Blank()),ID, SortOrder.Ascending))},
                             Patch('JTAS Time Log V2', TimeLogData, 
                             {
@@ -3082,8 +2931,28 @@ ScreenTrackerMyManhour As screen:
                                 WorkArea: Wfff
                     
                             }));
-                          
+                     */
                     
+                    
+                    //Patch Time IN
+                    With({TimeInRecord:LookUp('JTAS Time Log V2', LoggedBy = varUserEmail && LogDate = varSelectedDate && LogType = "Time In"),
+                    Dateee: DateAdd(DateAdd( Now(), -TimeZoneOffset(Now()), TimeUnit.Minutes ), 7, TimeUnit.Hours)},
+                    If(IsBlank(TimeInRecord),
+                    Patch('JTAS Time Log V2',Defaults('JTAS Time Log V2'), {LogDateAndTime: Dateee, LogDate: varSelectedDate, LogTime: timeIN_Hours.Selected.H&":"&timeIN_Min.Selected.H, LoggedBy: varUserEmail, LogType: "Time In"}),
+                    Patch('JTAS Time Log V2',TimeInRecord, {LogTime: timeIN_Hours.Selected.H&":"&timeIN_Min.Selected.H, LogDateAndTime:  Dateee })));
+                    
+                    
+                    //Patch Time Out
+                    With({TimeOutRecord:LookUp('JTAS Time Log V2', LoggedBy = varUserEmail && LogDate = varSelectedDate && LogType = "Time Out"),
+                    Dateee: DateAdd(DateAdd( Now(), -TimeZoneOffset(Now()), TimeUnit.Minutes ), 7, TimeUnit.Hours)},
+                    If(IsBlank(TimeOutRecord),
+                    Patch('JTAS Time Log V2',Defaults('JTAS Time Log V2'), {LogDateAndTime:Dateee, LogDate: varSelectedDate, LogTime: timeOUT_Hours.Selected.H&":"&timeOUT_Min.Selected.H, LoggedBy: varUserEmail, LogType: "Time Out", 'Feeling Today': LookUp('JTAS MoodApplication Setting', ID = Data32,Text1),
+                                WorkArea: Wfff}),
+                    Patch('JTAS Time Log V2',TimeOutRecord, {LogTime: timeOUT_Hours.Selected.H&":"&timeOUT_Min.Selected.H, LogDateAndTime: Dateee, 'Feeling Today': LookUp('JTAS MoodApplication Setting', ID = Data32,Text1),
+                                WorkArea: Wfff})));
+                    
+                    
+                        
                     Set(showLoading, false);
                     Refresh('JTAS Daily Manhour');
                     UpdateContext({varPopUp: "None"});
@@ -3681,74 +3550,4 @@ ScreenTrackerMyManhour As screen:
                 X: =173
                 Y: =83
                 ZIndex: =22
-
-    Button32 As button:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(105, 121, 126, 1)
-        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
-        Font: =Font.'Segoe UI'
-        FontWeight: =FontWeight.Semibold
-        Height: =360
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
-        OnSelect: =Refresh('JTAS Daily Manhour')
-        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
-        PressedColor: =RGBA(255, 255, 255, 1)
-        PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-        RadiusBottomLeft: =0
-        RadiusBottomRight: =0
-        RadiusTopLeft: =0
-        RadiusTopRight: =0
-        Size: =15
-        Text: ="Button"
-        Width: =161
-        Y: =462
-        ZIndex: =14
-
-    Button33 As button:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(105, 121, 126, 1)
-        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
-        Font: =Font.'Segoe UI'
-        FontWeight: =FontWeight.Semibold
-        Height: =59
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
-        OnSelect: |-
-            =With({TimeInRecord:LookUp('JTAS Time Log V2', LoggedBy = varUserEmail && LogDate = varSelectedDate && LogType = "Time In"),
-            Dateee: DateAdd(DateTimeValue( DateAdd(varSelectedDate,16, TimeUnit.Hours) & " " & TimeValue(timeIN_Hours.Selected.H&":"&timeIN_Min.Selected.H)), 16, TimeUnit.Hours)},
-            If(IsBlank(TimeInRecord),
-            Patch('JTAS Time Log V2',Defaults('JTAS Time Log V2'), {LogDateAndTime: Dateee, LogDate: varSelectedDate, LogTime: timeIN_Hours.Selected.H&":"&timeIN_Min.Selected.H, LoggedBy: varUserEmail, LogType: "Time In", Remarks: "Revised"}),
-            Patch('JTAS Time Log V2',TimeInRecord, {LogTime: timeIN_Hours.Selected.H&":"&timeIN_Min.Selected.H, LogDateAndTime:  Dateee ,Remarks: "Revised"})));
-            
-            
-            
-            With({TimeOutRecord:LookUp('JTAS Time Log V2', LoggedBy = varUserEmail && LogDate = varSelectedDate && LogType = "Time Out"),
-            Dateee: DateAdd(DateTimeValue(DateAdd(varSelectedDate,16, TimeUnit.Hours) & " " & TimeValue(timeIN_Hours.Selected.H&":"&timeIN_Min.Selected.H)), 16, TimeUnit.Hours)},
-            
-            If(IsBlank(TimeOutRecord),
-            
-            Patch('JTAS Time Log V2',Defaults('JTAS Time Log V2'), {LogDateAndTime:Dateee, LogDate: varSelectedDate, LogTime: timeOUT_Hours.Selected.H&":"&timeOUT_Min.Selected.H, LoggedBy: varUserEmail, LogType: "Time Out", Remarks: "Revised"}),
-            
-            Patch('JTAS Time Log V2',TimeOutRecord, {LogTime: TextInput1_Logout.Text, LogDateAndTime: Dateee, Remarks: "Revised"})));
-        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
-        PressedColor: =RGBA(255, 255, 255, 1)
-        PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-        RadiusBottomLeft: =0
-        RadiusBottomRight: =0
-        RadiusTopLeft: =0
-        RadiusTopRight: =0
-        Size: =15
-        Text: ="Button"
-        Width: =202
-        X: =1446
-        ZIndex: =15
 
