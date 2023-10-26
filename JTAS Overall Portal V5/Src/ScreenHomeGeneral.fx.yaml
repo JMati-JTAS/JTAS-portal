@@ -374,7 +374,7 @@ ScreenHomeGeneral As screen:
                                 LogInTime: LookUp('JTAS Time Log V2', LogDate = Today() And LoggedBy = varUserEmail And LogType = "Time In", LogTime),
                                 LogOutTime: LookUp('JTAS Time Log V2', LogDate = Today() And LoggedBy = varUserEmail And LogType = "Time Out", LogTime)
                             },
-                            If( LogOutTime=Blank(), true, false)
+                            If( LogInTime=Blank(), true, false)
                         )
                         
                         
