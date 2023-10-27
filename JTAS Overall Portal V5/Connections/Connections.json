@@ -59,7 +59,9 @@
       "JTAS TimeSheet Data",
       "JTAS_MemberReport_to_Client",
       "JTAS_Intermet_Allowance",
-      "JTAS_InternetAllowance_Masterfile"
+      "JTAS_InternetAllowance_Masterfile",
+      "JTAS Overtime Request V3",
+      "JTAS Overtime Request V3_1"
     ],
     "dependencies": {},
     "dependents": [],

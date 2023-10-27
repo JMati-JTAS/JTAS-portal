@@ -2954,7 +2954,7 @@ ScreenTrackerMyManhour As screen:
                     If(IsBlank(TimeOutRecord),
                     Patch('JTAS Time Log V2',Defaults('JTAS Time Log V2'), {LogDateAndTime:Dateee, LogDate: varSelectedDate, LogTime: timeOUT_Hours.Selected.H&":"&timeOUT_Min.Selected.H, LoggedBy: varUserEmail, LogType: "Time Out", 'Feeling Today': LookUp('JTAS MoodApplication Setting', ID = Data32,Text1),
                                 WorkArea: Wfff}),
-                    Patch('JTAS Time Log V2',TimeOutRecord, {LogTime: timeOUT_Hours.Selected.H&":"&timeOUT_Min.Selected.H, LogDateAndTime: Dateee, 'Feeling Today': LookUp('JTAS MoodApplication Setting', ID = Data32,Text1),
+                    Patch('JTAS Time Log V2',TimeOutRecord, {LogTime: If(varSelectedDate<>Today(), Reset(timeOUT_Hours);Reset(timeOUT_Min);timeOUT_Hours.Selected.H&":"&timeOUT_Min.Selected.H , Text(Now(), "hh:mm")), LogDateAndTime: Dateee, 'Feeling Today': LookUp('JTAS MoodApplication Setting', ID = Data32,Text1),
                                 WorkArea: Wfff})));
                     
                     
