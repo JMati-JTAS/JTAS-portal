@@ -2119,6 +2119,43 @@ ScreenTrackerMyManhour As screen:
                 Y: =237
                 ZIndex: =28
 
+            Dropdown2 As dropdown:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                Items: |-
+                    =Filter('JTAS Overtime Request V3', 
+                                    EmailMembers = varUserEmail, 
+                                    Work_Order = ThisItem.WOCode, 
+                                    Start_Date <= varSelectedDate, 
+                                    End_Date >= varSelectedDate, 
+                                    Status = "Pending" Or Status = "Approved")
+                               
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                Size: =13
+                X: =205
+                Y: =197
+                ZIndex: =29
+
     ctnManhourViewDaily As groupContainer:
         Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height - Self.Y
@@ -3556,4 +3593,96 @@ ScreenTrackerMyManhour As screen:
                 X: =173
                 Y: =83
                 ZIndex: =22
+
+    Dropdown2_3 As dropdown:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+        ChevronFill: =RGBA(33, 33, 33, 1)
+        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(212, 212, 212, 1)
+        Items: |-
+            = AddColumns( AddColumns( ShowColumns( Ungroup(AddColumns( Filter('JTAS Overtime Request V3', 
+                            EmailMembers = varUserEmail, 
+                            Work_Order = First(colMHInput.WOCode).WOCode, 
+                            Start_Date <= varSelectedDate, 
+                            End_Date >= varSelectedDate, 
+                            Status = "Pending" Or Status = "Approved"),
+            
+            
+                            "aa" , Split(Right(Left(DateRange, Len(DateRange) - 5), Len(DateRange) - 10), ", ")
+             ),"aa"), "DateRange", "Work_Order", "MH_Hours", "Value"),
+            
+                 
+            "Month", Left(DateRange, 5),
+            "Year", Right(DateRange, 5)),
+                       "start", If(Find("-",Value,1)>0, DateValue(Month&Left(Value, Find("-",Value,1)-1)&Year), DateValue(Month&Value&Year)),
+                       "end",  If(Find("-",Value,1)>0, DateValue(Month&Right(Value, Find("-",Value,1)-1)&Year), DateValue(Month&Value&Year))
+             )
+        PaddingBottom: =5
+        PaddingLeft: =12
+        PaddingRight: =5
+        PaddingTop: =5
+        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(105, 121, 126, 1)
+        SelectionFill: =RGBA(105, 121, 126, 1)
+        Size: =13
+        X: =1232
+        ZIndex: =13
+
+    Dropdown2_4 As dropdown:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+        ChevronFill: =RGBA(33, 33, 33, 1)
+        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(212, 212, 212, 1)
+        Items: |-
+            = AddColumns( AddColumns( ShowColumns( Ungroup(AddColumns( Filter('JTAS Overtime Request V3', 
+                            EmailMembers = varUserEmail, 
+                            Work_Order = First(colMHInput.WOCode).WOCode, 
+                            Start_Date <= varSelectedDate, 
+                            End_Date >= varSelectedDate, 
+                            Status = "Pending" Or Status = "Approved"),
+            
+            
+                            "aa" , Split(DateRange, ";")
+             ),"aa"), "DateRange", "Work_Order", "MH_Hours", "Value"),
+            
+                 
+            "Month", Left(DateRange, 5),
+            "Year", Right(DateRange, 5)),
+                       "start", If(Find("-",Value,1)>0, DateValue(Month&Left(Value, Find("-",Value,1)-1)&Year), DateValue(Month&Value&Year)),
+                       "end",  If(Find("-",Value,1)>0, DateValue(Month&Right(Value, Find("-",Value,1)-1)&Year), DateValue(Month&Value&Year))
+             )
+        PaddingBottom: =5
+        PaddingLeft: =12
+        PaddingRight: =5
+        PaddingTop: =5
+        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(105, 121, 126, 1)
+        SelectionFill: =RGBA(105, 121, 126, 1)
+        Size: =13
+        X: =904
+        ZIndex: =14
 

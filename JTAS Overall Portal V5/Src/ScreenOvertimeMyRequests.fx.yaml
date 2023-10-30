@@ -1391,26 +1391,6 @@ ScreenOvertimeMyRequests As screen:
                 Y: =15
                 ZIndex: =2
 
-            Label1_16 As label:
-                BorderColor: =RGBA(0, 0, 0, 0)
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =2
-                Color: =RGBA(36, 42, 44, 1)
-                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                FocusedBorderThickness: =4
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                OnSelect: =
-                Size: =15
-                Text: |-
-                    =//If(varScreenMode = "Edit", "Add", varScreenMode = "Modify", "Modify") & " member"
-                    LookUp('JTAS Work Order', ParentWorkOrderCode = varSelectedWorkOrder.WOCode).AssignedMember
-                Width: =236
-                X: =32
-                Y: =24
-                ZIndex: =3
-
             Label1_20 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
@@ -1762,6 +1742,7 @@ ScreenOvertimeMyRequests As screen:
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(220, 220, 220, 1)
                     DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If(First(colSelectedDate).DateValue = Blank(), DisplayMode.Edit, DisplayMode.Disabled)
                     FocusedBorderThickness: =4
                     Height: =32
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
