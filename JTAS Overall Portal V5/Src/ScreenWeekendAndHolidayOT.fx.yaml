@@ -1,0 +1,273 @@
+ScreenWeekendAndHolidayOT As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+
+    Header_25 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_25.Width
+        ZIndex: =5
+
+    LeftNavigation_25 As LeftNavigation:
+        Height: =Parent.Height
+        ZIndex: =6
+
+    Container29_5 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height - Header_25.Height
+        Width: =Parent.Width - LeftNavigation_25.Width
+        X: =LeftNavigation_25.Width
+        Y: =Header_25.Height
+        ZIndex: =7
+
+        Container33_5 As groupContainer.manualLayoutContainer:
+            Height: =150
+            Width: =Parent.Width
+            ZIndex: =19
+
+            Label1_340 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =27
+                Size: =13
+                Text: ="Choose Cutoff"
+                VerticalAlign: =VerticalAlign.Top
+                Width: =170
+                X: =40
+                Y: =80
+                ZIndex: =3
+
+            Label1_191 As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Lato
+                Height: =29
+                Size: =13
+                Text: ="Choose Month"
+                VerticalAlign: =VerticalAlign.Top
+                Width: =170
+                X: =40
+                Y: =24
+                ZIndex: =4
+
+            Button32 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                OnSelect: |-
+                    =ClearCollect(
+                    colDate,
+                    
+                    
+                    AddColumns(GroupBy(
+                    Ungroup(
+                    AddColumns(
+                    
+                    //get weekends and holidays
+                    Filter( 
+                    AddColumns( AddColumns(
+                    Sequence(DateDiff(ComboBox2_30.Selected.rangeStart, ComboBox2_30.Selected.rangeEnd)+1,0),
+                    "date", DateAdd(ComboBox2_30.Selected.rangeStart, Value, TimeUnit.Days),
+                    "start", ComboBox2_30.Selected.rangeStart,
+                    
+                    "end", ComboBox2_30.Selected.rangeEnd
+                    ),
+                    "WeekendHoliday", If(Weekday(date) = 1 Or Weekday(date) = 7, "yes", If(LookUp('JTAS Holidays', date = HolidayDate, HolidayDate)<>Blank(), "yes"))
+                    ), WeekendHoliday = "yes"),
+                    //get weekends and holidays
+                    
+                    "OT Data", ShowColumns(Filter('JTAS Daily Manhour', ManhourDate = date And Status = "Approved"), "SubmittedBy","ConsumedMH")
+                    ),"OT Data"),
+                    "SubmittedBy", "date", "d"), "MH", Sum(d,ConsumedMH)
+                    )
+                    
+                    
+                    
+                    
+                    )
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Button"
+                Width: =96
+                X: =615
+                Y: =40
+                ZIndex: =12
+
+            Dropdown5_5 As dropdown:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                ChevronBackground: =RGBA(128, 128, 128, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.Lato
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(186, 202, 226, 1)
+                Items: |-
+                    = GroupBy(
+                        Filter(
+                            Ungroup(
+                                AddColumns(
+                                    RenameColumns(
+                                        Sequence(6),
+                                        "Value",
+                                        "index"
+                                    ),
+                                    "datePeriod",
+                                    AddColumns(
+                                        Table(
+                                            {
+                                                cutOffPeriod: "1st Half",
+                                                rangeStart: Date(
+                                                    Year(Today()),
+                                                    Month(Today()) - index + 1,
+                                                    1
+                                                ),
+                                                rangeEnd: Date(
+                                                    Year(Today()),
+                                                    Month(Today()) - index + 1,
+                                                    15
+                                                )
+                                            },
+                                            {
+                                                cutOffPeriod: "2nd Half",
+                                                rangeStart: Date(
+                                                    Year(Today()),
+                                                    Month(Today()) - index + 1,
+                                                    16
+                                                ),
+                                                rangeEnd: Date(
+                                                    Year(Today()),
+                                                    Month(Today()) - index + 1 + 1,
+                                                    0
+                                                )
+                                            }
+                                        ),
+                                        "label",
+                                        Text(
+                                            rangeStart,
+                                            "mmmm yyyy"
+                                        )
+                                    )
+                                ),
+                                "datePeriod"
+                            ),
+                            rangeEnd < If(
+                                Day(Today()) > 15,
+                                Date(
+                                    Year(Today()),
+                                    Month(Today()) + 1,
+                                    1
+                                ),
+                                Date(
+                                    Year(Today()),
+                                    Month(Today()),
+                                    16
+                                )
+                            ),
+                            IsBlank(
+                                LookUp(
+                                    'JTAS Timesheet',
+                                    SubmittedBy = varUserEmail And RangeEnd = rangeEnd And Status = "Approval"
+                                )
+                            )
+                        ),
+                        "label",
+                        "groupData"
+                    )
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 18, 107, 1)
+                SelectionFill: =RGBA(128, 128, 128, 1)
+                Size: =13
+                X: =Label1_191.X + Label1_191.Width
+                Y: =Label1_191.Y - 5
+                ZIndex: =13
+
+            ComboBox2_30 As combobox:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =First(Dropdown5_5.Selected.groupData)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["cutOffPeriod","ParentWorkOrderCode"]
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: =""
+                IsSearchable: =false
+                Items: |
+                    =Dropdown5_5.Selected.groupData
+                NoSelectionText: ="Select a cut-off period"
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                Reset: =true
+                SearchFields: =["cutOffPeriod"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(105, 121, 126, 1)
+                SelectMultiple: =false
+                Size: =13
+                X: =210
+                Y: =80
+                ZIndex: =14
+
+        Container34_2 As groupContainer.manualLayoutContainer:
+            Height: =Parent.Height - Container33_5.Height
+            Width: =Parent.Width
+            Y: =Container33_5.Height
+            ZIndex: =20
+
+            Canvas1_8 As fluidGrid.fluidGridWithBlankCard:
+                BorderThickness: =0
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =Parent.Height
+                Width: =Parent.Width - Self.X - 50
+                X: =25
+                ZIndex: =1
+
+                DataCard1_12 As dataCard:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =751
+                    Width: =Parent.Width
+                    WidthFit: =false
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+    Loading_22 As Loading:
+        Height: =Parent.Height
+        Visible: =showLoading
+        Width: =Parent.Width
+        ZIndex: =8
+
