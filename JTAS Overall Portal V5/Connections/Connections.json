@@ -560,20 +560,6 @@
             "tableName": "8fb1c9a4-917c-485c-94c3-17eeb2ef818f"
           }
         }
-      },
-      "https://jgcgroup.sharepoint.com/sites/JTASInternalDataV2_jtaspas_shared_sharepointonline_7bf6929f4fe34a818447e3f931481c5a": {
-        "datasetOverride": {
-          "environmentVariableName": "jtaspas_shared_sharepointonline_7bf6929f4fe34a818447e3f931481c5a",
-          "name": "https://jgcgroup.sharepoint.com/sites/JTASInternalDataV2"
-        },
-        "dataSources": {
-          "JTAS Overtime Request V3_1": {
-            "tableName": "b15dd74d-394c-494e-a2fe-f5e4bde1ebee",
-            "tableNameOverride": {
-              "environmentVariableName": "new_shared_sharepointonline_d90ad0b9f7ee408489c66cccbc94bf40"
-            }
-          }
-        }
       }
     },
     "dataSources": [
