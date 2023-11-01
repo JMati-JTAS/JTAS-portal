@@ -64,8 +64,8 @@ ScreenWeekendAndHolidayOT As screen:
                 HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
                 OnSelect: |-
                     =ClearCollect(
-                    colDate,
-                    
+                    colOTHoliday,
+                    Filter(
                     AddColumns(
                     AddColumns(GroupBy(
                     Ungroup(
@@ -93,14 +93,14 @@ ScreenWeekendAndHolidayOT As screen:
                     "TimeOut", LookUp('JTAS Time Log V2', LogDate = date And LoggedBy = SubmittedBy And LogType = "Time Out", LogTime)
                     ),
                     "OTStart",If(MH>8, Text(DateAdd(TimeValue(TimeIn),540,TimeUnit.Minutes),"hh:mm") ),
-                    "OTEnd", If(MH>8, TimeOut),
+                    "OTEnd", If(MH>8,  Text( DateAdd(     DateAdd(TimeValue(TimeIn),540,TimeUnit.Minutes),      (MH-8)*60, TimeUnit.Minutes),   "hh:mm")   ),
                     "OTRegular", If(MH<8,  MH),
                     "OTExcess", If(MH>8,  MH-8),
                     "EmployeeID", LookUp('JTAS Members V2',  SubmittedBy = EmailAddress, EmployeeNo),
                     "FirstName", LookUp('JTAS Members V2',  SubmittedBy = EmailAddress, FirstName),
                     "LastName", LookUp('JTAS Members V2',  SubmittedBy = EmailAddress, LastName)
                     
-                    ))
+                    ), FirstName <> Blank() ))
                 PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
@@ -109,10 +109,10 @@ ScreenWeekendAndHolidayOT As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =15
-                Text: ="Button"
+                Text: ="Generate"
                 Width: =96
-                X: =615
-                Y: =40
+                X: =571
+                Y: =53
                 ZIndex: =12
 
             Dropdown5_5 As dropdown:
@@ -246,6 +246,33 @@ ScreenWeekendAndHolidayOT As screen:
                 Y: =80
                 ZIndex: =14
 
+            Button32_1 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                OnSelect: =
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Generate"
+                Width: =96
+                X: =1250
+                Y: =40
+                ZIndex: =15
+
         Container34_2 As groupContainer.manualLayoutContainer:
             Height: =Parent.Height - Container33_5.Height
             Width: =Parent.Width
@@ -255,12 +282,14 @@ ScreenWeekendAndHolidayOT As screen:
             Gallery6 As gallery.galleryVertical:
                 BorderColor: =RGBA(166, 166, 166, 1)
                 DelayItemLoading: =true
-                Height: =745
-                Items: =colDate
+                Height: =Parent.Height-Self.Y
+                Items: =colOTHoliday
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =1
                 TemplateSize: =80
-                Width: =1670
+                Width: =1292
+                X: =147
                 Y: =81
                 ZIndex: =3
 
@@ -289,7 +318,7 @@ ScreenWeekendAndHolidayOT As screen:
                     OnSelect: =Select(Parent)
                     Size: =13
                     Text: =ThisItem.FirstName&" "&ThisItem.LastName
-                    Width: =127
+                    Width: =308
                     X: =127
                     ZIndex: =2
 
@@ -305,7 +334,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =ThisItem.date
                     Width: =193
-                    X: =254
+                    X: =435
                     ZIndex: =3
 
                 Label55_3 As label:
@@ -320,7 +349,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =ThisItem.TimeIn
                     Width: =106
-                    X: =659
+                    X: =840
                     ZIndex: =4
 
                 Label55_4 As label:
@@ -335,7 +364,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =ThisItem.TimeOut
                     Width: =106
-                    X: =765
+                    X: =946
                     ZIndex: =5
 
                 Label55_5 As label:
@@ -350,7 +379,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =ThisItem.MH
                     Width: =106
-                    X: =447
+                    X: =628
                     ZIndex: =6
 
                 Label55_6 As label:
@@ -365,7 +394,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =ThisItem.OTStart
                     Width: =106
-                    X: =871
+                    X: =1052
                     ZIndex: =7
 
                 Label55_7 As label:
@@ -380,7 +409,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =ThisItem.OTEnd
                     Width: =106
-                    X: =977
+                    X: =1158
                     ZIndex: =8
 
                 Label55_8 As label:
@@ -395,7 +424,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =ThisItem.OTExcess
                     Width: =106
-                    X: =553
+                    X: =734
                     ZIndex: =9
 
             Container56 As groupContainer:
@@ -405,8 +434,8 @@ ScreenWeekendAndHolidayOT As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
-                Width: =1163
-                X: =5
+                Width: =1329
+                X: =147
                 ZIndex: =13
 
                 Label55_9 As label:
@@ -422,6 +451,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="EmployeeID"
                     Width: =127
+                    X: =1
                     ZIndex: =1
 
                 Label55_10 As label:
@@ -436,7 +466,7 @@ ScreenWeekendAndHolidayOT As screen:
                     OnSelect: =
                     Size: =13
                     Text: ="Name"
-                    Width: =127
+                    Width: =308
                     X: =127
                     ZIndex: =2
 
@@ -453,7 +483,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="Date"
                     Width: =193
-                    X: =254
+                    X: =435
                     ZIndex: =3
 
                 Label55_12 As label:
@@ -469,7 +499,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="TimeIn"
                     Width: =106
-                    X: =659
+                    X: =840
                     ZIndex: =4
 
                 Label55_13 As label:
@@ -485,7 +515,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="TimeOut"
                     Width: =106
-                    X: =765
+                    X: =946
                     ZIndex: =5
 
                 Label55_14 As label:
@@ -501,7 +531,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="Total OT"
                     Width: =106
-                    X: =447
+                    X: =628
                     ZIndex: =6
 
                 Label55_15 As label:
@@ -517,7 +547,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="OTStart"
                     Width: =106
-                    X: =871
+                    X: =1052
                     ZIndex: =7
 
                 Label55_16 As label:
@@ -533,7 +563,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="OTEnd"
                     Width: =106
-                    X: =977
+                    X: =1158
                     ZIndex: =8
 
                 Label55_17 As label:
@@ -549,7 +579,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="Excess OT"
                     Width: =106
-                    X: =553
+                    X: =734
                     ZIndex: =9
 
     Loading_22 As Loading:
