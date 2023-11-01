@@ -316,6 +316,12 @@ Header As CanvasComponent:
                                             screenObject: 'ScreenReportsTimeSheet Viewer'
                                         }
                                     ),
+                                     If(varUserEmail in ["deleon.mariah@jgc.com","inguillo.glenda@jgc.com","igot.alleluia@jgc.com", "delavega.chrisnorman@jgc.com"],
+                                 {
+                                    screenName: "Overtime for Weekends And Holiday",
+                                    counter: 0,
+                                    screenObject: 'ScreenWeekendAndHolidayOT'
+                                }),
                                     {
                                         screenName: "Member Summary",
                                         counter: 0,
@@ -555,12 +561,18 @@ Header As CanvasComponent:
                                     screenObject: ScreenReportsOTPerWorkOrder
                                 }
                                 ),
-                                If(varUserEmail in ["ito.hirotsugu@jgc.com","deleon.mariah@jgc.com"],
+                                If(varUserEmail in ["deleon.mariah@jgc.com","inguillo.glenda@jgc.com","igot.alleluia@jgc.com", "delavega.chrisnorman@jgc.com"],
+                                 {
+                                    screenName: "Overtime for Weekends And Holiday",
+                                    counter: 0,
+                                    screenObject: 'ScreenWeekendAndHolidayOT'
+                                }),
+                              /*  If(varUserEmail in ["ito.hirotsugu@jgc.com","deleon.mariah@jgc.com"],
                                  {
                                     screenName: "TimeSheet Summary",
                                     counter: 0,
                                     screenObject: 'ScreenReportsTimeSheet Viewer'
-                                }),
+                                }),*/
                                 /*{
                                     screenName: "Member Summary",
                                     counter: 0,
@@ -571,24 +583,24 @@ Header As CanvasComponent:
                                     counter: 0,
                                     screenObject: ScreenReportsWorkOrderSummary
                                 },*/
-                                {
+                             /*   {
                                     screenName: "Work Order Summary by member",
                                     counter: 0,
                                     screenObject: ScreenReportsWorkOrderSummaryPerMember
-                                },
+                                },*/
                                 
                                 If(varUserData.Role in ["Department Manager", "General Manager", "Section Manager", "President"],
                                 {
                                     screenName: "Mood Report",
                                     counter: 0,
                                     screenObject: ScreenReportsMoodApp
-                                }),
-                                If(varUserData.Role in ["Department Manager", "General Manager", "Section Manager", "President"],
+                                })
+                              /*   If(varUserData.Role in ["Department Manager", "General Manager", "Section Manager", "President"],
                                 {
                                     screenName: "Work Order Summary by year and Work Order",
                                     counter: 0,
                                     screenObject: ScreenReportsMemberperWorkOrder
-                                })
+                                })*/
                             ),
                             icon: "data:image/svg+xml," & EncodeUrl(
                                 "<?xml version='1.0'?>

@@ -305,6 +305,40 @@
     ],
     "id": "4762aa75-b61f-46fa-812e-0b05922c6397"
   },
+  "53b729f6-313c-4c82-bf61-ab06548ffa04": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "e8f4b888-7d49-432c-8c26-f92099a4090f": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "b9929eec-ed25-401f-b26e-4ee8c9c82c3a"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_onedriveforbusiness": {
+          "value": "e8f4b888-7d49-432c-8c26-f92099a4090f"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "b9929eec-ed25-401f-b26e-4ee8c9c82c3a"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "[PortalV2]GenerateOTHolidayWeekends"
+    ],
+    "dependencies": {
+      "shared_onedriveforbusiness": "e8f4b888-7d49-432c-8c26-f92099a4090f"
+    },
+    "dependents": [],
+    "id": "53b729f6-313c-4c82-bf61-ab06548ffa04"
+  },
   "54ecb825-d79f-4bcf-8902-6ed89df889e4": {
     "appActions": [
       "Run"
@@ -671,7 +705,8 @@
     "dependencies": {},
     "dependents": [
       "d8c3a91c-1a0d-4973-a038-8a6193ebc540",
-      "03ce6cae-af53-4ddc-a90a-3363722c6855"
+      "03ce6cae-af53-4ddc-a90a-3363722c6855",
+      "53b729f6-313c-4c82-bf61-ab06548ffa04"
     ],
     "id": "e8f4b888-7d49-432c-8c26-f92099a4090f"
   },

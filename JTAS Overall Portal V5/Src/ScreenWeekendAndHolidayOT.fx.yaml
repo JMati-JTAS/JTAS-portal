@@ -1,11 +1,6 @@
 ScreenWeekendAndHolidayOT As screen:
     LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
 
-    Header_25 As Header:
-        Width: =Parent.Width - Self.X
-        X: =LeftNavigation_25.Width
-        ZIndex: =5
-
     LeftNavigation_25 As LeftNavigation:
         Height: =Parent.Height
         ZIndex: =6
@@ -246,7 +241,68 @@ ScreenWeekendAndHolidayOT As screen:
                 Y: =80
                 ZIndex: =14
 
-            Button32_1 As button:
+            "'Download OverTimeTemplate' As button":
+                BorderColor: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(105, 121, 126, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =59
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                OnSelect: |
+                    =ClearCollect(overtimeTemplate, Filter(colOTHoliday, OTExcess > 0));
+                    
+                    
+                    
+                    
+                    UpdateContext({OTLIST:
+                    """" & "Status After Upload" & 
+                    """,""" & "Employee ID" &
+                    """,""" & "Firstname" &
+                    """,""" & "Lastname" &
+                    """,""" & "Shift Date" & 
+                    """,""" & "Location" & 
+                    """,""" & "Shift From" & 
+                    """,""" & "Shift To" &
+                    """,""" & "OT Classification" &
+                    """,""" & "Overtime Start" & 
+                    """,""" & "Overtime End" & """"&
+                    
+                    Concat(overtimeTemplate,"
+                    """ & "" & 
+                    """,""" & EmployeeID &
+                    """,""" & FirstName & 
+                    """,""" & LastName & 
+                    """,""" & Text(date, "mm/dd/yyyy") & 
+                    """,""" & "" & 
+                    """,""" & TimeValue(TimeIn) & 
+                    """,""" & TimeValue(TimeOut) & 
+                    """,""" & "" & 
+                    """,""" & TimeValue(OTStart) & 
+                    """,""" & TimeValue(OTEnd) & 
+                    """")});
+                    
+                    
+                    Download('[PortalV2]GenerateOTHolidayWeekends'.Run("OvertimeTemplate"&"_"&Dropdown5_5.Selected.label&"_"&ComboBox2_30.Selected.cutOffPeriod& ".csv",OTLIST).link);
+                PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =12
+                Text: ="Download OverTimeTemplate"
+                Width: =317
+                X: =Parent.Width-Self.Width
+                ZIndex: =15
+
+            Button32_2 As button:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -255,10 +311,39 @@ ScreenWeekendAndHolidayOT As screen:
                 FocusedBorderColor: =ColorFade(Self.Fill, -75%)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
+                Height: =66
                 HoverBorderColor: =RGBA(0, 0, 0, 0)
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
-                OnSelect: =
+                OnSelect: |
+                    =ClearCollect(HRHUBScheduleAdjustmentTemplate, colOTHoliday);
+                    
+                    
+                    
+                    
+                    UpdateContext({OTLIST2:
+                    """" & "Status After Upload" & 
+                    """,""" & "Employee ID" &
+                    """,""" & "Date" & 
+                    """,""" & "Time From" & 
+                    """,""" & "Time To" &
+                    """,""" & "Break Start" &
+                    """,""" & "Break End" & 
+                    """,""" & "Rest Day" & """"&
+                    
+                    Concat(HRHUBScheduleAdjustmentTemplate,"
+                    """ & "" & 
+                    """,""" & EmployeeID &
+                    """,""" & Text(date, "mm/dd/yyyy") & 
+                    """,""" & TimeValue(TimeIn) & 
+                    """,""" & TimeValue(TimeOut) & 
+                    """,""" & "" & 
+                    """,""" & "" &
+                    """,""" & "Yes" & 
+                    """")});
+                    
+                    
+                    Download('[PortalV2]GenerateOTHolidayWeekends'.Run("HRHUBScheduleAdjustmentTemplate"&"_"&Dropdown5_5.Selected.label&"_"&ComboBox2_30.Selected.cutOffPeriod& ".csv",OTLIST2).link);
                 PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
@@ -266,12 +351,12 @@ ScreenWeekendAndHolidayOT As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Size: =15
-                Text: ="Generate"
-                Width: =96
-                X: =1250
-                Y: =40
-                ZIndex: =15
+                Size: =12
+                Text: ="Download ScheduleAdjustmentTemplate"
+                Width: =316
+                X: =Parent.Width-Self.Width
+                Y: =80
+                ZIndex: =16
 
         Container34_2 As groupContainer.manualLayoutContainer:
             Height: =Parent.Height - Container33_5.Height
@@ -347,7 +432,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =Select(Parent)
                     Size: =13
-                    Text: =ThisItem.TimeIn
+                    Text: =TimeValue(ThisItem.TimeIn)
                     Width: =106
                     X: =840
                     ZIndex: =4
@@ -362,7 +447,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =Select(Parent)
                     Size: =13
-                    Text: =ThisItem.TimeOut
+                    Text: =TimeValue(ThisItem.TimeOut)
                     Width: =106
                     X: =946
                     ZIndex: =5
@@ -392,7 +477,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =Select(Parent)
                     Size: =13
-                    Text: =ThisItem.OTStart
+                    Text: =TimeValue(ThisItem.OTStart)
                     Width: =106
                     X: =1052
                     ZIndex: =7
@@ -407,7 +492,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =Select(Parent)
                     Size: =13
-                    Text: =ThisItem.OTEnd
+                    Text: =TimeValue(ThisItem.OTEnd)
                     Width: =106
                     X: =1158
                     ZIndex: =8
@@ -428,6 +513,8 @@ ScreenWeekendAndHolidayOT As screen:
                     ZIndex: =9
 
             Container56 As groupContainer:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                BorderStyle: =BorderStyle.None
                 DropShadow: =DropShadow.Light
                 Height: =81
                 RadiusBottomLeft: =4
@@ -587,4 +674,9 @@ ScreenWeekendAndHolidayOT As screen:
         Visible: =showLoading
         Width: =Parent.Width
         ZIndex: =8
+
+    Header_25 As Header:
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_18.Width
+        ZIndex: =9
 
