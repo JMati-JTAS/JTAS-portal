@@ -320,7 +320,7 @@ Header As CanvasComponent:
                                  {
                                     screenName: "Overtime for Weekends And Holiday",
                                     counter: 0,
-                                    screenObject: 'ScreenWeekendAndHolidayOT'
+                                    screenObject: ScreenWeekendAndHolidayOT
                                 }),
                                     {
                                         screenName: "Member Summary",
@@ -565,7 +565,7 @@ Header As CanvasComponent:
                                  {
                                     screenName: "Overtime for Weekends And Holiday",
                                     counter: 0,
-                                    screenObject: 'ScreenWeekendAndHolidayOT'
+                                    screenObject: ScreenWeekendAndHolidayOT
                                 }),
                               /*  If(varUserEmail in ["ito.hirotsugu@jgc.com","deleon.mariah@jgc.com"],
                                  {

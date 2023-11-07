@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2023-09-20T17:03:15.3390000Z",
+      "LastChangedTimeString": "2023-10-30T18:13:46.5780000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -23,6 +23,7 @@
       "{TriggerWindowEndToken}": "Trigger Window End Token",
       "{TriggerWindowStartToken}": "Trigger Window Start Token",
       "{VersionNumber}": "Version number",
+      "ApprovalDate": "ApprovalDate",
       "ApprovedBy": "ApprovedBy",
       "Author": "Created By",
       "Author#Claims": "Created By Claims",
@@ -43,6 +44,7 @@
       "ID": "ID",
       "Modified": "Modified",
       "OData__ColorTag": "Color Tag",
+      "Remarks": "Remarks",
       "Status": "Status",
       "Status#Id": "Status Id",
       "Title": "Seq."

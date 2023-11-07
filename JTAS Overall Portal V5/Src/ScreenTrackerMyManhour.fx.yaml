@@ -1691,7 +1691,7 @@ ScreenTrackerMyManhour As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =13
-                Visible: =Dropdown2_2.Selected.AssignedMember = varUserEmail
+                Visible: =false
                 Width: =60
                 X: =915
                 Y: =30
@@ -1712,7 +1712,7 @@ ScreenTrackerMyManhour As screen:
                 Size: =13
                 Text: |-
                     ="# Issued"
-                Visible: =Dropdown2_2.Selected.AssignedMember = varUserEmail
+                Visible: =false
                 Width: =80
                 X: =895
                 ZIndex: =7
@@ -1984,7 +1984,7 @@ ScreenTrackerMyManhour As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =13
-                Visible: =Dropdown2_2.Selected.AssignedMember = varUserEmail
+                Visible: =false
                 Width: =60
                 X: =915
                 Y: =134
@@ -2004,7 +2004,7 @@ ScreenTrackerMyManhour As screen:
                 OnSelect: =
                 Size: =13
                 Text: ="Total Issued"
-                Visible: =Dropdown2_2.Selected.AssignedMember = varUserEmail
+                Visible: =false
                 Width: =60
                 X: =915
                 Y: =90
@@ -3074,7 +3074,7 @@ ScreenTrackerMyManhour As screen:
                     Refresh('JTAS Daily Manhour');
                     UpdateContext({varPopUp: "None"});
                     
-                    Launch("https://jtas.hrhub.ph/Login.aspx", {}, LaunchTarget.Replace)
+                    Launch("https://jtas.hrhub.ph/Login.aspx", {}, If(varSelectedDate = Today(), LaunchTarget.Replace, LaunchTarget.New))
                     
                     
                     
