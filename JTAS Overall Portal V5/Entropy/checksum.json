@@ -7,6 +7,7 @@
     "AppCheckerResult.sarif": "C8_4jyzaTqJPGg1c1lvMExqoBwUwnIoBbCpOkzwn4wbtF0=",
     "AppTests\\2.json": "C8_fyFOvqcajRb8AwIVrsxJ3zSCvTAmcu/QjVWu2PiIZ/Y=",
     "Assets\\Images\\0001.gif": "C8_Bz1O9tUv71eabENWf+BY1oThfMrK7L6U0wZlJFPHNuM=",
+
     "Components\\111.json": "C8_H1hp+RDSjP1pxzxPPLa7rRbK/+80a9zBtHmG/Ycs610=",
     "Components\\114.json": "C8_c1Eq2WMx6WsydEvtHH9IHBy+NBUEssVCcalxebHvDeM=",
     "Components\\128.json": "C8_Tr9TxvyM725dBgIpmjF9GO6Vcz/70frdrU9gzK/4f8I=",
@@ -71,11 +72,14 @@
     "Resources\\logo.jpg": "C8_26YgAAIKG2byxW6KFnlyRs0zRD7GWrb2rAW6jPcaVLE=",
     "Resources\\PublishInfo.json": "C8_amlz/PTWrIotLDR/QaXD1zoD4oTzge3U/F3hnXrZMpM="
   },
+
   "ClientStampedChecksum": "C8_PAIebKm4VyWFb3rMxWvSFFe66ZqhDaGPCmMgjFeH2Ic=",
+
   "ServerPerFileChecksums": {
     "AppCheckerResult.sarif": "C8_4jyzaTqJPGg1c1lvMExqoBwUwnIoBbCpOkzwn4wbtF0=",
     "AppTests\\2.json": "C8_fyFOvqcajRb8AwIVrsxJ3zSCvTAmcu/QjVWu2PiIZ/Y=",
     "Assets\\Images\\0001.gif": "C8_Bz1O9tUv71eabENWf+BY1oThfMrK7L6U0wZlJFPHNuM=",
+
     "Components\\111.json": "C8_H1hp+RDSjP1pxzxPPLa7rRbK/+80a9zBtHmG/Ycs610=",
     "Components\\114.json": "C8_c1Eq2WMx6WsydEvtHH9IHBy+NBUEssVCcalxebHvDeM=",
     "Components\\128.json": "C8_Tr9TxvyM725dBgIpmjF9GO6Vcz/70frdrU9gzK/4f8I=",
@@ -140,5 +144,7 @@
     "Resources\\logo.jpg": "C8_26YgAAIKG2byxW6KFnlyRs0zRD7GWrb2rAW6jPcaVLE=",
     "Resources\\PublishInfo.json": "C8_amlz/PTWrIotLDR/QaXD1zoD4oTzge3U/F3hnXrZMpM="
   },
+
   "ServerStampedChecksum": "C8_PAIebKm4VyWFb3rMxWvSFFe66ZqhDaGPCmMgjFeH2Ic="
+
 }

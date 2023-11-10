@@ -1366,7 +1366,9 @@
       "Y",
       "ZIndex"
     ],
+
     "LastModifiedTimestamp": "638351772612028848",
+
     "Name": "Loading",
     "Rules": [
       {
@@ -1425,7 +1427,9 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
+
   "LastModifiedTimestamp": "638351772612028848",
+
   "Name": "85486488c46340408e2b7cbacc8f78b2",
   "OverridableProperties": {},
   "Version": "637708417224565916"

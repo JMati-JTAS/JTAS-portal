@@ -1758,7 +1758,9 @@
         "NameMapSourceSchema": "?"
       }
     ],
+
     "LastModifiedTimestamp": "638351772611801836",
+
     "Name": "galForOrgChart_Section",
     "Rules": [
       {
@@ -1863,7 +1865,9 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
+
   "LastModifiedTimestamp": "638351772611801836",
+
   "Name": "cce867ffbe5443f39d15f2ba9cc3180f",
   "OverridableProperties": {},
   "TemplateOriginalName": "2a49356cec4f46948405bf0f1257ca5b",

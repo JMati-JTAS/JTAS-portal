@@ -2329,7 +2329,9 @@
         "NameMapSourceSchema": "?"
       }
     ],
+
     "LastModifiedTimestamp": "638351772612121267",
+
     "Name": "galForOrgChart_Team",
     "Rules": [
       {
@@ -2434,7 +2436,9 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
+
   "LastModifiedTimestamp": "638351772612121267",
+
   "Name": "2a49356cec4f46948405bf0f1257ca5b",
   "OverridableProperties": {},
   "Version": "637860315340303196"
