@@ -72,7 +72,7 @@
         "Name": "Rectangle13",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2636,
+        "PublishOrderIndex": 2644,
         "Rules": [
           {
             "Category": "Design",
@@ -242,7 +242,7 @@
         "Name": "Rectangle11",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2637,
+        "PublishOrderIndex": 2645,
         "Rules": [
           {
             "Category": "Design",
@@ -478,7 +478,7 @@
         "Name": "Label43",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2638,
+        "PublishOrderIndex": 2646,
         "Rules": [
           {
             "Category": "Data",
@@ -801,7 +801,7 @@
         "Name": "Icon25",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2639,
+        "PublishOrderIndex": 2647,
         "Rules": [
           {
             "Category": "Design",
@@ -986,7 +986,7 @@
             "Name": "galleryTemplate21",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2641,
+            "PublishOrderIndex": 2649,
             "Rules": [
               {
                 "Category": "Design",
@@ -1142,7 +1142,7 @@
             "Name": "Button27",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2642,
+            "PublishOrderIndex": 2650,
             "Rules": [
               {
                 "Category": "Data",
@@ -1498,7 +1498,7 @@
             "Name": "Label14_2",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2643,
+            "PublishOrderIndex": 2651,
             "Rules": [
               {
                 "Category": "Data",
@@ -1868,7 +1868,7 @@
             "Name": "Image7",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2644,
+            "PublishOrderIndex": 2652,
             "Rules": [
               {
                 "Category": "Data",
@@ -2158,7 +2158,7 @@
         "Name": "Gallery18",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2640,
+        "PublishOrderIndex": 2648,
         "Rules": [
           {
             "Category": "Data",
@@ -2404,7 +2404,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638350310440717562",
+    "LastModifiedTimestamp": "638351772612016366",
     "Name": "NewOrgList",
     "Rules": [
       {
@@ -2546,7 +2546,9 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638350310440717562",
+
+  "LastModifiedTimestamp": "638351772612016366",
+
   "Name": "69d7d0547cd441838d9348a71abb126b",
   "OverridableProperties": {},
   "Version": "638078247346668955"

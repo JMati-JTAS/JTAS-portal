@@ -84,11 +84,15 @@ ScreenWeekendAndHolidayOT As screen:
                     "SubmittedBy", "date", "d"), 
                     
                     "MH", Sum(d,ConsumedMH),
-                    "TimeIn", LookUp('JTAS Time Log V2', LogDate = date And LoggedBy = SubmittedBy And LogType = "Time In", LogTime),
-                    "TimeOut", LookUp('JTAS Time Log V2', LogDate = date And LoggedBy = SubmittedBy And LogType = "Time Out", LogTime)
+                    "TimeIn", LookUp('JTAS Time Log V2', LogDate = date And LoggedBy = SubmittedBy And LogType = "Time In", If( TimeValue(LogTime) < TimeValue("7:30"), TimeValue("7:30"), TimeValue(LogTime)) ),
+                    "Actual TimeIn", LookUp('JTAS Time Log V2', LogDate = date And LoggedBy = SubmittedBy And LogType = "Time In", LogTime),
+                    "Actual TimeOut", LookUp('JTAS Time Log V2', LogDate = date And LoggedBy = SubmittedBy And LogType = "Time Out", LogTime)
                     ),
-                    "OTStart",If(MH>8, Text(DateAdd(TimeValue(TimeIn),540,TimeUnit.Minutes),"hh:mm") ),
-                    "OTEnd", If(MH>8,  Text( DateAdd(     DateAdd(TimeValue(TimeIn),540,TimeUnit.Minutes),      (MH-8)*60, TimeUnit.Minutes),   "hh:mm")   ),
+                    "TimeOut", If(MH>4, Text(DateAdd(TimeValue(TimeIn),(MH+1)*60,TimeUnit.Minutes),"hh:mm"),  Text(DateAdd(TimeValue(TimeIn),MH*60,TimeUnit.Minutes),"hh:mm")    ),
+                    "BreakStart", If(MH>4, Text(DateAdd(TimeValue(TimeIn),(4)*60,TimeUnit.Minutes),"hh:mm")   ),
+                    "Breakend", If(MH>4, Text(DateAdd(TimeValue(TimeIn),(5)*60,TimeUnit.Minutes),"hh:mm")   ),
+                    "OTStart",If(MH>8, Text(DateAdd(TimeValue(TimeIn),541,TimeUnit.Minutes),"hh:mm") ),
+                    "OTEnd", If(MH>8,  Text( DateAdd(     DateAdd(TimeValue(TimeIn),541,TimeUnit.Minutes),      (MH-8)*60, TimeUnit.Minutes),   "hh:mm")   ),
                     "OTRegular", If(MH<8,  MH),
                     "OTExcess", If(MH>8,  MH-8),
                     "EmployeeID", LookUp('JTAS Members V2',  SubmittedBy = EmailAddress, EmployeeNo),
@@ -337,8 +341,8 @@ ScreenWeekendAndHolidayOT As screen:
                     """,""" & Text(date, "mm/dd/yyyy") & 
                     """,""" & TimeValue(TimeIn) & 
                     """,""" & TimeValue(TimeOut) & 
-                    """,""" & "" & 
-                    """,""" & "" &
+                    """,""" & TimeValue(BreakStart) & 
+                    """,""" & TimeValue(Breakend) &
                     """,""" & "Yes" & 
                     """")});
                     
@@ -373,8 +377,7 @@ ScreenWeekendAndHolidayOT As screen:
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =1
                 TemplateSize: =80
-                Width: =1292
-                X: =147
+                Width: =1670
                 Y: =81
                 ZIndex: =3
 
@@ -432,7 +435,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =Select(Parent)
                     Size: =13
-                    Text: =TimeValue(ThisItem.TimeIn)
+                    Text: =TimeValue(ThisItem.'Actual TimeIn')
                     Width: =106
                     X: =840
                     ZIndex: =4
@@ -447,8 +450,8 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =Select(Parent)
                     Size: =13
-                    Text: =TimeValue(ThisItem.TimeOut)
-                    Width: =106
+                    Text: =TimeValue(ThisItem.'Actual TimeOut')
+                    Width: =107
                     X: =946
                     ZIndex: =5
 
@@ -479,7 +482,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =TimeValue(ThisItem.OTStart)
                     Width: =106
-                    X: =1052
+                    X: =1266
                     ZIndex: =7
 
                 Label55_7 As label:
@@ -494,7 +497,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: =TimeValue(ThisItem.OTEnd)
                     Width: =106
-                    X: =1158
+                    X: =1372
                     ZIndex: =8
 
                 Label55_8 As label:
@@ -512,6 +515,66 @@ ScreenWeekendAndHolidayOT As screen:
                     X: =734
                     ZIndex: =9
 
+                Label55_18 As label:
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: =TimeValue(ThisItem.'TimeOut')
+                    Width: =106
+                    X: =1160
+                    ZIndex: =10
+
+                Label55_21 As label:
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: =TimeValue(ThisItem.TimeIn)
+                    Width: =106
+                    X: =1054
+                    ZIndex: =11
+
+                Label55_22 As label:
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: =TimeValue(ThisItem.BreakStart)
+                    Width: =91
+                    X: =1478
+                    ZIndex: =12
+
+                Label55_23 As label:
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: =TimeValue(ThisItem.Breakend)
+                    Width: =84
+                    X: =1569
+                    ZIndex: =13
+
             Container56 As groupContainer:
                 BorderColor: =RGBA(255, 255, 255, 1)
                 BorderStyle: =BorderStyle.None
@@ -521,8 +584,7 @@ ScreenWeekendAndHolidayOT As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
-                Width: =1329
-                X: =147
+                Width: =Gallery6.Width
                 ZIndex: =13
 
                 Label55_9 As label:
@@ -584,7 +646,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =
                     Size: =13
-                    Text: ="TimeIn"
+                    Text: ="Actual TimeIn"
                     Width: =106
                     X: =840
                     ZIndex: =4
@@ -600,8 +662,8 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =
                     Size: =13
-                    Text: ="TimeOut"
-                    Width: =106
+                    Text: ="ActualTimeOut"
+                    Width: =108
                     X: =946
                     ZIndex: =5
 
@@ -634,7 +696,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="OTStart"
                     Width: =106
-                    X: =1052
+                    X: =1266
                     ZIndex: =7
 
                 Label55_16 As label:
@@ -650,7 +712,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Size: =13
                     Text: ="OTEnd"
                     Width: =106
-                    X: =1158
+                    X: =1372
                     ZIndex: =8
 
                 Label55_17 As label:
@@ -668,6 +730,70 @@ ScreenWeekendAndHolidayOT As screen:
                     Width: =106
                     X: =734
                     ZIndex: =9
+
+                Label55_19 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Modified TimeOut for Sprout"
+                    Width: =106
+                    X: =1160
+                    ZIndex: =10
+
+                Label55_20 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    OnSelect: =
+                    Size: =13
+                    Text: ="Modified TumeIn for Sprout"
+                    Width: =106
+                    X: =1054
+                    ZIndex: =11
+
+                Label55_24 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    OnSelect: =
+                    Size: =13
+                    Text: ="BreakStart"
+                    Width: =90
+                    X: =1478
+                    ZIndex: =12
+
+                Label55_25 As label:
+                    Align: =Align.Center
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    OnSelect: =
+                    Size: =13
+                    Text: ="BreakEnd"
+                    Width: =90
+                    X: =1568
+                    ZIndex: =13
 
     Loading_22 As Loading:
         Height: =Parent.Height

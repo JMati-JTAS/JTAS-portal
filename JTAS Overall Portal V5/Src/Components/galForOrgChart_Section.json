@@ -124,7 +124,7 @@
         "Name": "Label3_8",
         "Parent": "galForOrgChart_Section",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2678,
+        "PublishOrderIndex": 2686,
         "Rules": [
           {
             "Category": "Data",
@@ -399,7 +399,7 @@
             "Name": "galleryTemplate13_1",
             "Parent": "Gallery8_4",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2680,
+            "PublishOrderIndex": 2688,
             "Rules": [
               {
                 "Category": "Design",
@@ -535,7 +535,7 @@
             "Name": "Image2_25",
             "Parent": "Gallery8_4",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2681,
+            "PublishOrderIndex": 2689,
             "Rules": [
               {
                 "Category": "Data",
@@ -837,7 +837,7 @@
             "Name": "Button12",
             "Parent": "Gallery8_4",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2682,
+            "PublishOrderIndex": 2690,
             "Rules": [
               {
                 "Category": "Data",
@@ -1179,7 +1179,7 @@
             "Name": "Label14_1",
             "Parent": "Gallery8_4",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2683,
+            "PublishOrderIndex": 2691,
             "Rules": [
               {
                 "Category": "Data",
@@ -1543,7 +1543,7 @@
         "Name": "Gallery8_4",
         "Parent": "galForOrgChart_Section",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2679,
+        "PublishOrderIndex": 2687,
         "Rules": [
           {
             "Category": "Data",
@@ -1758,7 +1758,9 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638350310440604029",
+
+    "LastModifiedTimestamp": "638351772611801836",
+
     "Name": "galForOrgChart_Section",
     "Rules": [
       {
@@ -1863,7 +1865,9 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638350310440604029",
+
+  "LastModifiedTimestamp": "638351772611801836",
+
   "Name": "cce867ffbe5443f39d15f2ba9cc3180f",
   "OverridableProperties": {},
   "TemplateOriginalName": "2a49356cec4f46948405bf0f1257ca5b",
