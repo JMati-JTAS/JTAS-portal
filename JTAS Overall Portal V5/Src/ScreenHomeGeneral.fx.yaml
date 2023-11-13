@@ -1346,6 +1346,7 @@ ScreenHomeGeneral As screen:
                 Height: =400
                 LayoutMinHeight: =100
                 LayoutMinWidth: =500
+                Visible: =false
                 Width: =400
                 X: =931
                 Y: =304
