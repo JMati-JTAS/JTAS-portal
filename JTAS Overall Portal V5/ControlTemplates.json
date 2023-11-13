@@ -82,7 +82,7 @@
     "Name": "PowerApps_CoreControls_ButtonCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Button",
-    "Version": "0.0.22"
+    "Version": "0.0.25"
   },
   "checkbox": {
     "CustomGroupControlTemplateName": "",
@@ -139,7 +139,7 @@
     "Name": "PowerApps_CoreControls_ComboboxCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Combobox",
-    "Version": "0.0.19"
+    "Version": "0.0.20"
   },
   "dataCard": {
     "CustomGroupControlTemplateName": "",
@@ -196,7 +196,7 @@
     "Name": "PowerApps_CoreControls_DatePickerCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Date picker",
-    "Version": "0.0.11"
+    "Version": "0.0.12"
   },
   "datepicker": {
     "CustomGroupControlTemplateName": "",
@@ -480,6 +480,21 @@
     "OverridableProperties": {},
     "Version": "2.2.0"
   },
+  "Power Apps grid control": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft.PowerApps.PowerAppsOneGrid",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft.PowerApps.PowerAppsOneGrid",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Power Apps grid control",
+    "Version": "1.0.115"
+  },
   "powerbi": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -550,21 +565,6 @@
     "OverridableProperties": {},
     "Version": "2.1.0"
   },
-  "Table (Dataverse only)": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": false,
-    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft.PowerApps.PowerAppsOneGrid",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "Microsoft.PowerApps.PowerAppsOneGrid",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "Table (Dataverse only)",
-    "Version": "1.0.115"
-  },
   "TestCase": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -620,7 +620,7 @@
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text",
-    "Version": "0.0.16"
+    "Version": "0.0.17"
   },
   "Text input": {
     "CustomGroupControlTemplateName": "",
@@ -635,7 +635,7 @@
     "Name": "PowerApps_CoreControls_TextInputCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text input",
-    "Version": "0.0.20"
+    "Version": "0.0.21"
   },
   "timer": {
     "CustomGroupControlTemplateName": "",

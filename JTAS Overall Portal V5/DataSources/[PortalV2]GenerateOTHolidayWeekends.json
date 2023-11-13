@@ -1,10 +1,10 @@
 [
   {
     "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
-    "FlowNameId": "b9929eec-ed25-401f-b26e-4ee8c9c82c3a",
+    "FlowNameId": "e0f7229b-baa8-4ec0-9c7c-88ca9d8e47fa",
     "Name": "[PortalV2]GenerateOTHolidayWeekends",
     "ServiceKind": "ConnectedWadl",
     "Type": "ServiceInfo",
-    "WorkflowEntityId": null
+    "WorkflowEntityId": "1f0eb24a-837f-ee11-8178-000d3acd143b"
   }
 ]

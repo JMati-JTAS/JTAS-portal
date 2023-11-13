@@ -340,7 +340,7 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Table (Dataverse only)",
+  "Name": "Power Apps grid control",
   "Properties": [
     {
       "Category": "data",

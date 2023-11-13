@@ -313,7 +313,7 @@
     ],
     "id": "4762aa75-b61f-46fa-812e-0b05922c6397"
   },
-  "53b729f6-313c-4c82-bf61-ab06548ffa04": {
+  "4f5c32ff-f9e5-4aba-8384-27ba8272321a": {
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
@@ -322,18 +322,22 @@
         "e8f4b888-7d49-432c-8c26-f92099a4090f": {
           "value": "shared_onedriveforbusiness"
         },
-        "workflowEntityId": {},
+        "workflowEntityId": {
+          "value": "1f0eb24a-837f-ee11-8178-000d3acd143b"
+        },
         "workflowName": {
-          "value": "b9929eec-ed25-401f-b26e-4ee8c9c82c3a"
+          "value": "dc6d7f8c-58c6-4dda-97e8-2acb10eca024"
         }
       },
       "parameterHintsV2": {
         "shared_onedriveforbusiness": {
           "value": "e8f4b888-7d49-432c-8c26-f92099a4090f"
         },
-        "workflowEntityId": {},
+        "workflowEntityId": {
+          "value": "1f0eb24a-837f-ee11-8178-000d3acd143b"
+        },
         "workflowName": {
-          "value": "b9929eec-ed25-401f-b26e-4ee8c9c82c3a"
+          "value": "dc6d7f8c-58c6-4dda-97e8-2acb10eca024"
         }
       }
     },
@@ -345,7 +349,7 @@
       "shared_onedriveforbusiness": "e8f4b888-7d49-432c-8c26-f92099a4090f"
     },
     "dependents": [],
-    "id": "53b729f6-313c-4c82-bf61-ab06548ffa04"
+    "id": "4f5c32ff-f9e5-4aba-8384-27ba8272321a"
   },
   "54ecb825-d79f-4bcf-8902-6ed89df889e4": {
     "appActions": [
@@ -714,7 +718,7 @@
     "dependents": [
       "d8c3a91c-1a0d-4973-a038-8a6193ebc540",
       "03ce6cae-af53-4ddc-a90a-3363722c6855",
-      "53b729f6-313c-4c82-bf61-ab06548ffa04"
+      "4f5c32ff-f9e5-4aba-8384-27ba8272321a"
     ],
     "id": "e8f4b888-7d49-432c-8c26-f92099a4090f"
   },

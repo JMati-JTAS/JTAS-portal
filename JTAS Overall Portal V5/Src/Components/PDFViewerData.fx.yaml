@@ -16,7 +16,6 @@ PDFViewerData As CanvasComponent:
         ShowControls: =true
         Visible: =PDFViewerData.IsPDF
         Width: =Parent.Width
-        X: =40
         ZIndex: =1
 
     Image8 As image:
