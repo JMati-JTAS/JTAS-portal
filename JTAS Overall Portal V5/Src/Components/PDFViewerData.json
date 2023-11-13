@@ -2,23 +2,23 @@
   "ComponentAllowCustomization": true,
   "ComponentChangedSinceFileImport": true,
   "ComponentManifest": {
-    "AllowAccessToGlobals": false,
+    "AllowAccessToGlobals": true,
     "AllowCustomization": true,
     "Description": "",
-    "Name": "SearchBar",
-    "TemplateGuid": "d53e678a20324947b2eff6eff133facd"
+    "Name": "PDFViewerData",
+    "TemplateGuid": "c95f7ac7e88348129bef1bddfb6676eb"
   },
   "ComponentType": "CanvasComponent",
   "CustomGroupControlTemplateName": "",
   "CustomProperties": [
     {
       "Category": 0,
-      "DisplayName": "Hint text",
+      "DisplayName": "IsPDF",
       "Hidden": false,
-      "Name": "HintText",
-      "PropertyDataTypeKey": "String",
-      "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Name": "IsPDF",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "IsPDF",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -29,8 +29,8 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638354806528317106",
-  "Name": "d53e678a20324947b2eff6eff133facd",
+  "LastModifiedTimestamp": "638354813442741541",
+  "Name": "c95f7ac7e88348129bef1bddfb6676eb",
   "OverridableProperties": {},
-  "Version": "637722959509093520"
+  "Version": "1.0"
 }
