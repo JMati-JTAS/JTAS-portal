@@ -1,14 +1,18 @@
 PDFViewerData As CanvasComponent:
     Fill: =RGBA(0, 0, 0, 0)
     Height: =640
+    ImageData: =SampleImage
     IsPDF: =true
+    PDFData: ="Text"
     Width: =640
     X: =0
     Y: =0
     ZIndex: =1
 
     PdfViewer3 As pdfViewer:
+        Document: =PDFViewerData.PDFData
         Height: =Parent.Height
+        OnStateChange: =
         ShowControls: =true
         Visible: =PDFViewerData.IsPDF
         Width: =Parent.Width
@@ -26,6 +30,7 @@ PDFViewerData As CanvasComponent:
         Height: =Parent.Height
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =PDFViewerData.ImageData
         PressedBorderColor: =RGBA(0, 0, 0, 0)
         PressedFill: =RGBA(0, 0, 0, 0)
         Visible: =PDFViewerData.IsPDF = false

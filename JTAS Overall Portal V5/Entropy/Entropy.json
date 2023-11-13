@@ -2626,7 +2626,7 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "11/13/2023 14:09:07",
+  "HeaderLastSavedDateTimeUTC": "11/13/2023 14:10:55",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "02bf861f-5b87-474a-8233-f255037bc084": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/3904c714c03b4cdf928495a97eb25317\"",
