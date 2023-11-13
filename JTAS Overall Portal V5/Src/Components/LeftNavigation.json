@@ -4813,7 +4813,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638354806528316384",
+    "LastModifiedTimestamp": "638354543487351923",
     "Name": "LeftNavigation",
     "Rules": [
       {
@@ -4872,7 +4872,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638354806528316384",
+  "LastModifiedTimestamp": "638354543487351923",
   "Name": "6657b227b5664ed38d5ba6473f5b33d0",
   "OverridableProperties": {},
   "Version": "637708417224565457"
