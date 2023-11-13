@@ -16,5 +16,8 @@
       "Identifier": "Microsoft.PowerApps.PowerAppsOneGrid",
       "IdentifierType": 0
     }
-  ]
+  ],
+  "instanceUrl": "https://org3f0ce9ea.crm7.dynamics.com/",
+  "state": "Configured",
+  "webApiVersion": "v9.0"
 }
