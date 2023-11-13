@@ -88,11 +88,11 @@ ScreenWeekendAndHolidayOT As screen:
                     "Actual TimeIn", LookUp('JTAS Time Log V2', LogDate = date And LoggedBy = SubmittedBy And LogType = "Time In", LogTime),
                     "Actual TimeOut", LookUp('JTAS Time Log V2', LogDate = date And LoggedBy = SubmittedBy And LogType = "Time Out", LogTime)
                     ),
-                    "TimeOut", If(MH>4, Text(DateAdd(TimeValue(TimeIn),(MH+1)*60,TimeUnit.Minutes),"hh:mm"),  Text(DateAdd(TimeValue(TimeIn),MH*60,TimeUnit.Minutes),"hh:mm")    ),
+                    "TimeOut",  If(MH>4 And MH<9, Text(DateAdd(TimeValue(TimeIn),((MH+1)*60),TimeUnit.Minutes),"hh:mm"),       Text(DateAdd(TimeValue(TimeIn),MH*60,TimeUnit.Minutes),"hh:mm")    ),
                     "BreakStart", If(MH>4, Text(DateAdd(TimeValue(TimeIn),(4)*60,TimeUnit.Minutes),"hh:mm")   ),
                     "Breakend", If(MH>4, Text(DateAdd(TimeValue(TimeIn),(5)*60,TimeUnit.Minutes),"hh:mm")   ),
-                    "OTStart",If(MH>8, Text(DateAdd(TimeValue(TimeIn),541,TimeUnit.Minutes),"hh:mm") ),
-                    "OTEnd", If(MH>8,  Text( DateAdd(     DateAdd(TimeValue(TimeIn),541,TimeUnit.Minutes),      (MH-8)*60, TimeUnit.Minutes),   "hh:mm")   ),
+                    "OTStart",If(MH>8, Text(DateAdd(TimeValue(TimeIn),540,TimeUnit.Minutes),"hh:mm") ),
+                    "OTEnd", If(MH>8,  Text( DateAdd(     DateAdd(TimeValue(TimeIn),540,TimeUnit.Minutes),      (MH-8)*60, TimeUnit.Minutes),   "hh:mm")   ),
                     "OTRegular", If(MH<=8,  MH, 8),
                     "OTExcess", If(MH>8,  MH-8),
                     "EmployeeID", LookUp('JTAS Members V2',  SubmittedBy = EmailAddress, EmployeeNo),
@@ -778,7 +778,7 @@ ScreenWeekendAndHolidayOT As screen:
                     Height: =80
                     OnSelect: =
                     Size: =13
-                    Text: ="Modified TumeIn for Sprout"
+                    Text: ="Modified TimeIn for Sprout"
                     Width: =106
                     X: =1054
                     ZIndex: =11
