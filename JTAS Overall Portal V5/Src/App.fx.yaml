@@ -3,7 +3,7 @@ App As appinfo:
     Formulas: |-
         =sgvConnector = "data:image/svg+xml;utf8,";
         LastDayOfMonth =  DateAdd( DateAdd( Date(Year(Today()), Month(Today()), 1), 1, TimeUnit.Months), -1, TimeUnit.Days);
-        
+        JTAS_Portal_Setting =Filter('JTAS Portal System Settings', Title = "JTAS OverAll Portal");
         
         InternetMaster = CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail).MembersEmail);
         ExpandFormData = If(InternetMaster >= 1, FormMode.Edit, FormMode.New);
@@ -131,7 +131,7 @@ App As appinfo:
             Status = "Ongoing" Or Status = "Approved"), RequestDate, SortOrder.Descending));
          
     StartScreen: =
-    Theme: =PowerAppsTheme
+    Theme: =PlatinumTheme
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false

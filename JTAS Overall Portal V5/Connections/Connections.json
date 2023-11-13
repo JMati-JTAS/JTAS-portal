@@ -22,6 +22,9 @@
           "JTAS Members V2": {
             "tableName": "0279195f-8fbb-475e-a66c-46cd53f49c07"
           },
+          "JTAS Portal System Settings": {
+            "tableName": "a125483f-b79e-4e23-8500-1439db804b51"
+          },
           "JTAS Time Log V2": {
             "tableName": "c2320a17-9dc9-4fe1-99f3-19e262cbb14b"
           },
@@ -61,7 +64,8 @@
       "JTAS_Intermet_Allowance",
       "JTAS_InternetAllowance_Masterfile",
       "JTAS Overtime Request V3",
-      "JTAS Overtime Request V3_1"
+      "JTAS Overtime Request V3_1",
+      "JTAS Portal System Settings"
     ],
     "dependencies": {},
     "dependents": [],

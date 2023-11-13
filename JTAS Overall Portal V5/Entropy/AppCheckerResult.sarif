@@ -32604,19 +32604,169 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.Container22.Container24.PowerAppsOneGrid5.AccessibleLabel"
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.Container24.PowerAppsOneGrid5.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.Container22.Container24.PowerAppsOneGrid5.AccessibleLabel",
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.Container24.PowerAppsOneGrid5.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ScreenInternetAllowance",
-                "type": "ScreenInternetAllowance.Container21.Container22.Container24.PowerAppsOneGrid5"
+                "type": "ScreenInternetAllowance.Container21.MainContainer.Container24.PowerAppsOneGrid5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container64.Container65.ButtonCanvas2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container64.Container65.ButtonCanvas2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container64.Container65.ButtonCanvas2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container64.Container65.ButtonCanvas3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container64.Container65.ButtonCanvas3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container64.Container65.ButtonCanvas3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form4.Attachments_DataCard3.DataCardValue32.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form4.Attachments_DataCard3.DataCardValue32.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form4.Attachments_DataCard3.DataCardValue32"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form5.Attachments_DataCard4.DataCardValue33.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form5.Attachments_DataCard4.DataCardValue33.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form5.Attachments_DataCard4.DataCardValue33"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container62.ComboboxCanvas2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container62.ComboboxCanvas2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Container62.ComboboxCanvas2"
               }
             }
           ],
@@ -34481,6 +34631,64 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form5.Attachments_DataCard4.DataCardValue33"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form5.Attachments_DataCard4.DataCardValue33",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form5.Attachments_DataCard4.DataCardValue33"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "app-NumericPropertySizeWarning",
+          "ruleIndex": 25
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form4.Attachments_DataCard3.DataCardValue32"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form4.Attachments_DataCard3.DataCardValue32",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.Container21.MainContainer.FormEditNewDialogs.Container60.Form4.Attachments_DataCard3.DataCardValue32"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "app-NumericPropertySizeWarning",
+          "ruleIndex": 25
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ScreenHomeGeneral"
                 }
               ],
@@ -35114,6 +35322,23 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "Controls that reference controls on other screens can slow down app loading and navigation. Doing this may force the app to load the other screens immediately, rather than waiting until the user navigates to that screen."
+              }
+            },
+            {
+              "id": "app-NumericPropertySizeWarning",
+              "messageStrings": {
+                "issue": {
+                  "text": "Allowing upload of large files up to 10 MB"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Consider whether you need attachments of this size."
+                ],
+                "level": "Low",
+                "primaryCategory": "performance",
+                "whyFix": "We recommend testing on all supported platforms to ensure that attachments of this size can be uploaded successfully."
               }
             }
           ],

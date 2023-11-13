@@ -26,7 +26,7 @@
             "Name": "galleryTemplate32",
             "Parent": "Gallery23",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2504,
+            "PublishOrderIndex": 2588,
             "Rules": [
               {
                 "Category": "Design",
@@ -114,7 +114,7 @@
             "Name": "Image9",
             "Parent": "Gallery23",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2505,
+            "PublishOrderIndex": 2589,
             "Rules": [
               {
                 "Category": "Data",
@@ -386,7 +386,7 @@
             "Name": "Title7",
             "Parent": "Gallery23",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2506,
+            "PublishOrderIndex": 2590,
             "Rules": [
               {
                 "Category": "Data",
@@ -701,7 +701,7 @@
         "Name": "Gallery23",
         "Parent": "Safety Calendar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2503,
+        "PublishOrderIndex": 2587,
         "Rules": [
           {
             "Category": "Data",
