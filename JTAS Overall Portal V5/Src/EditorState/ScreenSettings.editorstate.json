@@ -46,6 +46,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "Header_4",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -122,6 +123,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "LeftNavigation_4",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -180,6 +182,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ScreenSettings",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

@@ -260,7 +260,7 @@ ScreenInternetAllowance As screen:
                     LayoutMinWidth: =250
                     ZIndex: =2
 
-                "PowerAppsOneGrid5 As 'Table (Dataverse only)'.pcfdataset":
+                "PowerAppsOneGrid5 As 'Power Apps grid control'.pcfdataset":
                     DisplayMode: =DisplayMode.Edit
                     EnableRangeSelection: ="no"
                     FillPortions: =1
@@ -1678,6 +1678,7 @@ ScreenInternetAllowance As screen:
                             ZIndex: =1
 
                             "Gallery5 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver5.0'":
+                                AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderColor: =RGBA(166, 166, 166, 1)
                                 DelayItemLoading: =true
                                 FillPortions: =0
@@ -1685,6 +1686,7 @@ ScreenInternetAllowance As screen:
                                 Items: =PowerAppsOneGrid5.Selected.'{Attachments}'
                                 Layout: =Layout.Vertical
                                 LayoutMinHeight: =Parent.Height
+                                LayoutMinWidth: =320
                                 LoadingSpinner: =LoadingSpinner.Data
                                 TemplatePadding: =0
                                 TemplateSize: =92

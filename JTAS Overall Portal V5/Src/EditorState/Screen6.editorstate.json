@@ -44,6 +44,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DataTable1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -227,6 +228,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "EquivalentDays_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -315,6 +317,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Screen6",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

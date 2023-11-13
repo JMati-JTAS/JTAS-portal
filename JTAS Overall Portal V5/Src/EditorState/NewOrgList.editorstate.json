@@ -127,6 +127,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button27",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -404,6 +405,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Gallery18",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -556,6 +558,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate21",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -634,6 +637,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon25",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -868,6 +872,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image7",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1142,6 +1147,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label14_2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1472,6 +1478,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label43",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1755,6 +1762,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "NewOrgList",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1880,6 +1888,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle11",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2026,6 +2035,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle13",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

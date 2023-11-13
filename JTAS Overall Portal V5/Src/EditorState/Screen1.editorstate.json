@@ -180,6 +180,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button4_8",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -414,6 +415,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Canvas1_3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -510,6 +512,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DataCard1_3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -626,6 +629,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "HtmlText2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -739,6 +743,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Screen1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
