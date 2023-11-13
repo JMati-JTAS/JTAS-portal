@@ -181,6 +181,21 @@
     "OverridableProperties": {},
     "Version": "2.3.1"
   },
+  "Fluent Command Bar (1.1.29)": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.CommandBar",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.CommandBar",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Fluent Command Bar (1.1.29)",
+    "Version": "1.1.29"
+  },
   "fluidGrid": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -378,6 +393,20 @@
     "OverridableProperties": {},
     "Version": "2.3.0"
   },
+  "pcfDataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/pcfDataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "pcfDataField",
+    "OverridableProperties": {},
+    "Version": "1.4.0"
+  },
   "pdfViewer": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -475,6 +504,21 @@
     "Name": "slider",
     "OverridableProperties": {},
     "Version": "2.1.0"
+  },
+  "Table (Dataverse only)": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft.PowerApps.PowerAppsOneGrid",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft.PowerApps.PowerAppsOneGrid",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Table (Dataverse only)",
+    "Version": "1.0.115"
   },
   "TestCase": {
     "CustomGroupControlTemplateName": "",

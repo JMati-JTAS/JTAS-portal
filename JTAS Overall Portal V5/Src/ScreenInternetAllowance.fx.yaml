@@ -94,3 +94,231 @@ ScreenInternetAllowance As screen:
         Width: =Parent.Width
         ZIndex: =6
 
+    Container21 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width - Self.X
+        X: =LeftNavigation_15.Width
+        Y: =Header_15.Height
+        ZIndex: =7
+
+        Container22 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.ExtraBold
+            Height: =Parent.Height - (Self.Y *2)
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Width: =Parent.Width - (Self.X *2)
+            X: =15
+            Y: =15
+            ZIndex: =1
+
+            Container24 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =Parent.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                "CommandBar1 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =50
+                    Items: |-
+                        =Table(
+                                {ItemKey:"newItem",ItemDisplayName:"New",ItemIconName:"Add"},
+                                {ItemKey:"newItem",ItemDisplayName:"Edit",ItemIconName:"Edit"},
+                                {ItemKey:"upload",ItemDisplayName:"View",ItemIconName:"View"}
+                        
+                        
+                                    /*{ItemKey:"newItem",ItemDisplayName:"New",ItemIconName:"Add"},
+                                    {ItemKey:"emailMessage",ItemDisplayName:"Email message",ItemIconName:"Mail",ItemParentKey:"newItem"},
+                                    {ItemKey:"calendarEvent",ItemDisplayName:"Calendar event",ItemIconName:"Calendar",ItemParentKey:"newItem"},
+                                
+                                    {ItemKey:"upload",ItemDisplayName:"Upload",ItemIconName:"Upload"},
+                                        {ItemKey:"uploadfile",ItemDisplayName:"File",ItemParentKey:"upload"},
+                                        {ItemKey:"uploadfolder",ItemDisplayName:"Folder",ItemParentKey:"upload"},
+                                
+                                    {ItemKey:"share",ItemDisplayName:"Share",ItemIconName:"Share"},
+                                    {ItemKey:"download",ItemDisplayName:"Download",ItemIconName:"Download"},
+                                
+                                    // Force these items to overflow
+                                    {ItemKey:"move",ItemDisplayName:"Move to...",ItemIconName:"MoveToFolder",ItemOverflow:true},
+                                    {ItemKey:"copy",ItemDisplayName:"Copy to...",ItemIconName:"Copy",ItemOverflow:true},
+                                    {ItemKey:"rename",ItemDisplayName:"Rename...",ItemIconName:"Edit",ItemOverflow:true},
+                                
+                                    // Far Items
+                                    {ItemKey:"tile",ItemDisplayName:"Grid view",ItemIconName:"Tiles",ItemIconOnly:true,ItemFarItem:true},
+                                    {ItemKey:"info",ItemDisplayName:"Info",ItemIconName:"Info",ItemIconOnly:true,ItemFarItem:true}*/
+                                )
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    ItemDisplayName1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="ItemDisplayName"
+                        FieldName: ="ItemDisplayName"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =1
+                        ZIndex: =0
+
+                    ItemFarItem1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="ItemFarItem"
+                        FieldName: ="ItemFarItem"
+                        FieldType: ="b"
+                        FieldVariantName: ="textualColumn"
+                        Order: =2
+                        ZIndex: =0
+
+                    ItemIconName1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="ItemIconName"
+                        FieldName: ="ItemIconName"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =3
+                        ZIndex: =0
+
+                    ItemIconOnly1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="ItemIconOnly"
+                        FieldName: ="ItemIconOnly"
+                        FieldType: ="b"
+                        FieldVariantName: ="textualColumn"
+                        Order: =4
+                        ZIndex: =0
+
+                    ItemKey1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="ItemKey"
+                        FieldName: ="ItemKey"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =5
+                        ZIndex: =0
+
+                    ItemOverflow1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="ItemOverflow"
+                        FieldName: ="ItemOverflow"
+                        FieldType: ="b"
+                        FieldVariantName: ="textualColumn"
+                        Order: =6
+                        ZIndex: =0
+
+                    ItemParentKey1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="ItemParentKey"
+                        FieldName: ="ItemParentKey"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =7
+                        ZIndex: =0
+
+                Container57 As groupContainer.manualLayoutContainer:
+                    Fill: =RGBA(128, 128, 128, 1)
+                    FillPortions: =0
+                    Height: =2
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    ZIndex: =2
+
+                "PowerAppsOneGrid5 As 'Table (Dataverse only)'.pcfdataset":
+                    DisplayMode: =DisplayMode.Edit
+                    EnableRangeSelection: ="no"
+                    FillPortions: =1
+                    Height: =If(Self.Y + 500 > Parent.Height, Parent.Height - Self.Y, 500)
+                    Items: =InternetAllowanceData
+                    LayoutMinHeight: =If(Self.Y + 500 > Parent.Height, Parent.Height - Self.Y, 500)
+                    LayoutMinWidth: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
+                    ParentId: ="ID"
+                    ReflowBehavior: ='Microsoft.PowerApps.PowerAppsOneGrid.ReflowBehavior'.Reflow
+                    Tooltip: =""
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
+
+                    "'Date Applied1' As pcfDataField.textualColumn":
+                        FieldDisplayName: ="Date Applied"
+                        FieldName: ="Date Applied"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =3
+                        ZIndex: =0
+
+                    Provider2 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="Provider"
+                        FieldName: ="Provider"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =4
+                        ZIndex: =0
+
+                    "'Plan Amount1' As pcfDataField.textualColumn":
+                        FieldDisplayName: ="Plan Amount"
+                        FieldName: ="Plan Amount"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =6
+                        ZIndex: =0
+
+                    "'Plan Type1' As pcfDataField.textualColumn":
+                        FieldDisplayName: ="Plan Type"
+                        FieldName: ="Plan Type"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =7
+                        ZIndex: =0
+
+                    "'Bundle Plan1' As pcfDataField.textualColumn":
+                        FieldDisplayName: ="Bundle Plan"
+                        FieldName: ="Bundle Plan"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =8
+                        ZIndex: =0
+
+                    "'Monthly Allowance1' As pcfDataField.textualColumn":
+                        FieldDisplayName: ="Monthly Allowance"
+                        FieldName: ="Monthly Allowance"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =9
+                        ZIndex: =0
+
+                    Status3 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="Status"
+                        FieldName: ="Status"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =15
+                        ZIndex: =0
+
+                    "'Payment Date1' As pcfDataField.textualColumn":
+                        FieldDisplayName: ="Payment Date"
+                        FieldName: ="Payment Date"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =11
+                        ZIndex: =0
+
+                    "'Basic Remarks2' As pcfDataField.textualColumn":
+                        FieldDisplayName: ="Basic Remarks"
+                        FieldName: ="Basic Remarks"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =10
+                        ZIndex: =0
+
+            Container59 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Fill: =RGBA(0, 0, 0, 0.27)
+                Height: =Parent.Height
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Visible: =false
+                Width: =Parent.Width
+                ZIndex: =2
+

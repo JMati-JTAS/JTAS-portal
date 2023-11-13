@@ -6,8 +6,30 @@ App As appinfo:
         
         
         InternetMaster = CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail).MembersEmail);
-        
         ExpandFormData = If(InternetMaster >= 1, FormMode.Edit, FormMode.New);
+        
+        InternetAllowanceData = SortByColumns(RenameColumns(ShowColumns(AddColumns(ShowColumns(Filter('JTAS Internet Allowance', MembersEmail = varUserEmail), "MembersEmail", "{Attachments}", "Month", "Year", "Title", "Remarks2", "Date", "Status", "RemarksData", "ID") As Apatch, 
+        "Plan", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, Plan), 
+        "Provider", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, 'Provider and Plan'), 
+        "BundlePlan", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, Bundle.Value),
+        "PlanType", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, PlanType.Value),
+        "PlanAmount", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, Plan),
+        "Allowance", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, 'Monthly Allowance'),
+        "StatusMain", Apatch.Status.Value,
+        "MemberName", varUserData.MemberName
+        ), "Plan", "Provider", "BundlePlan", "PlanType", "PlanAmount", "Allowance", "Remarks2","MembersEmail", "{Attachments}", "Month", "Year", "Title", "Date", "StatusMain", "MemberName", "RemarksData", "ID"),
+        "Plan", "Plan Code", 
+        "BundlePlan", "Bundle Plan",
+         "PlanType", "Plan Type", 
+         "PlanAmount","Plan Amount", 
+         "Allowance",  "Monthly Allowance", 
+         "Remarks2",  "Basic Remarks",
+         "MembersEmail", "Email",
+         "Title", "Date Applied",
+         "Date",  "Payment Date",
+         "StatusMain", "Status",
+         "RemarksData", "Remarks",
+         "MemberName", "Name"),"Date Applied", SortOrder.Descending);
     OnError: |-
         =Trace("Error at " & FirstError.Observed & ": " & FirstError.Message)
     OnStart: |

@@ -32604,6 +32604,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.Container22.Container24.PowerAppsOneGrid5.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.Container21.Container22.Container24.PowerAppsOneGrid5.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.Container21.Container22.Container24.PowerAppsOneGrid5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.GImage"
                 }
               ],
