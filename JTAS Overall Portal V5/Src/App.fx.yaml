@@ -8,6 +8,79 @@ App As appinfo:
         InternetMaster = CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail).MembersEmail);
         ExpandFormData = If(InternetMaster >= 1, FormMode.Edit, FormMode.New);
         
+        InternetDataDrop = ShowColumns(GroupBy(
+            Filter(
+                Ungroup(
+                    AddColumns(
+                        RenameColumns(
+                            Sequence(6),
+                            "Value",
+                            "index"
+                        ),
+                        "datePeriod",
+                        AddColumns(
+                            Table(
+                                {
+                                    cutOffPeriod: "1st Half",
+                                    rangeStart: Date(
+                                        Year(Today()),
+                                        Month(Today()) - index + 1,
+                                        1
+                                    ),
+                                    rangeEnd: Date(
+                                        Year(Today()),
+                                        Month(Today()) - index + 1,
+                                        15
+                                    )
+                                },
+                                {
+                                    cutOffPeriod: "2nd Half",
+                                    rangeStart: Date(
+                                        Year(Today()),
+                                        Month(Today()) - index + 1,
+                                        16
+                                    ),
+                                    rangeEnd: Date(
+                                        Year(Today()),
+                                        Month(Today()) - index + 1 + 1,
+                                        0
+                                    )
+                                }
+                            ),
+                            "label",
+                            Text(
+                                rangeStart,
+                                "mmmm yyyy"
+                            )
+                        )
+                    ),
+                    "datePeriod"
+                ),
+                rangeEnd < If(
+                    Day(Today()) > 15,
+                    Date(
+                        Year(Today()),
+                        Month(Today()) + 1,
+                        1
+                    ),
+                    Date(
+                        Year(Today()),
+                        Month(Today()),
+                        16
+                    )
+                ),
+                IsBlank(
+                    LookUp(
+                        InternetAllowanceData,
+                        Email = varUserEmail And 'Date Applied' = label
+                    )
+                )
+            ),
+            "label",
+            "groupData"
+        ),"label");
+        
+        
         InternetAllowanceData = SortByColumns(RenameColumns(ShowColumns(AddColumns(ShowColumns(Filter('JTAS Internet Allowance', MembersEmail = varUserEmail), "MembersEmail", "{Attachments}", "Month", "Year", "Title", "Remarks2", "Date", "Status", "RemarksData", "ID") As Apatch, 
         "Plan", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, Plan), 
         "Provider", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, 'Provider and Plan'), 
@@ -29,7 +102,7 @@ App As appinfo:
          "Date",  "Payment Date",
          "StatusMain", "Status",
          "RemarksData", "Remarks",
-         "MemberName", "Name"),"Date Applied", SortOrder.Descending);
+         "MemberName", "Name"), "Payment Date",   SortOrder.Descending, "Date Applied",SortOrder.Descending);
     OnError: |-
         =Trace("Error at " & FirstError.Observed & ": " & FirstError.Message)
     OnStart: |

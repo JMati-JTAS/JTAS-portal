@@ -110,7 +110,7 @@
         "Name": "Label3_9",
         "Parent": "galForOrgChart_Team",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2626,
+        "PublishOrderIndex": 2642,
         "Rules": [
           {
             "Category": "Data",
@@ -483,7 +483,7 @@
         "Name": "Label3_7",
         "Parent": "galForOrgChart_Team",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2627,
+        "PublishOrderIndex": 2643,
         "Rules": [
           {
             "Category": "Data",
@@ -792,7 +792,7 @@
         "Name": "Icon17",
         "Parent": "galForOrgChart_Team",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2628,
+        "PublishOrderIndex": 2644,
         "Rules": [
           {
             "Category": "Design",
@@ -977,7 +977,7 @@
             "Name": "galleryTemplate13",
             "Parent": "Gallery8",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2630,
+            "PublishOrderIndex": 2646,
             "Rules": [
               {
                 "Category": "Design",
@@ -1113,7 +1113,7 @@
             "Name": "Image2_24",
             "Parent": "Gallery8",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2631,
+            "PublishOrderIndex": 2647,
             "Rules": [
               {
                 "Category": "Data",
@@ -1415,7 +1415,7 @@
             "Name": "Button12_1",
             "Parent": "Gallery8",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2632,
+            "PublishOrderIndex": 2648,
             "Rules": [
               {
                 "Category": "Data",
@@ -1757,7 +1757,7 @@
             "Name": "Label14",
             "Parent": "Gallery8",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2633,
+            "PublishOrderIndex": 2649,
             "Rules": [
               {
                 "Category": "Data",
@@ -2114,7 +2114,7 @@
         "Name": "Gallery8",
         "Parent": "galForOrgChart_Team",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2629,
+        "PublishOrderIndex": 2645,
         "Rules": [
           {
             "Category": "Data",

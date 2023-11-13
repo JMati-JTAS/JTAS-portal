@@ -19,6 +19,9 @@
           "JTAS Daily Manhour": {
             "tableName": "c1a213a6-6cd6-406e-b0d2-de6bf42e69cd"
           },
+          "JTAS File Extension icons": {
+            "tableName": "296f34b2-09de-4fbe-b770-e9558ed818ef"
+          },
           "JTAS Members V2": {
             "tableName": "0279195f-8fbb-475e-a66c-46cd53f49c07"
           },
@@ -65,7 +68,8 @@
       "JTAS_InternetAllowance_Masterfile",
       "JTAS Overtime Request V3",
       "JTAS Overtime Request V3_1",
-      "JTAS Portal System Settings"
+      "JTAS Portal System Settings",
+      "JTAS File Extension icons"
     ],
     "dependencies": {},
     "dependents": [],

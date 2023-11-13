@@ -72,7 +72,7 @@
         "Name": "Rectangle13",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2578,
+        "PublishOrderIndex": 2594,
         "Rules": [
           {
             "Category": "Design",
@@ -242,7 +242,7 @@
         "Name": "Rectangle11",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2579,
+        "PublishOrderIndex": 2595,
         "Rules": [
           {
             "Category": "Design",
@@ -478,7 +478,7 @@
         "Name": "Label43",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2580,
+        "PublishOrderIndex": 2596,
         "Rules": [
           {
             "Category": "Data",
@@ -801,7 +801,7 @@
         "Name": "Icon25",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2581,
+        "PublishOrderIndex": 2597,
         "Rules": [
           {
             "Category": "Design",
@@ -986,7 +986,7 @@
             "Name": "galleryTemplate21",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2583,
+            "PublishOrderIndex": 2599,
             "Rules": [
               {
                 "Category": "Design",
@@ -1142,7 +1142,7 @@
             "Name": "Button27",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2584,
+            "PublishOrderIndex": 2600,
             "Rules": [
               {
                 "Category": "Data",
@@ -1498,7 +1498,7 @@
             "Name": "Label14_2",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2585,
+            "PublishOrderIndex": 2601,
             "Rules": [
               {
                 "Category": "Data",
@@ -1868,7 +1868,7 @@
             "Name": "Image7",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2586,
+            "PublishOrderIndex": 2602,
             "Rules": [
               {
                 "Category": "Data",
@@ -2158,7 +2158,7 @@
         "Name": "Gallery18",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2582,
+        "PublishOrderIndex": 2598,
         "Rules": [
           {
             "Category": "Data",
