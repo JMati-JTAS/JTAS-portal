@@ -130,7 +130,11 @@ ScreenInternetAllowance As screen:
                                 ,ItemParentKey:"new"
                                     
                                 },
-                                {ItemKey:"edit",ItemDisplayName:"Edit",ItemIconName:"Edit", ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0 And PowerAppsOneGrid5.Selected.Status = "On Checking"},
+                                {ItemKey:"edit",ItemDisplayName:"Edit",ItemIconName:"Edit"},
+                                {ItemKey:"editAllowance",ItemDisplayName:"Edit Internet Allowance",ItemIconName:"EditNote", ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0 And PowerAppsOneGrid5.Selected.Status = "On Checking",ItemParentKey:"edit"},
+                                {ItemKey:"editInternet",ItemDisplayName:"Edit Internet Provider",ItemIconName:"FullWidthEdit", ItemParentKey:"edit"},
+                        
+                        
                                 {ItemKey:"delete",ItemDisplayName:"Delete",ItemIconName:"Delete", ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0 And PowerAppsOneGrid5.Selected.Status = "On Checking"},
                               //  {ItemKey:"view",ItemDisplayName:"View Items",ItemIconName:"View", ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0}
                                 {ItemKey:"viewxx",ItemDisplayName:"View Items",ItemIconName:"View" , ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0},
@@ -171,7 +175,12 @@ ScreenInternetAllowance As screen:
                         NewForm(Form5);
                         );
                         
-                        If(Self.Selected.ItemKey = "edit",
+                        If(Self.Selected.ItemKey = "newInternet",
+                        UpdateContext({FormRegVis: true});
+                        
+                        );
+                        
+                        If(Self.Selected.ItemKey = "editInternet",
                         UpdateContext({FormDataVis: true});
                         ResetForm(Form3);
                         ResetForm(Form4);
