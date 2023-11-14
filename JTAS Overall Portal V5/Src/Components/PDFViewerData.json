@@ -88,7 +88,7 @@
         "Name": "PdfViewer3",
         "Parent": "PDFViewerData",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2656,
+        "PublishOrderIndex": 2716,
         "Rules": [
           {
             "Category": "Data",
@@ -299,7 +299,7 @@
         "Name": "Image8",
         "Parent": "PDFViewerData",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2657,
+        "PublishOrderIndex": 2717,
         "Rules": [
           {
             "Category": "Data",
