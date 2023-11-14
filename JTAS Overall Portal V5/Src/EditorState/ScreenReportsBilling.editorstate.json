@@ -46,7 +46,6 @@
       },
       "MetaDataIDKey": "",
       "Name": "Header_12",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -123,7 +122,6 @@
       },
       "MetaDataIDKey": "",
       "Name": "LeftNavigation_12",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -182,7 +180,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ScreenReportsBilling",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

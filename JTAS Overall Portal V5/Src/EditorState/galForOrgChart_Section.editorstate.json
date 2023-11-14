@@ -99,7 +99,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button12",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -337,7 +336,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galForOrgChart_Section",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -494,7 +492,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Gallery8_4",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -647,7 +644,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate13_1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -767,7 +763,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image2_25",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1028,7 +1023,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label14_1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1352,7 +1346,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label3_8",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

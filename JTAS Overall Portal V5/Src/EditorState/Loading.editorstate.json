@@ -88,7 +88,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container9_3",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -301,7 +300,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image2_10",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -588,7 +586,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1_55",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -927,7 +924,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1_56",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1175,7 +1171,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Loading",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

@@ -86,7 +86,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image8",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -324,7 +323,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "PdfViewer3",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -439,7 +437,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "PDFViewerData",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

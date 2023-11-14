@@ -48,7 +48,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MeetingStartLbl.ID%",
       "Name": "Body1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -275,7 +274,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%CalendarEventsGallery.ID%",
       "Name": "CalendarEventsGallery1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -449,7 +447,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%CircleEvents.ID%",
       "Name": "Circle4",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -590,7 +587,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MeetingLengthLbl.ID%",
       "Name": "Description1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -848,7 +844,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateCalendardropdownCalendarSelect.ID%",
       "Name": "dropdownCalendarSelection1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1097,7 +1092,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate26",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1125,7 +1119,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate30",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1153,7 +1146,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate5",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1213,7 +1205,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletIconCalendar.ID%",
       "Name": "iconCalendar1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1389,7 +1380,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletIconEmptyState.ID%",
       "Name": "iconEmptyState1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1556,7 +1546,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%WaypointIcon.ID%",
       "Name": "iconLocation1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1741,7 +1730,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletIconNextMonth.ID%",
       "Name": "iconNextMonth1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1956,7 +1944,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletIconPrevMonth.ID%",
       "Name": "iconPrevMonth1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2171,7 +2158,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletLblAppName.ID%",
       "Name": "LblAppName3",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2386,7 +2372,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateLblDateSelected.ID%",
       "Name": "LblDateSelected1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2601,7 +2586,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateLblMonthSelected.ID%",
       "Name": "LblMonthSelected1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2816,7 +2800,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletLblNoEvents.ID%",
       "Name": "LblNoEvents1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3030,7 +3013,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletLblReset.ID%",
       "Name": "LblResetToday1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3238,7 +3220,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MonthDayGallery.ID%",
       "Name": "MonthDayGallery1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3417,7 +3398,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%CalendarEventsBkg.ID%",
       "Name": "Rectangle15",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3537,7 +3517,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletRectCalendarSep.ID%",
       "Name": "RectCalendarSeparator1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3638,7 +3617,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletRectMeetingBkg.ID%",
       "Name": "RectMeetingBkg1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3743,7 +3721,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTabletRectQuickActionBar.ID%",
       "Name": "RectQuickActionBar3",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3837,7 +3814,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Screen5",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3915,7 +3891,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Separator1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4034,7 +4009,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%SelectedCircle.ID%",
       "Name": "Subcircle1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4185,7 +4159,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MeetingLocationLbl.ID%",
       "Name": "Subtitle1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4458,7 +4431,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%WeekdayLbl.ID%",
       "Name": "Title1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4678,7 +4650,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MonthDayLbl.ID%",
       "Name": "Title3",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4959,7 +4930,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MeetingSubjectLbl.ID%",
       "Name": "Title4",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5236,7 +5206,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%WeekdayGallery.ID%",
       "Name": "WeekdayGallery1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [

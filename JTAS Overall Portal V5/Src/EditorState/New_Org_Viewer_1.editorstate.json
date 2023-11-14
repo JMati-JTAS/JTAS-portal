@@ -39,7 +39,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Canvas3_1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -133,7 +132,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DataCard2_1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -214,7 +212,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DataCard3",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -326,7 +323,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon18_4",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -483,7 +479,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "New_Org_Viewer_1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
