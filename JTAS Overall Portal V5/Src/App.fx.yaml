@@ -103,6 +103,48 @@ App As appinfo:
          "StatusMain", "Status",
          "RemarksData", "Remarks",
          "MemberName", "Name"), "Payment Date",   SortOrder.Descending, "Date Applied",SortOrder.Descending);
+        
+        
+         InternetCommandBar = Table(
+                {ItemKey:"new",ItemDisplayName:"New",ItemIconName:"New"},
+                {ItemKey:"newRegistation",ItemDisplayName:"Request Monthly Allowance",ItemIconName:"Add", 
+                ItemEnabled: If(Value(Text(Now(),"dd")) >= 10 And  Value(Text(Now(),"dd")) <= Value(Text(LastDayOfMonth, "d")), 
+                     If(DateDiff(LookUp('JTAS Mobilization', Email_Add = varUserEmail, JTAS_MobDate), Now(), TimeUnit.Months)>= 1,
+                     If(CountRows(Filter('JTAS Assignments', Email_Add = varUserEmail And JTAS_ReturnDate = Blank())) <= 0,
+                     If(CountRows(Filter(JTAS_MemberReport_to_Client, Employee.Email = varUserEmail)) < 1, 
+                     If(CountRows(InternetDataDrop) > 0, 
+                     If(CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)) > 0 And LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail, Status.Value) = "Approved", true, false)
+                     
+                     , false),false)
+                    , false)
+                    , false)
+                    , false)
+                    ,ItemParentKey:"new"
+                },
+                {ItemKey:"newInternet",ItemDisplayName:"Apply for new internet provider",ItemIconName:"InternetSharing", 
+                ItemEnabled: 
+                     If(CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail)) > 0 And LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail, Status.Value) = "Approved", false, true)
+                ,ItemParentKey:"new"
+                    
+                },
+        
+        
+                {ItemKey:"edit",ItemDisplayName:"Edit",ItemIconName:"Edit"},
+                {ItemKey:"editAllowance",ItemDisplayName:"Edit Internet Allowance",ItemIconName:"EditNote", ItemEnabled:  CountRows(PowerAppsOneGrid5.SelectedItems) > 0 And PowerAppsOneGrid5.Selected.Status = "On Checking"
+                ,ItemParentKey:"edit"},
+        
+        
+                {ItemKey:"editInternet",ItemDisplayName:"Edit Internet Provider",ItemIconName:"FullWidthEdit", ItemParentKey:"edit"},
+        
+                
+        
+                {ItemKey:"delete",ItemDisplayName:"Delete",ItemIconName:"Delete", ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0 And PowerAppsOneGrid5.Selected.Status = "On Checking"},
+                 {ItemKey:"viewxx",ItemDisplayName:"View Items",ItemIconName:"View" , ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0},
+                        {ItemKey:"viewData",ItemDisplayName:"View Data",ItemParentKey:"viewxx", ItemIconName:"EntryView"},
+                        {ItemKey:"viewFile",ItemDisplayName:"View Uploaded Files",ItemParentKey:"viewxx", ItemIconName:"DocumentSet"}
+        
+                   
+                );
     OnError: |-
         =Trace("Error at " & FirstError.Observed & ": " & FirstError.Message)
     OnStart: |
