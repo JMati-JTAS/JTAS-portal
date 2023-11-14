@@ -71,7 +71,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button15",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -286,7 +285,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Canvas1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -420,7 +418,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Gallery11",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -568,7 +565,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate14",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -631,7 +627,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -891,7 +886,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image2_27",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1102,7 +1096,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label15",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1366,7 +1359,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label3",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1635,7 +1627,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label3_3",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1893,7 +1884,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplatePhoneLblAppName.ID%",
       "Name": "LblAppName1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2073,7 +2063,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplatePhoneRectQuickActionBar.ID%",
       "Name": "RectQuickActionBar1",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2167,7 +2156,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Screen2",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

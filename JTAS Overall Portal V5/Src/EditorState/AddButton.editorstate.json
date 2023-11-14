@@ -49,7 +49,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "AddButton",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -195,7 +194,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Circle1_2",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -362,7 +360,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon2_2",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -595,7 +592,6 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1_25",
-      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
