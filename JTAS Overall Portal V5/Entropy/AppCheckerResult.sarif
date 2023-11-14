@@ -1014,6 +1014,166 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 93,
+                  "charOffset": 437,
+                  "snippet": {
+                    "text": "CountRows(Filter('JTAS Assignments', Email_Add = varUserEmail And JTAS_ReturnDate = Blank()))"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "CountRows"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByService",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 77,
+                  "charOffset": 554,
+                  "snippet": {
+                    "text": "CountRows(Filter(JTAS_MemberReport_to_Client, Employee.Email = varUserEmail))"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "CountRows"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByService",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 81,
+                  "charOffset": 706,
+                  "snippet": {
+                    "text": "CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail))"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "CountRows"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByService",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 81,
+                  "charOffset": 1220,
+                  "snippet": {
+                    "text": "CountRows(Filter(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail))"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "ScreenInternetAllowance",
+                "type": "ScreenInternetAllowance.'Main Container_Internet'.MainContainer.Container24.CommandBar2"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "CountRows"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByService",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ScreenReportsMoodApp_1.Label31_6.Text"
                 }
               ],
