@@ -98,7 +98,7 @@
     "Author": "",
     "BindingErrorCount": 143,
     "ContainsThirdPartyPcfControls": true,
-    "DefaultConnectedDataSourceMaxGetRowsCount": 2000,
+    "DefaultConnectedDataSourceMaxGetRowsCount": 1000,
     "DocumentAppType": "DesktopOrTablet",
     "DocumentLayoutHeight": 1080,
     "DocumentLayoutLockOrientation": true,
