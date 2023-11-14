@@ -106,6 +106,104 @@ ScreenInternetAllowance As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
+                "CommandBar1 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =50
+                    Items: |-
+                        =Table(
+                                {ItemKey:"new",ItemDisplayName:"New",ItemIconName:"New"},
+                                {ItemKey:"newRegistation",ItemDisplayName:"Request Monthly Allowance",ItemIconName:"Add", 
+                                ItemEnabled: 
+                                    If(Value(Text(Now(),"dd")) >= 10 And  Value(Text(Now(),"dd")) <= Value(Text(LastDayOfMonth, "d")), 
+                                     If(DateDiff(LookUp('JTAS Mobilization', Email_Add = varUserEmail, JTAS_MobDate), Now(), TimeUnit.Months)>= 1,
+                                     If(CountRows(Filter('JTAS Assignments', Email_Add = varUserEmail And JTAS_ReturnDate = Blank())) <= 0,
+                                     If(CountRows(Filter(JTAS_MemberReport_to_Client, Employee.Email = varUserEmail)) < 1, 
+                                     If(CountRows(InternetDataDrop) > 0, true, false),false)
+                                    , false)
+                                    , false)
+                                    , false)
+                                    ,ItemParentKey:"new"
+                                },
+                                {ItemKey:"newInternet",ItemDisplayName:"Apply for new internet provider",ItemIconName:"InternetSharing", 
+                                ItemEnabled: 
+                                     If(CountRows(InternetDataDrop) > 0, false, true)
+                                ,ItemParentKey:"new"
+                                    
+                                },
+                                {ItemKey:"edit",ItemDisplayName:"Edit",ItemIconName:"Edit", ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0 And PowerAppsOneGrid5.Selected.Status = "On Checking"},
+                                {ItemKey:"delete",ItemDisplayName:"Delete",ItemIconName:"Delete", ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0 And PowerAppsOneGrid5.Selected.Status = "On Checking"},
+                              //  {ItemKey:"view",ItemDisplayName:"View Items",ItemIconName:"View", ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0}
+                                {ItemKey:"viewxx",ItemDisplayName:"View Items",ItemIconName:"View" , ItemEnabled: CountRows(PowerAppsOneGrid5.SelectedItems) > 0},
+                                        {ItemKey:"viewData",ItemDisplayName:"View Data",ItemParentKey:"viewxx", ItemIconName:"EntryView"},
+                                        {ItemKey:"viewFile",ItemDisplayName:"View Uploaded Files",ItemParentKey:"viewxx", ItemIconName:"DocumentSet"}
+                        
+                                    /*{ItemKey:"newItem",ItemDisplayName:"New",ItemIconName:"Add"},
+                                    {ItemKey:"emailMessage",ItemDisplayName:"Email message",ItemIconName:"Mail",ItemParentKey:"newItem"},
+                                    {ItemKey:"calendarEvent",ItemDisplayName:"Calendar event",ItemIconName:"Calendar",ItemParentKey:"newItem"},
+                                
+                                    {ItemKey:"upload",ItemDisplayName:"Upload",ItemIconName:"Upload"},
+                                        {ItemKey:"uploadfile",ItemDisplayName:"File",ItemParentKey:"upload"},
+                                        {ItemKey:"uploadfolder",ItemDisplayName:"Folder",ItemParentKey:"upload"},
+                                
+                                    {ItemKey:"share",ItemDisplayName:"Share",ItemIconName:"Share"},
+                                    {ItemKey:"download",ItemDisplayName:"Download",ItemIconName:"Download"},
+                                
+                                    // Force these items to overflow
+                                    {ItemKey:"move",ItemDisplayName:"Move to...",ItemIconName:"MoveToFolder",ItemOverflow:true},
+                                    {ItemKey:"copy",ItemDisplayName:"Copy to...",ItemIconName:"Copy",ItemOverflow:true},
+                                    {ItemKey:"rename",ItemDisplayName:"Rename...",ItemIconName:"Edit",ItemOverflow:true},
+                                
+                                    // Far Items
+                                    {ItemKey:"tile",ItemDisplayName:"Grid view",ItemIconName:"Tiles",ItemIconOnly:true,ItemFarItem:true},
+                                    {ItemKey:"info",ItemDisplayName:"Info",ItemIconName:"Info",ItemIconOnly:true,ItemFarItem:true}*/
+                                )
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnSelect: |
+                        =If(Self.Selected.ItemKey = "newRegistation",
+                        UpdateContext({FormDataVis: true});
+                        Reset(ComboboxCanvas2);
+                        ResetForm(Form3);
+                        ResetForm(Form4);
+                        ResetForm(Form5);
+                        NewForm(Form3);
+                        NewForm(Form4);
+                        NewForm(Form5);
+                        );
+                        
+                        If(Self.Selected.ItemKey = "edit",
+                        UpdateContext({FormDataVis: true});
+                        ResetForm(Form3);
+                        ResetForm(Form4);
+                        ResetForm(Form5);
+                        EditForm(Form3);
+                        EditForm(Form4);
+                        EditForm(Form5);
+                        );
+                        
+                        If(Self.Selected.ItemKey = "viewData",
+                        UpdateContext({FormDataVis: true});
+                        ResetForm(Form3);
+                        ResetForm(Form4);
+                        ResetForm(Form5);
+                        ViewForm(Form3);
+                        ViewForm(Form4);
+                        ViewForm(Form5);
+                        );
+                        
+                        If(Self.Selected.ItemKey = "delete",
+                        RemoveIf('JTAS Internet Allowance', ID = PowerAppsOneGrid5.Selected.ID);
+                        );
+                        
+                        If(Self.Selected.ItemKey = "viewFile",
+                        UpdateContext({ViewFile:true})
+                        );
+                    Visible: =true
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
                 Container57 As groupContainer.manualLayoutContainer:
                     Fill: =RGBA(128, 128, 128, 1)
                     FillPortions: =0
