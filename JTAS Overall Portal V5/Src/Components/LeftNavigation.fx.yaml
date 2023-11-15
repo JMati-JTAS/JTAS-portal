@@ -294,7 +294,7 @@ LeftNavigation As CanvasComponent:
                             {
                                 screenName: "My Internet Allowance",
                                 counter: 0,
-                                screenObject: ScreenInternetAllowance
+                                screenObject: ScreenInternetAllowance_1
                             }
                         ),
                         icon: "data:image/svg+xml," & EncodeUrl(

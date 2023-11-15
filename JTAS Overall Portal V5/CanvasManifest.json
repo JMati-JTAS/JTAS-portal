@@ -96,7 +96,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 143,
+    "BindingErrorCount": 144,
     "ContainsThirdPartyPcfControls": true,
     "DefaultConnectedDataSourceMaxGetRowsCount": 1000,
     "DocumentAppType": "DesktopOrTablet",
@@ -156,7 +156,7 @@
     "LeaveCalendarScreen",
     "ViewMembersScreen",
     "ViewMembersScreen_OrgChart",
-    "ScreenInternetAllowance",
+    "ScreenInternetAllowance_1",
     "New_Org_Viewer",
     "New_Org_Viewer_1",
     "Screen1",
