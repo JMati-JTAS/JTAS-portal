@@ -5,7 +5,7 @@
         "PCFExternalServiceUsageAllowed": false
       },
       "ComponentName": "CustomControl",
-      "Identifier": "Microsoft.PowerApps.PowerAppsOneGrid",
+      "Identifier": "cat_PowerCAT.CommandBar",
       "IdentifierType": 0
     },
     {
@@ -13,7 +13,7 @@
         "PCFExternalServiceUsageAllowed": false
       },
       "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.CommandBar",
+      "Identifier": "Microsoft.PowerApps.PowerAppsOneGrid",
       "IdentifierType": 0
     }
   ],
