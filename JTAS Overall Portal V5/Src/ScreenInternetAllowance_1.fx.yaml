@@ -106,6 +106,71 @@ ScreenInternetAllowance_1 As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
+                "CommandBar2 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
+                    AlignInContainer: =AlignInContainer.Stretch
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =50
+                    Items: =InternetCommandBar
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnSelect: |
+                        =If(Self.Selected.ItemKey = "newRegistation",
+                        UpdateContext({FormDataVis: true});
+                        Reset(ComboboxCanvas2_1);
+                        ResetForm(Form3_1);
+                        ResetForm(Form4_1);
+                        ResetForm(Form5_1);
+                        NewForm(Form3_1);
+                        NewForm(Form4_1);
+                        NewForm(Form5_1);
+                        );
+                        
+                        If(Self.Selected.ItemKey = "newInternet",
+                        UpdateContext({FormRegVis: true});
+                        ResetForm(Form6_1);
+                        NewForm(Form6_1);
+                        );
+                        
+                        //, 
+                        If(Self.Selected.ItemKey = "editInternet",
+                        UpdateContext({FormRegVis: true});
+                        ResetForm(Form6_1);
+                        EditForm(Form6_1);
+                        );
+                        
+                        
+                        If(Self.Selected.ItemKey = "editAllowance",
+                        UpdateContext({FormDataVis: true});
+                        ResetForm(Form3_1);
+                        ResetForm(Form4_1);
+                        ResetForm(Form5_1);
+                        EditForm(Form3_1);
+                        EditForm(Form4_1);
+                        EditForm(Form5_1);
+                        );
+                        
+                        If(Self.Selected.ItemKey = "viewData",
+                        UpdateContext({FormDataVis: true});
+                        ResetForm(Form3_1);
+                        ResetForm(Form4_1);
+                        ResetForm(Form5_1);
+                        ViewForm(Form3_1);
+                        ViewForm(Form4_1);
+                        ViewForm(Form5_1);
+                        );
+                        
+                        If(Self.Selected.ItemKey = "delete",
+                        RemoveIf('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID);
+                        );
+                        
+                        If(Self.Selected.ItemKey = "viewFile",
+                        UpdateContext({ViewFile:true})
+                        );
+                    Width: =200
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
                 Container57_1 As groupContainer.manualLayoutContainer:
                     Fill: =RGBA(128, 128, 128, 1)
                     FillPortions: =0
