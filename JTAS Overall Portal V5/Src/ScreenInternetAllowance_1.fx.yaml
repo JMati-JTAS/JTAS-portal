@@ -1,4 +1,4 @@
-ScreenInternetAllowance As screen:
+ScreenInternetAllowance_1 As screen:
     LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
     OnVisible: |+
         =Set(
@@ -79,14 +79,14 @@ ScreenInternetAllowance As screen:
         
         
 
-    "'Main Container_Internet' As groupContainer.manualLayoutContainer":
+    "'Main Container_Internet_1' As groupContainer.manualLayoutContainer":
         Height: =Parent.Height - Self.Y
         Width: =Parent.Width - Self.X
-        X: =LeftNavigation_15.Width
-        Y: =Header_15.Height
+        X: =LeftNavigation_26.Width
+        Y: =Header_26.Height
         ZIndex: =1
 
-        MainContainer As groupContainer.manualLayoutContainer:
+        MainContainer_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.ExtraBold
             Height: =Parent.Height - (Self.Y *2)
             RadiusBottomLeft: =10
@@ -98,7 +98,7 @@ ScreenInternetAllowance As screen:
             Y: =15
             ZIndex: =1
 
-            Container24 As groupContainer.verticalAutoLayoutContainer:
+            Container24_1 As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
                 Height: =Parent.Height
                 LayoutDirection: =LayoutDirection.Vertical
@@ -106,7 +106,8 @@ ScreenInternetAllowance As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                "CommandBar2 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
+                "CommandBar1 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
+                    AlignInContainer: =AlignInContainer.Stretch
                     DisplayMode: =DisplayMode.Edit
                     Height: =50
                     Items: =InternetCommandBar
@@ -115,62 +116,62 @@ ScreenInternetAllowance As screen:
                     OnSelect: |
                         =If(Self.Selected.ItemKey = "newRegistation",
                         UpdateContext({FormDataVis: true});
-                        Reset(ComboboxCanvas2);
-                        ResetForm(Form3);
-                        ResetForm(Form4);
-                        ResetForm(Form5);
-                        NewForm(Form3);
-                        NewForm(Form4);
-                        NewForm(Form5);
+                        Reset(ComboboxCanvas2_1);
+                        ResetForm(Form3_1);
+                        ResetForm(Form4_1);
+                        ResetForm(Form5_1);
+                        NewForm(Form3_1);
+                        NewForm(Form4_1);
+                        NewForm(Form5_1);
                         );
                         
                         If(Self.Selected.ItemKey = "newInternet",
                         UpdateContext({FormRegVis: true});
-                        ResetForm(Form6);
-                        NewForm(Form6);
+                        ResetForm(Form6_1);
+                        NewForm(Form6_1);
                         );
                         
                         //, 
                         If(Self.Selected.ItemKey = "editInternet",
                         UpdateContext({FormRegVis: true});
-                        ResetForm(Form6);
-                        EditForm(Form6);
+                        ResetForm(Form6_1);
+                        EditForm(Form6_1);
                         );
                         
                         
                         If(Self.Selected.ItemKey = "editAllowance",
                         UpdateContext({FormDataVis: true});
-                        ResetForm(Form3);
-                        ResetForm(Form4);
-                        ResetForm(Form5);
-                        EditForm(Form3);
-                        EditForm(Form4);
-                        EditForm(Form5);
+                        ResetForm(Form3_1);
+                        ResetForm(Form4_1);
+                        ResetForm(Form5_1);
+                        EditForm(Form3_1);
+                        EditForm(Form4_1);
+                        EditForm(Form5_1);
                         );
                         
                         If(Self.Selected.ItemKey = "viewData",
                         UpdateContext({FormDataVis: true});
-                        ResetForm(Form3);
-                        ResetForm(Form4);
-                        ResetForm(Form5);
-                        ViewForm(Form3);
-                        ViewForm(Form4);
-                        ViewForm(Form5);
+                        ResetForm(Form3_1);
+                        ResetForm(Form4_1);
+                        ResetForm(Form5_1);
+                        ViewForm(Form3_1);
+                        ViewForm(Form4_1);
+                        ViewForm(Form5_1);
                         );
                         
                         If(Self.Selected.ItemKey = "delete",
-                        RemoveIf('JTAS Internet Allowance', ID = PowerAppsOneGrid5.Selected.ID);
+                        RemoveIf('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID);
                         );
                         
                         If(Self.Selected.ItemKey = "viewFile",
                         UpdateContext({ViewFile:true})
                         );
-                    Width: =Parent.Width
+                    Width: =200
                     X: =0
                     Y: =0
                     ZIndex: =1
 
-                Container57 As groupContainer.manualLayoutContainer:
+                Container57_1 As groupContainer.manualLayoutContainer:
                     Fill: =RGBA(128, 128, 128, 1)
                     FillPortions: =0
                     Height: =2
@@ -178,7 +179,7 @@ ScreenInternetAllowance As screen:
                     LayoutMinWidth: =250
                     ZIndex: =2
 
-                "PowerAppsOneGrid5 As 'Power Apps grid control'.pcfdataset":
+                "PowerAppsOneGrid5_1 As 'Power Apps grid control'.pcfdataset":
                     DisplayMode: =DisplayMode.Edit
                     EnableRangeSelection: ="no"
                     FillPortions: =1
@@ -194,7 +195,7 @@ ScreenInternetAllowance As screen:
                     Y: =0
                     ZIndex: =3
 
-                    Status3 As pcfDataField.textualColumn:
+                    Status3_1 As pcfDataField.textualColumn:
                         FieldDisplayName: ="Status"
                         FieldName: ="Status"
                         FieldType: ="s"
@@ -202,7 +203,7 @@ ScreenInternetAllowance As screen:
                         Order: =15
                         ZIndex: =8
 
-                    Provider2 As pcfDataField.textualColumn:
+                    Provider2_1 As pcfDataField.textualColumn:
                         FieldDisplayName: ="Provider"
                         FieldName: ="Provider"
                         FieldType: ="s"
@@ -210,7 +211,7 @@ ScreenInternetAllowance As screen:
                         Order: =4
                         ZIndex: =9
 
-                    "'Plan Type1' As pcfDataField.textualColumn":
+                    "'Plan Type1_1' As pcfDataField.textualColumn":
                         FieldDisplayName: ="Plan Type"
                         FieldName: ="Plan Type"
                         FieldType: ="s"
@@ -218,7 +219,7 @@ ScreenInternetAllowance As screen:
                         Order: =7
                         ZIndex: =10
 
-                    "'Plan Amount1' As pcfDataField.textualColumn":
+                    "'Plan Amount1_1' As pcfDataField.textualColumn":
                         FieldDisplayName: ="Plan Amount"
                         FieldName: ="Plan Amount"
                         FieldType: ="n"
@@ -226,7 +227,7 @@ ScreenInternetAllowance As screen:
                         Order: =6
                         ZIndex: =11
 
-                    "'Payment Date1' As pcfDataField.textualColumn":
+                    "'Payment Date1_1' As pcfDataField.textualColumn":
                         FieldDisplayName: ="Payment Date"
                         FieldName: ="Payment Date"
                         FieldType: ="s"
@@ -234,7 +235,7 @@ ScreenInternetAllowance As screen:
                         Order: =11
                         ZIndex: =12
 
-                    "'Bundle Plan1' As pcfDataField.textualColumn":
+                    "'Bundle Plan1_1' As pcfDataField.textualColumn":
                         FieldDisplayName: ="Bundle Plan"
                         FieldName: ="Bundle Plan"
                         FieldType: ="s"
@@ -242,7 +243,7 @@ ScreenInternetAllowance As screen:
                         Order: =8
                         ZIndex: =13
 
-                    "'Date Applied1' As pcfDataField.textualColumn":
+                    "'Date Applied1_1' As pcfDataField.textualColumn":
                         FieldDisplayName: ="Date Applied"
                         FieldName: ="Date Applied"
                         FieldType: ="s"
@@ -250,7 +251,7 @@ ScreenInternetAllowance As screen:
                         Order: =3
                         ZIndex: =14
 
-                    "'Monthly Allowance1' As pcfDataField.textualColumn":
+                    "'Monthly Allowance1_1' As pcfDataField.textualColumn":
                         FieldDisplayName: ="Monthly Allowance"
                         FieldName: ="Monthly Allowance"
                         FieldType: ="n"
@@ -258,7 +259,7 @@ ScreenInternetAllowance As screen:
                         Order: =9
                         ZIndex: =15
 
-                    "'Basic Remarks2' As pcfDataField.textualColumn":
+                    "'Basic Remarks2_1' As pcfDataField.textualColumn":
                         FieldDisplayName: ="Basic Remarks"
                         FieldName: ="Basic Remarks"
                         FieldType: ="s"
@@ -266,7 +267,7 @@ ScreenInternetAllowance As screen:
                         Order: =10
                         ZIndex: =16
 
-        FormEditNewDialogs As groupContainer.manualLayoutContainer:
+        FormEditNewDialogs_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 0, 0, 0.27)
             Height: =Parent.Height
@@ -278,29 +279,28 @@ ScreenInternetAllowance As screen:
             Width: =Parent.Width
             ZIndex: =2
 
-            Container60 As groupContainer.manualLayoutContainer:
+            Container60_1 As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.Light
                 Fill: =RGBA(255, 255, 255, 1)
-                Height: =Container64.Height + Container64.Y
+                Height: =Container64_1.Height + Container64_1.Y
                 RadiusBottomLeft: =4
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
                 X: =(Parent.Width - Self.Width) / 2
-                Y: =(Parent.Height - Self.Height) / 2
                 ZIndex: =1
 
-                Container64 As groupContainer.manualLayoutContainer:
+                Container64_1 As groupContainer.manualLayoutContainer:
                     DropShadow: =DropShadow.Light
                     Height: =50
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
-                    Y: =Form5.Height + Form5.Y
+                    Y: =Form5_1.Height + Form5_1.Y
                     ZIndex: =1
 
-                    Container65 As groupContainer.horizontalAutoLayoutContainer:
+                    Container65_1 As groupContainer.horizontalAutoLayoutContainer:
                         DropShadow: =DropShadow.Light
                         Height: =Parent.Height
                         LayoutMode: =LayoutMode.Auto
@@ -311,27 +311,27 @@ ScreenInternetAllowance As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
-                        ButtonCanvas2 As Button:
+                        ButtonCanvas2_1 As Button:
                             BasePaletteColor: =RGBA(45, 128, 40, 1)
-                            DisplayMode: =If(Form3.Valid And Form4.Valid And Form5.Valid, DisplayMode.Edit, DisplayMode.Disabled)
-                            FillPortions: =If(Form3.Mode in [FormMode.New, FormMode.Edit], 1, 0)
+                            DisplayMode: =If(Form3_1.Valid And Form4_1.Valid And Form5_1.Valid, DisplayMode.Edit, DisplayMode.Disabled)
+                            FillPortions: =If(Form3_1.Mode in [FormMode.New, FormMode.Edit], 1, 0)
                             Height: =Parent.Height
                             LayoutMinHeight: =32
-                            LayoutMinWidth: =If(Form3.Mode in [FormMode.New, FormMode.Edit], 96, 0)
+                            LayoutMinWidth: =If(Form3_1.Mode in [FormMode.New, FormMode.Edit], 96, 0)
                             OnSelect: |-
                                 =UpdateContext({showLoading2: true});
-                                SubmitForm(Form3);
-                                Patch('JTAS Internet Allowance', Form3.LastSubmit,{RemarksData:""},Form4.Updates);
-                                Patch('JTAS Internet Allowance', Form3.LastSubmit,{RemarksData:""},Form5.Updates);
+                                SubmitForm(Form3_1);
+                                Patch('JTAS Internet Allowance', Form3_1.LastSubmit,{RemarksData:""},Form4_1.Updates);
+                                Patch('JTAS Internet Allowance', Form3_1.LastSubmit,{RemarksData:""},Form5_1.Updates);
                                 UpdateContext({showLoading2: false});
                                 UpdateContext({FormDataVis: false})
                             Text: ="Submit"
-                            Width: =If(Form3.Mode in [FormMode.New, FormMode.Edit], 96, 0)
+                            Width: =If(Form3_1.Mode in [FormMode.New, FormMode.Edit], 96, 0)
                             X: =0
                             Y: =0
                             ZIndex: =1
 
-                        ButtonCanvas3 As Button:
+                        ButtonCanvas3_1 As Button:
                             Appearance: ='ButtonCanvas.Appearance'.Primary
                             BasePaletteColor: =RGBA(132, 40, 38, 1)
                             DisplayMode: =DisplayMode.Edit
@@ -341,25 +341,25 @@ ScreenInternetAllowance As screen:
                             LayoutMinWidth: =96
                             OnSelect: |-
                                 =UpdateContext({FormDataVis: false})
-                            Text: =If(Form3.Mode in [FormMode.New, FormMode.Edit], "Cancel", "Back")
+                            Text: =If(Form3_1.Mode in [FormMode.New, FormMode.Edit], "Cancel", "Back")
                             Width: =96
                             X: =0
                             Y: =0
                             ZIndex: =2
 
-                Form4 As form.PowerApps_CoreControls_Form:
+                Form4_1 As form.PowerApps_CoreControls_Form:
                     BorderColor: =RGBA(166, 166, 166, 1)
                     DataSource: ='JTAS Internet Allowance'
                     DefaultMode: =FormMode.New
                     Height: =200
-                    Item: =LookUp('JTAS Internet Allowance', ID = PowerAppsOneGrid5.Selected.ID)
+                    Item: =LookUp('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID)
                     NumberOfColumns: =1
                     UseFluentV9Cards: =true
                     Width: =500
-                    Y: =Form3.Height + Form3.Y
+                    Y: =Form3_1.Height + Form3_1.Y
                     ZIndex: =2
 
-                    Attachments_DataCard3 As typedDataCard.attachmentsEditCard:
+                    Attachments_DataCard3_1 As typedDataCard.attachmentsEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="{Attachments}"
@@ -372,13 +372,13 @@ ScreenInternetAllowance As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =181
                         Required: =true
-                        Update: =DataCardValue32.Attachments
+                        Update: =DataCardValue32_1.Attachments
                         Width: =500
                         X: =0
                         Y: =0
                         ZIndex: =1
 
-                        DataCardKey34 As label:
+                        DataCardKey34_1 As label:
                             AutoHeight: =true
                             BorderColor: =RGBA(0, 0, 0, 0)
                             BorderStyle: =BorderStyle.None
@@ -399,7 +399,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        DataCardValue32 As attachments:
+                        DataCardValue32_1 As attachments:
                             AddAttachmentText: ="Attach Speed Test in JPG / PNG file format."
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             BorderStyle: =BorderStyle.None
@@ -439,10 +439,10 @@ ScreenInternetAllowance As screen:
                             Tooltip: =Parent.DisplayName
                             Width: =Parent.Width - 60
                             X: =30
-                            Y: =DataCardKey34.Y + DataCardKey34.Height + 5
+                            Y: =DataCardKey34_1.Y + DataCardKey34_1.Height + 5
                             ZIndex: =2
 
-                        ErrorMessage28 As label:
+                        ErrorMessage28_1 As label:
                             AutoHeight: =true
                             BorderColor: =RGBA(0, 0, 0, 0)
                             BorderStyle: =BorderStyle.None
@@ -464,10 +464,10 @@ ScreenInternetAllowance As screen:
                             Visible: =Parent.DisplayMode=DisplayMode.Edit
                             Width: =Parent.Width - 60
                             X: =30
-                            Y: =DataCardValue32.Y + DataCardValue32.Height
+                            Y: =DataCardValue32_1.Y + DataCardValue32_1.Height
                             ZIndex: =3
 
-                        StarVisible29 As label:
+                        StarVisible29_1 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 0, 0, 0)
                             BorderStyle: =BorderStyle.None
@@ -478,29 +478,29 @@ ScreenInternetAllowance As screen:
                             FocusedBorderThickness: =4
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =DataCardKey34.Height
+                            Height: =DataCardKey34_1.Height
                             PaddingLeft: =0
                             Size: =13
                             Text: ="*"
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             Wrap: =false
-                            Y: =DataCardKey34.Y
+                            Y: =DataCardKey34_1.Y
                             ZIndex: =4
 
-                Form5 As form.PowerApps_CoreControls_Form:
+                Form5_1 As form.PowerApps_CoreControls_Form:
                     BorderColor: =RGBA(166, 166, 166, 1)
                     DataSource: ='JTAS Internet Allowance'
                     DefaultMode: =FormMode.New
                     Height: =200
-                    Item: =LookUp('JTAS Internet Allowance', ID = PowerAppsOneGrid5.Selected.ID)
+                    Item: =LookUp('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID)
                     NumberOfColumns: =1
                     UseFluentV9Cards: =true
                     Width: =500
-                    Y: =Form4.Height + Form4.Y
+                    Y: =Form4_1.Height + Form4_1.Y
                     ZIndex: =3
 
-                    Attachments_DataCard4 As typedDataCard.attachmentsEditCard:
+                    Attachments_DataCard4_1 As typedDataCard.attachmentsEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="{Attachments}"
@@ -513,13 +513,13 @@ ScreenInternetAllowance As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =Parent.Height
                         Required: =true
-                        Update: =DataCardValue33.Attachments
+                        Update: =DataCardValue33_1.Attachments
                         Width: =Parent.Width
                         X: =0
                         Y: =0
                         ZIndex: =1
 
-                        DataCardKey35 As label:
+                        DataCardKey35_1 As label:
                             AutoHeight: =true
                             BorderColor: =RGBA(0, 0, 0, 0)
                             BorderStyle: =BorderStyle.None
@@ -540,7 +540,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        DataCardValue33 As attachments:
+                        DataCardValue33_1 As attachments:
                             AddAttachmentText: ="Attach SOA in PDF file format."
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             BorderStyle: =BorderStyle.None
@@ -579,10 +579,10 @@ ScreenInternetAllowance As screen:
                             Tooltip: =Parent.DisplayName
                             Width: =Parent.Width - 60
                             X: =30
-                            Y: =DataCardKey35.Y + DataCardKey35.Height + 5
+                            Y: =DataCardKey35_1.Y + DataCardKey35_1.Height + 5
                             ZIndex: =2
 
-                        ErrorMessage29 As label:
+                        ErrorMessage29_1 As label:
                             AutoHeight: =true
                             BorderColor: =RGBA(0, 0, 0, 0)
                             BorderStyle: =BorderStyle.None
@@ -604,10 +604,10 @@ ScreenInternetAllowance As screen:
                             Visible: =Parent.DisplayMode=DisplayMode.Edit
                             Width: =Parent.Width - 60
                             X: =30
-                            Y: =DataCardValue33.Y + DataCardValue33.Height
+                            Y: =DataCardValue33_1.Y + DataCardValue33_1.Height
                             ZIndex: =3
 
-                        StarVisible30 As label:
+                        StarVisible30_1 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 0, 0, 0)
                             BorderStyle: =BorderStyle.None
@@ -618,47 +618,47 @@ ScreenInternetAllowance As screen:
                             FocusedBorderThickness: =4
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =DataCardKey35.Height
+                            Height: =DataCardKey35_1.Height
                             PaddingLeft: =0
                             Size: =13
                             Text: ="*"
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             Wrap: =false
-                            Y: =DataCardKey35.Y
+                            Y: =DataCardKey35_1.Y
                             ZIndex: =4
 
-                Form3 As form.PowerApps_CoreControls_Form:
+                Form3_1 As form.PowerApps_CoreControls_Form:
                     BorderColor: =RGBA(166, 166, 166, 1)
                     DataSource: ='JTAS Internet Allowance'
                     DefaultMode: =FormMode.New
                     Height: =If(LookUp(JTAS_Portal_Setting, Function = "InternetAllowance - Data Edit", Value) = "true", 250, 0)
-                    Item: =LookUp('JTAS Internet Allowance', ID = PowerAppsOneGrid5.Selected.ID)
+                    Item: =LookUp('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID)
                     NumberOfColumns: =1
                     UseFluentV9Cards: =true
                     Visible: =true//!Form3.Mode = FormMode.New
                     Width: =500
-                    Y: =Container62.Height + Container62.Y
+                    Y: =Container62_1.Height + Container62_1.Y
                     ZIndex: =4
 
-                    Title_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    Title_DataCard1_1 As typedDataCard.fluentV9TextualEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="Title"
-                        Default: =If(Form3.Mode = FormMode.New, ComboboxCanvas2.Selected.label, ThisItem.Title)
+                        Default: =If(Form3_1.Mode = FormMode.New, ComboboxCanvas2_1.Selected.label, ThisItem.Title)
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Title")
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "Title")
                         Required: =true
-                        Update: =DataCardValue2.Value
+                        Update: =DataCardValue2_1.Value
                         Width: =Parent.Width
                         X: =0
                         Y: =0
                         ZIndex: =4
 
-                        DataCardKey2 As Text:
+                        DataCardKey2_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: ="Date Applied"
@@ -669,7 +669,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        "DataCardValue2 As 'Text input'":
+                        "DataCardValue2_1 As 'Text input'":
                             AccessibleLabel: =Parent.DisplayName
                             BasePaletteColor: =
                             DisplayMode: =Parent.DisplayMode
@@ -680,10 +680,10 @@ ScreenInternetAllowance As screen:
                             Value: =Parent.Default
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey2.Y + DataCardKey2.Height + 4
+                            Y: =DataCardKey2_1.Y + DataCardKey2_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage1 As Text:
+                        ErrorMessage1_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -691,10 +691,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue2.Y + DataCardValue2.Height
+                            Y: =DataCardValue2_1.Y + DataCardValue2_1.Height
                             ZIndex: =3
 
-                        StarVisible2 As Text:
+                        StarVisible2_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
@@ -702,27 +702,27 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey2.Y
+                            Y: =DataCardKey2_1.Y
                             ZIndex: =4
 
-                    MembersEmail_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    MembersEmail_DataCard1_1 As typedDataCard.fluentV9TextualEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="MembersEmail"
-                        Default: =If(Form3.Mode = FormMode.New, varUserEmail,ThisItem.MembersEmail)
+                        Default: =If(Form3_1.Mode = FormMode.New, varUserEmail,ThisItem.MembersEmail)
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"MembersEmail")
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "MembersEmail")
                         Required: =true
-                        Update: =DataCardValue3.Value
+                        Update: =DataCardValue3_1.Value
                         Width: =Parent.Width
                         X: =0
                         Y: =1
                         ZIndex: =4
 
-                        DataCardKey3 As Text:
+                        DataCardKey3_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: ="Member"
@@ -733,7 +733,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        "DataCardValue3 As 'Text input'":
+                        "DataCardValue3_1 As 'Text input'":
                             AccessibleLabel: =Parent.DisplayName
                             BasePaletteColor: =
                             DisplayMode: =Parent.DisplayMode
@@ -744,10 +744,10 @@ ScreenInternetAllowance As screen:
                             Value: =Parent.Default
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey3.Y + DataCardKey3.Height + 4
+                            Y: =DataCardKey3_1.Y + DataCardKey3_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage2 As Text:
+                        ErrorMessage2_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -755,10 +755,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue3.Y + DataCardValue3.Height
+                            Y: =DataCardValue3_1.Y + DataCardValue3_1.Height
                             ZIndex: =3
 
-                        StarVisible3 As Text:
+                        StarVisible3_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
@@ -766,27 +766,27 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey3.Y
+                            Y: =DataCardKey3_1.Y
                             ZIndex: =4
 
-                    Month_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    Month_DataCard1_1 As typedDataCard.fluentV9TextualEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="Month"
-                        Default: =If(Form3.Mode = FormMode.New, First(Split(ComboboxCanvas2.Selected.label, " ")).Value, ThisItem.Month)
+                        Default: =If(Form3_1.Mode = FormMode.New, First(Split(ComboboxCanvas2_1.Selected.label, " ")).Value, ThisItem.Month)
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Month")
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "Month")
                         Required: =true
-                        Update: =DataCardValue5.Value
+                        Update: =DataCardValue5_1.Value
                         Width: =Parent.Width
                         X: =0
                         Y: =2
                         ZIndex: =4
 
-                        DataCardKey5 As Text:
+                        DataCardKey5_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -797,7 +797,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        "DataCardValue5 As 'Text input'":
+                        "DataCardValue5_1 As 'Text input'":
                             AccessibleLabel: =Parent.DisplayName
                             BasePaletteColor: =
                             DisplayMode: =Parent.DisplayMode
@@ -808,10 +808,10 @@ ScreenInternetAllowance As screen:
                             Value: =Parent.Default
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey5.Y + DataCardKey5.Height + 4
+                            Y: =DataCardKey5_1.Y + DataCardKey5_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage4 As Text:
+                        ErrorMessage4_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -819,10 +819,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue5.Y + DataCardValue5.Height
+                            Y: =DataCardValue5_1.Y + DataCardValue5_1.Height
                             ZIndex: =3
 
-                        StarVisible5 As Text:
+                        StarVisible5_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
@@ -830,27 +830,27 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey5.Y
+                            Y: =DataCardKey5_1.Y
                             ZIndex: =4
 
-                    Year_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    Year_DataCard1_1 As typedDataCard.fluentV9TextualEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="Year"
-                        Default: =If(Form3.Mode = FormMode.New, Last(Split(ComboboxCanvas2.Selected.label, " ")).Value, ThisItem.Year)
+                        Default: =If(Form3_1.Mode = FormMode.New, Last(Split(ComboboxCanvas2_1.Selected.label, " ")).Value, ThisItem.Year)
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Year")
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "Year")
                         Required: =true
-                        Update: =DataCardValue6.Value
+                        Update: =DataCardValue6_1.Value
                         Width: =Parent.Width
                         X: =0
                         Y: =3
                         ZIndex: =4
 
-                        DataCardKey6 As Text:
+                        DataCardKey6_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -861,7 +861,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        "DataCardValue6 As 'Text input'":
+                        "DataCardValue6_1 As 'Text input'":
                             AccessibleLabel: =Parent.DisplayName
                             BasePaletteColor: =
                             DisplayMode: =Parent.DisplayMode
@@ -872,10 +872,10 @@ ScreenInternetAllowance As screen:
                             Value: =Parent.Default
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey6.Y + DataCardKey6.Height + 4
+                            Y: =DataCardKey6_1.Y + DataCardKey6_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage5 As Text:
+                        ErrorMessage5_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -883,10 +883,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue6.Y + DataCardValue6.Height
+                            Y: =DataCardValue6_1.Y + DataCardValue6_1.Height
                             ZIndex: =3
 
-                        StarVisible6 As Text:
+                        StarVisible6_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
@@ -894,27 +894,27 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey6.Y
+                            Y: =DataCardKey6_1.Y
                             ZIndex: =4
 
-                    Amount_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    Amount_DataCard1_1 As typedDataCard.fluentV9TextualEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="Amount"
-                        Default: =If(Form3.Mode = FormMode.New, Last(InternetAllowanceData).'Monthly Allowance', ThisItem.Amount)
+                        Default: =If(Form3_1.Mode = FormMode.New, Last(InternetAllowanceData).'Monthly Allowance', ThisItem.Amount)
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Amount")
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "Amount")
                         Required: =true
-                        Update: =DataCardValue7.Value
+                        Update: =DataCardValue7_1.Value
                         Width: =Parent.Width
                         X: =0
                         Y: =4
                         ZIndex: =4
 
-                        DataCardKey7 As Text:
+                        DataCardKey7_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -925,7 +925,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        "DataCardValue7 As 'Text input'":
+                        "DataCardValue7_1 As 'Text input'":
                             AccessibleLabel: =Parent.DisplayName
                             BasePaletteColor: =
                             DisplayMode: =Parent.DisplayMode
@@ -936,10 +936,10 @@ ScreenInternetAllowance As screen:
                             Value: =Parent.Default
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey7.Y + DataCardKey7.Height + 4
+                            Y: =DataCardKey7_1.Y + DataCardKey7_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage6 As Text:
+                        ErrorMessage6_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -947,10 +947,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue7.Y + DataCardValue7.Height
+                            Y: =DataCardValue7_1.Y + DataCardValue7_1.Height
                             ZIndex: =3
 
-                        StarVisible7 As Text:
+                        StarVisible7_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
@@ -958,10 +958,10 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey7.Y
+                            Y: =DataCardKey7_1.Y
                             ZIndex: =4
 
-                    "'Bill Duration from_DataCard1' As typedDataCard.fluentV9DateEditCard":
+                    "'Bill Duration from_DataCard1_1' As typedDataCard.fluentV9DateEditCard":
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="BillDurationfrom"
@@ -971,13 +971,13 @@ ScreenInternetAllowance As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         Required: =false
-                        Update: =DataCardValue13.SelectedDate
+                        Update: =DataCardValue13_1.SelectedDate
                         Width: =Parent.Width
                         X: =0
                         Y: =5
                         ZIndex: =4
 
-                        DataCardKey13 As Text:
+                        DataCardKey13_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -988,7 +988,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        "DataCardValue13 As 'Date picker'":
+                        "DataCardValue13_1 As 'Date picker'":
                             AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                             BasePaletteColor: =
                             DisplayMode: =Parent.DisplayMode
@@ -999,10 +999,10 @@ ScreenInternetAllowance As screen:
                             ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+                            Y: =DataCardKey13_1.Y + DataCardKey13_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage11 As Text:
+                        ErrorMessage11_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -1010,10 +1010,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue13.Y + DataCardValue13.Height
+                            Y: =DataCardValue13_1.Y + DataCardValue13_1.Height
                             ZIndex: =3
 
-                        StarVisible12 As Text:
+                        StarVisible12_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
@@ -1021,10 +1021,10 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey13.Y
+                            Y: =DataCardKey13_1.Y
                             ZIndex: =4
 
-                    "'Bill Duration to_DataCard1' As typedDataCard.fluentV9DateEditCard":
+                    "'Bill Duration to_DataCard1_1' As typedDataCard.fluentV9DateEditCard":
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="BillDurationto"
@@ -1034,13 +1034,13 @@ ScreenInternetAllowance As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         Required: =false
-                        Update: =DataCardValue14.SelectedDate
+                        Update: =DataCardValue14_1.SelectedDate
                         Width: =Parent.Width
                         X: =0
                         Y: =6
                         ZIndex: =4
 
-                        DataCardKey14 As Text:
+                        DataCardKey14_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -1051,7 +1051,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        "DataCardValue14 As 'Date picker'":
+                        "DataCardValue14_1 As 'Date picker'":
                             AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                             BasePaletteColor: =
                             DisplayMode: =Parent.DisplayMode
@@ -1062,10 +1062,10 @@ ScreenInternetAllowance As screen:
                             ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey14.Y + DataCardKey14.Height + 4
+                            Y: =DataCardKey14_1.Y + DataCardKey14_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage12 As Text:
+                        ErrorMessage12_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -1073,10 +1073,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue14.Y + DataCardValue14.Height
+                            Y: =DataCardValue14_1.Y + DataCardValue14_1.Height
                             ZIndex: =3
 
-                        StarVisible13 As Text:
+                        StarVisible13_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
@@ -1084,26 +1084,26 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey14.Y
+                            Y: =DataCardKey14_1.Y
                             ZIndex: =4
 
-                    PlanType_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                    PlanType_DataCard1_1 As typedDataCard.fluentV9ComboBoxEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="PlanType"
-                        Default: =If(Form3.Mode = FormMode.New, LookUp(Choices([@'JTAS Internet Allowance'].PlanType), Value = Last(InternetAllowanceData).'Plan Type'), ThisItem.PlanType)
+                        Default: =If(Form3_1.Mode = FormMode.New, LookUp(Choices([@'JTAS Internet Allowance'].PlanType), Value = Last(InternetAllowanceData).'Plan Type'), ThisItem.PlanType)
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"PlanType")
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         Required: =true
-                        Update: =DataCardValue15.Selected
+                        Update: =DataCardValue15_1.Selected
                         Width: =Parent.Width
                         X: =0
                         Y: =7
                         ZIndex: =4
 
-                        DataCardKey15 As Text:
+                        DataCardKey15_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -1114,7 +1114,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        DataCardValue15 As Combobox.pcfdataset:
+                        DataCardValue15_1 As Combobox.pcfdataset:
                             AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                             DefaultSelectedItems: =Parent.Default
                             DisplayMode: =Parent.DisplayMode
@@ -1123,10 +1123,10 @@ ScreenInternetAllowance As screen:
                             ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey15.Y + DataCardKey15.Height + 4
+                            Y: =DataCardKey15_1.Y + DataCardKey15_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage13 As Text:
+                        ErrorMessage13_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -1134,10 +1134,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue15.Y + DataCardValue15.Height
+                            Y: =DataCardValue15_1.Y + DataCardValue15_1.Height
                             ZIndex: =3
 
-                        StarVisible14 As Text:
+                        StarVisible14_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =20
@@ -1145,15 +1145,15 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey15.Y
+                            Y: =DataCardKey15_1.Y
                             ZIndex: =4
 
-                    Bundle_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                    Bundle_DataCard1_1 As typedDataCard.fluentV9ComboBoxEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="Bundle"
                         Default: |-
-                            =If(Form3.Mode = FormMode.New, 
+                            =If(Form3_1.Mode = FormMode.New, 
                             
                             LookUp(Choices([@'JTAS Internet Allowance'].Bundle), Value = Last(InternetAllowanceData).'Bundle Plan')
                             
@@ -1164,13 +1164,13 @@ ScreenInternetAllowance As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         Required: =true
-                        Update: =DataCardValue16.Selected
+                        Update: =DataCardValue16_1.Selected
                         Width: =Parent.Width
                         X: =0
                         Y: =8
                         ZIndex: =4
 
-                        DataCardKey16 As Text:
+                        DataCardKey16_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -1181,7 +1181,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        DataCardValue16 As Combobox.pcfdataset:
+                        DataCardValue16_1 As Combobox.pcfdataset:
                             AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                             DefaultSelectedItems: =Parent.Default
                             DisplayMode: =Parent.DisplayMode
@@ -1190,10 +1190,10 @@ ScreenInternetAllowance As screen:
                             ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey16.Y + DataCardKey16.Height + 4
+                            Y: =DataCardKey16_1.Y + DataCardKey16_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage14 As Text:
+                        ErrorMessage14_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -1201,10 +1201,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue16.Y + DataCardValue16.Height
+                            Y: =DataCardValue16_1.Y + DataCardValue16_1.Height
                             ZIndex: =3
 
-                        StarVisible15 As Text:
+                        StarVisible15_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =20
@@ -1212,15 +1212,15 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey16.Y
+                            Y: =DataCardKey16_1.Y
                             ZIndex: =4
 
-                    "'Provider and Plan_DataCard1' As typedDataCard.fluentV9TextualEditCard":
+                    "'Provider and Plan_DataCard1_1' As typedDataCard.fluentV9TextualEditCard":
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="ProviderandPlan"
                         Default: |-
-                            =If(Form3.Mode = FormMode.New, 
+                            =If(Form3_1.Mode = FormMode.New, 
                             
                             Last(InternetAllowanceData).Provider
                             
@@ -1232,13 +1232,13 @@ ScreenInternetAllowance As screen:
                         Height: =70
                         MaxLength: =DataSourceInfo([@'JTAS Internet Allowance'], DataSourceInfo.MaxLength, "ProviderandPlan")
                         Required: =true
-                        Update: =DataCardValue17.Value
+                        Update: =DataCardValue17_1.Value
                         Width: =Parent.Width
                         X: =0
                         Y: =9
                         ZIndex: =4
 
-                        DataCardKey17 As Text:
+                        DataCardKey17_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -1249,7 +1249,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        "DataCardValue17 As 'Text input'":
+                        "DataCardValue17_1 As 'Text input'":
                             AccessibleLabel: =Parent.DisplayName
                             BasePaletteColor: =
                             DisplayMode: =Parent.DisplayMode
@@ -1260,10 +1260,10 @@ ScreenInternetAllowance As screen:
                             Value: =Parent.Default
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey17.Y + DataCardKey17.Height + 4
+                            Y: =DataCardKey17_1.Y + DataCardKey17_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage15 As Text:
+                        ErrorMessage15_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -1271,10 +1271,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue17.Y + DataCardValue17.Height
+                            Y: =DataCardValue17_1.Y + DataCardValue17_1.Height
                             ZIndex: =3
 
-                        StarVisible16 As Text:
+                        StarVisible16_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
@@ -1282,15 +1282,15 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey17.Y
+                            Y: =DataCardKey17_1.Y
                             ZIndex: =4
 
-                    Status_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                    Status_DataCard1_1 As typedDataCard.fluentV9ComboBoxEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="Status"
                         Default: |-
-                            =If(Form3.Mode = FormMode.New, 
+                            =If(Form3_1.Mode = FormMode.New, 
                             
                             LookUp(Choices([@'JTAS Internet Allowance'].Status), Value = "On Checking")
                             
@@ -1301,13 +1301,13 @@ ScreenInternetAllowance As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         Required: =true
-                        Update: =DataCardValue18.Selected
+                        Update: =DataCardValue18_1.Selected
                         Width: =Parent.Width
                         X: =0
                         Y: =10
                         ZIndex: =4
 
-                        DataCardKey18 As Text:
+                        DataCardKey18_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -1318,7 +1318,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        DataCardValue18 As Combobox.pcfdataset:
+                        DataCardValue18_1 As Combobox.pcfdataset:
                             AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                             DefaultSelectedItems: =Parent.Default
                             DisplayMode: =Parent.DisplayMode
@@ -1327,10 +1327,10 @@ ScreenInternetAllowance As screen:
                             ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey18.Y + DataCardKey18.Height + 4
+                            Y: =DataCardKey18_1.Y + DataCardKey18_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage16 As Text:
+                        ErrorMessage16_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -1338,10 +1338,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue18.Y + DataCardValue18.Height
+                            Y: =DataCardValue18_1.Y + DataCardValue18_1.Height
                             ZIndex: =3
 
-                        StarVisible17 As Text:
+                        StarVisible17_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =20
@@ -1349,15 +1349,15 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey18.Y
+                            Y: =DataCardKey18_1.Y
                             ZIndex: =4
 
-                    StatusApproval_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                    StatusApproval_DataCard1_1 As typedDataCard.fluentV9ComboBoxEditCard:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="StatusApproval"
                         Default: |-
-                            =If(Form3.Mode = FormMode.New, 
+                            =If(Form3_1.Mode = FormMode.New, 
                             
                             LookUp(Choices([@'JTAS Internet Allowance'].StatusApproval), Value = "Pending")
                             
@@ -1368,13 +1368,13 @@ ScreenInternetAllowance As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =70
                         Required: =true
-                        Update: =DataCardValue28.Selected
+                        Update: =DataCardValue28_1.Selected
                         Width: =Parent.Width
                         X: =0
                         Y: =11
                         ZIndex: =4
 
-                        DataCardKey29 As Text:
+                        DataCardKey29_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =22
                             Text: =Parent.DisplayName
@@ -1385,7 +1385,7 @@ ScreenInternetAllowance As screen:
                             Y: =10
                             ZIndex: =1
 
-                        DataCardValue28 As Combobox.pcfdataset:
+                        DataCardValue28_1 As Combobox.pcfdataset:
                             AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                             DefaultSelectedItems: =Parent.Default
                             DisplayMode: =Parent.DisplayMode
@@ -1394,10 +1394,10 @@ ScreenInternetAllowance As screen:
                             ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                             Width: =Parent.Width - 48
                             X: =24
-                            Y: =DataCardKey29.Y + DataCardKey29.Height + 4
+                            Y: =DataCardKey29_1.Y + DataCardKey29_1.Height + 4
                             ZIndex: =2
 
-                        ErrorMessage19 As Text:
+                        ErrorMessage19_1 As Text:
                             DisplayMode: =DisplayMode.Edit
                             Height: =30
                             Text: =Parent.Error
@@ -1405,10 +1405,10 @@ ScreenInternetAllowance As screen:
                             Width: =Parent.Width - 48
                             Wrap: =true
                             X: =24
-                            Y: =DataCardValue28.Y + DataCardValue28.Height
+                            Y: =DataCardValue28_1.Y + DataCardValue28_1.Height
                             ZIndex: =3
 
-                        StarVisible20 As Text:
+                        StarVisible20_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =20
@@ -1416,22 +1416,22 @@ ScreenInternetAllowance As screen:
                             Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             X: =0
-                            Y: =DataCardKey29.Y
+                            Y: =DataCardKey29_1.Y
                             ZIndex: =4
 
-                Container62 As groupContainer.horizontalAutoLayoutContainer:
+                Container62_1 As groupContainer.horizontalAutoLayoutContainer:
                     DropShadow: =DropShadow.Light
-                    Height: =If(Form3.Mode = FormMode.New, 50, 0)
+                    Height: =If(Form3_1.Mode = FormMode.New, 50, 0)
                     LayoutMode: =LayoutMode.Auto
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
                     Width: =Parent.Width
-                    Y: =Container63.Height
+                    Y: =Container63_1.Height
                     ZIndex: =5
 
-                    TextCanvas2 As Text:
+                    TextCanvas2_1 As Text:
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
@@ -1446,7 +1446,7 @@ ScreenInternetAllowance As screen:
                         Y: =0
                         ZIndex: =1
 
-                    ComboboxCanvas2 As Combobox.pcfdataset:
+                    ComboboxCanvas2_1 As Combobox.pcfdataset:
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
                         Items: =InternetDataDrop
@@ -1457,7 +1457,7 @@ ScreenInternetAllowance As screen:
                         Y: =0
                         ZIndex: =2
 
-                        Label21 As pcfDataField.textualColumn:
+                        Label21_1 As pcfDataField.textualColumn:
                             FieldDisplayName: ="label"
                             FieldName: ="label"
                             FieldType: ="s"
@@ -1465,28 +1465,28 @@ ScreenInternetAllowance As screen:
                             Order: =1
                             ZIndex: =24
 
-                Container63 As groupContainer.manualLayoutContainer:
+                Container63_1 As groupContainer.manualLayoutContainer:
                     DropShadow: =DropShadow.Light
-                    Height: =TextCanvas1.Height
+                    Height: =TextCanvas1_1.Height
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
                     ZIndex: =6
 
-                    TextCanvas1 As Text:
+                    TextCanvas1_1 As Text:
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
                         Height: =60
                         Size: =16
-                        Text: =If(Form3.Mode = FormMode.New,  "Apply for new Internet Allowance", Form3.Mode = FormMode.Edit, "Edit the applied Internet Allowance for the month and year of " & PowerAppsOneGrid5.Selected.'Date Applied', "View the applied Internet Allowance for the month and year of " & PowerAppsOneGrid5.Selected.'Date Applied')
+                        Text: =If(Form3_1.Mode = FormMode.New,  "Apply for new Internet Allowance", Form3_1.Mode = FormMode.Edit, "Edit the applied Internet Allowance for the month and year of " & PowerAppsOneGrid5_1.Selected.'Date Applied', "View the applied Internet Allowance for the month and year of " & PowerAppsOneGrid5_1.Selected.'Date Applied')
                         Weight: ='TextCanvas.Weight'.Bold
                         Width: =Parent.Width
                         X: =0
                         Y: =0
                         ZIndex: =1
 
-        ViewFiles As groupContainer.manualLayoutContainer:
+        ViewFiles_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 0, 0, 0.4)
             Height: =Parent.Height
@@ -1498,7 +1498,7 @@ ScreenInternetAllowance As screen:
             Width: =Parent.Width
             ZIndex: =3
 
-            Container67 As groupContainer.manualLayoutContainer:
+            Container67_1 As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height - 50
@@ -1511,7 +1511,7 @@ ScreenInternetAllowance As screen:
                 Y: =(Parent.Height - Self.Height) / 2
                 ZIndex: =1
 
-                Container68 As groupContainer.verticalAutoLayoutContainer:
+                Container68_1 As groupContainer.verticalAutoLayoutContainer:
                     DropShadow: =DropShadow.Light
                     Height: =Parent.Height
                     LayoutDirection: =LayoutDirection.Vertical
@@ -1527,7 +1527,7 @@ ScreenInternetAllowance As screen:
                         =0
                     ZIndex: =1
 
-                    Container69 As groupContainer.manualLayoutContainer:
+                    Container69_1 As groupContainer.manualLayoutContainer:
                         DropShadow: =DropShadow.Light
                         FillPortions: =0
                         Height: =50
@@ -1539,19 +1539,19 @@ ScreenInternetAllowance As screen:
                         RadiusTopRight: =4
                         ZIndex: =1
 
-                        TextCanvas3 As Text:
+                        TextCanvas3_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =Parent.Height
                             Size: =20
-                            Text: ="View All Uploaded Document from " & PowerAppsOneGrid5.Selected.'Date Applied'
+                            Text: ="View All Uploaded Document from " & PowerAppsOneGrid5_1.Selected.'Date Applied'
                             Weight: ='TextCanvas.Weight'.Bold
                             Width: =Parent.Width - Self.X - Self.X
-                            X: =Icon19.X + Icon19.Width + Icon19.X
+                            X: =Icon19_1.X + Icon19_1.Width + Icon19_1.X
                             Y: =0
                             ZIndex: =1
 
-                        Icon19 As icon.BackArrow:
+                        Icon19_1 As icon.BackArrow:
                             BorderColor: =RGBA(166, 166, 166, 1)
                             Color: =RGBA(105, 121, 126, 1)
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
@@ -1572,7 +1572,7 @@ ScreenInternetAllowance As screen:
                             Y: =(Parent.Height - Self.Height) /2
                             ZIndex: =2
 
-                    Container70 As groupContainer.manualLayoutContainer:
+                    Container70_1 As groupContainer.manualLayoutContainer:
                         DropShadow: =DropShadow.Light
                         LayoutMinHeight: =100
                         LayoutMinWidth: =Parent.Width
@@ -1582,7 +1582,7 @@ ScreenInternetAllowance As screen:
                         RadiusTopRight: =4
                         ZIndex: =2
 
-                        Container71 As groupContainer.horizontalAutoLayoutContainer:
+                        Container71_1 As groupContainer.horizontalAutoLayoutContainer:
                             DropShadow: =DropShadow.ExtraBold
                             Height: =Parent.Height - 60
                             LayoutMode: =LayoutMode.Auto
@@ -1595,13 +1595,13 @@ ScreenInternetAllowance As screen:
                             Y: =(Parent.Height - Self.Height) /2
                             ZIndex: =1
 
-                            "Gallery5 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver5.0'":
+                            "Gallery5_2 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver5.0'":
                                 AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderColor: =RGBA(166, 166, 166, 1)
                                 DelayItemLoading: =true
                                 FillPortions: =0
                                 Height: =Parent.Height
-                                Items: =PowerAppsOneGrid5.Selected.'{Attachments}'
+                                Items: =PowerAppsOneGrid5_1.Selected.'{Attachments}'
                                 Layout: =Layout.Vertical
                                 LayoutMinHeight: =Parent.Height
                                 LayoutMinWidth: =320
@@ -1611,7 +1611,7 @@ ScreenInternetAllowance As screen:
                                 Width: =500
                                 ZIndex: =1
 
-                                Image13 As image:
+                                Image13_1 As image:
                                     BorderColor: =RGBA(0, 0, 0, 0)
                                     BorderStyle: =BorderStyle.None
                                     BorderThickness: =2
@@ -1634,7 +1634,7 @@ ScreenInternetAllowance As screen:
                                     Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
                                     ZIndex: =1
 
-                                Title10 As label:
+                                Title10_1 As label:
                                     Color: =RGBA(50, 49, 48, 1)
                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                     Font: =Font.'Segoe UI'
@@ -1647,12 +1647,12 @@ ScreenInternetAllowance As screen:
                                     PaddingTop: =0
                                     Text: =ThisItem.DisplayName
                                     VerticalAlign: =VerticalAlign.Top
-                                    Width: =Parent.TemplateWidth - Image13.Width - 137
+                                    Width: =Parent.TemplateWidth - Image13_1.Width - 137
                                     X: =91
                                     Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
                                     ZIndex: =2
 
-                                NextArrow2 As icon.ChevronRight:
+                                NextArrow2_1 As icon.ChevronRight:
                                     AccessibleLabel: =Self.Tooltip
                                     Color: =RGBA(166, 166, 166, 1)
                                     Height: =50
@@ -1668,7 +1668,7 @@ ScreenInternetAllowance As screen:
                                     Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
                                     ZIndex: =3
 
-                                Separator4 As rectangle:
+                                Separator4_1 As rectangle:
                                     BorderColor: =RGBA(0, 0, 0, 0)
                                     Fill: =RGBA(255, 255, 255, 1)
                                     Height: =8
@@ -1677,25 +1677,25 @@ ScreenInternetAllowance As screen:
                                     Y: =Parent.TemplateHeight - Self.Height
                                     ZIndex: =4
 
-                                Rectangle7 As rectangle:
+                                Rectangle7_1 As rectangle:
                                     BorderColor: =RGBA(0, 0, 0, 0)
                                     Fill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-                                    Height: =Parent.TemplateHeight - Separator4.Height
+                                    Height: =Parent.TemplateHeight - Separator4_1.Height
                                     OnSelect: =Select(Parent)
                                     Visible: =ThisItem.IsSelected
                                     Width: =4
                                     ZIndex: =5
 
-                            PDFViewerData_1 As PDFViewerData:
+                            PDFViewerData_2 As PDFViewerData:
                                 FillPortions: =1
                                 Height: =Parent.Height
-                                ImageData: =If(Not(Lower(Last(Split(Gallery5.Selected.DisplayName, ".")).Value) = "pdf"), Gallery5.Selected.AbsoluteUri)
-                                IsPDF: =Lower(Last(Split(Gallery5.Selected.DisplayName, ".")).Value) = "pdf"
+                                ImageData: =If(Not(Lower(Last(Split(Gallery5_2.Selected.DisplayName, ".")).Value) = "pdf"), Gallery5_2.Selected.AbsoluteUri)
+                                IsPDF: =Lower(Last(Split(Gallery5_2.Selected.DisplayName, ".")).Value) = "pdf"
                                 LayoutMinHeight: =Parent.Height
-                                PDFData: =Gallery5.Selected.Value
+                                PDFData: =Gallery5_2.Selected.Value
                                 ZIndex: =2
 
-        RegisterMaster As groupContainer.manualLayoutContainer:
+        RegisterMaster_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 0, 0, 0.31)
             Height: =Parent.Height
@@ -1707,7 +1707,7 @@ ScreenInternetAllowance As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            Container22 As groupContainer.manualLayoutContainer:
+            Container22_1 As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =800
@@ -1719,7 +1719,7 @@ ScreenInternetAllowance As screen:
                 Y: =(Parent.Height - Self.Height)/2
                 ZIndex: =1
 
-                Container23 As groupContainer.verticalAutoLayoutContainer:
+                Container23_1 As groupContainer.verticalAutoLayoutContainer:
                     DropShadow: =DropShadow.Light
                     Height: =Parent.Height
                     LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -1732,7 +1732,7 @@ ScreenInternetAllowance As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-                    Container58 As groupContainer.manualLayoutContainer:
+                    Container58_1 As groupContainer.manualLayoutContainer:
                         DropShadow: =DropShadow.Light
                         FillPortions: =0
                         Height: =50
@@ -1744,18 +1744,18 @@ ScreenInternetAllowance As screen:
                         RadiusTopRight: =4
                         ZIndex: =1
 
-                        TextCanvas4 As Text:
+                        TextCanvas4_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =Parent.Height
-                            Text: =If(Form6.Mode = FormMode.New, "Register New Internet Allowance Provider", Form6.Mode = FormMode.Edit, "Edit Internet Allowance Provider", "View Internet Allowance Provider")
+                            Text: =If(Form6_1.Mode = FormMode.New, "Register New Internet Allowance Provider", Form6_1.Mode = FormMode.Edit, "Edit Internet Allowance Provider", "View Internet Allowance Provider")
                             Weight: ='TextCanvas.Weight'.Bold
                             Width: =Parent.Width
                             X: =0
                             Y: =0
                             ZIndex: =1
 
-                    Form6 As form.PowerApps_CoreControls_Form:
+                    Form6_1 As form.PowerApps_CoreControls_Form:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         DataSource: =JTAS_InternetAllowance_Masterfile
                         DefaultMode: =FormMode.New
@@ -1766,7 +1766,7 @@ ScreenInternetAllowance As screen:
                         UseFluentV9Cards: =true
                         ZIndex: =2
 
-                        MembersEmail_DataCard2 As typedDataCard.fluentV9TextualEditCard:
+                        MembersEmail_DataCard2_1 As typedDataCard.fluentV9TextualEditCard:
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="field_1"
@@ -1777,14 +1777,14 @@ ScreenInternetAllowance As screen:
                             Height: =70
                             MaxLength: =DataSourceInfo([@JTAS_InternetAllowance_Masterfile], DataSourceInfo.MaxLength, "field_1")
                             Required: =true
-                            Update: =DataCardValue9.Value
+                            Update: =DataCardValue9_1.Value
                             Visible: =false
                             Width: =Parent.Width
                             X: =0
                             Y: =0
                             ZIndex: =3
 
-                            DataCardKey9 As Text:
+                            DataCardKey9_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: ="Member"
@@ -1795,7 +1795,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            "DataCardValue9 As 'Text input'":
+                            "DataCardValue9_1 As 'Text input'":
                                 AccessibleLabel: =Parent.DisplayName
                                 BasePaletteColor: =
                                 DisplayMode: =Parent.DisplayMode
@@ -1806,10 +1806,10 @@ ScreenInternetAllowance As screen:
                                 Value: =Parent.Default
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey9.Y + DataCardKey9.Height + 4
+                                Y: =DataCardKey9_1.Y + DataCardKey9_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage8 As Text:
+                            ErrorMessage8_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -1817,10 +1817,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue9.Y + DataCardValue9.Height
+                                Y: =DataCardValue9_1.Y + DataCardValue9_1.Height
                                 ZIndex: =3
 
-                            StarVisible9 As Text:
+                            StarVisible9_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
@@ -1828,10 +1828,10 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey9.Y
+                                Y: =DataCardKey9_1.Y
                                 ZIndex: =4
 
-                        "'Provider and Plan_DataCard2' As typedDataCard.fluentV9TextualEditCard":
+                        "'Provider and Plan_DataCard2_1' As typedDataCard.fluentV9TextualEditCard":
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="field_2"
@@ -1842,13 +1842,13 @@ ScreenInternetAllowance As screen:
                             Height: =70
                             MaxLength: =DataSourceInfo([@JTAS_InternetAllowance_Masterfile], DataSourceInfo.MaxLength, "field_2")
                             Required: =true
-                            Update: =DataCardValue10.Value
+                            Update: =DataCardValue10_1.Value
                             Width: =Parent.Width
                             X: =0
                             Y: =1
                             ZIndex: =3
 
-                            DataCardKey10 As Text:
+                            DataCardKey10_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: =Parent.DisplayName
@@ -1859,7 +1859,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            "DataCardValue10 As 'Text input'":
+                            "DataCardValue10_1 As 'Text input'":
                                 AccessibleLabel: =Parent.DisplayName
                                 BasePaletteColor: =
                                 DisplayMode: =Parent.DisplayMode
@@ -1870,10 +1870,10 @@ ScreenInternetAllowance As screen:
                                 Value: =Parent.Default
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey10.Y + DataCardKey10.Height + 4
+                                Y: =DataCardKey10_1.Y + DataCardKey10_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage9 As Text:
+                            ErrorMessage9_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -1881,10 +1881,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue10.Y + DataCardValue10.Height
+                                Y: =DataCardValue10_1.Y + DataCardValue10_1.Height
                                 ZIndex: =3
 
-                            StarVisible10 As Text:
+                            StarVisible10_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
@@ -1892,10 +1892,10 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey10.Y
+                                Y: =DataCardKey10_1.Y
                                 ZIndex: =4
 
-                        PlanType_DataCard2 As typedDataCard.fluentV9ComboBoxEditCard:
+                        PlanType_DataCard2_1 As typedDataCard.fluentV9ComboBoxEditCard:
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="field_3"
@@ -1905,13 +1905,13 @@ ScreenInternetAllowance As screen:
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =70
                             Required: =true
-                            Update: =DataCardValue11.Selected
+                            Update: =DataCardValue11_1.Selected
                             Width: =Parent.Width
                             X: =0
                             Y: =2
                             ZIndex: =3
 
-                            DataCardKey11 As Text:
+                            DataCardKey11_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: ="Plan Type"
@@ -1922,7 +1922,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            DataCardValue11 As Combobox.pcfdataset:
+                            DataCardValue11_1 As Combobox.pcfdataset:
                                 AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                                 DefaultSelectedItems: =Parent.Default
                                 DisplayMode: =Parent.DisplayMode
@@ -1931,10 +1931,10 @@ ScreenInternetAllowance As screen:
                                 ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey11.Y + DataCardKey11.Height + 4
+                                Y: =DataCardKey11_1.Y + DataCardKey11_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage10 As Text:
+                            ErrorMessage10_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -1942,10 +1942,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue11.Y + DataCardValue11.Height
+                                Y: =DataCardValue11_1.Y + DataCardValue11_1.Height
                                 ZIndex: =3
 
-                            StarVisible11 As Text:
+                            StarVisible11_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =20
@@ -1953,10 +1953,10 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey11.Y
+                                Y: =DataCardKey11_1.Y
                                 ZIndex: =4
 
-                        Bundle_DataCard2 As typedDataCard.fluentV9ComboBoxEditCard:
+                        Bundle_DataCard2_1 As typedDataCard.fluentV9ComboBoxEditCard:
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="field_4"
@@ -1966,13 +1966,13 @@ ScreenInternetAllowance As screen:
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =70
                             Required: =true
-                            Update: =DataCardValue12.Selected
+                            Update: =DataCardValue12_1.Selected
                             Width: =Parent.Width
                             X: =0
                             Y: =3
                             ZIndex: =3
 
-                            DataCardKey12 As Text:
+                            DataCardKey12_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: =Parent.DisplayName
@@ -1983,7 +1983,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            DataCardValue12 As Combobox.pcfdataset:
+                            DataCardValue12_1 As Combobox.pcfdataset:
                                 AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                                 DefaultSelectedItems: =Parent.Default
                                 DisplayMode: =Parent.DisplayMode
@@ -1992,10 +1992,10 @@ ScreenInternetAllowance As screen:
                                 ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey12.Y + DataCardKey12.Height + 4
+                                Y: =DataCardKey12_1.Y + DataCardKey12_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage17 As Text:
+                            ErrorMessage17_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -2003,10 +2003,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue12.Y + DataCardValue12.Height
+                                Y: =DataCardValue12_1.Y + DataCardValue12_1.Height
                                 ZIndex: =3
 
-                            StarVisible18 As Text:
+                            StarVisible18_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =20
@@ -2014,10 +2014,10 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey12.Y
+                                Y: =DataCardKey12_1.Y
                                 ZIndex: =4
 
-                        Plan_DataCard1 As typedDataCard.fluentV9NumberEditCard:
+                        Plan_DataCard1_1 As typedDataCard.fluentV9NumberEditCard:
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="field_5"
@@ -2027,13 +2027,13 @@ ScreenInternetAllowance As screen:
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =70
                             Required: =true
-                            Update: =Value(DataCardValue19.Value)
+                            Update: =Value(DataCardValue19_1.Value)
                             Width: =Parent.Width
                             X: =0
                             Y: =4
                             ZIndex: =3
 
-                            DataCardKey19 As Text:
+                            DataCardKey19_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: =Parent.DisplayName
@@ -2044,7 +2044,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            "DataCardValue19 As 'Text input'":
+                            "DataCardValue19_1 As 'Text input'":
                                 AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                                 BasePaletteColor: =
                                 DisplayMode: =Parent.DisplayMode
@@ -2054,10 +2054,10 @@ ScreenInternetAllowance As screen:
                                 Value: =Parent.Default
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey19.Y + DataCardKey19.Height + 4
+                                Y: =DataCardKey19_1.Y + DataCardKey19_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage18 As Text:
+                            ErrorMessage18_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -2065,10 +2065,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue19.Y + DataCardValue19.Height
+                                Y: =DataCardValue19_1.Y + DataCardValue19_1.Height
                                 ZIndex: =3
 
-                            StarVisible19 As Text:
+                            StarVisible19_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
@@ -2076,26 +2076,26 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey19.Y
+                                Y: =DataCardKey19_1.Y
                                 ZIndex: =4
 
-                        "'Bundle Amount_DataCard1' As typedDataCard.fluentV9NumberEditCard":
+                        "'Bundle Amount_DataCard1_1' As typedDataCard.fluentV9NumberEditCard":
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="field_7"
-                            Default: =If(DataCardValue12.Selected.Value in ["N/A", Blank(), "None"] Or Find("None", DataCardValue12.Selected.Value), 0, 100)
+                            Default: =If(DataCardValue12_1.Selected.Value in ["N/A", Blank(), "None"] Or Find("None", DataCardValue12_1.Selected.Value), 0, 100)
                             DisplayMode: =DisplayMode.View
                             DisplayName: =DataSourceInfo([@JTAS_InternetAllowance_Masterfile],DataSourceInfo.DisplayName,"field_7")
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =70
                             Required: =true
-                            Update: =Value(DataCardValue21.Value)
+                            Update: =Value(DataCardValue21_1.Value)
                             Width: =Parent.Width
                             X: =0
                             Y: =5
                             ZIndex: =3
 
-                            DataCardKey21 As Text:
+                            DataCardKey21_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: =Parent.DisplayName
@@ -2106,7 +2106,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            "DataCardValue21 As 'Text input'":
+                            "DataCardValue21_1 As 'Text input'":
                                 AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                                 BasePaletteColor: =
                                 DisplayMode: =Parent.DisplayMode
@@ -2115,10 +2115,10 @@ ScreenInternetAllowance As screen:
                                 Value: =Parent.Default
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey21.Y + DataCardKey21.Height + 4
+                                Y: =DataCardKey21_1.Y + DataCardKey21_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage25 As Text:
+                            ErrorMessage25_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -2126,10 +2126,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue21.Y + DataCardValue21.Height
+                                Y: =DataCardValue21_1.Y + DataCardValue21_1.Height
                                 ZIndex: =3
 
-                            StarVisible26 As Text:
+                            StarVisible26_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
@@ -2137,58 +2137,58 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey21.Y
+                                Y: =DataCardKey21_1.Y
                                 ZIndex: =4
 
-                        "'Monthly Allowance_DataCard1' As typedDataCard.fluentV9NumberEditCard":
+                        "'Monthly Allowance_DataCard1_1' As typedDataCard.fluentV9NumberEditCard":
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="field_8"
                             Default: |-
                                 =// 4 digit
                                 If(
-                                 Len(DataCardValue19.Value) = 4,
+                                 Len(DataCardValue19_1.Value) = 4,
                                     If(
                                     //1 to 50 second last digit
-                                    Value(Right(DataCardValue19.Value / 2, 2)) >= 1 And Value(Right(DataCardValue19.Value / 2, 2)) <= 49, 
-                                     Value(Left(DataCardValue19.Value / 2, 1)) * 100 + 50,
-                                     Value(Right(DataCardValue19.Value / 2, 2)) = 50,
-                                     DataCardValue19.Value / 2,
-                                    Value(Right(DataCardValue19.Value / 2, 2)) >= 51 And Value(Right(DataCardValue19.Value / 2, 2)) <= 99, 
-                                     (Value(Left(DataCardValue19.Value / 2, 1)) + 1) * 100,
-                                     DataCardValue19.Value / 2
+                                    Value(Right(DataCardValue19_1.Value / 2, 2)) >= 1 And Value(Right(DataCardValue19_1.Value / 2, 2)) <= 49, 
+                                     Value(Left(DataCardValue19_1.Value / 2, 1)) * 100 + 50,
+                                     Value(Right(DataCardValue19_1.Value / 2, 2)) = 50,
+                                     DataCardValue19_1.Value / 2,
+                                    Value(Right(DataCardValue19_1.Value / 2, 2)) >= 51 And Value(Right(DataCardValue19_1.Value / 2, 2)) <= 99, 
+                                     (Value(Left(DataCardValue19_1.Value / 2, 1)) + 1) * 100,
+                                     DataCardValue19_1.Value / 2
                                     ),
                                 
                                 
-                                 Len(DataCardValue19.Value) = 3,
+                                 Len(DataCardValue19_1.Value) = 3,
                                     If(
                                     //1 to 50 second last digit
-                                    Value(Right(DataCardValue19.Value / 2, 1)) >= 1 And Value(Right(DataCardValue19.Value / 2, 1)) <= 4, 
-                                     Value(Left(DataCardValue19.Value / 2, 1)) * 10 + 5,
-                                    Value(Left(DataCardValue19.Value / 2, 1)) = 5,
-                                    DataCardValue19.Value / 2,
-                                    Value(Right(DataCardValue19.Value / 2, 1)) >= 5 And Value(Right(DataCardValue19.Value / 2, 1)) <= 9, 
-                                     (Value(Left(DataCardValue19.Value / 2, 1)) + 1) * 10,
-                                     DataCardValue19.Value / 2
+                                    Value(Right(DataCardValue19_1.Value / 2, 1)) >= 1 And Value(Right(DataCardValue19_1.Value / 2, 1)) <= 4, 
+                                     Value(Left(DataCardValue19_1.Value / 2, 1)) * 10 + 5,
+                                    Value(Left(DataCardValue19_1.Value / 2, 1)) = 5,
+                                    DataCardValue19_1.Value / 2,
+                                    Value(Right(DataCardValue19_1.Value / 2, 1)) >= 5 And Value(Right(DataCardValue19_1.Value / 2, 1)) <= 9, 
+                                     (Value(Left(DataCardValue19_1.Value / 2, 1)) + 1) * 10,
+                                     DataCardValue19_1.Value / 2
                                     )
                                 
                                 )
                                 
                                 
                                 
-                                - If(DataCardValue12.Selected.Value in ["N/A", Blank(), "None"] Or Find("None", DataCardValue12.Selected.Value), 0, 100)
+                                - If(DataCardValue12_1.Selected.Value in ["N/A", Blank(), "None"] Or Find("None", DataCardValue12_1.Selected.Value), 0, 100)
                             DisplayMode: =DisplayMode.View
                             DisplayName: =DataSourceInfo([@JTAS_InternetAllowance_Masterfile],DataSourceInfo.DisplayName,"field_8")
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =70
                             Required: =false
-                            Update: =Value(DataCardValue22.Value)
+                            Update: =Value(DataCardValue22_1.Value)
                             Width: =Parent.Width
                             X: =0
                             Y: =6
                             ZIndex: =3
 
-                            DataCardKey26 As Text:
+                            DataCardKey26_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: =Parent.DisplayName
@@ -2199,7 +2199,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            "DataCardValue22 As 'Text input'":
+                            "DataCardValue22_1 As 'Text input'":
                                 AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                                 BasePaletteColor: =
                                 DisplayMode: =Parent.DisplayMode
@@ -2208,10 +2208,10 @@ ScreenInternetAllowance As screen:
                                 Value: =Parent.Default
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey26.Y + DataCardKey26.Height + 4
+                                Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage26 As Text:
+                            ErrorMessage26_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -2219,10 +2219,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue22.Y + DataCardValue22.Height
+                                Y: =DataCardValue22_1.Y + DataCardValue22_1.Height
                                 ZIndex: =3
 
-                            StarVisible27 As Text:
+                            StarVisible27_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
@@ -2230,10 +2230,10 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey26.Y
+                                Y: =DataCardKey26_1.Y
                                 ZIndex: =4
 
-                        Status_DataCard2 As typedDataCard.fluentV9ComboBoxEditCard:
+                        Status_DataCard2_1 As typedDataCard.fluentV9ComboBoxEditCard:
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="Status"
@@ -2246,13 +2246,13 @@ ScreenInternetAllowance As screen:
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =70
                             Required: =false
-                            Update: =DataCardValue26.Selected
+                            Update: =DataCardValue26_1.Selected
                             Width: =Parent.Width
                             X: =0
                             Y: =7
                             ZIndex: =3
 
-                            DataCardKey27 As Text:
+                            DataCardKey27_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: =Parent.DisplayName
@@ -2263,10 +2263,10 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            DataCardValue26 As Combobox.pcfdataset:
+                            DataCardValue26_1 As Combobox.pcfdataset:
                                 AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                                 DefaultSelectedItems: |-
-                                    =If(Form6.Mode = FormMode.New, LookUp(Choices([@JTAS_InternetAllowance_Masterfile].Status), Value = "Pending")
+                                    =If(Form6_1.Mode = FormMode.New, LookUp(Choices([@JTAS_InternetAllowance_Masterfile].Status), Value = "Pending")
                                     
                                     , ThisItem.Status)
                                 DisplayMode: =Parent.DisplayMode
@@ -2275,10 +2275,10 @@ ScreenInternetAllowance As screen:
                                 ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey27.Y + DataCardKey27.Height + 4
+                                Y: =DataCardKey27_1.Y + DataCardKey27_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage27 As Text:
+                            ErrorMessage27_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -2286,10 +2286,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue26.Y + DataCardValue26.Height
+                                Y: =DataCardValue26_1.Y + DataCardValue26_1.Height
                                 ZIndex: =3
 
-                            StarVisible28 As Text:
+                            StarVisible28_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =20
@@ -2297,10 +2297,10 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey27.Y
+                                Y: =DataCardKey27_1.Y
                                 ZIndex: =4
 
-                        Remarks_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                        Remarks_DataCard1_1 As typedDataCard.fluentV9TextualEditCard:
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="Remarks"
@@ -2311,14 +2311,14 @@ ScreenInternetAllowance As screen:
                             Height: =70
                             MaxLength: =DataSourceInfo([@JTAS_InternetAllowance_Masterfile], DataSourceInfo.MaxLength, "Remarks")
                             Required: =false
-                            Update: =DataCardValue29.Value
-                            Visible: =Form6.Mode <> FormMode.New
+                            Update: =DataCardValue29_1.Value
+                            Visible: =Form6_1.Mode <> FormMode.New
                             Width: =Parent.Width
                             X: =0
                             Y: =8
                             ZIndex: =3
 
-                            DataCardKey30 As Text:
+                            DataCardKey30_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =22
                                 Text: =Parent.DisplayName
@@ -2329,7 +2329,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            "DataCardValue29 As 'Text input'":
+                            "DataCardValue29_1 As 'Text input'":
                                 AccessibleLabel: =Parent.DisplayName
                                 BasePaletteColor: =
                                 DisplayMode: =Parent.DisplayMode
@@ -2340,10 +2340,10 @@ ScreenInternetAllowance As screen:
                                 Value: =Parent.Default
                                 Width: =Parent.Width - 48
                                 X: =24
-                                Y: =DataCardKey30.Y + DataCardKey30.Height + 4
+                                Y: =DataCardKey30_1.Y + DataCardKey30_1.Height + 4
                                 ZIndex: =2
 
-                            ErrorMessage31 As Text:
+                            ErrorMessage31_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
                                 Text: =Parent.Error
@@ -2351,10 +2351,10 @@ ScreenInternetAllowance As screen:
                                 Width: =Parent.Width - 48
                                 Wrap: =true
                                 X: =24
-                                Y: =DataCardValue29.Y + DataCardValue29.Height
+                                Y: =DataCardValue29_1.Y + DataCardValue29_1.Height
                                 ZIndex: =3
 
-                            StarVisible32 As Text:
+                            StarVisible32_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
@@ -2362,10 +2362,10 @@ ScreenInternetAllowance As screen:
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
-                                Y: =DataCardKey30.Y
+                                Y: =DataCardKey30_1.Y
                                 ZIndex: =4
 
-                        Attachments_DataCard2 As typedDataCard.attachmentsEditCard:
+                        Attachments_DataCard2_1 As typedDataCard.attachmentsEditCard:
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="{Attachments}"
@@ -2375,13 +2375,13 @@ ScreenInternetAllowance As screen:
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =50
                             Required: =true
-                            Update: =DataCardValue30.Attachments
+                            Update: =DataCardValue30_1.Attachments
                             Width: =Parent.Width
                             X: =0
                             Y: =9
                             ZIndex: =3
 
-                            DataCardKey32 As label:
+                            DataCardKey32_1 As label:
                                 AutoHeight: =true
                                 BorderColor: =RGBA(0, 0, 0, 0)
                                 BorderStyle: =BorderStyle.None
@@ -2402,7 +2402,7 @@ ScreenInternetAllowance As screen:
                                 Y: =10
                                 ZIndex: =1
 
-                            DataCardValue30 As attachments:
+                            DataCardValue30_1 As attachments:
                                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                                 BorderStyle: =BorderStyle.None
                                 BorderThickness: =2
@@ -2432,10 +2432,10 @@ ScreenInternetAllowance As screen:
                                 Tooltip: =Parent.DisplayName
                                 Width: =Parent.Width - 60
                                 X: =30
-                                Y: =DataCardKey32.Y + DataCardKey32.Height + 5
+                                Y: =DataCardKey32_1.Y + DataCardKey32_1.Height + 5
                                 ZIndex: =2
 
-                            ErrorMessage36 As label:
+                            ErrorMessage36_1 As label:
                                 AutoHeight: =true
                                 BorderColor: =RGBA(0, 0, 0, 0)
                                 BorderStyle: =BorderStyle.None
@@ -2457,10 +2457,10 @@ ScreenInternetAllowance As screen:
                                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                                 Width: =Parent.Width - 60
                                 X: =30
-                                Y: =DataCardValue30.Y + DataCardValue30.Height
+                                Y: =DataCardValue30_1.Y + DataCardValue30_1.Height
                                 ZIndex: =3
 
-                            StarVisible37 As label:
+                            StarVisible37_1 As label:
                                 Align: =Align.Center
                                 BorderColor: =RGBA(0, 0, 0, 0)
                                 BorderStyle: =BorderStyle.None
@@ -2471,17 +2471,17 @@ ScreenInternetAllowance As screen:
                                 FocusedBorderThickness: =4
                                 Font: =Font.'Segoe UI'
                                 FontWeight: =FontWeight.Semibold
-                                Height: =DataCardKey32.Height
+                                Height: =DataCardKey32_1.Height
                                 PaddingLeft: =0
                                 Size: =13
                                 Text: ="*"
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 Wrap: =false
-                                Y: =DataCardKey32.Y
+                                Y: =DataCardKey32_1.Y
                                 ZIndex: =4
 
-                    Container59 As groupContainer.manualLayoutContainer:
+                    Container59_1 As groupContainer.manualLayoutContainer:
                         DropShadow: =DropShadow.Light
                         FillPortions: =0
                         Height: =50
@@ -2493,7 +2493,7 @@ ScreenInternetAllowance As screen:
                         RadiusTopRight: =4
                         ZIndex: =3
 
-                        Container61 As groupContainer.horizontalAutoLayoutContainer:
+                        Container61_1 As groupContainer.horizontalAutoLayoutContainer:
                             DropShadow: =DropShadow.Light
                             Height: =50
                             LayoutMode: =LayoutMode.Auto
@@ -2503,18 +2503,18 @@ ScreenInternetAllowance As screen:
                             RadiusTopRight: =4
                             ZIndex: =1
 
-                            ButtonCanvas1 As Button:
+                            ButtonCanvas1_1 As Button:
                                 BasePaletteColor: =RGBA(21, 68, 18, 1)
-                                DisplayMode: =If(Form6.Valid, DisplayMode.Edit, DisplayMode.Disabled)
+                                DisplayMode: =If(Form6_1.Valid, DisplayMode.Edit, DisplayMode.Disabled)
                                 FillPortions: =1
                                 Height: =Parent.Height
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
                                 OnSelect: |-
                                     =UpdateContext({showLoading2: true});
-                                    SubmitForm(Form6);
-                                    If(Form6.Mode = FormMode.Edit,
-                                    Patch(JTAS_InternetAllowance_Masterfile, Form6.LastSubmit, {Status: {Value: "Pending"}})
+                                    SubmitForm(Form6_1);
+                                    If(Form6_1.Mode = FormMode.Edit,
+                                    Patch(JTAS_InternetAllowance_Masterfile, Form6_1.LastSubmit, {Status: {Value: "Pending"}})
                                     );
                                     UpdateContext({showLoading2: false});
                                     UpdateContext({FormRegVis: false})
@@ -2524,7 +2524,7 @@ ScreenInternetAllowance As screen:
                                 Y: =0
                                 ZIndex: =1
 
-                            ButtonCanvas4 As Button:
+                            ButtonCanvas4_1 As Button:
                                 BasePaletteColor: =RGBA(184, 0, 0, 1)
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
@@ -2540,16 +2540,16 @@ ScreenInternetAllowance As screen:
                                 Y: =0
                                 ZIndex: =2
 
-    Header_15 As Header:
+    Header_26 As Header:
         Width: =Parent.Width - Self.X
-        X: =LeftNavigation_15.Width
+        X: =LeftNavigation_26.Width
         ZIndex: =2
 
-    LeftNavigation_15 As LeftNavigation:
+    LeftNavigation_26 As LeftNavigation:
         Height: =Parent.Height
         ZIndex: =3
 
-    Loading_14 As Loading:
+    Loading_23 As Loading:
         Height: =Parent.Height
         Visible: =showLoading2
         Width: =Parent.Width
