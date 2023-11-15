@@ -419,3 +419,22 @@
                 Y: =52
                 ZIndex: =4
 
+    DatePicker3 As datepicker:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        CalendarHeaderFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        Color: =RGBA(51, 51, 51, 1)
+        DateTimeZone: =DateTimeZone.UTC
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.'Segoe UI'
+        Format: =DateTimeFormat.LongTime
+        HoverDateFill: =RGBA(200, 200, 200, 1)
+        IconBackground: =RGBA(105, 121, 126, 1)
+        PaddingTop: =5
+        SelectedDateFill: =RGBA(105, 121, 126, 1)
+        Size: =13
+        X: =1148
+        Y: =268
+        ZIndex: =21
+
