@@ -81,6 +81,7 @@ App As appinfo:
         ),"label");
         
         
+        
         InternetAllowanceData = SortByColumns(RenameColumns(ShowColumns(AddColumns(ShowColumns(Filter('JTAS Internet Allowance', MembersEmail = varUserEmail), "MembersEmail", "{Attachments}", "Month", "Year", "Title", "Remarks2", "Date", "Status", "RemarksData", "ID") As Apatch, 
         "Plan", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, Plan), 
         "Provider", LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = Apatch.MembersEmail, 'Provider and Plan'), 
@@ -145,6 +146,8 @@ App As appinfo:
         
                    
                 );
+        
+        InternetProviderData = LookUp(JTAS_InternetAllowance_Masterfile, MembersEmail = varUserEmail);
     OnError: |-
         =Trace("Error at " & FirstError.Observed & ": " & FirstError.Message)
     OnStart: |
