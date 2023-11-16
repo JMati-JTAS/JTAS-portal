@@ -902,7 +902,7 @@ ScreenInternetAllowance_1 As screen:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="Amount"
-                        Default: =If(Form3_1.Mode = FormMode.New, Last(InternetAllowanceData).'Monthly Allowance', ThisItem.Amount)
+                        Default: =If(Form3_1.Mode = FormMode.New, InternetProviderData.Plan , ThisItem.Amount)
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"Amount")
                         Fill: =RGBA(0, 0, 0, 0)
@@ -1092,7 +1092,7 @@ ScreenInternetAllowance_1 As screen:
                         BorderColor: =RGBA(166, 166, 166, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="PlanType"
-                        Default: =If(Form3_1.Mode = FormMode.New, LookUp(Choices([@'JTAS Internet Allowance'].PlanType), Value = Last(InternetAllowanceData).'Plan Type'), ThisItem.PlanType)
+                        Default: =If(Form3_1.Mode = FormMode.New, LookUp(Choices([@'JTAS Internet Allowance'].PlanType), Value = InternetProviderData.PlanType.Value), ThisItem.PlanType)
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@'JTAS Internet Allowance'],DataSourceInfo.DisplayName,"PlanType")
                         Fill: =RGBA(0, 0, 0, 0)
@@ -1156,7 +1156,7 @@ ScreenInternetAllowance_1 As screen:
                         Default: |-
                             =If(Form3_1.Mode = FormMode.New, 
                             
-                            LookUp(Choices([@'JTAS Internet Allowance'].Bundle), Value = Last(InternetAllowanceData).'Bundle Plan')
+                            LookUp(Choices([@'JTAS Internet Allowance'].Bundle), Value = InternetProviderData.Bundle.Value)
                             
                             
                             , ThisItem.Bundle)
@@ -1223,8 +1223,7 @@ ScreenInternetAllowance_1 As screen:
                         Default: |-
                             =If(Form3_1.Mode = FormMode.New, 
                             
-                            Last(InternetAllowanceData).Provider
-                            
+                            InternetProviderData.'Provider and Plan'
                             
                             , ThisItem.'Provider and Plan')
                         DisplayMode: =Parent.DisplayMode
