@@ -1352,27 +1352,6 @@ ScreenHomeGeneral As screen:
                 Y: =304
                 ZIndex: =6
 
-                Icon14 As icon.Mail:
-                    BorderColor: =RGBA(166, 166, 166, 1)
-                    Color: =RGBA(105, 121, 126, 1)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(220, 220, 220, 1)
-                    DisabledFill: =RGBA(0, 0, 0, 0)
-                    FocusedBorderThickness: =4
-                    Height: =49
-                    HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-                    HoverFill: =RGBA(0, 0, 0, 0)
-                    Icon: =Icon.AddToCalendar
-                    OnSelect: =Navigate(LeaveCalendarScreen)
-                    PressedBorderColor: =RGBA(0, 0, 0, 0)
-                    PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
-                    PressedFill: =RGBA(0, 0, 0, 0)
-                    Tooltip: ="View Leave on Calendar"
-                    Width: =51
-                    X: =Parent.Width-Self.Width
-                    ZIndex: =1
-
                 Label2_52 As label:
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
