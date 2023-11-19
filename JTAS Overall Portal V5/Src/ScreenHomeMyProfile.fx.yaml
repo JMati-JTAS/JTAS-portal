@@ -1071,6 +1071,7 @@ ScreenHomeMyProfile As screen:
                     ImagePosition: =ImagePosition.Fill
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     PressedFill: =RGBA(0, 0, 0, 0)
+                    Visible: =false
                     Width: =Parent.Width - 120
                     X: =(Parent.Width - Self.Width) / 2
                     Y: =Label2_70.Height + Label2_70.Y + 70
@@ -1094,6 +1095,7 @@ ScreenHomeMyProfile As screen:
                     RailHoverFill: =ColorFade(RGBA(105, 121, 126, 1), 80%)
                     ValueFill: =RGBA(102, 102, 102, 1)
                     ValueHoverFill: =RGBA(105, 121, 126, 1)
+                    Visible: =false
                     Width: =imgMapControl_1.Width
                     X: =imgMapControl_1.X
                     Y: =imgMapControl_1.Y + imgMapControl_1.Height
@@ -1132,6 +1134,16 @@ ScreenHomeMyProfile As screen:
                     X: =Label2_70.X
                     Y: =Label2_70.Y + Label2_70.Height
                     ZIndex: =40
+
+                "IFrameVirtualPCF1 As 'IFrameVirtualPCF (0.1.0)'":
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =imgMapControl_1.Height + slZoom_1.Height
+                    src: |
+                        ="https://www.google.com/maps/embed/v1/search?key=AIzaSyD5ZrhlYGkcNQzOM0jEvTNO8sfkcD_jtRo&q="&Label2_80.Text&"&zoom=18"
+                    Width: =imgMapControl_1.Width
+                    X: =imgMapControl_1.X
+                    Y: =imgMapControl_1.Y
+                    ZIndex: =41
 
             Container7_8 As groupContainer:
                 Height: =756
@@ -3976,6 +3988,7 @@ ScreenHomeMyProfile As screen:
                 ImagePosition: =ImagePosition.Fill
                 PressedBorderColor: =RGBA(0, 0, 0, 0)
                 PressedFill: =RGBA(0, 0, 0, 0)
+                Visible: =false
                 Width: =Parent.Width - 120
                 X: =(Parent.Width - Self.Width) / 2
                 Y: =tglGPSLocation.Height + tglGPSLocation.Y 
@@ -4090,10 +4103,25 @@ ScreenHomeMyProfile As screen:
                 RailHoverFill: =ColorFade(RGBA(105, 121, 126, 1), 80%)
                 ValueFill: =RGBA(102, 102, 102, 1)
                 ValueHoverFill: =RGBA(105, 121, 126, 1)
+                Visible: =false
                 Width: =imgMapControl.Width
                 X: =imgMapControl.X
                 Y: =imgMapControl.Y + imgMapControl.Height
                 ZIndex: =6
+
+            "IFrameVirtualPCF1_1 As 'IFrameVirtualPCF (0.1.0)'":
+                DisplayMode: =DisplayMode.Edit
+                Height: =imgMapControl.Height + slZoom.Height
+                src: |+
+                    ="https://www.google.com/maps/embed/v1/search?key=AIzaSyD5ZrhlYGkcNQzOM0jEvTNO8sfkcD_jtRo&q="& DataCardValue4.Text
+                    
+                    
+                    //&"https://maps.googleapis.com/maps/api/geocode/json?address="& DataCardValue4.Text &"&key=AIzaSyD5ZrhlYGkcNQzOM0jEvTNO8sfkcD_jtRo"
+                    
+                Width: =imgMapControl.Width
+                X: =imgMapControl.X
+                Y: =imgMapControl.Y
+                ZIndex: =7
 
         Icon27 As icon.CheckBadge:
             BorderColor: =RGBA(166, 166, 166, 1)

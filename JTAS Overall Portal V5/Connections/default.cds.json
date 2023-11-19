@@ -15,6 +15,22 @@
       "ComponentName": "CustomControl",
       "Identifier": "Microsoft.PowerApps.PowerAppsOneGrid",
       "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "jtas_ReactVirtual.IFrameVirtualPCF",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "jtas_ReactVirtual.IFrameVirtualPCF",
+      "IdentifierType": 0
     }
   ],
   "dataSources": {},
