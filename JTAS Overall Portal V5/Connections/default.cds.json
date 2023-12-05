@@ -15,18 +15,10 @@
       "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.CommandBar",
       "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.CommandBar",
-      "IdentifierType": 0
     }
   ],
   "dataSources": {},
-  "instanceUrl": "https://org8dd4b1e2.crm7.dynamics.com/",
+  "instanceUrl": "https://org3f0ce9ea.crm7.dynamics.com/",
   "state": "Configured",
   "webApiVersion": "v9.0"
 }
