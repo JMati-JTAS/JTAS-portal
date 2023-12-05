@@ -202,16 +202,6 @@ ScreenInternetAllowance_1 As screen:
                         Order: =10
                         ZIndex: =16
 
-                "CommandBar3 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =200
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
-                    Width: =200
-                    X: =0
-                    Y: =0
-                    ZIndex: =3
-
         FormEditNewDialogs_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 0, 0, 0.27)
