@@ -89,7 +89,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "PDFViewerData",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2308,
+        "PublishOrderIndex": 2309,
         "Rules": [
           {
             "Category": "Data",
@@ -301,7 +301,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "PDFViewerData",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2309,
+        "PublishOrderIndex": 2310,
         "Rules": [
           {
             "Category": "Data",

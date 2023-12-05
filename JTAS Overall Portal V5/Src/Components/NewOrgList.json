@@ -73,7 +73,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2299,
+        "PublishOrderIndex": 2300,
         "Rules": [
           {
             "Category": "Design",
@@ -244,7 +244,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2300,
+        "PublishOrderIndex": 2301,
         "Rules": [
           {
             "Category": "Design",
@@ -481,7 +481,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2301,
+        "PublishOrderIndex": 2302,
         "Rules": [
           {
             "Category": "Data",
@@ -805,7 +805,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2302,
+        "PublishOrderIndex": 2303,
         "Rules": [
           {
             "Category": "Design",
@@ -991,7 +991,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2304,
+            "PublishOrderIndex": 2305,
             "Rules": [
               {
                 "Category": "Design",
@@ -1148,7 +1148,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2305,
+            "PublishOrderIndex": 2306,
             "Rules": [
               {
                 "Category": "Data",
@@ -1505,7 +1505,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2306,
+            "PublishOrderIndex": 2307,
             "Rules": [
               {
                 "Category": "Data",
@@ -1876,7 +1876,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery18",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2307,
+            "PublishOrderIndex": 2308,
             "Rules": [
               {
                 "Category": "Data",
@@ -2167,7 +2167,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "NewOrgList",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2303,
+        "PublishOrderIndex": 2304,
         "Rules": [
           {
             "Category": "Data",

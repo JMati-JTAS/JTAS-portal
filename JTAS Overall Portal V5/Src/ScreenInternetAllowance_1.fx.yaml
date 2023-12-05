@@ -112,7 +112,7 @@ ScreenInternetAllowance_1 As screen:
                     Height: =2
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
-                    ZIndex: =2
+                    ZIndex: =1
 
                 "PowerAppsOneGrid5_1 As 'Power Apps grid control'.pcfdataset":
                     DisplayMode: =DisplayMode.Edit
@@ -128,7 +128,7 @@ ScreenInternetAllowance_1 As screen:
                     Width: =Parent.Width
                     X: =0
                     Y: =0
-                    ZIndex: =3
+                    ZIndex: =2
 
                     Status3_1 As pcfDataField.textualColumn:
                         FieldDisplayName: ="Status"
@@ -202,7 +202,7 @@ ScreenInternetAllowance_1 As screen:
                         Order: =10
                         ZIndex: =16
 
-                "CommandBar1 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
+                "CommandBar3 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
                     DisplayMode: =DisplayMode.Edit
                     Height: =200
                     LayoutMinHeight: =200
@@ -210,7 +210,7 @@ ScreenInternetAllowance_1 As screen:
                     Width: =200
                     X: =0
                     Y: =0
-                    ZIndex: =4
+                    ZIndex: =3
 
         FormEditNewDialogs_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
