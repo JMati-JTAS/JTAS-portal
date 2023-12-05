@@ -109,7 +109,7 @@ App As appinfo:
         InternetCommandBar = Table(
                 {ItemKey:"new",ItemDisplayName:"New",ItemIconName:"New"},
                 {ItemKey:"newRegistation",ItemDisplayName:"Request Monthly Allowance",ItemIconName:"Add", 
-                ItemEnabled: If(Value(Text(Now(),"dd")) >= 10 And  Value(Text(Now(),"dd")) <= Value(Text(LastDayOfMonth, "d")), 
+                ItemEnabled:/* If(Value(Text(Now(),"dd")) >= 10 And  Value(Text(Now(),"dd")) <= Value(Text(LastDayOfMonth, "d")), */
                      If(DateDiff(LookUp('JTAS Mobilization', Email_Add = varUserEmail, JTAS_MobDate), Now(), TimeUnit.Months)>= 1,
                      If(CountRows(Filter('JTAS Assignments', Email_Add = varUserEmail And JTAS_ReturnDate = Blank())) <= 0,
                      If(CountRows(Filter(JTAS_MemberReport_to_Client, Employee.Email = varUserEmail)) < 1, 
@@ -119,7 +119,7 @@ App As appinfo:
                      , false),false)
                     , false)
                     , false)
-                    , false)
+                    /*, false)*/
                     ,ItemParentKey:"new"
                 },
                 {ItemKey:"newInternet",ItemDisplayName:"Apply for new internet provider",ItemIconName:"InternetSharing", 

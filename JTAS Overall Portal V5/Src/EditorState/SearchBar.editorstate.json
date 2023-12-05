@@ -81,6 +81,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon3_8",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -254,6 +255,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SearchBar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -444,6 +446,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "TextInput1_8",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
