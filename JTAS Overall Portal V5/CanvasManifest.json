@@ -50,7 +50,7 @@
       "enablerpawarecomponentdependency": true,
       "enablerulespanel": false,
       "enableruntimepolicies": false,
-      "enablesaveloadcleardataonweb": true,
+      "enablesaveloadcleardataonweb": false,
       "enableupdateifdelegation": false,
       "errorhandling": true,
       "expandedsavedatasupport": true,

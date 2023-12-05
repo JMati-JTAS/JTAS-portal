@@ -106,7 +106,7 @@ ScreenInternetAllowance_1 As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                "CommandBar1 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
+                "CommandBar3 As 'Fluent Command Bar (1.1.29)'.pcfdataset":
                     AlignInContainer: =AlignInContainer.Stretch
                     DisplayMode: =DisplayMode.Edit
                     Height: =50
