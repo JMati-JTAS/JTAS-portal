@@ -1,6 +1,6 @@
 Component3 As CanvasComponent:
     Fill: =RGBA(0, 0, 0, 0)
-    Height: =640
+    Height: =0
     Width: =6000
     X: =0
     Y: =0
@@ -9,7 +9,7 @@ Component3 As CanvasComponent:
     Gallery3 As gallery.galleryHorizontal:
         BorderColor: =RGBA(166, 166, 166, 1)
         DelayItemLoading: =true
-        Height: =Gallery25.AllItemsCount +1 * Self.TemplateHeight
+        Height: =3 * 50
         Items: =Filter(InternetCommandBar, ItemParentKey = Blank())
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0
@@ -26,7 +26,7 @@ Component3 As CanvasComponent:
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
-            TemplateSize: =61
+            TemplateSize: =50
             Width: =218
             X: =40
             Y: =50
@@ -87,7 +87,7 @@ Component3 As CanvasComponent:
             PressedFill: =RGBA(0, 0, 0, 0)
             Width: =38
             X: =15
-            Y: =10
+            Y: =8
             ZIndex: =2
 
         Label9 As label:
@@ -99,11 +99,12 @@ Component3 As CanvasComponent:
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderThickness: =4
             Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =48
             OnSelect: =Select(Parent)
             Size: =13
             Text: =ThisItem.ItemDisplayName
             X: =53
-            Y: =10
             ZIndex: =3
 
         Toggle1 As toggleSwitch:
