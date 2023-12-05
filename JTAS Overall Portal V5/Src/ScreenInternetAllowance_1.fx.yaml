@@ -265,7 +265,7 @@ ScreenInternetAllowance_1 As screen:
                                 Patch('JTAS Internet Allowance', Form3_1.LastSubmit,{RemarksData:""},Form4_1.Updates);
                                 Patch('JTAS Internet Allowance', Form3_1.LastSubmit,{RemarksData:""},Form5_1.Updates);
                                 UpdateContext({showLoading2: false});
-                                UpdateContext({FormDataVis: false})
+                                Set(FormDataVis, false)
                             Text: ="Submit"
                             Width: =If(Form3_1.Mode in [FormMode.New, FormMode.Edit], 96, 0)
                             X: =0
@@ -280,8 +280,7 @@ ScreenInternetAllowance_1 As screen:
                             Height: =Parent.Height
                             LayoutMinHeight: =32
                             LayoutMinWidth: =96
-                            OnSelect: |-
-                                =UpdateContext({FormDataVis: false})
+                            OnSelect: =Set(FormDataVis, false)
                             Text: =If(Form3_1.Mode in [FormMode.New, FormMode.Edit], "Cancel", "Back")
                             Width: =96
                             X: =0

@@ -34867,36 +34867,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.FormDataVis"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.FormDataVis",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FormDataVis",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 19
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.ViewFile"
                 }
               ],
