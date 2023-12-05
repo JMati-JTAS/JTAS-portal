@@ -114,7 +114,8 @@ ScreenInternetAllowance_1 As screen:
                     LayoutMinHeight: =200
                     LayoutMinWidth: =200
                     OnSelect: |-
-                        =If(Self.Selected.ItemKey = "newRegistation",
+                        =
+                        If(Self.Selected.ItemKey = "newRegistation",
                                                 UpdateContext({FormDataVis: true});
                                                 Reset(ComboboxCanvas2_1);
                                                 ResetForm(Form3_1);
