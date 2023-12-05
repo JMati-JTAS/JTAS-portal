@@ -1,7 +1,7 @@
 Component3 As CanvasComponent:
     Fill: =RGBA(0, 0, 0, 0)
-    Height: =0
-    Width: =6000
+    Height: =H
+    Width: =App.DesignWidth
     X: =0
     Y: =0
     ZIndex: =1
@@ -172,7 +172,9 @@ Component3 As CanvasComponent:
             HandleFill: =RGBA(0, 0, 0, 0)
             Height: =44
             HoverBorderColor: =RGBA(0, 0, 0, 0)
+            OnCheck: =Set(H, Parent.Height)
             OnSelect: =Select(Parent)
+            OnUncheck: =Set(H, Parent.Height)
             PressedBorderColor: =RGBA(0, 0, 0, 0)
             Size: =13
             TrueFill: =RGBA(0, 0, 0, 0)

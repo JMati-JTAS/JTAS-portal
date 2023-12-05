@@ -106,13 +106,19 @@ ScreenInternetAllowance_1 As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
+                Component3_1 As Component3:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Height: =50
+                    LayoutMinHeight: =640
+                    LayoutMinWidth: =640
+
                 Container57_1 As groupContainer.manualLayoutContainer:
                     Fill: =RGBA(128, 128, 128, 1)
                     FillPortions: =0
                     Height: =2
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
-                    ZIndex: =1
+                    ZIndex: =2
 
                 "PowerAppsOneGrid5_1 As 'Power Apps grid control'.pcfdataset":
                     DisplayMode: =DisplayMode.Edit
@@ -128,7 +134,7 @@ ScreenInternetAllowance_1 As screen:
                     Width: =Parent.Width
                     X: =0
                     Y: =0
-                    ZIndex: =2
+                    ZIndex: =3
 
                     Status3_1 As pcfDataField.textualColumn:
                         FieldDisplayName: ="Status"

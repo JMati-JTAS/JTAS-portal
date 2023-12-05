@@ -111,7 +111,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "galForOrgChart_Team",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2235,
+        "PublishOrderIndex": 2236,
         "Rules": [
           {
             "Category": "Data",
@@ -485,7 +485,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "galForOrgChart_Team",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2236,
+        "PublishOrderIndex": 2237,
         "Rules": [
           {
             "Category": "Data",
@@ -795,7 +795,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "galForOrgChart_Team",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2237,
+        "PublishOrderIndex": 2238,
         "Rules": [
           {
             "Category": "Design",
@@ -981,7 +981,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery8",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2239,
+            "PublishOrderIndex": 2240,
             "Rules": [
               {
                 "Category": "Design",
@@ -1118,7 +1118,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery8",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2240,
+            "PublishOrderIndex": 2241,
             "Rules": [
               {
                 "Category": "Data",
@@ -1421,7 +1421,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery8",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2241,
+            "PublishOrderIndex": 2242,
             "Rules": [
               {
                 "Category": "Data",
@@ -1764,7 +1764,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery8",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 2242,
+            "PublishOrderIndex": 2243,
             "Rules": [
               {
                 "Category": "Data",
@@ -2122,7 +2122,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "galForOrgChart_Team",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2238,
+        "PublishOrderIndex": 2239,
         "Rules": [
           {
             "Category": "Data",
