@@ -17,7 +17,7 @@
       "allowmultiplescreensincanvaspages": false,
       "appinsightserrortracing": false,
       "appinstrumentationcorrelationtracing": false,
-      "autocreateenvironmentvariables": true,
+      "autocreateenvironmentvariables": false,
       "behaviorpropertyui": true,
       "blockmovingcontrol": true,
       "cdsdataformatting": false,
