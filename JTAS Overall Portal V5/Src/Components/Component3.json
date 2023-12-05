@@ -335,7 +335,7 @@
               },
               {
                 "Category": "Behavior",
-                "InvariantScript": "Set(H, Parent.Height)",
+                "InvariantScript": "Set(H, 50)",
                 "Property": "OnUncheck",
                 "RuleProviderType": "Unknown"
               }
@@ -1974,7 +1974,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638373679415095436",
+    "LastModifiedTimestamp": "638373680329796993",
     "Name": "Component3",
     "Rules": [
       {
@@ -2033,7 +2033,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638373679415095436",
+  "LastModifiedTimestamp": "638373680329796993",
   "Name": "a67f0e6d58cb44bfbf7a3ab906928cb7",
   "OverridableProperties": {},
   "Version": "1.0"

@@ -174,7 +174,7 @@ Component3 As CanvasComponent:
             HoverBorderColor: =RGBA(0, 0, 0, 0)
             OnCheck: =Set(H, Parent.Height)
             OnSelect: =Select(Parent)
-            OnUncheck: =Set(H, Parent.Height)
+            OnUncheck: =Set(H, 50)
             PressedBorderColor: =RGBA(0, 0, 0, 0)
             Size: =13
             TrueFill: =RGBA(0, 0, 0, 0)

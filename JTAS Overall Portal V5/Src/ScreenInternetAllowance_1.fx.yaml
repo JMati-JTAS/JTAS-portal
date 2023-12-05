@@ -108,7 +108,6 @@ ScreenInternetAllowance_1 As screen:
 
                 Component3_1 As Component3:
                     AlignInContainer: =AlignInContainer.Stretch
-                    Height: =50
                     LayoutMinHeight: =640
                     LayoutMinWidth: =640
 
