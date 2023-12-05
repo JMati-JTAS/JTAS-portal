@@ -2325,7 +2325,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "CommandBar2": {
+    "CommandBar1": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "X",
@@ -2412,7 +2412,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "CommandBar2",
+      "Name": "CommandBar1",
       "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
