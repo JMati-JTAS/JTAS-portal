@@ -1,9 +1,9 @@
 ScreenHomeGeneral As screen:
     Fill: =RGBA(245, 245, 245, 1)
     LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
-    OnVisible: |-
+    OnVisible: |
         =Set(Data31, "");
-        Set(MopVis, false)
+        Set(MopVis, false);
 
     Header_6 As Header:
         Width: =Parent.Width - Self.X

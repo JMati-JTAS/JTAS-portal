@@ -12,59 +12,7 @@ Component3 As CanvasComponent:
         Height: =3 * 50
         Items: =Filter(InternetCommandBar, ItemParentKey = Blank())
         LoadingSpinner: =LoadingSpinner.Data
-        OnSelect: |-
-            =If(Gallery25.Selected.ItemKey = "newRegistation",
-                                    Set(FormDataVis, true);
-                                    Reset(ComboboxCanvas2_1);
-                                    ResetForm(Form3_1);
-                                    ResetForm(Form4_1);
-                                    ResetForm(Form5_1);
-                                    NewForm(Form3_1);
-                                    NewForm(Form4_1);
-                                    NewForm(Form5_1);
-                                    );
-                                    
-                                    If(Gallery25.Selected.ItemKey = "newInternet",
-                                    Set(FormRegVis, true);
-                                    ResetForm(Form6_1);
-                                    NewForm(Form6_1);
-                                    );
-                                    
-                                    //, 
-                                    If(Gallery25.Selected.ItemKey = "editInternet",
-                                    Set(FormRegVis, true);
-                                    ResetForm(Form6_1);
-                                    EditForm(Form6_1);
-                                    );
-                                    
-                                    
-                                    If(Gallery25.Selected.ItemKey = "editAllowance",
-                                    Set(FormDataVis, true);
-                                    ResetForm(Form3_1);
-                                    ResetForm(Form4_1);
-                                    ResetForm(Form5_1);
-                                    EditForm(Form3_1);
-                                    EditForm(Form4_1);
-                                    EditForm(Form5_1);
-                                    );
-                                    
-                                    If(Gallery25.Selected.ItemKey = "viewData",
-                                     Set(FormDataVis, true);
-                                    ResetForm(Form3_1);
-                                    ResetForm(Form4_1);
-                                    ResetForm(Form5_1);
-                                    ViewForm(Form3_1);
-                                    ViewForm(Form4_1);
-                                    ViewForm(Form5_1);
-                                    );
-                                    
-                                    If(Gallery25.Selected.ItemKey = "delete",
-                                    RemoveIf('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID);
-                                    );
-                                    
-                                    If(Gallery25.Selected.ItemKey = "viewFile",
-                                    Set(ViewFile,  true)
-                                    );
+        OnSelect: =
         TemplatePadding: =0
         TemplateSize: =218
         Width: =Parent.Width
@@ -78,6 +26,59 @@ Component3 As CanvasComponent:
             Items: =Filter(InternetCommandBar, ItemParentKey = ThisItem.ItemKey And ItemParentKey <> "")
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |-
+                =If(Gallery25.Selected.ItemKey = "newRegistation",
+                                        Set(FormDataVis, true);
+                                        Reset(ComboboxCanvas2_1);
+                                        ResetForm(Form3_1);
+                                        ResetForm(Form4_1);
+                                        ResetForm(Form5_1);
+                                        NewForm(Form3_1);
+                                        NewForm(Form4_1);
+                                        NewForm(Form5_1);
+                                        );
+                                        
+                                        If(Gallery25.Selected.ItemKey = "newInternet",
+                                        Set(FormRegVis, true);
+                                        ResetForm(Form6_1);
+                                        NewForm(Form6_1);
+                                        );
+                                        
+                                        //, 
+                                        If(Gallery25.Selected.ItemKey = "editInternet",
+                                        Set(FormRegVis, true);
+                                        ResetForm(Form6_1);
+                                        EditForm(Form6_1);
+                                        );
+                                        
+                                        
+                                        If(Gallery25.Selected.ItemKey = "editAllowance",
+                                        Set(FormDataVis, true);
+                                        ResetForm(Form3_1);
+                                        ResetForm(Form4_1);
+                                        ResetForm(Form5_1);
+                                        EditForm(Form3_1);
+                                        EditForm(Form4_1);
+                                        EditForm(Form5_1);
+                                        );
+                                        
+                                        If(Gallery25.Selected.ItemKey = "viewData",
+                                         Set(FormDataVis, true);
+                                        ResetForm(Form3_1);
+                                        ResetForm(Form4_1);
+                                        ResetForm(Form5_1);
+                                        ViewForm(Form3_1);
+                                        ViewForm(Form4_1);
+                                        ViewForm(Form5_1);
+                                        );
+                                        
+                                        If(Gallery25.Selected.ItemKey = "delete",
+                                        RemoveIf('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID);
+                                        );
+                                        
+                                        If(Gallery25.Selected.ItemKey = "viewFile",
+                                        Set(ViewFile,  true)
+                                        );
             TemplatePadding: =0
             TemplateSize: =50
             Width: =218

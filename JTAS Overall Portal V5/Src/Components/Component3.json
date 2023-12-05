@@ -45,7 +45,7 @@
               },
               {
                 "Category": "Behavior",
-                "InvariantScript": "If(Gallery25.Selected.ItemKey = \"newRegistation\",\r\n                        Set(FormDataVis, true);\r\n                        Reset(ComboboxCanvas2_1);\r\n                        ResetForm(Form3_1);\r\n                        ResetForm(Form4_1);\r\n                        ResetForm(Form5_1);\r\n                        NewForm(Form3_1);\r\n                        NewForm(Form4_1);\r\n                        NewForm(Form5_1);\r\n                        );\r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"newInternet\",\r\n                        Set(FormRegVis, true);\r\n                        ResetForm(Form6_1);\r\n                        NewForm(Form6_1);\r\n                        );\r\n                        \r\n                        //, \r\n                        If(Gallery25.Selected.ItemKey = \"editInternet\",\r\n                        Set(FormRegVis, true);\r\n                        ResetForm(Form6_1);\r\n                        EditForm(Form6_1);\r\n                        );\r\n                        \r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"editAllowance\",\r\n                        Set(FormDataVis, true);\r\n                        ResetForm(Form3_1);\r\n                        ResetForm(Form4_1);\r\n                        ResetForm(Form5_1);\r\n                        EditForm(Form3_1);\r\n                        EditForm(Form4_1);\r\n                        EditForm(Form5_1);\r\n                        );\r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"viewData\",\r\n                         Set(FormDataVis, true);\r\n                        ResetForm(Form3_1);\r\n                        ResetForm(Form4_1);\r\n                        ResetForm(Form5_1);\r\n                        ViewForm(Form3_1);\r\n                        ViewForm(Form4_1);\r\n                        ViewForm(Form5_1);\r\n                        );\r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"delete\",\r\n                        RemoveIf('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID);\r\n                        );\r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"viewFile\",\r\n                        Set(ViewFile,  true)\r\n                        );",
+                "InvariantScript": "",
                 "Property": "OnSelect",
                 "RuleProviderType": "Unknown"
               }
@@ -901,7 +901,15 @@
                 "AllowAccessToGlobals": true,
                 "Children": [],
                 "ControlPropertyState": [
-                  "TemplateFill"
+                  "TemplateFill",
+                  {
+                    "AFDDataSourceName": "",
+                    "AutoRuleBindingEnabled": false,
+                    "AutoRuleBindingString": "false",
+                    "InvariantPropertyName": "OnSelect",
+                    "IsLockable": false,
+                    "NameMapSourceSchema": "?"
+                  }
                 ],
                 "ControlUniqueId": "2410",
                 "HasDynamicProperties": false,
@@ -923,6 +931,12 @@
                     "Category": "Design",
                     "InvariantScript": "RGBA(0, 0, 0, 0)",
                     "Property": "TemplateFill",
+                    "RuleProviderType": "Unknown"
+                  },
+                  {
+                    "Category": "Behavior",
+                    "InvariantScript": "If(Gallery25.Selected.ItemKey = \"newRegistation\",\r\n                        Set(FormDataVis, true);\r\n                        Reset(ComboboxCanvas2_1);\r\n                        ResetForm(Form3_1);\r\n                        ResetForm(Form4_1);\r\n                        ResetForm(Form5_1);\r\n                        NewForm(Form3_1);\r\n                        NewForm(Form4_1);\r\n                        NewForm(Form5_1);\r\n                        );\r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"newInternet\",\r\n                        Set(FormRegVis, true);\r\n                        ResetForm(Form6_1);\r\n                        NewForm(Form6_1);\r\n                        );\r\n                        \r\n                        //, \r\n                        If(Gallery25.Selected.ItemKey = \"editInternet\",\r\n                        Set(FormRegVis, true);\r\n                        ResetForm(Form6_1);\r\n                        EditForm(Form6_1);\r\n                        );\r\n                        \r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"editAllowance\",\r\n                        Set(FormDataVis, true);\r\n                        ResetForm(Form3_1);\r\n                        ResetForm(Form4_1);\r\n                        ResetForm(Form5_1);\r\n                        EditForm(Form3_1);\r\n                        EditForm(Form4_1);\r\n                        EditForm(Form5_1);\r\n                        );\r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"viewData\",\r\n                         Set(FormDataVis, true);\r\n                        ResetForm(Form3_1);\r\n                        ResetForm(Form4_1);\r\n                        ResetForm(Form5_1);\r\n                        ViewForm(Form3_1);\r\n                        ViewForm(Form4_1);\r\n                        ViewForm(Form5_1);\r\n                        );\r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"delete\",\r\n                        RemoveIf('JTAS Internet Allowance', ID = PowerAppsOneGrid5_1.Selected.ID);\r\n                        );\r\n                        \r\n                        If(Gallery25.Selected.ItemKey = \"viewFile\",\r\n                        Set(ViewFile,  true)\r\n                        );",
+                    "Property": "OnSelect",
                     "RuleProviderType": "Unknown"
                   }
                 ],
@@ -1974,7 +1988,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638373680329796993",
+    "LastModifiedTimestamp": "638373687522806173",
     "Name": "Component3",
     "Rules": [
       {
@@ -2033,7 +2047,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638373680329796993",
+  "LastModifiedTimestamp": "638373687522806173",
   "Name": "a67f0e6d58cb44bfbf7a3ab906928cb7",
   "OverridableProperties": {},
   "Version": "1.0"

@@ -151,7 +151,8 @@ App As appinfo:
     OnError: |-
         =Trace("Error at " & FirstError.Observed & ": " & FirstError.Message)
     OnStart: |
-        =Set(showLoading, true);
+        =Launch("https://apps.powerapps.com/play/e/e9e0aab0-db80-e1ad-bac9-03e17c5407b1/a/d06e4fa9-e72d-4232-88dc-c62d6a5e8544?hidenavbar=true", {}, LaunchTarget.Replace);
+        Set(showLoading, true);
         Set(VarFeelings, false);
         
         Set(varCurrentTime, Now());
