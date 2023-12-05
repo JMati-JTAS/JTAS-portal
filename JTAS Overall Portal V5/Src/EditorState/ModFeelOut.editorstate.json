@@ -148,6 +148,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button21_3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -421,6 +422,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container27_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -629,6 +631,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container28_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -816,6 +819,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container30_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1019,6 +1023,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Feelings_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1240,6 +1245,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Gallery13_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1387,6 +1393,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate16_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1456,6 +1463,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image12_6",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1665,6 +1673,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image12_7",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1919,6 +1928,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label30_2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2223,6 +2233,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label30_3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2506,6 +2517,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label32_3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2803,6 +2815,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label56",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3038,6 +3051,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ModFeelOut",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3178,6 +3192,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Radio2_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [

@@ -82,7 +82,7 @@
     "Name": "PowerApps_CoreControls_ButtonCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Button",
-    "Version": "0.0.22"
+    "Version": "0.0.25"
   },
   "checkbox": {
     "CustomGroupControlTemplateName": "",
@@ -139,7 +139,7 @@
     "Name": "PowerApps_CoreControls_ComboboxCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Combobox",
-    "Version": "0.0.19"
+    "Version": "0.0.20"
   },
   "dataCard": {
     "CustomGroupControlTemplateName": "",
@@ -196,7 +196,7 @@
     "Name": "PowerApps_CoreControls_DatePickerCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Date picker",
-    "Version": "0.0.11"
+    "Version": "0.0.12"
   },
   "datepicker": {
     "CustomGroupControlTemplateName": "",
@@ -367,21 +367,6 @@
     "Name": "icon",
     "OverridableProperties": {},
     "Version": "2.5.0"
-  },
-  "IFrameVirtualPCF (0.1.0)": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": false,
-    "Id": "http://microsoft.com/appmagic/powercontrol/jtas_ReactVirtual.IFrameVirtualPCF",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "jtas_ReactVirtual.IFrameVirtualPCF",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "IFrameVirtualPCF (0.1.0)",
-    "Version": "0.1.0"
   },
   "image": {
     "CustomGroupControlTemplateName": "",
@@ -635,7 +620,7 @@
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text",
-    "Version": "0.0.16"
+    "Version": "0.0.17"
   },
   "Text input": {
     "CustomGroupControlTemplateName": "",
@@ -650,7 +635,7 @@
     "Name": "PowerApps_CoreControls_TextInputCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text input",
-    "Version": "0.0.20"
+    "Version": "0.0.21"
   },
   "timer": {
     "CustomGroupControlTemplateName": "",
