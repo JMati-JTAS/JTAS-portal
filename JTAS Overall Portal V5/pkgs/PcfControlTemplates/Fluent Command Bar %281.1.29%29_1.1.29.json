@@ -141,14 +141,16 @@
       "DisplayName": "OnChange",
       "Hidden": false,
       "IsPrimaryInput": false,
-      "Name": "OnChange"
+      "Name": "OnChange",
+      "PfxDefaultValue": null
     },
     {
       "Description": "",
       "DisplayName": "OnSelect",
       "Hidden": false,
       "IsPrimaryInput": false,
-      "Name": "OnSelect"
+      "Name": "OnSelect",
+      "PfxDefaultValue": null
     }
   ],
   "ControlConstructor": "CommandBar",
@@ -1078,14 +1080,14 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
-      "ModifiedPath": "https://docserverpwaprodwjp.blob.core.windows.net/6641f42d-d3d0-49e0-80ef-366f1db4d583-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App800work0cr4esnb0.52a020S0Resources0Controls0PowerCAT.CommandBar.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-11-15T00%3A41%3A30Z&ske=2023-11-16T00%3A56%3A30Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-11-16T00%3A56%3A30Z&sr=b&sp=r&sig=XL2heK0c5fReh7ksn4aYNWyoD0IkPPXpEtLcDuhK%2Fh4%3D",
+      "ModifiedPath": "https://docserverpwaprodejp.blob.core.windows.net/63df7c1d-b520-48e9-a47c-75ca4d1421f0-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App770work0p0k3uq44.ulw020S0Resources0Controls0PowerCAT.CommandBar.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-12-05T08%3A53%3A49Z&ske=2023-12-06T09%3A08%3A49Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-12-06T09%3A08%3A49Z&sr=b&sp=r&sig=0sthcOGbrJZ6gAzB6o1cY1TwD59jSozWZ92y5j259%2Fg%3D",
       "Path": "/PCFControls/cat_PowerCAT.CommandBar/PowerCAT.CommandBar.bundle.js",
       "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
-      "ModifiedPath": "https://docserverpwaprodwjp.blob.core.windows.net/6641f42d-d3d0-49e0-80ef-366f1db4d583-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App800work0cr4esnb0.52a020S0Resources0Controls0css%252fPowerCAT.CommandBar.CommandBar.css?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-11-15T00%3A41%3A30Z&ske=2023-11-16T00%3A56%3A30Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-11-16T00%3A56%3A30Z&sr=b&sp=r&sig=E4tHfxyFRlB0C3Zr9qaxdyYbn2YBwWgeVgCr%2BknHPZ8%3D",
+      "ModifiedPath": "https://docserverpwaprodejp.blob.core.windows.net/63df7c1d-b520-48e9-a47c-75ca4d1421f0-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App770work0p0k3uq44.ulw020S0Resources0Controls0css%252fPowerCAT.CommandBar.CommandBar.css?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-12-05T08%3A53%3A50Z&ske=2023-12-06T09%3A08%3A50Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-12-06T09%3A08%3A50Z&sr=b&sp=r&sig=w%2FQkrk21SLJRjwaoo4lQvQoU7YTY%2BKgJaIQSEEqCQqU%3D",
       "Path": "/PCFControls/cat_PowerCAT.CommandBar/css/PowerCAT.CommandBar.CommandBar.css",
       "Type": 1
     },
@@ -1106,7 +1108,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 14,
-      "ModifiedPath": "https://docserverpwaprodwjp.blob.core.windows.net/6641f42d-d3d0-49e0-80ef-366f1db4d583-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App800work0cr4esnb0.52a020S0Resources0Controls0strings%252fPowerCAT.CommandBar.CommandBar.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-11-15T00%3A41%3A30Z&ske=2023-11-16T00%3A56%3A30Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-11-16T00%3A56%3A30Z&sr=b&sp=r&sig=7A%2B2oK%2FjZZoj5HbhIyoUzho6KA%2BS4kY0RA71TruFS%2FY%3D",
+      "ModifiedPath": "https://docserverpwaprodejp.blob.core.windows.net/63df7c1d-b520-48e9-a47c-75ca4d1421f0-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App770work0p0k3uq44.ulw020S0Resources0Controls0strings%252fPowerCAT.CommandBar.CommandBar.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-12-05T08%3A53%3A50Z&ske=2023-12-06T09%3A08%3A50Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-12-06T09%3A08%3A50Z&sr=b&sp=r&sig=rBaCwf2XV08DzSxObDYlPnXB4A0OXrBYkE%2BJzrvkFO8%3D",
       "Path": "/PCFControls/cat_PowerCAT.CommandBar/strings/PowerCAT.CommandBar.CommandBar.1033.json",
       "Type": 5
     },
